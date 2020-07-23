@@ -13,7 +13,7 @@ import "./styles.css"
 import Header from '../../components/Header/Default/index'
 import upload from "../../assets/Images/upload.svg"
 import api from '../../services/api'
-import ImageContext from '../../contexts/index'
+import ImageContext from '../../contexts/Image/index'
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -73,7 +73,7 @@ export default () => {
         const classIndexes = indices.arraySync();
 
         const diagnostico = classIndexes[0][0];
-        
+        console.log( "Ending model..." )
         /*FIM IMPLEMENTAÇÃO DA IA*/
 
         localStorage.setItem('@result', diagnostico)

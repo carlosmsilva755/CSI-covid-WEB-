@@ -1,0 +1,22 @@
+.container-register-user{
+    display:block;
+    width: 352px;
+    border: 1px solid #313B44;
+    border-radius: 8px;
+    margin: 0 auto;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    text-align: center;
+}
+.input-fields-register{
+    width: 316px;
+    height: 40px;
+    margin: 0 auto;
+}
+.register-buttons{
+
+}
+.button-resize{
+    width: 40%;
+    margin-left:48px;
+}

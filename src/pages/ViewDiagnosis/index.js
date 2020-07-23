@@ -11,7 +11,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import './styles.css'
 import Header from '../../components/Header/Default/index'
 import CardView from '../../components/Cards/CardView/index'
-import ImageContext from '../../contexts/index'
+import ImageContext from '../../contexts/Image/index'
 
 export default () => {
 

@@ -24,7 +24,6 @@ yarn-debug.log*
 yarn-error.log*
 
 oqfazer.txt
-.env
 
 #temporariamente
 deploy.sh

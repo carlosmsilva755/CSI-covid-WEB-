@@ -7,11 +7,13 @@ import UploadImage from "./pages/UploadImage/index"
 import viewDiagnosis from "./pages/ViewDiagnosis/index"
 import Login from "./pages/Login/index"
 import ResearcherImages from './pages/ResearcherImages/index'
+import CreateDoctor from './pages/CreateAccount/Doctor/index'
 
 export default () => {
     return (
         <Switch>
             <Route exact path="/" component={Login}/>
+            <Route path='/create-doc' component={CreateDoctor}/>
 
             <Route path="/medicalRecord" component ={MedicalRecord}/>
             <Route path="/register" component ={RegisterDiagnosis}/>

@@ -4,7 +4,7 @@ import 'moment/locale/pt-br'
 
 //import options from "../../../assets/Icons/options.svg"
 import './styles.css'
-import ImageContext from '../../../contexts/index'
+import ImageContext from '../../../contexts/Image/index'
 import { useHistory } from 'react-router-dom'
 
 export default ({diagnosis}) => {

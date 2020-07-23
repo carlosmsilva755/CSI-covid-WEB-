@@ -18,7 +18,7 @@ export default () => {
             
             <div className='inputs'>
 
-                <TextField id="outlined-basic" 
+                <TextField id="email-input" 
                     label="Usuário" 
                     size = "small" 
                     variant="outlined"
@@ -28,7 +28,7 @@ export default () => {
                 /> 
                 <br/><br/>
 
-                <PasswordField password={password} setPassword={setPassword} classname='input-fields'/> <br/>
+                <PasswordField password={password} setPassword={setPassword} classname='input-fields' label='Senha'/> <br/>
 
                 <a className='text-fgtPassword' href="/">Esqueceu sua senha?</a>
 
