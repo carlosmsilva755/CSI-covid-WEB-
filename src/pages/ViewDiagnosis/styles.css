@@ -1,0 +1,30 @@
+.container-card{
+    margin: 0 auto;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-position{
+    margin:0 auto;
+    /* margin-left: 360px; */
+}
+.button-back2{
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+.button-view{
+    margin-left: 360px;
+    margin: 0 auto;
+    width: 607px;
+}
+
+.modal-text{
+    font-size: 16px;
+    color: black;
+}
+.button-modal{
+    width: 100px;
+    margin-right: 5px;
+}

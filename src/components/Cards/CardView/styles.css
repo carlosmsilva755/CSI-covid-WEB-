@@ -1,0 +1,78 @@
+.card-view{
+    border: 1.4359px solid #5B656F;
+    box-sizing: border-box;
+    border-radius: 5.74359px;
+    width: 607px;
+    height: auto;
+
+    display: flex;
+
+
+    /* margin-top: 100px;
+    margin-left: 100px; */
+}
+
+.card-left{
+    margin-left: 40px;
+}
+
+.card-id{
+    font-size: 20px;
+}
+.card-date{
+    font-size: 14px;
+}
+
+.card-img{
+    width: 201px;
+    height: 201px;
+    margin-left: 12px;
+    margin-bottom: 32px;
+}
+
+.card-right{
+    margin-left: 40px;
+}
+
+.card-text{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 14px;
+    line-height: 19px;
+
+    letter-spacing: 0.4px;
+
+    width: 300px;
+}
+
+.card-diagnosis{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 36px;
+    line-height: 18px;
+    
+    align-items: center;
+    letter-spacing: 0.228765px;
+    text-transform: uppercase;
+    
+    /* Primary Dark */
+    
+    color: #A1A1A1;
+}
+.card-information{
+    margin-bottom: 32px;
+}
+.gray-diag{
+    color: #A1A1A1;
+}
+.red-diag{
+    color:#EE4937;
+    font-family: Roboto;
+}
+.green-diag{
+    color: #50B600;
+    font-style: bold; 
+    font-family: Roboto;
+}

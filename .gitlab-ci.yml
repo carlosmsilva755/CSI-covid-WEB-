@@ -1,0 +1,41 @@
+image: node:10
+
+stages:
+    - testBuild
+    - testDeploy
+
+.only_default: &only_default
+    only:
+        - staging
+        - merge_requests
+        - tags
+
+testBuild:
+    <<: *only_default
+    stage: testBuild
+    before_script:
+      - apt-get --quiet update --yes
+      - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+      - echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+      - apt-get --quiet install yarn --yes
+      - yarn --version 
+    script: 
+        - yarn
+        - npm run-script build
+    artifacts:
+      paths:
+        - build/
+        - teste/nodemodules/ 
+      expire_in: 1 hr
+
+testDeploy:
+    <<: *only_default
+    stage: testDeploy
+    before_script:
+      - npm i -g firebase-tools 
+    script:
+      - dir
+      - firebase deploy --token=$FIREBASE_TOKEN 
+    dependencies:
+      - testBuild
+

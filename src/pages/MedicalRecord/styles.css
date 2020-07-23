@@ -1,0 +1,73 @@
+.container{
+    width: 900px;
+    height: 500px;
+    margin: 0 auto;
+    margin-top: 112px;
+
+}
+.container-navbars{
+    width: 864px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+
+
+}
+
+.search-input{
+    width: 276px;
+    height: 100%;
+    margin-left: 0;
+}
+
+.select-filter{
+    width: 316px;
+    height: 100%;
+}
+.filter{
+    margin-left: 10px;
+}
+
+.button-add{
+    margin-left: 70px;
+    width: 150px;
+    height: 100%;
+    background-color: #EE4937;
+    border-radius: 4px;
+    border: none;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 19px;
+
+    letter-spacing: 0.4px;
+    outline: none;
+    cursor: pointer;
+
+    color: #FFFFFF;
+}
+
+.container-diagnosis{
+    display: flex;
+    flex-direction: row;
+    margin-top: 70px;
+    overflow: auto;
+}
+.container-diagnosis::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background: #F4F4F4;
+}
+
+.content-card{
+    margin-bottom: 32px;
+    margin-right: 32px;
+}
+
+.container-pagination{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,103 @@
+#container-card-menu{
+    
+    width: 192px;
+    height: 276px;
+    
+    background: #FFFFFF;
+    
+    border: 1px solid #5B656F;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.container-card-header{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    width: 100px;
+    height: 33px;
+    left: 16px;
+    top: 16px;
+}
+.card-id{
+  
+    margin-left: 16px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 18px;
+    
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.228765px;
+    text-transform: uppercase;
+        
+    color: #313B44;
+}
+
+.card-date{
+ 
+    margin-left: 16px;
+    margin-top: 0;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 14px;
+    
+    letter-spacing: 0.085787px;
+        
+    color: #313B44;
+}
+
+.card-options{
+    margin-left: 75px;
+    margin-top: 10px;
+    width: 24px;
+    height: 24px;
+    
+}
+.container-card-img{
+    /* flex-direction: column; */
+}
+.card-image{
+    /* position: absolute; */
+    /* display: block; */
+    margin-left: 16px;
+    text-align: center;
+    width: 160px;
+    height: 160px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.card-diagnostic{
+    /* position: absolute; */
+    width: 91px;
+    height: 19px;
+    margin-left: 16px;
+    margin-top: 7px;
+    font-family: Open sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 13.7259px;
+    line-height: 18px;
+    
+    display: flex;
+    letter-spacing: 0.228765px;
+    text-transform: uppercase;
+        
+    color: #A1A1A1;
+}
+
+.red-diag{
+    color:#EE4937;
+    font-family: Roboto;
+}
+
+.green-diag{
+    color: #50B600;
+    font-style: bold; 
+    font-family: Roboto;
+}
