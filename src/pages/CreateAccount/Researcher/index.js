@@ -9,9 +9,9 @@ import loginImage from '../../../assets/Images/loginImage.svg'
 import PasswordField from '../../../components/Inputs/Password/index'
 import { withFirebase } from '../../../contexts/Firebase'
 
-import './styles.css'
+//import './styles.css'
 
-const SignUpPage = () => (
+const SignUpPageRes = () => (
     <div>
       <SignUpForm />
     </div>
@@ -25,7 +25,7 @@ function SignUpFormBase (props){
 
     const[name, setName] = useState('')
     const[email, setEmail] = useState('')
-    const[CRM, setCRM] = useState('')
+    const[institution, setInstitution] = useState('')
     const[specialty,setSpecialty] = useState('')
     const[password,setPassword] = useState('')
     const[confirmPassword, setConfirmPassword] = useState('')
@@ -52,7 +52,7 @@ function SignUpFormBase (props){
                 setEmail('');
                 setPassword('');
                 setError(null);
-                props.history.push('/medicalRecord');
+                props.history.push('/researcherImages');
                 console.log(authUser);
             })
             .catch(error => {
@@ -79,7 +79,7 @@ function SignUpFormBase (props){
             <div className='container-register-user'>
                 <img src={loginImage} alt="logo" className='login-image'/> <br/> <br/>
                 
-                <TextField id="name-input" 
+                <TextField id="r-name-input" 
                     label="Nome completo" 
                     size = "small" 
                     variant="outlined"
@@ -88,7 +88,7 @@ function SignUpFormBase (props){
                     onChange={event => setName(event.target.value)} 
                     /> <br/> <br/>
                 
-                <TextField id="email-input" 
+                <TextField id="r-email-input" 
                     label="Email" 
                     size = "small" 
                     variant="outlined"
@@ -97,16 +97,16 @@ function SignUpFormBase (props){
                     onChange={event => setEmail(event.target.value)} 
                     /> <br/> <br/>
 
-                <TextField id="crm-input" 
-                    label="CRM" 
+                <TextField id="institution-input" 
+                    label="Instituição" 
                     size = "small" 
                     variant="outlined"
                     className="input-fields-register"
-                    value ={CRM} 
-                    onChange={event => setCRM(event.target.value)} 
+                    value ={institution} 
+                    onChange={event => setInstitution(event.target.value)} 
                     /> <br/> <br/>
 
-                <TextField id="specialty-input" 
+                <TextField id="r-specialty-input" 
                     label="Especialidade" 
                     size = "small" 
                     variant="outlined"
@@ -155,6 +155,6 @@ const SignUpForm = compose(
     withRouter,
     withFirebase)(SignUpFormBase);
 
-export default SignUpPage
+export default SignUpPageRes
 
 export { SignUpForm }

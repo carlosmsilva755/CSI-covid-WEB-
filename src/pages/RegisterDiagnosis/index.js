@@ -8,8 +8,9 @@ import './styles.css'
 import Header from '../../components/Header/Default/index'
 import states from '../../utils/states-cities/estados'
 import cities from '../../utils/states-cities/cities'
+import { AuthUserContext, withAuthorization } from '../../contexts/Session'
 
-export default () => {
+const RegisterDiagnosis = () => {
 
     const history = useHistory()
     const sexo = [{"sexo":"Masculino"}, {"sexo":"Feminino"}]
@@ -82,143 +83,153 @@ export default () => {
 
     return(
         // <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+        <AuthUserContext.Consumer> 
+            {authUser =>
+                authUser ? 
+                    <div>
+                        <Header/>
+                        <main id ="register" className="pages">
 
-        <div>
-            <Header/>
-            <main id ="register" className="pages">
-
-                <div className="container-register">
-                    
-                    <form onSubmit = {handleContinue}>
-                        <div className='container-form'>
-                            <h1 className="container-title">Solicitar diagnóstico</h1>
-
-                            <TextField 
-                                id="estado-select" 
-                                size="small" 
-                                select 
-                                label="Estado" 
-                                className="form-state" 
-                                variant="outlined" 
-                                value ={state} 
-                                onChange={event => setState(event.target.value)}
-                            >
-                                {states.map((option) => (
-                                    <MenuItem key={option.Nome} value={option.Nome}>
-                                    {option.Nome}
-                                    </MenuItem>
-                                ))
-                                }
-                            </TextField>
-
-                            <br/> <br/> 
-                            
-                            <TextField 
-                                id="cidade-select" 
-                                size="small"
-                                select 
-                                label="Cidade" 
-                                className="form-state" 
-                                variant="outlined"
-                                value={city}
-                                onChange={event => setCity(event.target.value)}
-                            >
-                                {
-                                    citiesArray.map((option) => (
-                                    <MenuItem key={option.Nome} value={option.Nome}>
-                                    {option.Nome}
-                                    </MenuItem>
-                                    ))
-                                }
-                            </TextField> 
-
-                            <br/> <br/> 
-
-                            <div className="container-divider">
-
-                                <TextField 
-                                    id="sexo-select" 
-                                    size="small" 
-                                    select 
-                                    label="Sexo" 
-                                    className="form-divider-content" 
-                                    variant="outlined"
-                                    value={sex}
-                                    onChange={event => setSex(event.target.value)}
-                                >
-                                    {sexo.map((option) => (
-                                        <MenuItem key={option.sexo} value={option.sexo}>
-                                        {option.sexo}
-                                        </MenuItem>
-                                    ))}
-                                </TextField>
+                            <div className="container-register">
                                 
-                                <div className="input-age">
-                                    <TextField 
-                                        id="idade-input" 
-                                        size="small" 
-                                        label="Idade" 
-                                        type="number"
-                                        variant="outlined" 
-                                        className="form-divider-content2"
-                                        value={age}
-                                        onChange={event => setAge(event.target.value)}
-                                    />
-                                </div>
+                                <form onSubmit = {handleContinue}>
+                                    <div className='container-form'>
+                                        <h1 className="container-title">Solicitar diagnóstico</h1>
+
+                                        <TextField 
+                                            id="estado-select" 
+                                            size="small" 
+                                            select 
+                                            label="Estado" 
+                                            className="form-state" 
+                                            variant="outlined" 
+                                            value ={state} 
+                                            onChange={event => setState(event.target.value)}
+                                        >
+                                            {states.map((option) => (
+                                                <MenuItem key={option.Nome} value={option.Nome}>
+                                                {option.Nome}
+                                                </MenuItem>
+                                            ))
+                                            }
+                                        </TextField>
+
+                                        <br/> <br/> 
+                                        
+                                        <TextField 
+                                            id="cidade-select" 
+                                            size="small"
+                                            select 
+                                            label="Cidade" 
+                                            className="form-state" 
+                                            variant="outlined"
+                                            value={city}
+                                            onChange={event => setCity(event.target.value)}
+                                        >
+                                            {
+                                                citiesArray.map((option) => (
+                                                <MenuItem key={option.Nome} value={option.Nome}>
+                                                {option.Nome}
+                                                </MenuItem>
+                                                ))
+                                            }
+                                        </TextField> 
+
+                                        <br/> <br/> 
+
+                                        <div className="container-divider">
+
+                                            <TextField 
+                                                id="sexo-select" 
+                                                size="small" 
+                                                select 
+                                                label="Sexo" 
+                                                className="form-divider-content" 
+                                                variant="outlined"
+                                                value={sex}
+                                                onChange={event => setSex(event.target.value)}
+                                            >
+                                                {sexo.map((option) => (
+                                                    <MenuItem key={option.sexo} value={option.sexo}>
+                                                    {option.sexo}
+                                                    </MenuItem>
+                                                ))}
+                                            </TextField>
+                                            
+                                            <div className="input-age">
+                                                <TextField 
+                                                    id="idade-input" 
+                                                    size="small" 
+                                                    label="Idade" 
+                                                    type="number"
+                                                    variant="outlined" 
+                                                    className="form-divider-content2"
+                                                    value={age}
+                                                    onChange={event => setAge(event.target.value)}
+                                                />
+                                            </div>
+
+                                        </div>
+
+                                        <br/>
+
+                                        <div className="container-divider">
+
+                                            <TextField 
+                                                id="temp-input" 
+                                                size="small" 
+                                                label="Temperatura (°C)" 
+                                                className="form-divider-content" 
+                                                variant="outlined"
+                                                value={temp}
+                                                onChange={event => setTemp(event.target.value)}
+                                            />
+                                            
+                                            <div className="input-age">
+                                                <TextField 
+                                                    id="sat_ox-input" 
+                                                    size="small" 
+                                                    label="Sat. de oxigênio" 
+                                                    variant="outlined" 
+                                                    className="form-divider-content2"
+                                                    value={sat_ox}
+                                                    onChange={event => setSat_ox(event.target.value)}
+                                                />
+                                            </div>
+
+                                        </div>
+
+                                        <br/>   
+
+                                        <TextField 
+                                            id="info-select" 
+                                            multiline={true} 
+                                            rows = {10}
+                                            label="Informações clínicas" 
+                                            type="number" 
+                                            variant="outlined" 
+                                            className="clinical-info"
+                                            value={info}
+                                            onChange={event => setInfo(event.target.value)}
+                                        />
+                                        
+                                        <br/><br/>
+                                        <button id='continuar-button' type = "submit" className="button"> Continuar</button>
+                                        <button id='cancelar-button'type = "button" className="button-back" onClick = {handleCancel}> Cancelar</button>
+
+                                    </div>
+                                </form>
 
                             </div>
-
-                            <br/>
-
-                            <div className="container-divider">
-
-                                <TextField 
-                                    id="temp-input" 
-                                    size="small" 
-                                    label="Temperatura (°C)" 
-                                    className="form-divider-content" 
-                                    variant="outlined"
-                                    value={temp}
-                                    onChange={event => setTemp(event.target.value)}
-                                />
-                                
-                                <div className="input-age">
-                                    <TextField 
-                                        id="sat_ox-input" 
-                                        size="small" 
-                                        label="Sat. de oxigênio" 
-                                        variant="outlined" 
-                                        className="form-divider-content2"
-                                        value={sat_ox}
-                                        onChange={event => setSat_ox(event.target.value)}
-                                    />
-                                </div>
-
-                            </div>
-
-                            <br/>   
-
-                            <TextField 
-                                id="info-select" 
-                                multiline={true} 
-                                rows = {10}
-                                label="Informações clínicas" 
-                                type="number" 
-                                variant="outlined" 
-                                className="clinical-info"
-                                value={info}
-                                onChange={event => setInfo(event.target.value)}
-                            />
-                            
-                            <br/><br/>
-                            <button id='continuar-button' type = "submit" className="button"> Continuar</button>
-                            <button id='cancelar-button'type = "button" className="button-back" onClick = {handleCancel}> Cancelar</button>
-
-                        </div>
-                    </form>
-
-                </div>
-            </main>
-        </div>
+                        </main>
+                    </div>
+                : 
+                    null
+            }
+        </AuthUserContext.Consumer>
     )
 }
+
+const condition = authUser => !!authUser;
+
+export default withAuthorization(condition)(RegisterDiagnosis);
