@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import TextField from '@material-ui/core/TextField'
-import { withRouter } from 'react-router-dom'
+import { withRouter, useHistory } from 'react-router-dom'
 import { compose } from 'recompose'
 
-import loginImage from '../../assets/Images/loginImage.svg'
-import PasswordField from '../../components/Inputs/Password/index'
-import { withFirebase } from '../../contexts/Firebase'
+import loginImage from '../../../assets/Images/loginImage.svg'
+import PasswordField from '../../../components/Inputs/Password/index'
+import { withFirebase } from '../../../contexts/Firebase'
 import './styles.css'
 
 const SignInPage = () => (
@@ -19,6 +19,8 @@ function SignInFormBase(props){
     const[email, setEmail] = useState('')
     const[password, setPassword] = useState('')
     const[error, setError] = useState(null);
+
+    const _history = useHistory()
 
     const onSubmit = event => {
 
@@ -35,7 +37,11 @@ function SignInFormBase(props){
         })
     
         event.preventDefault();
-      }
+    }
+
+    function handleBack(){
+        _history.push('/')
+    }
 
     return(
         
@@ -46,7 +52,8 @@ function SignInFormBase(props){
                 
                 <div className='inputs'>
 
-                    <TextField id="email-login-input" 
+                    <TextField error={error}
+                        id="email-login-input" 
                         label="Usuário" 
                         size = "small" 
                         variant="outlined"
@@ -61,13 +68,8 @@ function SignInFormBase(props){
                     <a className='text-fgtPassword' href="/">Esqueceu sua senha?</a>
 
                     <button id='entrar-button'className='button' type='submit'>Entrar</button>
-                    {error && <p>{error.message}</p>}
+                    <button id='voltar-button'className='button-back btn-marg' onClick={handleBack}>Voltar</button>
 
-                </div> <br/>
-
-                <div className='choose-profile'>
-                    <p className='text'>É um médico? <a id='cadastre-medico-button'className='text-link' href="/create-doc">Cadastre-se aqui</a> </p>
-                    <p className='text-login'>É um pesquisador? <a id='cadastre-pesquisador-button' className='text-link' href="/create-res">Cadastre-se aqui</a> </p>
                 </div>
             
             </form>

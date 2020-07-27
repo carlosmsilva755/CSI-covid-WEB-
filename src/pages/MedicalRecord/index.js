@@ -108,3 +108,22 @@ const MedicalRecord = () => {
 const condition = authUser => !!authUser;
 
 export default withAuthorization(condition)(MedicalRecord);
+
+/*
+function testing(auth){
+        auth.getIdTokenResult()
+        .then((idTokenResult) => {
+           // Confirm the user is an Admin.
+           if (!!idTokenResult.claims.admin) {
+             // Show admin UI.
+             console.log('w');
+           } else {
+             // Show regular user UI.
+             console.log(idTokenResult);
+           }
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+    }
+*/

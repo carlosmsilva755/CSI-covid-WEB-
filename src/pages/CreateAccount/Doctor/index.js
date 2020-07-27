@@ -8,7 +8,7 @@ import { compose } from 'recompose'
 import loginImage from '../../../assets/Images/loginImage.svg'
 import PasswordField from '../../../components/Inputs/Password/index'
 import { withFirebase } from '../../../contexts/Firebase'
-
+import api from '../../../services/api'
 import './styles.css'
 
 const SignUpPage = () => (
@@ -30,6 +30,7 @@ function SignUpFormBase (props){
     const[password,setPassword] = useState('')
     const[confirmPassword, setConfirmPassword] = useState('')
     const[error, setError] = useState('')
+    const[uid, setUid] = useState('')
 
     const history = useHistory()
 
@@ -42,6 +43,21 @@ function SignUpFormBase (props){
     
         setOpenAlert(false);
     }
+    async function createUser(){
+        const formData = new FormData()
+
+        formData.append('name', name)
+        formData.append('email', email)
+        formData.append('CRM', CRM)
+        formData.append('specialty', specialty)
+        formData.append('uid', uid)
+
+        try {
+            await api.post('/doctor',formData)  
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     const onSubmit = event => {
 
@@ -53,15 +69,16 @@ function SignUpFormBase (props){
                 setPassword('');
                 setError(null);
                 props.history.push('/medicalRecord');
-                console.log(authUser);
+                setUid(authUser.user.uid)
             })
             .catch(error => {
                 setError(error);
                 console.log(error);
                 setOpenAlert(true)
             });
-  
-      event.preventDefault();
+        createUser()
+        event.preventDefault();
+        
     }
     function handleCancel(){
         history.push('/')
