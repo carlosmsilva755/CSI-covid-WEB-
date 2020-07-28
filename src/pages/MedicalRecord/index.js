@@ -36,7 +36,7 @@ const MedicalRecord = () => {
            // Confirm the user is an Admin.
            if (!!idTokenResult.claims.admin) {
              // Show admin UI.
-             console.log('ADMIN'); console.log(idTokenResult);
+             console.log('ADMINN'); console.log(idTokenResult);
            } else {
              // Show regular user UI.
              console.log(idTokenResult);
