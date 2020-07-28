@@ -30,6 +30,23 @@ const MedicalRecord = () => {
         localStorage.removeItem('@result')
     },[])
 
+    function printUser(auth){
+        auth.getIdTokenResult()
+        .then((idTokenResult) => {
+           // Confirm the user is an Admin.
+           if (!!idTokenResult.claims.admin) {
+             // Show admin UI.
+             console.log('ADMINN'); console.log(idTokenResult);
+           } else {
+             // Show regular user UI.
+             console.log(idTokenResult);
+           }
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+    }
+
     useEffect(()=>{
         
         (async () => {
@@ -55,7 +72,7 @@ const MedicalRecord = () => {
 
                                 <TextField id="outlined-basic" label="Pesquisar" size = "small" variant="outlined"className="search-input" />
                                 
-                                <img src={searchButton} alt="search"/>
+                                <img src={searchButton} alt="search" onClick={e=>printUser(authUser)}/>
                                 
                                 <div className="filter">
 
@@ -108,22 +125,3 @@ const MedicalRecord = () => {
 const condition = authUser => !!authUser;
 
 export default withAuthorization(condition)(MedicalRecord);
-
-/*
-function testing(auth){
-        auth.getIdTokenResult()
-        .then((idTokenResult) => {
-           // Confirm the user is an Admin.
-           if (!!idTokenResult.claims.admin) {
-             // Show admin UI.
-             console.log('w');
-           } else {
-             // Show regular user UI.
-             console.log(idTokenResult);
-           }
-        })
-        .catch((error) => {
-          console.log(error);
-        })
-    }
-*/
