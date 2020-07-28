@@ -26,6 +26,23 @@ const ResearcherImages = () => {
         localStorage.setItem('@isResearcher', true)
     },[])
 
+    function printUser(auth){
+        auth.getIdTokenResult()
+        .then((idTokenResult) => {
+           // Confirm the user is an Admin.
+           if (!!idTokenResult.claims.admin) {
+             // Show admin UI.
+             console.log('ADMIN'); console.log(idTokenResult);
+           } else {
+             // Show regular user UI.
+             console.log(idTokenResult);
+           }
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+    }
+
     useEffect(()=>{
         
         (async () => {
@@ -53,7 +70,7 @@ const ResearcherImages = () => {
 
                                 <TextField id="outlined-basic" label="Pesquisar" size = "small" variant="outlined"className="search-input" />
                                 
-                                <img src={searchButton} alt="search"/>
+                                <img src={searchButton} alt="search" onClick={e=>printUser(authUser)}/>
                                 
                                 <div className="filter">
 
