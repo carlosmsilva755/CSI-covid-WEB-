@@ -9,6 +9,7 @@ import loginImage from '../../../assets/Images/loginImage.svg'
 import PasswordField from '../../../components/Inputs/Password/index'
 import { withFirebase } from '../../../contexts/Firebase'
 import api from '../../../services/api'
+//import firebase from '../../../contexts/Firebase/firebase'
 import './styles.css'
 
 const SignUpPage = () => (
@@ -59,6 +60,22 @@ function SignUpFormBase (props){
         }
     }
 
+    function teste(){
+        // props.firebase.auth.currentUser.getIdTokenResult()
+        // .then((idTokenResult) => {
+        //    // Confirm the user is an Admin.
+        //    if (!!idTokenResult.claims.admin) {
+        //      console.log('ooooooooooooooooooooooooooooppppppaaaaaa');
+        //    } else {
+        //      console.log('caiu no else');
+        //    }
+        // })
+        // .catch((error) => {
+        //   console.log(error);
+        // });
+        console.log(props.firebase.auth);
+    }
+
     const onSubmit = event => {
 
         props.firebase
@@ -81,6 +98,7 @@ function SignUpFormBase (props){
         
     }
     function handleCancel(){
+        teste()
         history.push('/')
     }
 
