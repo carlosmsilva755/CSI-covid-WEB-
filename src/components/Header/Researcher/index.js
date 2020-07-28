@@ -31,7 +31,7 @@ const Header = ({ firebase }) => {
                 
                 <div className = "container-profile">
                     <Link to='/'>
-                        <img src={profile} alt="logo" onClick={firebase.doSignOut}/>
+                        <img src={profile} alt="logo" onClick={firebase.doSignOut}id='logout-button'/>
                     </Link>
                 </div>
             </div>
