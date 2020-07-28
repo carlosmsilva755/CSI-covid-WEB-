@@ -4,8 +4,9 @@ import {Link} from 'react-router-dom'
 import './styles.css'
 import logo from '../../../assets/logo.svg'
 import profile from '../../../assets/Icons/profile.svg'
+import { withFirebase } from '../../../contexts/Firebase';
 
-export default () => {
+const Header = ({ firebase }) => {
 
     return (
         <header>
@@ -31,7 +32,7 @@ export default () => {
                 
                 <div className = "container-profile">
                     <Link to='/'>
-                        <img src={profile} alt="logo"/>
+                        <img src={profile} alt="logo" onClick={firebase.doSignOut}/>
                     </Link>
                 </div>
             </div>
@@ -39,3 +40,4 @@ export default () => {
         </header>
     )
 }
+export default withFirebase(Header)

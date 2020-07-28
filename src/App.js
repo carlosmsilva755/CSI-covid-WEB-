@@ -10,6 +10,7 @@ import './styles.css'
 
 function App(props){
     const[ImageV, setImageV] = useState('')
+    const[imageResearcher, setImageResearcher] = useState('')
     const[authUser, setAuthUser] = useState(null)
 
     const theme = createMuiTheme({
@@ -33,7 +34,7 @@ function App(props){
         
         <ThemeProvider theme={theme}>
             <BrowserRouter>
-                <ImageContext.Provider value={{ImageV, setImageV}}>
+                <ImageContext.Provider value={{ImageV, setImageV, imageResearcher, setImageResearcher}}>
                     <Router authUser={authUser}/>
                 </ImageContext.Provider>
             </BrowserRouter>
