@@ -6,14 +6,14 @@ import Visibility from '@material-ui/icons/Visibility'
 import VisibilityOff from '@material-ui/icons/VisibilityOff'
 import TextField from '@material-ui/core/TextField'
 
-export default ({password, setPassword, classname, label}) => {
+export default ({password, setPassword, classname, label, id}) => {
 
     const[showPassword, setShowPassword] = useState(false)
 
     return(
 
         <div>
-            <TextField
+            <TextField id={id+'-input'}
                 label={label}
                 size = "small"
                 type={showPassword ? 'text' : 'password'}

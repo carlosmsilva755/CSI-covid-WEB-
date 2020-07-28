@@ -79,7 +79,7 @@ function SignUpFormBase (props){
             <div className='container-register-user'>
                 <img src={loginImage} alt="logo" className='login-image'/> <br/> <br/>
                 
-                <TextField id="r-name-input" 
+                <TextField id="name-input" 
                     label="Nome completo" 
                     size = "small" 
                     variant="outlined"
@@ -88,7 +88,7 @@ function SignUpFormBase (props){
                     onChange={event => setName(event.target.value)} 
                     /> <br/> <br/>
                 
-                <TextField id="r-email-input" 
+                <TextField id="email-input" 
                     label="Email" 
                     size = "small" 
                     variant="outlined"
@@ -106,7 +106,7 @@ function SignUpFormBase (props){
                     onChange={event => setInstitution(event.target.value)} 
                     /> <br/> <br/>
 
-                <TextField id="r-specialty-input" 
+                <TextField id="specialty-input" 
                     label="Especialidade" 
                     size = "small" 
                     variant="outlined"
@@ -115,14 +115,14 @@ function SignUpFormBase (props){
                     onChange={event => setSpecialty(event.target.value)} 
                     /> <br/> <br/>
 
-                <PasswordField 
+                <PasswordField id='password'
                     password={password} 
                     setPassword={setPassword} 
                     classname='input-fields-register' 
                     label='Senha'
                     /> <br/>
 
-                <PasswordField 
+                <PasswordField id='password2'
                     password={confirmPassword} 
                     setPassword={setConfirmPassword} 
                     classname='input-fields-register' 
@@ -130,12 +130,13 @@ function SignUpFormBase (props){
                     /> <br/> <br/>
 
                 <div className='register-buttons'>
-                    <button className='button-back' type='button' onClick={handleCancel}>Cancelar</button>
+                    <button className='button-back' type='button' onClick={handleCancel} id='cancelar-button'>Cancelar</button>
 
                     <button 
                         type="submit" 
                         className='button button-resize' 
                         disabled={isInvalid}
+                        id='cadastrar-button'
                     >Cadastrar</button>
 
                 </div>
