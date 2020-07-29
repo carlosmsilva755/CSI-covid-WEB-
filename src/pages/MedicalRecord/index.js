@@ -12,7 +12,7 @@ import Header from '../../components/Header/Doctor/index'
 import api from '../../services/api'
 import { AuthUserContext, withAuthorization } from '../../contexts/Session'
 
-const MedicalRecord = () => {
+const MedicalRecord = (props) => {
 
     const filterOptions = [{"Filter":"Covid-19"}, {"Filter":"Pneumonia"}, {"Filter":"Normal"}]
     const history = useHistory()
@@ -20,42 +20,63 @@ const MedicalRecord = () => {
     const [currentPage, setCurrentPage] = useState(1)
     const [pages, setPages] = useState(null)
     const [diagnoses, setDiagnoses] = useState([])
-
-    function handleAdd(){
+    
+    function handleAdd(authUser){
         history.push('/register')
     }
     useEffect(()=>{
         localStorage.removeItem('@form')
         localStorage.removeItem('@isResearcher')
         localStorage.removeItem('@result')
-    },[])
+        // props.firebase.auth.currentUser.getIdToken(false)
+        // .then((token) => {
+        //     setToken(token)
+        //     localStorage.setItem('@docusr_tkn',token)
+        // })
+        // .catch(errorMessage => 
+        //     console.log("Auth token retrieval error: " + errorMessage)
+        // )
+    })
 
     function printUser(auth){
         auth.getIdTokenResult()
         .then((idTokenResult) => {
            // Confirm the user is an Admin.
-           if (!!idTokenResult.claims.admin) {
+           if (!!idTokenResult.claims.doctor) {
              // Show admin UI.
-             console.log('ADMINN'); console.log(idTokenResult);
+             console.log('DOCTOR'); //console.log(idTokenResult);
            } else {
              // Show regular user UI.
-             console.log(idTokenResult);
+             //console.log(idTokenResult);
+             console.log(idTokenResult.token === localStorage.getItem('@docusr_tkn'));
            }
         })
         .catch((error) => {
           console.log(error);
         })
+        //console.log(auth.getIdTokenResult())
     }
 
     useEffect(()=>{
-        
+        //setToken(localStorage.getItem('@docusr_tkn'))
+        //console.log(localStorage.getItem('@docusr_tkn'));
         (async () => {
-            const { data } = await api.get(`/doctor/diagnoses?page=${currentPage}`)
-            setDiagnoses(data.diagnoses.docs)
-      
-            setCurrentPage(Number(data.diagnoses.page))
-            setPages(data.diagnoses.pages)
-            //console.log(data.diagnoses.docs)
+            await api.get(`/doctor/diagnoses?page=${currentPage}`,
+                {
+                    headers: {
+                        authorization: `Bearer ${localStorage.getItem('@docusr_tkn')}`
+                    }
+                }
+            ).then((response)=>{
+                setDiagnoses(response.data.diagnoses.docs)
+                setCurrentPage(Number(response.data.diagnoses.page))
+                setPages(response.data.diagnoses.pages)
+
+                //console.log(response.data.diagnoses.docs)
+            }).catch(error=>{
+                //window.location.reload()
+            })
+
         })()
 
     },[currentPage])
@@ -64,7 +85,7 @@ const MedicalRecord = () => {
         <AuthUserContext.Consumer> 
             {authUser =>
                 authUser ? 
-             
+                    
                     <div>
                         <Header/>
                         <div className= "container">
@@ -76,7 +97,7 @@ const MedicalRecord = () => {
                                 
                                 <div className="filter">
 
-                                    <TextField id="outlined-select-currency" size="small" select label="Filtro" className="select-filter" variant="outlined">
+                                    <TextField id="outlined-select-currency" size="small" select label="Filtro" className="select-filter" variant="outlined" value=''>
                                         {filterOptions.map((option) => (
                                             <MenuItem key={option.Filter} value={option.Filter}>
                                             {option.Filter}
@@ -86,7 +107,7 @@ const MedicalRecord = () => {
 
                                 </div>
 
-                                <button id='novo-button' type = "button" className="button-add" onClick = {handleAdd}>Novo</button>
+                                <button id='novo-button' type = "button" className="button-add" onClick = {e=>handleAdd(authUser)}>Novo</button>
 
                             </div>
 

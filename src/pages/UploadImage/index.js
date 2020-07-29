@@ -18,13 +18,14 @@ import { AuthUserContext, withAuthorization } from '../../contexts/Session'
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
-const UploadImage = () => {
+const UploadImage = (props) => {
 
     const [form, setForm] = useState('')
     const [image, setImage] = useState('')
     const [imageView, setImageView] = useState('')
     const [loading, setLoading] = useState(false)
     const [openAlert, setOpenAlert] = useState(false)
+    const [token, setToken] = useState('')
 
     const { setImageV, setImageResearcher } = useContext(ImageContext)
 
@@ -35,7 +36,11 @@ const UploadImage = () => {
     useEffect(() =>{
         const data_ = localStorage.getItem('@form')
         setForm(JSON.parse(data_))
-    },[])
+
+        props.firebase.auth.currentUser.getIdToken(false)
+        .then((token) => setToken(token))
+        .catch(errorMessage => console.log("Auth token retrieval error: " + errorMessage));
+    },[props.firebase.auth.currentUser])
 
     useEffect(() => {
     
@@ -44,8 +49,8 @@ const UploadImage = () => {
     },[imageView, setImageV])
 
 
-    const onSubmit = async (data) => {
-
+    const onSubmit = async () => {
+        //console.log(token);
         if(image)
             setLoading((prevLoading) => !prevLoading);
         else{
@@ -75,16 +80,26 @@ const UploadImage = () => {
         if(form.sat_ox)
             formData.append('sat_ox',form.sat_ox)
         
+        const config = {
+            headers: { authorization: `Bearer ${token}` }
+        };
         
-        const diag = await api.post('/covidAI', formImage)
-
-        localStorage.setItem('@result', diag.data.result)
+        await api.post('/covidAI',
+            formImage, 
+            config
+        ).then(response=>{
+            console.log(response)
+            localStorage.setItem('@result', response.data.result)
+            formData.append('result', response.data.result)
+        }).catch(error=>{
+            console.log(error)
+            //history.push('/')
+        })
+        //mudar dps
+        const num = Math.random() * (19999 - 1001) + 1001
 
         localStorage.getItem('@isResearcher') ? formData.append('for_research', true) : console.log('')
-
-        formData.append('result', diag.data.result)
-        await api.post('/diagnoses', formData);
-        //console.log(res)
+        localStorage.setItem('@imgSize', parseInt(num))
         
         localStorage.setItem('@imgUrl', image)
 

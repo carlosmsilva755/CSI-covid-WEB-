@@ -18,22 +18,47 @@ function SignInFormBase(props){
 
     const[email, setEmail] = useState('')
     const[password, setPassword] = useState('')
-    const[error, setError] = useState(null);
+    const[error, setError] = useState(false);
 
     const _history = useHistory()
 
-    const onSubmit = event => {
+    function signOutResearcher(){
+        props.firebase.doSignOut()
+        alert('Realize login como pesquisador')
+    }
+
+    const onSubmit = async event => {
 
         props.firebase
         .doSignInWithEmailAndPassword(email, password)
-        .then(() => {
+        .then( (authUser) => {
             setEmail('');
             setPassword('');
-            setError(null);
+            
+            props.firebase.auth.currentUser.getIdTokenResult()
+            .then((idTokenResult) => {
+                if (!!idTokenResult.claims.researcher) {
+                    console.log('IS RES');
+                    signOutResearcher()
+               }else{console.log('DOC');}
+            })
+            .catch((error) => {
+              console.log(error);
+            })
+
+            props.firebase.auth.currentUser.getIdToken(false)
+            .then((token) => {
+                localStorage.setItem('@docusr_tkn',token)
+            })
+            .catch(errorMessage => 
+                console.log("Auth token retrieval error: " + errorMessage)
+            )
             props.history.push('/medicalRecord');
+
         })
         .catch(error => {
-            setError(error);
+            console.log(error);
+            setError(true)
         })
     
         event.preventDefault();

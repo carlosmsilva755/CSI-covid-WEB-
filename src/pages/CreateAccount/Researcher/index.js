@@ -8,8 +8,7 @@ import { compose } from 'recompose'
 import loginImage from '../../../assets/Images/loginImage.svg'
 import PasswordField from '../../../components/Inputs/Password/index'
 import { withFirebase } from '../../../contexts/Firebase'
-
-//import './styles.css'
+import api from '../../../services/api'
 
 const SignUpPageRes = () => (
     <div>
@@ -43,25 +42,47 @@ function SignUpFormBase (props){
         setOpenAlert(false);
     }
 
-    const onSubmit = event => {
+    async function createResearcher(id){
 
-        props.firebase
-            .doCreateUserWithEmailAndPassword(email, password)
+        const data = {
+            password,
+            name,
+            email,
+            institution,
+            specialty
+        }
+
+        await api.post('/researcher', data)
+        .then(response => {
+            console.log(response)
+
+            props.firebase
+            .doSignInWithEmailAndPassword(email, password)
             .then(authUser => {
-                setName('');
-                setEmail('');
-                setPassword('');
                 setError(null);
+                props.firebase.auth.currentUser.getIdToken(false)
+                .then((token) => {
+                    localStorage.setItem('@resUsrTkn',token)
+                })
+                .catch(errorMessage => 
+                    console.log("Auth token retrieval error: " + errorMessage)
+                )
                 props.history.push('/researcherImages');
-                console.log(authUser);
             })
             .catch(error => {
                 setError(error);
                 console.log(error);
                 setOpenAlert(true)
             });
-  
-      event.preventDefault();
+        }).catch(error => {
+             console.log(error)
+        })
+    }
+
+    const onSubmit = event => {
+        createResearcher()
+        
+        event.preventDefault();
     }
     function handleCancel(){
         history.push('/')

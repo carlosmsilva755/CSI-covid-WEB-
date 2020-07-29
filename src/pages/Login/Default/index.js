@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import loginImage from '../../../assets/Images/loginImage.svg'
 import DoctorLogin from '../../../assets/Icons/doctorLogin'
@@ -7,6 +7,11 @@ import './styles.css'
 
 
 export default () => {
+
+    useEffect(()=>{
+        localStorage.removeItem('@docusr_tkn')
+        localStorage.removeItem('@resUsrTkn')
+    })
 
     return(
         

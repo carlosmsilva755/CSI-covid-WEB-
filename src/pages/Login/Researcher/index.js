@@ -18,9 +18,14 @@ function SignInFormBase(props){
 
     const[email, setEmail] = useState('')
     const[password, setPassword] = useState('')
-    const[error, setError] = useState(null);
+    const[error, setError] = useState(false);
 
     const _history = useHistory()
+
+    function signOutDoctor(){
+        props.firebase.doSignOut()
+        alert('Realize login como médico')
+    }
 
     const onSubmit = event => {
 
@@ -29,11 +34,28 @@ function SignInFormBase(props){
         .then(() => {
             setEmail('');
             setPassword('');
-            setError(null);
+
+            props.firebase.auth.currentUser.getIdTokenResult()
+            .then((idTokenResult) => {
+                if (!!idTokenResult.claims.doctor) {
+                    console.log('IS DOC');
+                    signOutDoctor()
+               }else{console.log('RES');}
+            })
+            .catch((error) => {
+              console.log(error);
+            })
+            props.firebase.auth.currentUser.getIdToken(false)
+            .then((token) => {
+                localStorage.setItem('@resUsrTkn',token)
+            })
+            .catch(errorMessage => 
+                console.log("Auth token retrieval error: " + errorMessage)
+            )
             props.history.push('/researcherImages');
         })
         .catch(error => {
-            setError(error);
+            setError(true);
         })
     
         event.preventDefault();

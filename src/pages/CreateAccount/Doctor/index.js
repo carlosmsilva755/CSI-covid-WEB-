@@ -9,7 +9,6 @@ import loginImage from '../../../assets/Images/loginImage.svg'
 import PasswordField from '../../../components/Inputs/Password/index'
 import { withFirebase } from '../../../contexts/Firebase'
 import api from '../../../services/api'
-//import firebase from '../../../contexts/Firebase/firebase'
 import './styles.css'
 
 const SignUpPage = () => (
@@ -31,7 +30,6 @@ function SignUpFormBase (props){
     const[password,setPassword] = useState('')
     const[confirmPassword, setConfirmPassword] = useState('')
     const[error, setError] = useState('')
-    const[uid, setUid] = useState('')
 
     const history = useHistory()
 
@@ -44,61 +42,50 @@ function SignUpFormBase (props){
     
         setOpenAlert(false);
     }
-    async function createUser(){
-        const formData = new FormData()
+    async function createDoctor(){
 
-        formData.append('name', name)
-        formData.append('email', email)
-        formData.append('CRM', CRM)
-        formData.append('specialty', specialty)
-        formData.append('uid', uid)
-
-        try {
-            await api.post('/doctor',formData)  
-        } catch (error) {
-            console.log(error);
+        const data = {
+            password,
+            name,
+            email,
+            CRM,
+            specialty
         }
-    }
 
-    function teste(){
-        // props.firebase.auth.currentUser.getIdTokenResult()
-        // .then((idTokenResult) => {
-        //    // Confirm the user is an Admin.
-        //    if (!!idTokenResult.claims.admin) {
-        //      console.log('ooooooooooooooooooooooooooooppppppaaaaaa');
-        //    } else {
-        //      console.log('caiu no else');
-        //    }
-        // })
-        // .catch((error) => {
-        //   console.log(error);
-        // });
-        console.log(props.firebase.auth);
-    }
-
-    const onSubmit = event => {
-
-        props.firebase
-            .doCreateUserWithEmailAndPassword(email, password)
+        await api.post('/doctor', data)
+        .then(response => {
+            //console.log(response)
+            props.firebase
+            .doSignInWithEmailAndPassword(email, password)
             .then(authUser => {
-                setName('');
-                setEmail('');
-                setPassword('');
                 setError(null);
+                props.firebase.auth.currentUser.getIdToken(false)
+                .then((token) => {
+                    localStorage.setItem('@docusr_tkn',token)
+                })
+                .catch(errorMessage => 
+                    console.log("Auth token retrieval error: " + errorMessage)
+                )
                 props.history.push('/medicalRecord');
-                setUid(authUser.user.uid)
             })
             .catch(error => {
                 setError(error);
                 console.log(error);
                 setOpenAlert(true)
             });
-        createUser()
+        }).catch(error => {
+             console.log(error)
+        })
+    }
+
+    const onSubmit = event => {
+
+        createDoctor();
+        
         event.preventDefault();
         
     }
     function handleCancel(){
-        teste()
         history.push('/')
     }
 
