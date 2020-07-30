@@ -71,3 +71,6 @@ a:active {
     text-decoration: none;
     color: #EE4937;
 }
+.img-hover{
+    cursor: pointer;
+}

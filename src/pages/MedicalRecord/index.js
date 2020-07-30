@@ -20,7 +20,6 @@ const MedicalRecord = (props) => {
     const [currentPage, setCurrentPage] = useState(1)
     const [pages, setPages] = useState(null)
     const [diagnoses, setDiagnoses] = useState([])
-    const [reload, setReload] = useState(1)
 
     function handleAdd(authUser){
         history.push('/register')
@@ -30,12 +29,6 @@ const MedicalRecord = (props) => {
         localStorage.removeItem('@isResearcher')
         localStorage.removeItem('@result')
     })
-    useEffect(()=>{
-        if(reload===1){
-            window.location.reload()
-            setReload(2)
-        }
-    }, [reload])
 
     function printUser(auth){
         auth.getIdTokenResult()

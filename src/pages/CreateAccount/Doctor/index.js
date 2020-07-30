@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import TextField from '@material-ui/core/TextField'
-import Snackbar from '@material-ui/core/Snackbar'
-import MuiAlert from '@material-ui/lab/Alert'
+import CircularProgress from '@material-ui/core/CircularProgress'
 import { withRouter, useHistory } from 'react-router-dom'
 import { compose } from 'recompose'
 
@@ -17,10 +16,6 @@ const SignUpPage = () => (
     </div>
 )
 
-function Alert(props) {
-    return <MuiAlert elevation={6} variant="filled" {...props} />;
-}
-
 function SignUpFormBase (props){
 
     const[name, setName] = useState('')
@@ -29,19 +24,16 @@ function SignUpFormBase (props){
     const[specialty,setSpecialty] = useState('')
     const[password,setPassword] = useState('')
     const[confirmPassword, setConfirmPassword] = useState('')
-    const[error, setError] = useState('')
+
+    const[error, setError] = useState(false)
+    const[errorMsg, setErrorMsg] = useState('')
+    const[errorPassword, setErrorPas]= useState(false)
+    const[errorPasMsg, setErrorPasMsg] = useState('')
+
+    const[clicked, setClicked] = useState(false)
 
     const history = useHistory()
 
-    const [openAlert, setOpenAlert] = useState(false)
-
-    const handleClose = (event, reason) => {
-        if (reason === 'clickaway') {
-          return;
-        }
-    
-        setOpenAlert(false);
-    }
     async function createDoctor(){
 
         const data = {
@@ -52,12 +44,16 @@ function SignUpFormBase (props){
             specialty
         }
 
+        setClicked(!clicked)
+
         await api.post('/doctor', data)
         .then(response => {
-            //console.log(response)
+            console.log(response)
             props.firebase
             .doSignInWithEmailAndPassword(email, password)
             .then(authUser => {
+                setEmail('')
+                setPassword('')
                 setError(null);
                 props.firebase.auth.currentUser.getIdToken(false)
                 .then((token) => {
@@ -69,31 +65,53 @@ function SignUpFormBase (props){
                 props.history.push('/medicalRecord');
             })
             .catch(error => {
-                setError(error);
+                setError(true);
                 console.log(error);
-                setOpenAlert(true)
             });
+
         }).catch(error => {
-             console.log(error)
+            handleErrors(error.response.data.message)
+            setError(true)
+            setClicked(false)
         })
     }
 
     const onSubmit = event => {
-
-        createDoctor();
+        
+        if(confirmPassword !== password){
+            setErrorPas(true)
+            setErrorPasMsg('As senhas devem ser iguais')
+        }else if(confirmPassword.length < 6){
+            setErrorPas(true)
+            setErrorPasMsg('A senha deve conter mais de 6 dígitos')
+        }
+        else{
+            createDoctor();
+        }
         
         event.preventDefault();
         
     }
+
     function handleCancel(){
         history.push('/')
     }
 
+    function handleErrors(error){
+        console.log(error);
+
+        if(error.error === 'invalid or malformed input: email'){
+            setErrorMsg('Email inválido')
+        }
+    }
+
     const isInvalid =
-        password !== confirmPassword ||
+        confirmPassword === '' ||
         password === '' ||
         email === '' ||
-        name === '';
+        name === '' ||
+        CRM === '' ||
+        specialty === '';
 
     return(
         <form onSubmit={onSubmit}>
@@ -110,13 +128,17 @@ function SignUpFormBase (props){
                     onChange={event => setName(event.target.value)} 
                     /> <br/> <br/>
                 
-                <TextField id="email-input" 
-                    label="Email" 
+                <TextField id="email-input"
+                    error={error} 
+                    label={error ? errorMsg:"Email"} 
                     size = "small" 
                     variant="outlined"
                     className="input-fields-register"
                     value ={email} 
-                    onChange={event => setEmail(event.target.value)} 
+                    onChange={event => {
+                        setEmail(event.target.value)
+                        setError(false)
+                    }} 
                     /> <br/> <br/>
 
                 <TextField id="crm-input" 
@@ -138,6 +160,9 @@ function SignUpFormBase (props){
                     /> <br/> <br/>
 
                 <PasswordField id='password'
+                    error ={errorPassword}
+                    errorMessage={errorPasMsg}
+                    setError={setErrorPas}
                     password={password} 
                     setPassword={setPassword} 
                     classname='input-fields-register' 
@@ -145,6 +170,9 @@ function SignUpFormBase (props){
                     /> <br/>
 
                 <PasswordField id='password2'
+                    error ={errorPassword}
+                    errorMessage={errorPasMsg}
+                    setError={setErrorPas}
                     password={confirmPassword} 
                     setPassword={setConfirmPassword} 
                     classname='input-fields-register' 
@@ -159,15 +187,17 @@ function SignUpFormBase (props){
                         className='button button-resize' 
                         disabled={isInvalid}
                         id='cadastrar-button'
-                    >Cadastrar</button>
+                    >
+                        {clicked && !error &&!errorPassword ? 
+                            <CircularProgress color='secondary' size={20} /> 
+                            : 'Cadastrar'
+                        }
+                    </button>
 
                 </div>
 
                 <br/><br/>
 
-                <Snackbar open={openAlert} autoHideDuration={6000} onClose={handleClose}>
-                    <Alert severity="error" onClose={handleClose}>{error ? error.message :'ops'}</Alert>
-                </Snackbar>
             </div>
 
         </form>

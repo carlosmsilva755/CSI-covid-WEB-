@@ -6,7 +6,7 @@ import Visibility from '@material-ui/icons/Visibility'
 import VisibilityOff from '@material-ui/icons/VisibilityOff'
 import TextField from '@material-ui/core/TextField'
 
-export default ({password, setPassword, classname, label, id}) => {
+export default ({password, setPassword, classname, label, id, error, errorMessage, setError}) => {
 
     const[showPassword, setShowPassword] = useState(false)
 
@@ -14,13 +14,14 @@ export default ({password, setPassword, classname, label, id}) => {
 
         <div>
             <TextField id={id+'-input'}
-                label={label}
+                error={error}
+                label={error ? errorMessage: label}
                 size = "small"
                 type={showPassword ? 'text' : 'password'}
                 value={password}
                 className={classname}
                 variant="outlined"
-                onChange={event => setPassword(event.target.value)}
+                onChange={event => {setPassword(event.target.value); setError(false)}}
                 InputProps={{           
                     endAdornment:(
                         <InputAdornment position="end">

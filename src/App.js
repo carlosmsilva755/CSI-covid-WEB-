@@ -14,7 +14,7 @@ function App(props){
     const[authUser, setAuthUser] = useState(null)
 
     const theme = createMuiTheme({
-        palette: {primary: {main: '#EE4937'}}
+        palette: {primary: {main: '#EE4937'}, secondary:{main:'#FFFFFF'}}
     });
 
     useEffect(() => {

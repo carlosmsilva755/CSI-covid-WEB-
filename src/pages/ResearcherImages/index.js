@@ -19,20 +19,12 @@ const ResearcherImages = () => {
     const [currentPage, setCurrentPage] = useState(1)
     const [pages, setPages] = useState(null)
     const [diagnoses, setDiagnoses] = useState([])
-    const [reload, setReload] = useState(0)
 
     useEffect(()=>{
         localStorage.removeItem('@form')
         localStorage.removeItem('@result')
         localStorage.setItem('@isResearcher', true)
     },[])
-
-    useEffect(()=>{
-        if(reload===1){
-            window.location.reload()
-            setReload(2)
-        }
-    }, [reload])
 
     function printUser(auth){
         auth.getIdTokenResult()
