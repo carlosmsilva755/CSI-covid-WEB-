@@ -74,12 +74,12 @@ const MedicalRecord = (props) => {
                 //console.log(response.data.diagnoses.docs)
             }).catch(error=>{
                 //window.location.reload()
-                setReload(reload+1)
+                //setReload(reload+1)
             })
 
         })()
 
-    },[currentPage, reload])
+    },[currentPage])
 
     return (
         <AuthUserContext.Consumer> 

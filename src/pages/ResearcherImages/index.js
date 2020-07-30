@@ -67,11 +67,11 @@ const ResearcherImages = () => {
 
                 console.log(response.data.diagnoses.docs)
             }).catch(error=>{
-                setReload(reload+1)
+                //setReload(reload+1)
             })
         })()
 
-    },[currentPage, reload])
+    },[currentPage])
 
     function handleAdd(){
         history.push('/register')
