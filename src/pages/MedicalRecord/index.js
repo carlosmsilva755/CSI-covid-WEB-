@@ -20,7 +20,8 @@ const MedicalRecord = (props) => {
     const [currentPage, setCurrentPage] = useState(1)
     const [pages, setPages] = useState(null)
     const [diagnoses, setDiagnoses] = useState([])
-    
+    const [reload, setReload] = useState(1)
+
     function handleAdd(authUser){
         history.push('/register')
     }
@@ -28,15 +29,13 @@ const MedicalRecord = (props) => {
         localStorage.removeItem('@form')
         localStorage.removeItem('@isResearcher')
         localStorage.removeItem('@result')
-        // props.firebase.auth.currentUser.getIdToken(false)
-        // .then((token) => {
-        //     setToken(token)
-        //     localStorage.setItem('@docusr_tkn',token)
-        // })
-        // .catch(errorMessage => 
-        //     console.log("Auth token retrieval error: " + errorMessage)
-        // )
     })
+    useEffect(()=>{
+        if(reload===1){
+            window.location.reload()
+            setReload(2)
+        }
+    }, [reload])
 
     function printUser(auth){
         auth.getIdTokenResult()
@@ -44,7 +43,7 @@ const MedicalRecord = (props) => {
            // Confirm the user is an Admin.
            if (!!idTokenResult.claims.doctor) {
              // Show admin UI.
-             console.log('DOCTOR'); //console.log(idTokenResult);
+             console.log('DOCTOR'); console.log(idTokenResult);
            } else {
              // Show regular user UI.
              //console.log(idTokenResult);
@@ -75,11 +74,12 @@ const MedicalRecord = (props) => {
                 //console.log(response.data.diagnoses.docs)
             }).catch(error=>{
                 //window.location.reload()
+                setReload(reload+1)
             })
 
         })()
 
-    },[currentPage])
+    },[currentPage, reload])
 
     return (
         <AuthUserContext.Consumer> 

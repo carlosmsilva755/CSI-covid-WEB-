@@ -19,6 +19,7 @@ const ResearcherImages = () => {
     const [currentPage, setCurrentPage] = useState(1)
     const [pages, setPages] = useState(null)
     const [diagnoses, setDiagnoses] = useState([])
+    const [reload, setReload] = useState(0)
 
     useEffect(()=>{
         localStorage.removeItem('@form')
@@ -26,13 +27,20 @@ const ResearcherImages = () => {
         localStorage.setItem('@isResearcher', true)
     },[])
 
+    useEffect(()=>{
+        if(reload===1){
+            window.location.reload()
+            setReload(2)
+        }
+    }, [reload])
+
     function printUser(auth){
         auth.getIdTokenResult()
         .then((idTokenResult) => {
            // Confirm the user is an Admin.
            if (!!idTokenResult.claims.researcher) {
              // Show admin UI.
-             console.log('RES'); //console.log(idTokenResult);
+             console.log('RES'); console.log(idTokenResult);
            } else {
              // Show regular user UI.
              //console.log(idTokenResult);
@@ -58,10 +66,12 @@ const ResearcherImages = () => {
                 setPages(response.data.diagnoses.pages)
 
                 console.log(response.data.diagnoses.docs)
+            }).catch(error=>{
+                setReload(reload+1)
             })
         })()
 
-    },[currentPage])
+    },[currentPage, reload])
 
     function handleAdd(){
         history.push('/register')
