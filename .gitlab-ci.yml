@@ -7,7 +7,6 @@ stages:
 .only_default: &only_default
     only:
         - staging
-        - merge_requests
         - tags
 
 testBuild:
