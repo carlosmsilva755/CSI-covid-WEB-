@@ -44,10 +44,6 @@ const Header = ({ firebase }) => {
                         <a href = '/medicalRecord' className = "header-buttons">Diagnósticos</a>                    
                     </div>
 
-                    {/* <div className="container-header-images">  
-                    <a href = '/medicalRecord' className = "header-buttons">Imagens</a>  
-                    </div> */}
-
                 </div>                
                 
                 {/* <div className = "container-profile">

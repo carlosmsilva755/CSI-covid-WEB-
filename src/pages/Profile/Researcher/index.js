@@ -1,21 +1,12 @@
 import React from "react"
-//import {useHistory} from 'react-router-dom'
-
-//import TextField from '@material-ui/core/TextField'
 
 import './styles.css'
 import Header from '../../../components/Header/Researcher/index'
-//import api from '../../services/api'
+import Profile from '../../../components/Profile/index'
+
 import { AuthUserContext, withAuthorization } from '../../../contexts/Session'
 
 const ResearcherProfile = (props) => {
-
-    //const history = useHistory()
-
-
-    // function handleAdd(authUser){
-    //     history.push('/register')
-    // }
 
     return (
         <AuthUserContext.Consumer> 
@@ -24,7 +15,11 @@ const ResearcherProfile = (props) => {
                 
                     <div>
                         <Header/>
-                        <h1>dd</h1>
+                        <Profile 
+                            email={'pesquisador@gmail.com'}
+                            name={'Nome do usuário'}
+                            specialty={'Computação'}
+                        />
                     </div>
                 : 
                     null
