@@ -79,15 +79,15 @@ When("I click  in the first  diagnostic image {string}", async function (arg1) {
 });
 
 When("I see {string} written on the requested page", async function (arg1) {
-await driver.sleep(short_time)
-    const text = await driver.findElement({ xpath:'//*[@id="root"]/div/div/div/div/div[2]/p[1]/b' }).getText();
+await driver.sleep(long_time)
+const text = await driver.findElement({ xpath:'//*[@id="root"]/div/div/div/div/div[2]/p[1]/b' }).getText();
     console.log(text)
     assert.equal(arg1, text) 
 
 });
 
 When("I see {string} written on the requested page:xpath{string}", async function (arg1, arg2) {
-    await driver.sleep(short_time)
+    await driver.sleep(long_time)
     const text = await driver.findElement({ xpath: arg2 }).getText();
     console.log(text)
     assert.equal(arg1, text) 
@@ -98,6 +98,25 @@ Given("I enter {string} in {string}", async function (arg1, arg2) {
     await driver.sleep(short_time)
     await driver.findElement({ id: arg2 }).sendKeys(arg1);
 });
+
+
+
+Then("if the component {string} is on the page, the login has not yet occurred", async function (arg1) {
+    await driver.sleep(short_time)
+    await driver.findElement({ id: arg1 });
+});
+
+
+
+Given("I create an email {string} and write in {string}", async function (arg1, arg2) {
+    await driver.sleep(short_time);
+    let randomnumber = Math.floor(Math.random() * 1000);
+    let email = arg1 + "@gmail" + randomnumber + ".com";
+    return driver.findElement({ id: arg2 }).sendKeys(email);
+});
+
+
+
 
 
 

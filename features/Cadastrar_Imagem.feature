@@ -8,8 +8,8 @@ Critérios de aceitação: Quando o usuário estiver na página inicial do aplic
   Scenario: Para o usuario pesquisador
     Given Browse to web site "https://csi-covid-265c4.web.app/"
     And I press the "pesquisador-button"
-    And I enter "Teste_Pesquisador@gmail.com" in "email-login-input"
-    And I enter "Teste123" in "undefined-input"
+    And I enter "Teste_Pesquisador1@gmail.com" in "email-login-input"
+    And I enter "Teste123" in "password-login-input"
     And I press the "entrar-button"
     And I see "Imagens" written on the requested page:xpath'//*[@id="root"]/main/header/div/div[2]/div/a'
     And I press the "novo-button"
