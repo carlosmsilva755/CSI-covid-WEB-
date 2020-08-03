@@ -5,19 +5,27 @@
     margin-top: 112px;
 
 }
+.container-responsive{
+    margin-top: 112px;
+}
 .container-navbars{
     width: 864px;
     height: 40px;
     display: flex;
     flex-direction: row;
-
-
 }
-
+.container-navbars-responsive{
+    display: block;
+}
 .search-input{
     width: 276px;
     height: 100%;
     margin-left: 0;
+}
+.search-input-reponsive{
+    width: 276px;
+    height: 100%;
+    /* margin-bottom: 16px; */
 }
 
 .select-filter{
@@ -47,12 +55,39 @@
 
     color: #FFFFFF;
 }
+.button-add-responsive{
+    margin-left: 0px;
+    margin-top: 24px;
+    width: 150px;
+    height: 40px;
+    background-color: #EE4937;
+    border-radius: 4px;
+    border: none;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 19px;
+
+    letter-spacing: 0.4px;
+    outline: none;
+    cursor: pointer;
+
+    color: #FFFFFF;
+}
 
 .container-diagnosis{
     display: flex;
     flex-direction: row;
     margin-top: 70px;
     overflow: auto;
+}
+.container-diagnosis-responsive{
+    display: flex;
+    flex-direction: row;
+    margin-top: 70px;
+    overflow: auto;
+    width: 300px;
 }
 .container-diagnosis::-webkit-scrollbar {
     width: 6px;
@@ -70,4 +105,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+.container-pagination-responsive{
+    margin-left: 80px;
 }

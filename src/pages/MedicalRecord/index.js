@@ -15,6 +15,8 @@ import { AuthUserContext, withAuthorization } from '../../contexts/Session'
 const MedicalRecord = (props) => {
 
     const filterOptions = [{"Filter":"Covid-19"}, {"Filter":"Pneumonia"}, {"Filter":"Normal"}]
+    const width = window.innerWidth
+    
     const history = useHistory()
 
     const [currentPage, setCurrentPage] = useState(1)
@@ -24,10 +26,18 @@ const MedicalRecord = (props) => {
     function handleAdd(authUser){
         history.push('/register')
     }
+
+    // const updateWindowDimensions = () => {
+    //     setDimension({ width: window.innerWidth, height: window.innerHeight });
+    // }
+
     useEffect(()=>{
         localStorage.removeItem('@form')
         localStorage.removeItem('@isResearcher')
         localStorage.removeItem('@result')
+
+        // window.addEventListener('resize', updateWindowDimensions);
+        // return () => window.removeEventListener('resize', updateWindowDimensions);   
     })
 
     function printUser(auth){
@@ -81,16 +91,28 @@ const MedicalRecord = (props) => {
                     
                     <div>
                         <Header/>
-                        <div className= "container">
-                            <div className= "container-navbars">
+                        <div className= {width > 540 ? "container" : "container-responsive"}>
+                            <div className= {width > 540 ? "container-navbars" : "container-navbars-responsive"}>
 
-                                <TextField id="outlined-basic" label="Pesquisar" size = "small" variant="outlined"className="search-input" />
+                                <TextField id="pesquisar-input" 
+                                    label="Pesquisar" 
+                                    size = "small" 
+                                    variant="outlined"
+                                    className="search-input" 
+                                />
                                 
                                 <img src={searchButton} alt="search" onClick={e=>printUser(authUser)}/>
-                                
-                                <div className="filter">
+                                <br/><br/>
+                                <div className= {width > 540 ? "filter": ""}>
 
-                                    <TextField id="outlined-select-currency" size="small" select label="Filtro" className="select-filter" variant="outlined" value=''>
+                                    <TextField id="outlined-select-currency" 
+                                        size="small" 
+                                        select 
+                                        label="Filtro" 
+                                        className="select-filter" 
+                                        variant="outlined" 
+                                        value=''
+                                    >
                                         {filterOptions.map((option) => (
                                             <MenuItem key={option.Filter} value={option.Filter}>
                                             {option.Filter}
@@ -100,11 +122,15 @@ const MedicalRecord = (props) => {
 
                                 </div>
 
-                                <button id='novo-button' type = "button" className="button-add" onClick = {e=>handleAdd(authUser)}>Novo</button>
+                                <button id='novo-button' 
+                                    type = "button" 
+                                    className={width > 540 ? "button-add" :"button-add-responsive"}
+                                    onClick = {e=>handleAdd(authUser)}
+                                >Novo</button>
 
                             </div>
 
-                            <div className="container-diagnosis">
+                            <div className={width > 540 ? "container-diagnosis":"container-diagnosis-responsive"}>
                                 {
                                     diagnoses ?
                                         diagnoses.map( item =>
@@ -117,7 +143,7 @@ const MedicalRecord = (props) => {
                                 }
                             </div> <br/>
                             
-                            <div className='container-pagination'>
+                            <div className={width > 540 ?'container-pagination':'container-pagination-responsive'}>
                                 <Pagination 
                                     count={pages}
                                     page={currentPage}

@@ -18,8 +18,8 @@ export default ()=> {
                 
                 <div className='inputs'>
 
-                    <p className='verify-text verify-text-title'>Verifique seu email!</p>
-                    <p className='verify-text'>
+                    <p id='verifique-text'className='verify-text verify-text-title'>Verifique seu email!</p>
+                    <p id='enviado-text'className='verify-text'>
                         Foi enviado um email para você com
                         um link para redefinir sua senha!
                     </p>

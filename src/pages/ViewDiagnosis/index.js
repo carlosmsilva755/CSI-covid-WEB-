@@ -112,7 +112,6 @@ const ViewDiagnosis = (props) => {
             formData.append('sat_ox',data.sat_ox)
 
         formData.append('file', imageResearcher)
-        formData.append('for_research', true)
         formData.append('result', resul) 
         formData.append('id_doctor', 0)
         

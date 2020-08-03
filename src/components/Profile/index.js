@@ -61,7 +61,7 @@ export default ({CRM, name, email, specialty}) => {
             <div className='profile-buttons'>
 
                 <button id='redefinir-button' className='button-back'>Redefinir senha</button>
-                <button id='redefinir-button' className='button-back'>Excluir conta</button>
+                <button id='excluir-button' className='button-back'>Excluir conta</button>
             </div>
 
         </div>
