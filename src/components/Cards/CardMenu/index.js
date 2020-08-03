@@ -10,14 +10,10 @@ import { useHistory } from 'react-router-dom'
 export default ({diagnosis}) => {
     const { setImageV } = useContext(ImageContext)
     const history = useHistory()
-    // function handleCardChange(){
-    //     console.log("tests");
-    // }
     
-
     function handleView(){
-        console.log('deu');
-
+        // console.log('deu');
+        // console.log(diagnosis)
         const data = {
             "state":diagnosis.state,
             "city":diagnosis.city,
@@ -30,7 +26,7 @@ export default ({diagnosis}) => {
             "result":diagnosis.result
         }
         localStorage.setItem('@form',JSON.stringify(data))
-
+        localStorage.setItem('@imgSize', diagnosis.image.size)
         setImageV(diagnosis.image.url)
         history.push('/view-diagnosis')
     }

@@ -8,9 +8,8 @@ import loginImage from '../../../assets/Images/loginImage.svg'
 import PasswordField from '../../../components/Inputs/Password/index'
 import { withFirebase } from '../../../contexts/Firebase'
 import api from '../../../services/api'
-import './styles.css'
 
-const SignUpPage = () => (
+const SignUpPageRes = () => (
     <div>
       <SignUpForm />
     </div>
@@ -20,7 +19,7 @@ function SignUpFormBase (props){
 
     const[name, setName] = useState('')
     const[email, setEmail] = useState('')
-    const[CRM, setCRM] = useState('')
+    const[institution, setInstitution] = useState('')
     const[specialty,setSpecialty] = useState('')
     const[password,setPassword] = useState('')
     const[confirmPassword, setConfirmPassword] = useState('')
@@ -34,21 +33,22 @@ function SignUpFormBase (props){
 
     const history = useHistory()
 
-    async function createDoctor(){
+    async function createResearcher(){
 
         const data = {
             password,
             name,
             email,
-            CRM,
+            institution,
             specialty
         }
 
         setClicked(!clicked)
 
-        await api.post('/doctor', data)
+        await api.post('/researcher', data)
         .then(response => {
             console.log(response)
+
             props.firebase
             .doSignInWithEmailAndPassword(email, password)
             .then(authUser => {
@@ -57,18 +57,17 @@ function SignUpFormBase (props){
                 setError(null);
                 props.firebase.auth.currentUser.getIdToken(false)
                 .then((token) => {
-                    localStorage.setItem('@docusr_tkn',token)
+                    localStorage.setItem('@resUsrTkn',token)
                 })
                 .catch(errorMessage => 
                     console.log("Auth token retrieval error: " + errorMessage)
                 )
-                props.history.push('/medicalRecord');
+                props.history.push('/researcherImages');
             })
             .catch(error => {
-                setError(true);
+                setError(error);
                 console.log(error);
             });
-
         }).catch(error => {
             handleErrors(error.response.data.message)
             setError(true)
@@ -86,11 +85,11 @@ function SignUpFormBase (props){
             setErrorPasMsg('A senha deve conter mais de 6 dígitos')
         }
         else{
-            createDoctor();
+            createResearcher();
         }
         
         event.preventDefault();
-        
+
     }
 
     function handleCancel(){
@@ -110,7 +109,7 @@ function SignUpFormBase (props){
         password === '' ||
         email === '' ||
         name === '' ||
-        CRM === '' ||
+        institution === '' ||
         specialty === '';
 
     return(
@@ -128,26 +127,26 @@ function SignUpFormBase (props){
                     onChange={event => setName(event.target.value)} 
                     /> <br/> <br/>
                 
-                <TextField id="email-input"
+                <TextField id="email-input" 
                     error={error} 
-                    label={error ? errorMsg:"Email"} 
+                    label={error ? errorMsg:"Email"}  
                     size = "small" 
                     variant="outlined"
                     className="input-fields-register"
                     value ={email} 
-                    onChange={event => {
+                    onChange={event =>{
                         setEmail(event.target.value)
                         setError(false)
                     }} 
                     /> <br/> <br/>
 
-                <TextField id="crm-input" 
-                    label="CRM" 
+                <TextField id="institution-input" 
+                    label="Instituição" 
                     size = "small" 
                     variant="outlined"
                     className="input-fields-register"
-                    value ={CRM} 
-                    onChange={event => setCRM(event.target.value)} 
+                    value ={institution} 
+                    onChange={event => setInstitution(event.target.value)} 
                     /> <br/> <br/>
 
                 <TextField id="specialty-input" 
@@ -208,6 +207,6 @@ const SignUpForm = compose(
     withRouter,
     withFirebase)(SignUpFormBase);
 
-export default SignUpPage
+export default SignUpPageRes
 
 export { SignUpForm }

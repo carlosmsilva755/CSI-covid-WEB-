@@ -2,7 +2,6 @@ import React, { useEffect, useContext } from "react"
 import {useState} from 'react'
 import {useHistory} from 'react-router-dom'
 import { useForm } from 'react-hook-form'
-import * as tf from '@tensorflow/tfjs';
 
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
@@ -14,19 +13,21 @@ import Header from '../../components/Header/Default/index'
 import upload from "../../assets/Images/upload.svg"
 import api from '../../services/api'
 import ImageContext from '../../contexts/Image/index'
+import { AuthUserContext, withAuthorization } from '../../contexts/Session'
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
-export default () => {
+const UploadImage = (props) => {
 
     const [form, setForm] = useState('')
     const [image, setImage] = useState('')
     const [imageView, setImageView] = useState('')
     const [loading, setLoading] = useState(false)
     const [openAlert, setOpenAlert] = useState(false)
+    const [token, setToken] = useState('')
 
-    const { setImageV } = useContext(ImageContext)
+    const { setImageV, setImageResearcher } = useContext(ImageContext)
 
     const history = useHistory()
 
@@ -35,7 +36,11 @@ export default () => {
     useEffect(() =>{
         const data_ = localStorage.getItem('@form')
         setForm(JSON.parse(data_))
-    },[])
+
+        props.firebase.auth.currentUser.getIdToken(false)
+        .then((token) => setToken(token))
+        .catch(errorMessage => console.log("Auth token retrieval error: " + errorMessage));
+    },[props.firebase.auth.currentUser])
 
     useEffect(() => {
     
@@ -44,44 +49,21 @@ export default () => {
     },[imageView, setImageV])
 
 
-    const onSubmit = async (data) => {
-
+    const onSubmit = async () => {
+        //console.log(token);
         if(image)
             setLoading((prevLoading) => !prevLoading);
         else{
             setOpenAlert(true)
             return
         }
+        const formImage = new FormData() 
+        formImage.append('file', image)
 
-        /*INICIO IMPLEMENTAÇÃO DA IA*/
-        console.log( "Loading model..." )
-        
-        const Modelpath = 'https://raw.githubusercontent.com/lrssv/TensorflowjsCOVID19/master/model/model.json'
-
-        let model = await tf.loadGraphModel(Modelpath);
-
-        const imagem = document.getElementById("selected-image")
-        
-        let tensor = tf.browser.fromPixels(imagem,3)
-		.resizeNearestNeighbor([300, 300]) 
-		.expandDims()
-        .toFloat()
-
-        let predictions = model.predict(tensor.div(255));
-
-        const { indices } = tf.topk(predictions, 3);
-        const classIndexes = indices.arraySync();
-
-        const diagnostico = classIndexes[0][0];
-        console.log( "Ending model..." )
-        /*FIM IMPLEMENTAÇÃO DA IA*/
-
-        localStorage.setItem('@result', diagnostico)
         const formData = new FormData();
 
         formData.append('file', image);
         formData.append('id_doctor', 0);
-        formData.append('result', diagnostico);
 
         if(form.state)
             formData.append('state',form.state)
@@ -98,8 +80,29 @@ export default () => {
         if(form.sat_ox)
             formData.append('sat_ox',form.sat_ox)
         
-        const res = await api.post('/diagnoses', formData);
-        console.log(res)
+        const config = {
+            headers: { authorization: `Bearer ${token}` }
+        };
+        
+        await api.post('/covidAI',
+            formImage, 
+            config
+        ).then(response=>{
+            console.log(response)
+            localStorage.setItem('@result', response.data.result)
+            formData.append('result', response.data.result)
+        }).catch(error=>{
+            console.log(error)
+            //history.push('/')
+        })
+        //mudar dps
+        const num = Math.random() * (19999 - 1001) + 1001
+
+        localStorage.getItem('@isResearcher') ? formData.append('for_research', true) : console.log('')
+        localStorage.setItem('@imgSize', parseInt(num))
+        
+        localStorage.setItem('@imgUrl', image)
+
         history.push('/view-diagnosis');
     }
 
@@ -123,6 +126,7 @@ export default () => {
 
     async function handleImageChange(event){
         setImage(event.target.files[0])
+        setImageResearcher(event.target.files[0])
 
         const file = event.target.files[0];
         const data = await toBase64(file);
@@ -130,32 +134,43 @@ export default () => {
     }
 
     return(
-        <div >
-            <Header/>
-            <div className="container-upload">
-                <p className="container-title">Upload de imagem</p>
-                <div class='input-wrapper'>
-                    <label for='input-file'>
-                        {imageView ?
-                            <img src={imageView} alt="raiox" className="image-upload" id="selected-image" width="300"/> :
-                            <img src={upload} alt="upload" className="image-upload"/> 
-                        }
-                    </label>
-                    <input id='input-file' name='file' type='file' accept=".dcm, .png, .jpg, .jpeg" onChange = {handleImageChange} />
-                    <span id='file-name'></span>
-                </div>
+        <AuthUserContext.Consumer> 
+            {authUser =>
+                authUser ? 
+                    <div >
+                        <Header/>
+                        <div className="container-upload">
+                            <p className="container-title">Upload de imagem</p>
+                            <div class='input-wrapper'>
+                                <label for='input-file'>
+                                    {imageView ?
+                                        <img src={imageView} alt="raiox" className="image-upload" id="selected-image" width="300"/> :
+                                        <img src={upload} alt="upload" className="image-upload"/> 
+                                    }
+                                </label>
+                                <input id='input-file' name='file' type='file' accept=".dcm, .png, .jpg, .jpeg" onChange = {handleImageChange} />
+                                <span id='file-name'></span>
+                            </div>
 
-                <Fade in={loading && image} unmountOnExit>
-                    <LinearProgress/>
-                </Fade>  
+                            <Fade in={loading && image} unmountOnExit>
+                                <LinearProgress/>
+                            </Fade>  
 
-                <button id='solicitar-button'type = "button" className="button" onClick={handleSubmit(onSubmit)}> Solicitar avaliação </button>
-                <button id='voltar-button'type = "button" className="button-back" onClick = {handleSubmit(onCancel)}> Voltar</button>
+                            <button id='solicitar-button'type = "button" className="button" onClick={handleSubmit(onSubmit)}> Solicitar avaliação </button>
+                            <button id='voltar-button'type = "button" className="button-back" onClick = {handleSubmit(onCancel)}> Voltar</button>
 
-                <Snackbar open={openAlert} autoHideDuration={6000} onClose={handleClose}>
-                    <Alert severity="error" onClose={handleClose}>Você deve adicionar uma imagem!</Alert>
-                </Snackbar>
-            </div>
-        </div>
+                            <Snackbar open={openAlert} autoHideDuration={6000} onClose={handleClose}>
+                                <Alert severity="error" onClose={handleClose}>Você deve adicionar uma imagem!</Alert>
+                            </Snackbar>
+                        </div>
+                    </div>
+                : 
+                    null
+        }
+        </AuthUserContext.Consumer>
     )
 }
+
+const condition = authUser => !!authUser;
+
+export default withAuthorization(condition)(UploadImage);

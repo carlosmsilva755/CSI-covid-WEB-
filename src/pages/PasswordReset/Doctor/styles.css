@@ -1,0 +1,65 @@
+.container-reset{
+    width: 352px;
+    border: 1px solid #313B44;
+    box-sizing: border-box;
+    border-radius: 8px;
+    margin: 0 auto;
+    margin-top: 80px;
+    background-color: #ffffff;
+
+}
+.login-image{
+    width: 316px;
+    height: 104px;
+    margin-top: 32px;
+    margin-left: 18px;
+}
+.inputs{
+    margin: 18px;
+    background-color: #ffffff;
+}
+.input-fields{
+    width: 316px;
+    height: 40px;
+    margin-left: 18px;
+}
+
+.text-link{
+    color: #EE4937;
+}
+.text-link:hover{
+    color: #FF7D62;
+}
+.text-login{
+    margin-top: 0px;
+}
+
+.text-fgtPassword{
+
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    letter-spacing: 0.4px;
+    color: #B4000D;
+
+    margin-left: 184px;
+    margin-bottom: -10px;
+}
+
+.btn-marg{
+    display: flex;
+    margin: 0 auto;
+    margin-top: 24px;
+}
+.verify-text{
+    text-align: center;
+}
+.verify-text-title{
+    font-weight: 900;
+    color: #B4000D;
+}

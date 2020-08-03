@@ -1,0 +1,25 @@
+.container-profile-page{
+    display: block;
+    align-items: center;
+    text-align: center;
+    margin-top: 100px;  
+}
+
+.profile-title{
+
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 27px;
+    /* display: flex; */
+    margin-bottom: 48px;
+    letter-spacing: 0.4px;
+    /* text-align: left; */
+    margin-left: -260px;
+    color: #EE4937; 
+}
+.profile-buttons{
+    display: flex;
+    flex-direction: column;
+}
