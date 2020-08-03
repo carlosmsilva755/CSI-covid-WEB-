@@ -21,10 +21,10 @@ export default ({id, date, age, sex, info, image, diagnosis}) => {
                             <p className='card-diagnosis red-diag'> <b>COVID-19</b></p>
                 }
 
-                {age ? <p className='card-text'>Idade: {age} anos</p> : <p className='card-text'>Idade: Não informada</p>}
-                {sex ? <p className='card-text'>Sexo: {sex}</p> : <p className='card-text'>Sexo: Não informado</p>}
-                {info ? <p className='card-text'>Informações clínicas: </p> : <p className='card-text'>Informações clínicas: Não informado</p>}
-                {info ? <p className='card-text card-information'>{info}</p> : null}
+                {age ? <p id='idade-text' className='card-text'>Idade: {age} anos</p> : <p id='idade-text' className='card-text'>Idade: Não informada</p>}
+                {sex ? <p id='sexo-text' className='card-text'>Sexo: {sex}</p> : <p id='sexo-text' className='card-text'>Sexo: Não informado</p>}
+                {info ? <p id='info-text' className='card-text'>Informações clínicas: </p> : <p id='info-text' className='card-text'>Informações clínicas: Não informado</p>}
+                {info ? <p id='info-text' className='card-text card-information'>{info}</p> : null}
             </div>
 
         </div>

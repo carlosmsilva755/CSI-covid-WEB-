@@ -30,12 +30,12 @@ const ResearcherImages = () => {
         auth.getIdTokenResult()
         .then((idTokenResult) => {
            // Confirm the user is an Admin.
-           if (!!idTokenResult.claims.admin) {
+           if (!!idTokenResult.claims.researcher) {
              // Show admin UI.
-             console.log('ADMIN'); console.log(idTokenResult);
+             console.log('RES'); console.log(idTokenResult);
            } else {
              // Show regular user UI.
-             console.log(idTokenResult);
+             //console.log(idTokenResult);
            }
         })
         .catch((error) => {
@@ -46,12 +46,21 @@ const ResearcherImages = () => {
     useEffect(()=>{
         
         (async () => {
-            const { data } = await api.get(`/researcher/diagnoses?page=${currentPage}`)
-            setDiagnoses(data.diagnoses.docs)
-      
-            setCurrentPage(Number(data.diagnoses.page))
-            setPages(data.diagnoses.pages)
-            //console.log(data.diagnoses.docs)
+            await api.get(`/researcher/diagnoses?page=${currentPage}`,
+                {
+                    headers: {
+                        authorization: `Bearer ${localStorage.getItem('@resUsrTkn')}`
+                    }
+                }
+            ).then((response)=>{
+                setDiagnoses(response.data.diagnoses.docs)
+                setCurrentPage(Number(response.data.diagnoses.page))
+                setPages(response.data.diagnoses.pages)
+
+                console.log(response.data.diagnoses.docs)
+            }).catch(error=>{
+                //setReload(reload+1)
+            })
         })()
 
     },[currentPage])

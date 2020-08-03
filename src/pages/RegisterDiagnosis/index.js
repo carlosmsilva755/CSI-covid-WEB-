@@ -59,7 +59,9 @@ const RegisterDiagnosis = () => {
     }
 
     function handleCancel(){
-        history.push('/medicalRecord')
+        localStorage.getItem('@isResearcher') ?
+            history.push('/researcherImages') : history.push('/medicalRecord')
+
         localStorage.removeItem('@form')
         localStorage.removeItem('@image')
     }

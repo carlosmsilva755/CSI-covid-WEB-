@@ -1,25 +1,19 @@
 import React, { useState } from 'react'
 import TextField from '@material-ui/core/TextField'
-import Snackbar from '@material-ui/core/Snackbar'
-import MuiAlert from '@material-ui/lab/Alert'
+import CircularProgress from '@material-ui/core/CircularProgress'
 import { withRouter, useHistory } from 'react-router-dom'
 import { compose } from 'recompose'
 
 import loginImage from '../../../assets/Images/loginImage.svg'
 import PasswordField from '../../../components/Inputs/Password/index'
 import { withFirebase } from '../../../contexts/Firebase'
-
-//import './styles.css'
+import api from '../../../services/api'
 
 const SignUpPageRes = () => (
     <div>
       <SignUpForm />
     </div>
 )
-
-function Alert(props) {
-    return <MuiAlert elevation={6} variant="filled" {...props} />;
-}
 
 function SignUpFormBase (props){
 
@@ -29,49 +23,94 @@ function SignUpFormBase (props){
     const[specialty,setSpecialty] = useState('')
     const[password,setPassword] = useState('')
     const[confirmPassword, setConfirmPassword] = useState('')
-    const[error, setError] = useState('')
+
+    const[error, setError] = useState(false)
+    const[errorMsg, setErrorMsg] = useState('')
+    const[errorPassword, setErrorPas]= useState(false)
+    const[errorPasMsg, setErrorPasMsg] = useState('')
+
+    const[clicked, setClicked] = useState(false)
 
     const history = useHistory()
 
-    const [openAlert, setOpenAlert] = useState(false)
+    async function createResearcher(){
 
-    const handleClose = (event, reason) => {
-        if (reason === 'clickaway') {
-          return;
+        const data = {
+            password,
+            name,
+            email,
+            institution,
+            specialty
         }
-    
-        setOpenAlert(false);
-    }
 
-    const onSubmit = event => {
+        setClicked(!clicked)
 
-        props.firebase
-            .doCreateUserWithEmailAndPassword(email, password)
+        await api.post('/researcher', data)
+        .then(response => {
+            console.log(response)
+
+            props.firebase
+            .doSignInWithEmailAndPassword(email, password)
             .then(authUser => {
-                setName('');
-                setEmail('');
-                setPassword('');
+                setEmail('')
+                setPassword('')
                 setError(null);
+                props.firebase.auth.currentUser.getIdToken(false)
+                .then((token) => {
+                    localStorage.setItem('@resUsrTkn',token)
+                })
+                .catch(errorMessage => 
+                    console.log("Auth token retrieval error: " + errorMessage)
+                )
                 props.history.push('/researcherImages');
-                console.log(authUser);
             })
             .catch(error => {
                 setError(error);
                 console.log(error);
-                setOpenAlert(true)
             });
-  
-      event.preventDefault();
+        }).catch(error => {
+            handleErrors(error.response.data.message)
+            setError(true)
+            setClicked(false)
+        })
     }
+
+    const onSubmit = event => {
+        
+        if(confirmPassword !== password){
+            setErrorPas(true)
+            setErrorPasMsg('As senhas devem ser iguais')
+        }else if(confirmPassword.length < 6){
+            setErrorPas(true)
+            setErrorPasMsg('A senha deve conter mais de 6 dígitos')
+        }
+        else{
+            createResearcher();
+        }
+        
+        event.preventDefault();
+
+    }
+
     function handleCancel(){
         history.push('/')
     }
 
+    function handleErrors(error){
+        console.log(error);
+
+        if(error.error === 'invalid or malformed input: email'){
+            setErrorMsg('Email inválido')
+        }
+    }
+
     const isInvalid =
-        password !== confirmPassword ||
+        confirmPassword === '' ||
         password === '' ||
         email === '' ||
-        name === '';
+        name === '' ||
+        institution === '' ||
+        specialty === '';
 
     return(
         <form onSubmit={onSubmit}>
@@ -89,12 +128,16 @@ function SignUpFormBase (props){
                     /> <br/> <br/>
                 
                 <TextField id="email-input" 
-                    label="Email" 
+                    error={error} 
+                    label={error ? errorMsg:"Email"}  
                     size = "small" 
                     variant="outlined"
                     className="input-fields-register"
                     value ={email} 
-                    onChange={event => setEmail(event.target.value)} 
+                    onChange={event =>{
+                        setEmail(event.target.value)
+                        setError(false)
+                    }} 
                     /> <br/> <br/>
 
                 <TextField id="institution-input" 
@@ -116,6 +159,9 @@ function SignUpFormBase (props){
                     /> <br/> <br/>
 
                 <PasswordField id='password'
+                    error ={errorPassword}
+                    errorMessage={errorPasMsg}
+                    setError={setErrorPas}
                     password={password} 
                     setPassword={setPassword} 
                     classname='input-fields-register' 
@@ -123,6 +169,9 @@ function SignUpFormBase (props){
                     /> <br/>
 
                 <PasswordField id='password2'
+                    error ={errorPassword}
+                    errorMessage={errorPasMsg}
+                    setError={setErrorPas}
                     password={confirmPassword} 
                     setPassword={setConfirmPassword} 
                     classname='input-fields-register' 
@@ -137,15 +186,17 @@ function SignUpFormBase (props){
                         className='button button-resize' 
                         disabled={isInvalid}
                         id='cadastrar-button'
-                    >Cadastrar</button>
+                    >
+                        {clicked && !error &&!errorPassword ? 
+                            <CircularProgress color='secondary' size={20} /> 
+                            : 'Cadastrar'
+                        }
+                    </button>
 
                 </div>
 
                 <br/><br/>
 
-                <Snackbar open={openAlert} autoHideDuration={6000} onClose={handleClose}>
-                    <Alert severity="error" onClose={handleClose}>{error ? error.message :'ops'}</Alert>
-                </Snackbar>
             </div>
 
         </form>

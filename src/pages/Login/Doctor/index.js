@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import TextField from '@material-ui/core/TextField'
 import { withRouter, useHistory } from 'react-router-dom'
 import { compose } from 'recompose'
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 import loginImage from '../../../assets/Images/loginImage.svg'
 import PasswordField from '../../../components/Inputs/Password/index'
@@ -18,22 +19,51 @@ function SignInFormBase(props){
 
     const[email, setEmail] = useState('')
     const[password, setPassword] = useState('')
-    const[error, setError] = useState(null);
+    const[error, setError] = useState(false);
+    const[errorMsg, setErrorMsg] = useState('')
+    const[errorPassword, setErrorPas] = useState('')
+    const[errorPasMsg, setErrorPasMsg] = useState('')
+    const[clicked, setClicked] = useState(false)
 
     const _history = useHistory()
 
-    const onSubmit = event => {
+    function signOutResearcher(){
+        props.firebase.doSignOut()
+        alert('Realize login como pesquisador')
+    }
 
+    const onSubmit = async event => {
+        setClicked(!clicked)
         props.firebase
         .doSignInWithEmailAndPassword(email, password)
-        .then(() => {
+        .then( (authUser) => {
             setEmail('');
             setPassword('');
-            setError(null);
+            
+            props.firebase.auth.currentUser.getIdTokenResult()
+            .then((idTokenResult) => {
+                if (!!idTokenResult.claims.researcher) {
+                    console.log('IS RES');
+                    signOutResearcher()
+               }else{console.log('DOC');}
+            })
+            .catch((error) => {
+              console.log(error);
+            })
+
+            props.firebase.auth.currentUser.getIdToken(false)
+            .then((token) => {
+                localStorage.setItem('@docusr_tkn',token)
+            })
+            .catch(errorMessage => 
+                console.log("Auth token retrieval error: " + errorMessage)
+            )
             props.history.push('/medicalRecord');
+
         })
         .catch(error => {
-            setError(error);
+            setErrorMessage(error)
+            setClicked(false)
         })
     
         event.preventDefault();
@@ -41,6 +71,38 @@ function SignInFormBase(props){
 
     function handleBack(){
         _history.push('/')
+    }
+
+    function setErrorMessage(error){
+        console.log(error);
+        if(email===''){
+            setErrorMsg('Você deve inserir um usuário')
+            setError(true);
+            return
+        }
+        if(password === ''){
+            setErrorPasMsg('Você deve inserir uma senha')
+            setErrorPas(true)
+            return
+        }
+        else{
+            if(error.code === 'auth/invalid-email'){
+                setErrorMsg('Email inválido')
+                setError(true);
+                return
+            }
+            if(error.code === 'auth/user-not-found'){
+                setErrorMsg('Usuário não encontrado')
+                setError(true);
+                return
+            }
+            if(error.code === "auth/wrong-password"){
+                setErrorPasMsg('Senha Inválida')
+                setErrorPas(true)
+                return
+            }
+        }
+
     }
 
     return(
@@ -54,20 +116,36 @@ function SignInFormBase(props){
 
                     <TextField error={error}
                         id="email-login-input" 
-                        label="Usuário" 
+                        label={error ? errorMsg :"Usuário"} 
                         size = "small" 
                         variant="outlined"
                         className="input-fields"
                         value ={email} 
-                        onChange={event => setEmail(event.target.value)} 
-                        /> 
+                        onChange={event => {
+                            setEmail(event.target.value);
+                            setError(false)
+                        }} 
+                    /> 
                     <br/><br/>
 
-                    <PasswordField password={password} setPassword={setPassword} classname='input-fields' label='Senha'/> <br/>
+                    <PasswordField id='password-login'
+                        error ={errorPassword}
+                        setError={setErrorPas}
+                        errorMessage={errorPasMsg}
+                        password={password} 
+                        setPassword={setPassword} 
+                        classname='input-fields' 
+                        label='Senha'
+                    /> <br/>
+                    
+                    <a id='esqueceu-senha-button' className='text-fgtPassword' href="/reset-doc">Esqueceu sua senha?</a>
 
-                    <a className='text-fgtPassword' href="/">Esqueceu sua senha?</a>
-
-                    <button id='entrar-button'className='button' type='submit'>Entrar</button>
+                    <button id='entrar-button'className='button' type='submit'>
+                        {clicked && !error ? 
+                            <CircularProgress color='secondary' size={20} /> 
+                            : 'Entrar'
+                        }
+                    </button>
                     <button id='voltar-button'className='button-back btn-marg' onClick={handleBack}>Voltar</button>
 
                 </div>

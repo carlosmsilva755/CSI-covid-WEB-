@@ -50,11 +50,15 @@
     /* background-image: url(../../../assets/Icons/t.svg); */
 }
 path:hover{
-    fill: #EE4937;
+    /* fill: #EE4937; */
     margin-right: 30px;
 }
 .icon-text:hover{
-    color: #EE4937;
+    /* color: #EE4937; */
+}
+svg:hover{
+    /* width: 54px; */
+    /* height: 54px; */
 }
 
 
