@@ -68,7 +68,7 @@ const Header = ({ firebase }) => {
                         <div className= "container-header">
 
                             <div className="container-header-prontuario">                   
-                                <a href = '/researcherImages' className = "header-buttons">Imagens</a>                    
+                                <a id='imagens-button' href = '/researcherImages' className = "header-buttons">Imagens</a>                    
                             </div>
 
                         </div>                

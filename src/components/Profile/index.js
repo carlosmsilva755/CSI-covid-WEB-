@@ -15,8 +15,8 @@ export default ({CRM, name, email, specialty}) => {
 
                 <TextField disabled 
                     id="name-profile"
-                    defaultValue={name}
-                    label="Nome" 
+                    label={name} 
+                    //defaultValue={name}
                     size = "small" 
                     variant="outlined"
                     className="input-fields-register"
@@ -24,8 +24,8 @@ export default ({CRM, name, email, specialty}) => {
 
                 <TextField disabled 
                     id="email-profile"
-                    defaultValue={email}
-                    label="Email" 
+                    //defaultValue={email}
+                    label={email} 
                     size = "small" 
                     variant="outlined"
                     className="input-fields-register"
@@ -36,8 +36,8 @@ export default ({CRM, name, email, specialty}) => {
                         <div>
                             <TextField disabled 
                                 id="crm-profile"
-                                defaultValue={CRM}
-                                label="CRM" 
+                                // defaultValue={CRM}
+                                label={CRM} 
                                 size = "small" 
                                 variant="outlined"
                                 className="input-fields-register"
@@ -50,8 +50,8 @@ export default ({CRM, name, email, specialty}) => {
 
                 <TextField disabled 
                     id="info-profile"
-                    defaultValue={specialty}
-                    label="Especialidade" 
+                    //defaultValue={specialty}
+                    label={specialty}
                     size = "small" 
                     variant="outlined"
                     className="input-fields-register"

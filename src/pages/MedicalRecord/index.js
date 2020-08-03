@@ -47,6 +47,7 @@ const MedicalRecord = (props) => {
            if (!!idTokenResult.claims.doctor) {
              // Show admin UI.
              console.log('DOCTOR'); console.log(idTokenResult);
+             console.log(idTokenResult.token);
            } else {
              // Show regular user UI.
              //console.log(idTokenResult);
