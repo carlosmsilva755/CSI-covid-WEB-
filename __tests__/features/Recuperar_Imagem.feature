@@ -12,5 +12,5 @@ Critérios de aceitação: O sistema deve identificar cada paciente através de 
     And I enter "Teste123" in "password-login-input"
     And I press the "entrar-button"
     And I see "Imagens" written on the requested page:xpath'//*[@id="root"]/div/header/div/div[2]/div/a'
-    And I click  in the first  diagnostic image ".content-card:nth-child(4) > #container-card-menu .card-image"
+    And I click  in the first  diagnostic image "#container-card-menu > div.container-card-img > img"
     Then I press the "pagina-inicial-button"
