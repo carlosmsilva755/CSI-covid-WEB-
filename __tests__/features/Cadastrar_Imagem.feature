@@ -11,7 +11,7 @@ Critérios de aceitação: Quando o usuário estiver na página inicial do aplic
     And I enter "Teste_Pesquisador1@gmail.com" in "email-login-input"
     And I enter "Teste123" in "password-login-input"
     And I press the "entrar-button"
-    And I see "Imagens" written on the requested page:xpath'//*[@id="root"]/main/header/div/div[2]/div/a'
+    And I see "Imagens" written on the requested page:xpath'//*[@id="root"]/div/header/div/div[2]/div/a'
     And I press the "novo-button"
     And I press the "estado-select"
     And I press the option ".MuiButtonBase-root:nth-child(11)"

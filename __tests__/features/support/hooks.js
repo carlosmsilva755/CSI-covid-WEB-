@@ -1,8 +1,16 @@
-const { After, Before, AfterAll, setDefaultTimeout } = require('cucumber');
+const { After, Before, BeforeAll, AfterAll, setDefaultTimeout } = require('cucumber');
 const { driver } = require('./web_driver');
+
+const api = require('axios');
 
 //set default step timeout
 setDefaultTimeout(60 * 1000);
+
+BeforeAll(async function () {
+    await api.get('https://csi-covid-staging.herokuapp.com/').catch(() => {
+        console.log('waking up the API');
+    });
+});
 
 Before(function () {
     //Before Scenario Hook
@@ -20,6 +28,6 @@ After(async function () {
 
 AfterAll(function () {
     //perform some shared teardown
-    //return driver.quit();
+    return driver.quit();
 })
 

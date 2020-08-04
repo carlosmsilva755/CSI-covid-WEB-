@@ -11,5 +11,5 @@ Gostaria de buscar através de um código único, o diagnóstico realizado e vis
     And I enter "Teste123" in "password-login-input"
     And I press the "entrar-button"
     And I see "Diagnósticos" written on the requested page:xpath'//*[@id="root"]/div/header/div/div[2]/div/a'
-    And I click  in the first  diagnostic image ".content-card:nth-child(1) > #container-card-menu .card-image"
+    And I click  in the first  diagnostic image "#container-card-menu > div.container-card-img > img"
     Then I press the "pagina-inicial-button"

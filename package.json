@@ -12,6 +12,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
+    "dotenv": "^8.2.0",
     "firebase": "^7.17.0",
     "firebase-admin": "^9.0.0",
     "firebase-tools": "^8.6.0",
@@ -27,7 +28,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "./node_modules/.bin/cucumber-js",
+    "test:all": "./node_modules/.bin/cucumber-js __tests__/features/*.feature",
+    "test:reports": "./node_modules/.bin/cucumber-js __tests__/features/*.feature --format json:__tests__/reports.json",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -46,6 +49,11 @@
     ]
   },
   "devDependencies": {
-    "eslint": "6.6.0"
+    "@types/selenium-webdriver": "^4.0.9",
+    "chromedriver": "^84.0.1",
+    "cucumber": "^6.0.5",
+    "eslint": "6.6.0",
+    "geckodriver": "^1.20.0",
+    "selenium-webdriver": "^4.0.0-alpha.7"
   }
 }
