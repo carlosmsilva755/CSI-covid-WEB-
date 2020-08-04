@@ -37,7 +37,7 @@ testRun:
         # - dpkg -i /chrome.deb || apt-get install -yf
         # - rm /chrome.deb
     script:
-        - yarn test __tests__/features/Logout.feature
+        - yarn test:reports
     dependencies:
         - testBuild
 
