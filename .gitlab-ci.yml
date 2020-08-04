@@ -43,11 +43,10 @@ testRun:
         expire_in: 7 days
     services:
         - selenium/standalone-chrome
-    before_script:
-        # - cd __tests__
-        - curl https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -o /chrome.deb
-        - dpkg -i /chrome.deb || apt-get install -yf
-        - rm /chrome.deb
+    # before_script:
+        # - curl https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -o /chrome.deb
+        # - dpkg -i /chrome.deb || apt-get install -yf
+        # - rm /chrome.deb
     script:
         - yarn test:reports
     dependencies:

@@ -12,7 +12,7 @@ BeforeAll(async function () {
     });
 });
 
-Before(function () {
+Before(async function () {
     //Before Scenario Hook
 })
 
@@ -26,7 +26,7 @@ After(async function () {
     await driver.manage().deleteAllCookies();
 });
 
-AfterAll(function () {
+AfterAll(async function () {
     //perform some shared teardown
     return driver.quit();
 })
