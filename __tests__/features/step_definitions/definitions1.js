@@ -78,7 +78,7 @@ Then("if the component {string} is on the page, the login has not yet occurred",
 Given("I press the OK button on the pop-up", async function () {
     await driver.wait(until.alertIsPresent(), very_long_time);
     await driver.switchTo().alert().accept();
-})
+});
 
 Then("if I'm on the page {string}, the login has not yet occurred", async function (arg1) {
     await driver.wait(until.urlIs(arg1), very_long_time);
