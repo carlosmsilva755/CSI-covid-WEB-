@@ -88,7 +88,7 @@ Given("I create an email {string} and write in {string}", async function (arg1, 
     await driver.sleep(short_time);
     let randomnumber = Math.floor(Math.random() * 1000);
     let email = arg1 + "@gmail" + randomnumber + ".com";
-    return driver.findElement({ id: arg2 }).sendKeys(email);
+    await driver.findElement({ id: arg2 }).sendKeys(email);
 });
 
 
