@@ -2,8 +2,8 @@ image: node:10
 
 stages:
     - testBuild
-    - testDeploy
     - testRun
+    - testDeploy
 
 .only_default: &only_default
     only:
@@ -22,17 +22,6 @@ testBuild:
         - node_modules/ 
       expire_in: 1 hr
 
-testDeploy:
-    <<: *only_default
-    stage: testDeploy
-    before_script:
-      - npm i -g firebase-tools 
-    script:
-      - dir
-      - firebase deploy --token=$FIREBASE_TOKEN 
-    dependencies:
-      - testBuild
-
 testRun:
     <<: *only_default
     stage: testRun
@@ -48,7 +37,17 @@ testRun:
         # - dpkg -i /chrome.deb || apt-get install -yf
         # - rm /chrome.deb
     script:
-        - yarn test:reports
+        - yarn test __tests__/features/Logout.feature
     dependencies:
         - testBuild
 
+testDeploy:
+    <<: *only_default
+    stage: testDeploy
+    before_script:
+      - npm i -g firebase-tools 
+    script:
+      - dir
+      - firebase deploy --token=$FIREBASE_TOKEN 
+    dependencies:
+      - testBuild
