@@ -57,24 +57,25 @@ const ResearcherImages = (props) => {
     }
 
     useEffect(()=>{
-        
-        (async () => {
-            await api.get(`/researcher/diagnoses?page=${currentPage}`,
-                {
-                    headers: {
-                        authorization: `Bearer ${localStorage.getItem('@resUsrTkn')}`
+        setTimeout( ()=>
+            (async () => {
+                await api.get(`/researcher/diagnoses?page=${currentPage}`,
+                    {
+                        headers: {
+                            authorization: `Bearer ${localStorage.getItem('@resUsrTkn')}`
+                        }
                     }
-                }
-            ).then((response)=>{
-                setDiagnoses(response.data.diagnoses.docs)
-                setCurrentPage(Number(response.data.diagnoses.page))
-                setPages(response.data.diagnoses.pages)
+                ).then((response)=>{
+                    setDiagnoses(response.data.diagnoses.docs)
+                    setCurrentPage(Number(response.data.diagnoses.page))
+                    setPages(response.data.diagnoses.pages)
 
-                console.log(response.data.diagnoses.docs)
-            }).catch(error=>{
-                //setReload(reload+1)
-            })
-        })()
+                    console.log(response.data.diagnoses.docs)
+                }).catch(error=>{
+                    //setReload(reload+1)
+                })
+            })()
+        , 2000)
 
     },[currentPage])
 

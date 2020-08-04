@@ -76,25 +76,27 @@ const MedicalRecord = (props) => {
     useEffect(()=>{
         //setToken(localStorage.getItem('@docusr_tkn'))
         //console.log(localStorage.getItem('@docusr_tkn'));
-        (async () => {
-            await api.get(`/doctor/diagnoses?page=${currentPage}`,
-                {
-                    headers: {
-                        authorization: `Bearer ${localStorage.getItem('@docusr_tkn')}`
+        setTimeout( ()=>
+            (async () => {
+                await api.get(`/doctor/diagnoses?page=${currentPage}`,
+                    {
+                        headers: {
+                            authorization: `Bearer ${localStorage.getItem('@docusr_tkn')}`
+                        }
                     }
-                }
-            ).then((response)=>{
-                setDiagnoses(response.data.diagnoses.docs)
-                setCurrentPage(Number(response.data.diagnoses.page))
-                setPages(response.data.diagnoses.pages)
+                ).then((response)=>{
+                    setDiagnoses(response.data.diagnoses.docs)
+                    setCurrentPage(Number(response.data.diagnoses.page))
+                    setPages(response.data.diagnoses.pages)
+                    console.log('object');
+                    //console.log(response.data.diagnoses.docs)
+                }).catch(error=>{
+                    //window.location.reload()
+                    //setReload(reload+1)
+                })
 
-                //console.log(response.data.diagnoses.docs)
-            }).catch(error=>{
-                //window.location.reload()
-                //setReload(reload+1)
-            })
-
-        })()
+            })() 
+        , 2000)
 
     },[currentPage])
 
