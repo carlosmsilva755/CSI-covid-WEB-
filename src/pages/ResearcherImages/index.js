@@ -12,19 +12,32 @@ import searchButton from '../../assets/Icons/searchButton.svg'
 import api from '../../services/api'
 import { AuthUserContext, withAuthorization } from '../../contexts/Session'
 
-const ResearcherImages = () => {
+const ResearcherImages = (props) => {
     const filterOptions = [{"Filter":"Covid-19"}, {"Filter":"Pneumonia"}, {"Filter":"Normal"}]
     const history = useHistory()
 
     const [currentPage, setCurrentPage] = useState(1)
     const [pages, setPages] = useState(null)
     const [diagnoses, setDiagnoses] = useState([])
+    const [isAuth, setIsAuth] = useState(' ')
 
     useEffect(()=>{
         localStorage.removeItem('@form')
         localStorage.removeItem('@result')
         localStorage.setItem('@isResearcher', true)
-    },[])
+
+        props.firebase.auth.currentUser.getIdTokenResult()
+        .then((idTokenResult) => {
+           if (!!idTokenResult.claims.researcher) {
+             setIsAuth(true)
+           } else {
+             setIsAuth(false)
+           }
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+    })
 
     function printUser(auth){
         auth.getIdTokenResult()
@@ -71,7 +84,7 @@ const ResearcherImages = () => {
     return(
         <AuthUserContext.Consumer> 
             {authUser =>
-                authUser ?
+                isAuth ?
                     <div>
                         <Header/>
                         <div className= "container">
@@ -122,7 +135,7 @@ const ResearcherImages = () => {
                         </div>
                     </div>
                     : 
-                    null
+                        history.push('/')
             }
         </AuthUserContext.Consumer>
     )

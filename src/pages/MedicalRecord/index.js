@@ -22,6 +22,7 @@ const MedicalRecord = (props) => {
     const [currentPage, setCurrentPage] = useState(1)
     const [pages, setPages] = useState(null)
     const [diagnoses, setDiagnoses] = useState([])
+    const [isAuth, setIsAuth] = useState(' ')
 
     function handleAdd(authUser){
         history.push('/register')
@@ -37,7 +38,19 @@ const MedicalRecord = (props) => {
         localStorage.removeItem('@result')
 
         // window.addEventListener('resize', updateWindowDimensions);
-        // return () => window.removeEventListener('resize', updateWindowDimensions);   
+        // return () => window.removeEventListener('resize', updateWindowDimensions);
+        props.firebase.auth.currentUser.getIdTokenResult()
+        .then((idTokenResult) => {
+           // Confirm the user is an Admin.
+           if (!!idTokenResult.claims.doctor) {
+             setIsAuth(true)
+           } else {
+             setIsAuth(false)
+           }
+        })
+        .catch((error) => {
+          console.log(error);
+        })
     })
 
     function printUser(auth){
@@ -88,7 +101,7 @@ const MedicalRecord = (props) => {
     return (
         <AuthUserContext.Consumer> 
             {authUser =>
-                authUser ? 
+                isAuth ? 
                     
                     <div>
                         <Header/>
@@ -157,7 +170,7 @@ const MedicalRecord = (props) => {
                     </div>
 
             : 
-                null
+                history.push('/')
         }
         </AuthUserContext.Consumer>
     )
