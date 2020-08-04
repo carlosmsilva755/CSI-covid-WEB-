@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import { useHistory } from "react-router-dom"
 
 import './styles.css'
 import Header from '../../../components/Header/Researcher/index'
@@ -10,6 +11,9 @@ const ResearcherProfile = (props) => {
     const [email,setEmail] = useState('')
     const [name, setName] = useState('')
     const [specialty,setSpecialty] = useState('')
+    const [isAuth, setIsAuth] = useState(' ')
+
+    const history = useHistory()
 
     useEffect(()=>{
         (async () => {
@@ -29,12 +33,24 @@ const ResearcherProfile = (props) => {
             })
 
         })()
+
+        props.firebase.auth.currentUser.getIdTokenResult()
+        .then((idTokenResult) => {
+           if (!!idTokenResult.claims.researcher) {
+             setIsAuth(true)
+           } else {
+             setIsAuth(false)
+           }
+        })
+        .catch((error) => {
+          console.log(error);
+        })
     })
 
     return (
         <AuthUserContext.Consumer> 
             {authUser =>
-                authUser ? 
+                isAuth ? 
                 
                     <div>
                         <Header/>
@@ -45,7 +61,7 @@ const ResearcherProfile = (props) => {
                         />
                     </div>
                 : 
-                    null
+                    history.push('/')
         }
         </AuthUserContext.Consumer>
     )

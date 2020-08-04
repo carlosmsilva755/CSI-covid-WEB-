@@ -12,6 +12,7 @@ const DoctorProfile = (props) => {
     const [name, setName] = useState('')
     const [specialty,setSpecialty] = useState('')
     const [CRM, setCRM] = useState('')
+    const [isAuth, setIsAuth] = useState(' ')
 
     useEffect(()=>{
         (async () => {
@@ -32,12 +33,25 @@ const DoctorProfile = (props) => {
             })
 
         })()
+
+        props.firebase.auth.currentUser.getIdTokenResult()
+        .then((idTokenResult) => {
+           // Confirm the user is an Admin.
+           if (!!idTokenResult.claims.doctor) {
+             setIsAuth(true)
+           } else {
+             setIsAuth(false)
+           }
+        })
+        .catch((error) => {
+          console.log(error);
+        })
     })
 
     return (
         <AuthUserContext.Consumer> 
             {authUser =>
-                authUser ? 
+                isAuth ? 
                 
                     <div>
                         <Header/>
@@ -49,7 +63,7 @@ const DoctorProfile = (props) => {
                         />
                     </div>
                 : 
-                    null
+                    console.log('NOT A DOCTOR')
         }
         </AuthUserContext.Consumer>
     )
