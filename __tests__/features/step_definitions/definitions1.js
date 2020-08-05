@@ -9,7 +9,7 @@ const path = require('path');
 
 const short_time = 1000
 const long_time = 5000
-const very_long_time = 15000
+const very_long_time = 30000
 
 Given(/^Browse to web site "([^"]*)"$/, async function (url) {
     await driver.get(url);
@@ -21,11 +21,11 @@ Given("I press the {string}", async function (arg1) {
 });
 
 Given("I press the {string}  and choose the file", async function (arg1) {
-    const image = path.join(__dirname, '..', '..', 'sumples', 'Raio_X.png');
+    // const image = path.join(__dirname, '..', '..', 'sumples', 'Raio_X.png');
 
     await driver.sleep(short_time)
     await driver.findElement({ id: "input-file" })
-        .sendKeys(image);
+        .sendKeys("https://raw.githubusercontent.com/RayBasilio123/R5/master/Raio_X.png");
     await driver.sleep(short_time)
 });
 
@@ -43,6 +43,7 @@ When("in the {string} field, I type in the information {string}", async function
 
 When("I click  in the first  diagnostic image {string}", async function (arg1) {
     await driver.sleep(long_time)
+    await driver.wait(until.elementLocated(By.css(arg1)));
     await driver.findElement({ css: arg1 }).click();
     
 });
