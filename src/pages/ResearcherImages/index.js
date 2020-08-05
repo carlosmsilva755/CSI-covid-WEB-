@@ -20,6 +20,7 @@ const ResearcherImages = (props) => {
     const [pages, setPages] = useState(null)
     const [diagnoses, setDiagnoses] = useState([])
     const [isAuth, setIsAuth] = useState(' ')
+    const [disable, setDisable] = useState(false)
 
     useEffect(()=>{
         localStorage.removeItem('@form')
@@ -69,13 +70,13 @@ const ResearcherImages = (props) => {
                     setDiagnoses(response.data.diagnoses.docs)
                     setCurrentPage(Number(response.data.diagnoses.page))
                     setPages(response.data.diagnoses.pages)
-
-                    console.log(response.data.diagnoses.docs)
+                    setTimeout(()=>setDisable(false), 1000)
+                    //console.log(response.data.diagnoses.docs)
                 }).catch(error=>{
-                    //setReload(reload+1)
+                    console.log(error)
                 })
             })()
-        , 2000)
+        , 1000)
 
     },[currentPage])
 
@@ -128,8 +129,12 @@ const ResearcherImages = (props) => {
                                 <Pagination 
                                     count={pages}
                                     page={currentPage}
-                                    onChange={(_,value) => setCurrentPage(value)}
+                                    onChange={(_,value) => {
+                                        value===currentPage ? setDisable(false) : setDisable(true)
+                                        setCurrentPage(value)
+                                    }}
                                     color='primary'
+                                    disabled={disable}
                                 />
                             </div>
 

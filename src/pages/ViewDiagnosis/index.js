@@ -114,6 +114,8 @@ const ViewDiagnosis = (props) => {
         formData.append('file', imageResearcher)
         formData.append('result', resul) 
         formData.append('id_doctor', 0)
+
+        localStorage.getItem('@isResearcher') ? formData.append('for_research', true) : console.log('')
         
         const config = {
             headers: { authorization: `Bearer ${token}` }

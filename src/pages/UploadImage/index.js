@@ -63,7 +63,7 @@ const UploadImage = (props) => {
         const formData = new FormData();
 
         formData.append('file', image);
-        formData.append('id_doctor', 0);
+        //formData.append('id_doctor', 0);
 
         if(form.state)
             formData.append('state',form.state)

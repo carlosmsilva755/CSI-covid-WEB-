@@ -23,6 +23,7 @@ const MedicalRecord = (props) => {
     const [pages, setPages] = useState(null)
     const [diagnoses, setDiagnoses] = useState([])
     const [isAuth, setIsAuth] = useState(' ')
+    const [disable, setDisable] = useState(false)
 
     function handleAdd(authUser){
         history.push('/register')
@@ -88,16 +89,13 @@ const MedicalRecord = (props) => {
                     setDiagnoses(response.data.diagnoses.docs)
                     setCurrentPage(Number(response.data.diagnoses.page))
                     setPages(response.data.diagnoses.pages)
-                    console.log('object');
-                    //console.log(response.data.diagnoses.docs)
+                    setTimeout(()=>setDisable(false), 1000)
                 }).catch(error=>{
-                    //window.location.reload()
-                    //setReload(reload+1)
+                    console.log(error)
                 })
 
             })() 
-        , 2000)
-
+        , 1000)
     },[currentPage])
 
     return (
@@ -163,8 +161,12 @@ const MedicalRecord = (props) => {
                                 <Pagination 
                                     count={pages}
                                     page={currentPage}
-                                    onChange={(_,value) => setCurrentPage(value)}
+                                    onChange={(event,value) => {
+                                        value===currentPage ? setDisable(false) : setDisable(true)
+                                        setCurrentPage(value)
+                                    }}
                                     color='primary'
+                                    disabled={disable}
                                 />
                             </div>
 
