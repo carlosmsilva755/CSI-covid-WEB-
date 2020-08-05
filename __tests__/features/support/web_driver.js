@@ -17,7 +17,7 @@ function createDriver() {
     return new webDriver.Builder()
         .forBrowser(browser)
         .setChromeOptions(options)
-        .usingServer('http://127.0.0.1:4444/wd/hub')
+        .usingServer(process.env.SELENIUM_URL)
         .build();
 }
 
