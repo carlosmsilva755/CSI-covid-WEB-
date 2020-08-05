@@ -5,6 +5,7 @@ require('dotenv').config();
 const webDriver = require('selenium-webdriver');
 
 const chrome = require('selenium-webdriver/chrome');
+const capabilities = webDriver.Capabilities.chrome();
 
 //create WebDriver instance based on your browser config;
 function createDriver() {
@@ -13,10 +14,15 @@ function createDriver() {
     if (['chrome', 'firefox', 'ie'].indexOf(browser) < 0) browser = 'chrome'; //default to chrome
     let options;
     if (process.env.HEADLESS_BROWSER === 'true') options = new chrome.Options().headless();
+
+    capabilities.set('chromeOptions', {
+        'args': ['--no-sandbox'],
+    });
     
     return new webDriver.Builder()
         .forBrowser(browser)
         .setChromeOptions(options)
+        .withCapabilities(capabilities)
         .usingServer(process.env.SELENIUM_URL)
         .build();
 }
