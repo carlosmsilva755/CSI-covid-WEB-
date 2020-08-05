@@ -6,7 +6,6 @@ const path = require('path');
 
 //// Your step definitions /////
 
-
 const short_time = 1000
 const long_time = 5000
 const very_long_time = 30000
@@ -21,11 +20,11 @@ Given("I press the {string}", async function (arg1) {
 });
 
 Given("I press the {string}  and choose the file", async function (arg1) {
-    // const image = path.join(__dirname, '..', '..', 'sumples', 'Raio_X.png');
+    const image = path.join(__dirname, '..', '..', 'sumples', 'Raio_X.png');
 
     await driver.sleep(short_time)
     await driver.findElement({ id: "input-file" })
-        .sendKeys("https://raw.githubusercontent.com/RayBasilio123/R5/master/Raio_X.png");
+        .sendKeys(image);
     await driver.sleep(short_time)
 });
 
