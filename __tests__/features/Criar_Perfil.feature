@@ -19,7 +19,7 @@ Feature: Criar_Perfil
     And I enter "Teste123" in "password-input"
     And I enter "Teste123" in "password2-input"
     And I press the "cadastrar-button"
-    And I see "Diagnósticos" written on the requested page:xpath'//*[@id="root"]/div/header/div/div[2]/div/a'
+    And I see "Diagnósticos" written on the requested page.id:"diagnosticos-button"
 
   Scenario: Para o usuario Pesquisador Criar perfil com sucesso
     Given Browse to web site "https://csi-covid-265c4.web.app/"
@@ -31,4 +31,4 @@ Feature: Criar_Perfil
     And I enter "Teste123" in "password-input"
     And I enter "Teste123" in "password2-input"
     And I press the "cadastrar-button"
-    And I see "Imagens" written on the requested page:xpath'//*[@id="root"]/div/header/div/div[2]/div/a'
+    And I see "Imagens" written on the requested page.id:"imagens-button"

@@ -91,7 +91,12 @@ Given("I create an email {string} and write in {string}", async function (arg1, 
     await driver.findElement({ id: arg2 }).sendKeys(email);
 });
 
-
+Given("I see {string} written on the requested page.id:{string}", async function (arg1, arg2) {
+    await driver.wait(until.elementLocated(By.id(arg2)), very_long_time);
+    const text = await driver.findElement({ id: arg2 }).getText();
+    console.log(text)
+    assert.equal(arg1, text)
+});
 
 
 

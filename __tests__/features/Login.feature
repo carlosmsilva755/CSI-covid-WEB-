@@ -12,18 +12,18 @@ Feature: Login
   Scenario: Para o usuario Medico login com sucesso
     Given Browse to web site "https://csi-covid-265c4.web.app/"
     And I press the "medico-button"
-    And I enter "Teste_Medico@gmail.com" in "email-login-input"
+    And I enter "testemedicocovid@gmail.com" in "email-login-input"
     And I enter "Teste123" in "password-login-input"
     And I press the "entrar-button"
-    And I see "Diagnósticos" written on the requested page:xpath'//*[@id="root"]/div/header/div/div[2]/div/a'
+    And I see "Diagnósticos" written on the requested page.id:"diagnosticos-button"
 
   Scenario: Para o usuario Pesquisador login com sucesso
     Given Browse to web site "https://csi-covid-265c4.web.app/"
     And I press the "pesquisador-button"
-    And I enter "Teste_Pesquisador1@gmail.com" in "email-login-input"
+    And I enter "testepesquisadorcovid@gmail.com" in "email-login-input"
     And I enter "Teste123" in "password-login-input"
     And I press the "entrar-button"
-    And I see "Imagens" written on the requested page:xpath'//*[@id="root"]/div/header/div/div[2]/div/a'
+    And I see "Imagens" written on the requested page.id:"imagens-button"
 
   Scenario: DE FALHA - Para o usuario Medico- login sem sucesso - campo senha nao informado
     Given Browse to web site "https://csi-covid-265c4.web.app/"
@@ -35,7 +35,7 @@ Feature: Login
   Scenario: DE FALHA - Para o usuario Pesquisador - login sem sucesso-campo senha nao informado
     Given Browse to web site "https://csi-covid-265c4.web.app/"
     And I press the "pesquisador-button"
-    And I enter "Teste_Pesquisador1@gmail.com" in "email-login-input"
+    And I enter "testepesquisadorcovid@gmail.com" in "email-login-input"
     And I press the "entrar-button"
     Then if the component "sign-in-page" is on the page, the login has not yet occurred
 
@@ -68,7 +68,7 @@ Feature: Login
   Scenario: DE FALHA - Para o usuario Medico quando digita na area do pesquisador
     Given Browse to web site "https://csi-covid-265c4.web.app/"
     And I press the "pesquisador-button"
-    And I enter "Teste_Medico@gmail.com" in "email-login-input"
+    And I enter "testemedicocovid@gmail.com" in "email-login-input"
     And I enter "Teste123" in "password-login-input"
     And I press the "entrar-button"
     And I press the OK button on the pop-up
@@ -77,7 +77,7 @@ Feature: Login
   Scenario: DE FALHA - Para o usuario Pesquisador quando digita na area do medico
     Given Browse to web site "https://csi-covid-265c4.web.app/"
     And I press the "medico-button"
-    And I enter "Teste_Pesquisador1@gmail.com" in "email-login-input"
+    And I enter "testepesquisadorcovid@gmail.com" in "email-login-input"
     And I enter "Teste123" in "password-login-input"
     And I press the "entrar-button"
     And I press the OK button on the pop-up

@@ -8,10 +8,10 @@ Critérios de aceitação: O sistema deve identificar o local onde está sendo s
   Scenario: Para o usuario Medico
     Given Browse to web site "https://csi-covid-265c4.web.app/"
     And I press the "medico-button"
-    And I enter "Teste_Medico@gmail.com" in "email-login-input"
+    And I enter "testemedicocovid@gmail.com" in "email-login-input"
     And I enter "Teste123" in "password-login-input"
     And I press the "entrar-button"
-    And I see "Diagnósticos" written on the requested page:xpath'//*[@id="root"]/div/header/div/div[2]/div/a'
+    And I see "Diagnósticos" written on the requested page.id:"diagnosticos-button"
     And I press the "novo-button"
     And I press the "estado-select"
     And I press the option ".MuiButtonBase-root:nth-child(11)"
