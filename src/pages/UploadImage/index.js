@@ -26,6 +26,7 @@ const UploadImage = (props) => {
     const [loading, setLoading] = useState(false)
     const [openAlert, setOpenAlert] = useState(false)
     const [token, setToken] = useState('')
+    const [disable, setDisable] = useState(false)
 
     const { setImageV, setImageResearcher } = useContext(ImageContext)
 
@@ -57,6 +58,8 @@ const UploadImage = (props) => {
             setOpenAlert(true)
             return
         }
+        setDisable(true)
+
         const formImage = new FormData() 
         formImage.append('file', image)
 
@@ -94,6 +97,7 @@ const UploadImage = (props) => {
         }).catch(error=>{
             console.log(error)
             //history.push('/')
+            setDisable(false)
         })
         //mudar dps
         const num = Math.random() * (19999 - 1001) + 1001
@@ -156,8 +160,20 @@ const UploadImage = (props) => {
                                 <LinearProgress/>
                             </Fade>  
 
-                            <button id='solicitar-button'type = "button" className="button" onClick={handleSubmit(onSubmit)}> Solicitar avaliação </button>
-                            <button id='voltar-button'type = "button" className="button-back" onClick = {handleSubmit(onCancel)}> Voltar</button>
+                            <button 
+                                id='solicitar-button'
+                                type = "button" 
+                                className="button" 
+                                onClick={handleSubmit(onSubmit)}
+                                disabled={disable}
+                            > Solicitar diagnóstico </button>
+                            
+                            <button 
+                                id='voltar-button'
+                                type = "button" 
+                                className="button-back" 
+                                onClick = {handleSubmit(onCancel)}
+                            > Voltar</button>
 
                             <Snackbar open={openAlert} autoHideDuration={6000} onClose={handleClose}>
                                 <Alert severity="error" onClose={handleClose}>Você deve adicionar uma imagem!</Alert>

@@ -73,6 +73,8 @@ const Header = ({ firebase }) => {
 
                         </div>                
                         
+                        <p className='header-identification-res'>Pesquisador</p> 
+
                         <div className = "container-profile">
                             <img src={profile}
                                 alt="logo" 

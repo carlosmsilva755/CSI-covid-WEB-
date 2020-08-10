@@ -1,19 +1,21 @@
-import React, { useEffect, useState } from "react"
+import React, { useState, useEffect } from 'react'
 import {useHistory} from 'react-router-dom'
 
 import TextField from '@material-ui/core/TextField'
 import MenuItem from '@material-ui/core/MenuItem'
 import Pagination from '@material-ui/lab/Pagination'
 
-import './styles.css';
-import Header from '../../components/Header/Researcher/index'
-import Card from '../../components/Cards/CardMenu/index'
+import './styles.css'
 import searchButton from '../../assets/Icons/searchButton.svg'
+import Card from '../../components/Cards/CardMenu/index'
+import Header from '../../components/Header/Doctor/index'
 import api from '../../services/api'
 import { AuthUserContext, withAuthorization } from '../../contexts/Session'
 
-const ResearcherImages = (props) => {
+const DoctorUpload = (props) => { 
     const filterOptions = [{"Filter":"Covid-19"}, {"Filter":"Pneumonia"}, {"Filter":"Normal"}]
+    const width = window.innerWidth
+    
     const history = useHistory()
 
     const [currentPage, setCurrentPage] = useState(1)
@@ -22,15 +24,20 @@ const ResearcherImages = (props) => {
     const [isAuth, setIsAuth] = useState(' ')
     const [disable, setDisable] = useState(false)
 
+    function handleAdd(){
+        history.push('/register')
+    }
+
     useEffect(()=>{
         localStorage.removeItem('@form')
+        localStorage.removeItem('@isResearcher')
         localStorage.removeItem('@result')
-        localStorage.removeItem('@justUpload')
-        localStorage.setItem('@isResearcher', true)
+        
+        localStorage.setItem('@justUpload',true)
 
         props.firebase.auth.currentUser.getIdTokenResult()
         .then((idTokenResult) => {
-           if (!!idTokenResult.claims.researcher) {
+           if (!!idTokenResult.claims.doctor) {
              setIsAuth(true)
            } else {
              setIsAuth(false)
@@ -41,30 +48,14 @@ const ResearcherImages = (props) => {
         })
     })
 
-    function printUser(auth){
-        auth.getIdTokenResult()
-        .then((idTokenResult) => {
-           // Confirm the user is an Admin.
-           if (!!idTokenResult.claims.researcher) {
-             // Show admin UI.
-             console.log('RES'); console.log(idTokenResult);
-           } else {
-             // Show regular user UI.
-             //console.log(idTokenResult);
-           }
-        })
-        .catch((error) => {
-          console.log(error);
-        })
-    }
-
     useEffect(()=>{
+
         setTimeout( ()=>
             (async () => {
-                await api.get(`/researcher/diagnoses?page=${currentPage}`,
+                await api.get(`/doctor/diagnoses?page=${currentPage}`,
                     {
                         headers: {
-                            authorization: `Bearer ${localStorage.getItem('@resUsrTkn')}`
+                            authorization: `Bearer ${localStorage.getItem('@docusr_tkn')}`
                         }
                     }
                 ).then((response)=>{
@@ -72,34 +63,43 @@ const ResearcherImages = (props) => {
                     setCurrentPage(Number(response.data.diagnoses.page))
                     setPages(response.data.diagnoses.pages)
                     setTimeout(()=>setDisable(false), 1000)
-                    //console.log(response.data.diagnoses.docs)
                 }).catch(error=>{
                     console.log(error)
                 })
-            })()
+
+            })() 
         , 1000)
-
     },[currentPage])
-
-    function handleAdd(){
-        history.push('/register')
-    }
-    return(
+    
+    return (
         <AuthUserContext.Consumer> 
             {authUser =>
-                isAuth ?
+                isAuth ? 
+                    
                     <div>
                         <Header/>
-                        <div className= "container">
-                            <div className= "container-navbars">
+                        <div className= {width > 540 ? "container" : "container-responsive"}>
+                            <div className= {width > 540 ? "container-navbars" : "container-navbars-responsive"}>
 
-                                <TextField id="outlined-basic" label="Pesquisar" size = "small" variant="outlined"className="search-input" />
+                                <TextField id="pesquisar-input" 
+                                    label="Pesquisar" 
+                                    size = "small" 
+                                    variant="outlined"
+                                    className="search-input" 
+                                />
                                 
-                                <img src={searchButton} alt="search" onClick={e=>printUser(authUser)}/>
-                                
-                                <div className="filter">
+                                <img src={searchButton} alt="search"/>
+                                <br/><br/>
+                                <div className= {width > 540 ? "filter": ""}>
 
-                                    <TextField id="outlined-select-currency" size="small" select label="Filtro" className="select-filter" variant="outlined">
+                                    <TextField id="outlined-select-currency" 
+                                        size="small" 
+                                        select 
+                                        label="Filtro" 
+                                        className="select-filter" 
+                                        variant="outlined" 
+                                        value=''
+                                    >
                                         {filterOptions.map((option) => (
                                             <MenuItem key={option.Filter} value={option.Filter}>
                                             {option.Filter}
@@ -109,11 +109,15 @@ const ResearcherImages = (props) => {
 
                                 </div>
 
-                                <button id ='novo-button' type = "button" className="button-add" onClick = {handleAdd}>Novo</button>
+                                <button id='novo-button' 
+                                    type = "button" 
+                                    className={width > 540 ? "button-add" :"button-add-responsive"}
+                                    onClick = {e=>handleAdd(authUser)}
+                                >Novo</button>
 
                             </div>
 
-                            <div className="container-diagnosis">
+                            <div className={width > 540 ? "container-diagnosis":"container-diagnosis-responsive"}>
                                 {
                                     diagnoses ?
                                         diagnoses.map( item =>
@@ -126,11 +130,11 @@ const ResearcherImages = (props) => {
                                 }
                             </div> <br/>
                             
-                            <div className='container-pagination'>
+                            <div className={width > 540 ?'container-pagination':'container-pagination-responsive'}>
                                 <Pagination 
                                     count={pages}
                                     page={currentPage}
-                                    onChange={(_,value) => {
+                                    onChange={(event,value) => {
                                         value===currentPage ? setDisable(false) : setDisable(true)
                                         setCurrentPage(value)
                                     }}
@@ -141,12 +145,14 @@ const ResearcherImages = (props) => {
 
                         </div>
                     </div>
-                    : 
-                        history.push('/')
-            }
+
+            : 
+                history.push('/')
+        }
         </AuthUserContext.Consumer>
     )
 }
+
 const condition = authUser => !!authUser;
 
-export default withAuthorization(condition)(ResearcherImages);
+export default withAuthorization(condition)(DoctorUpload);

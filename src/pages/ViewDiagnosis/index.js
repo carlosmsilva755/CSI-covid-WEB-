@@ -23,6 +23,7 @@ const ViewDiagnosis = (props) => {
     const [resul, setResul] = useState('')
     const [showModal, setShowModal] = useState(false)
     const [token, setToken] = useState('')
+    const [disable, setDisable] = useState(false)
 
     const { ImageV, imageResearcher } = useContext(ImageContext)
 
@@ -48,6 +49,8 @@ const ViewDiagnosis = (props) => {
 
     //result === covid
     async function handleConfirm(){
+        setDisable(true)
+
         const formData = new FormData();
 
         if(data.state)
@@ -83,6 +86,7 @@ const ViewDiagnosis = (props) => {
             console.log(response)
         }).catch(error=>{
             console.log(error)
+            setDisable(false)
         })
         
 
@@ -94,6 +98,8 @@ const ViewDiagnosis = (props) => {
 
     //If the result is not covid
     async function handleCovidNotConfirmed(){
+        setDisable(true)
+
         const formData = new FormData();
 
         if(data.state)
@@ -128,6 +134,7 @@ const ViewDiagnosis = (props) => {
             console.log(response)
         }).catch(error=>{
             console.log(error)
+            setDisable(false)
         })
         
 
@@ -175,6 +182,7 @@ const ViewDiagnosis = (props) => {
                                     <button id='disponibilizar-button'
                                         className='button button-view' 
                                         onClick={handleCovidNotConfirmed}
+                                        disabled={disable}
                                     >Salvar Resultado</button>
                             }<br/><br/>
                             
@@ -194,8 +202,8 @@ const ViewDiagnosis = (props) => {
                                     </DialogContentText>
                                 </DialogContent>
                                 <DialogActions>
-                                    <button id='cancelar-button'onClick={handleCovidNotConfirmed} className='button-back'>Não enviar</button>
-                                    <button id='confirmar-button'onClick={handleConfirm} className='button button-modal'>Confirmar</button>
+                                    <button id='cancelar-button'onClick={handleCovidNotConfirmed} className='button-back' disabled={disable}>Não enviar</button>
+                                    <button id='confirmar-button'onClick={handleConfirm} className='button button-modal' disabled={disable}>Confirmar</button>
                                 </DialogActions>
                             </Dialog>
 

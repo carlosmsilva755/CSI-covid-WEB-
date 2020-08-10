@@ -14,15 +14,17 @@ const RegisterDiagnosis = () => {
 
     const history = useHistory()
     const sexo = [{"sexo":"Masculino"}, {"sexo":"Feminino"}]
-    
-    const[state,setState] = useState('')
-    const[city,setCity] = useState('')
-    const[sex,setSex] = useState('')
-    const[age,setAge] = useState('')
-    const[temp,setTemp] = useState('')
-    const[sat_ox,setSat_ox] = useState('')
-    const[info,setInfo] = useState('')
-    const[citiesArray, setCitiesArray] = useState([])
+    const resultOptions = [{"Filter":"Covid-19"}, {"Filter":"Pneumonia"}, {"Filter":"Normal"}]
+
+    const [state,setState] = useState('')
+    const [city,setCity] = useState('')
+    const [sex,setSex] = useState('')
+    const [age,setAge] = useState('')
+    const [temp,setTemp] = useState('')
+    const [sat_ox,setSat_ox] = useState('')
+    const [info,setInfo] = useState('')
+    const [citiesArray, setCitiesArray] = useState([])
+    const [result, setResult] = useState('')
 
     useEffect( () =>{
         const data = localStorage.getItem('@form')
@@ -60,7 +62,11 @@ const RegisterDiagnosis = () => {
 
     function handleCancel(){
         localStorage.getItem('@isResearcher') ?
-            history.push('/researcherImages') : history.push('/medicalRecord')
+            history.push('/researcherImages') 
+            : 
+            localStorage.getItem('@justUpload') ? 
+                history.push('/doctorUpload')
+                : history.push('/medicalRecord')
 
         localStorage.removeItem('@form')
         localStorage.removeItem('@image')
@@ -84,7 +90,6 @@ const RegisterDiagnosis = () => {
     },[state])
 
     return(
-        // <TextField id="outlined-basic" label="Outlined" variant="outlined" />
         <AuthUserContext.Consumer> 
             {authUser =>
                 authUser ? 
@@ -96,8 +101,28 @@ const RegisterDiagnosis = () => {
                                 
                                 <form onSubmit = {handleContinue}>
                                     <div className='container-form'>
-                                        <h1 className="container-title">Solicitar diagnóstico</h1>
+                                        <h1 className="container-title">Dados do paciente</h1>
 
+                                        {
+                                            localStorage.getItem('@justUpload') ? 
+                                                <TextField id="outlined-select-currency" 
+                                                    size="small" 
+                                                    select 
+                                                    label="Diagnóstico"
+                                                    className="form-state" 
+                                                    variant="outlined" 
+                                                    value={result}
+                                                    onChange={event => setResult(event.target.value)}
+                                                >
+                                                    {resultOptions.map((option) => (
+                                                        <MenuItem key={option.Filter} value={option.Filter}>
+                                                        {option.Filter}
+                                                        </MenuItem>
+                                                    ))}
+                                                </TextField>
+                                                : null
+                                        }
+                                        <br/> <br/> 
                                         <TextField 
                                             id="estado-select" 
                                             size="small" 
@@ -218,7 +243,7 @@ const RegisterDiagnosis = () => {
                                         <br/><br/>
                                         <button id='continuar-button' type = "submit" className="button"> Continuar</button>
                                         <button id='cancelar-button'type = "button" className="button-back" onClick = {handleCancel}> Cancelar</button>
-
+                                        <br/><br/>
                                     </div>
                                 </form>
 

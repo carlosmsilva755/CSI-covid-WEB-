@@ -37,6 +37,7 @@ const MedicalRecord = (props) => {
         localStorage.removeItem('@form')
         localStorage.removeItem('@isResearcher')
         localStorage.removeItem('@result')
+        localStorage.removeItem('@justUpload')
 
         // window.addEventListener('resize', updateWindowDimensions);
         // return () => window.removeEventListener('resize', updateWindowDimensions);

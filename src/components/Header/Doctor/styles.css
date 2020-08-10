@@ -46,14 +46,10 @@ header {
     margin-top: 15px;
 }
 
-.container-profile{
-    /* width: 32px;
-    height: 32px;
-    margin-left: 40px;
-    top: 8px; */
+.container-profile-doc{
     margin-bottom: 4px;
     margin-top: 8px;
-    margin-left: 568px;
+    margin-left: 8px;
 }
 .header-buttons{
     font-family: Roboto;
@@ -61,8 +57,20 @@ header {
     font-size: 15px;
     font-weight: bolder;
     letter-spacing: 0.15px;
-    color: #C4C4C4;
+    color: black;
     text-decoration: none;
+}
+.header-buttons-clicked{
+    color: #FF7D62;
+    font-size: 16px;
+}
+
+.header-identification{
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 100;
+    color: white;
+    margin-left: 390px;
 }
 
 a:link, a:visited {
@@ -70,7 +78,7 @@ a:link, a:visited {
     /* color: #EE4937; */
 }
 a:hover {
-	color: #EE4937;
+	color: #FF7D62;
 }
 a:active {
     text-decoration: none;

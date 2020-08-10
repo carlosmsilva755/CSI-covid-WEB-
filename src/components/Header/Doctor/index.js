@@ -69,12 +69,30 @@ const Header = ({ firebase }) => {
                         <div className= "container-header">
 
                             <div className="container-header-prontuario">                   
-                                <a id='diagnosticos-button'href = '/medicalRecord' className = "header-buttons">Diagnósticos</a>                    
+                                <a 
+                                    id='diagnosticos-button'
+                                    href = '/medicalRecord' 
+                                    className = {location.pathname ==='/medicalRecord' ?
+                                     "header-buttons-clicked" : "header-buttons"
+                                    }
+                                >Diagnósticos</a>                    
                             </div>
 
-                        </div>                
+                            <div className="container-header-prontuario">                   
+                                <a 
+                                    id='imagens-button'
+                                    href = '/doctorUpload' 
+                                    className = {location.pathname ==='/doctorUpload' ?
+                                    "header-buttons-clicked" : "header-buttons"
+                                   }
+                                >Imagens</a>                    
+                            </div>
+
+                        </div>
                         
-                        <div className = "container-profile">
+                        <p className='header-identification'>Médico</p>  
+                                      
+                        <div className = "container-profile-doc">
                             <img src={profile}
                                 alt="logo" 
                                 className ='img-hover'

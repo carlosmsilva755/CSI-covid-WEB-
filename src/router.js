@@ -16,6 +16,7 @@ import ResearcherForgotPassword from './pages/PasswordReset/Researcher/index'
 import ForgotPasswordPage from './pages/PasswordReset/Default/index'
 import DoctorProfile from './pages/Profile/Doctor/index'
 import ResearcherProfile from './pages/Profile/Researcher/index'
+import DoctorUpload from './pages/DoctorUpload/index'
 
 export default () => {
     return (
@@ -33,6 +34,8 @@ export default () => {
             <Route path='/reset-res' component={ResearcherForgotPassword}/>
             
             <Route path="/medicalRecord" component ={MedicalRecord}/>
+            <Route path="/doctorUpload" component ={DoctorUpload}/>
+
             <Route path="/researcherImages" component ={ResearcherImages}/>
             
             <Route path="/register" component ={RegisterDiagnosis}/>
