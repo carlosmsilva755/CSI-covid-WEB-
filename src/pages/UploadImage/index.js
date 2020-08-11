@@ -99,15 +99,12 @@ const UploadImage = (props) => {
             //history.push('/')
             setDisable(false)
         })
-        //mudar dps
-        const num = Math.random() * (19999 - 1001) + 1001
 
         localStorage.getItem('@isResearcher') ? formData.append('for_research', true) : console.log('')
-        localStorage.setItem('@imgSize', parseInt(num))
         
         localStorage.setItem('@imgUrl', image)
 
-        history.push('/view-diagnosis');
+        history.push('/view-diagnosis')
     }
 
     const onCancel = () => {
@@ -166,7 +163,7 @@ const UploadImage = (props) => {
                                 className="button" 
                                 onClick={handleSubmit(onSubmit)}
                                 disabled={disable}
-                            > Solicitar diagnóstico </button>
+                            > {localStorage.getItem('@justUpload')? 'Fazer upload': 'Solicitar diagnóstico'} </button>
                             
                             <button 
                                 id='voltar-button'

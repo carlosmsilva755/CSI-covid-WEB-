@@ -52,7 +52,7 @@ const DoctorUpload = (props) => {
 
         setTimeout( ()=>
             (async () => {
-                await api.get(`/doctor/diagnoses?page=${currentPage}`,
+                await api.get(`/doctor/diagnoses/AI?page=${currentPage}`,
                     {
                         headers: {
                             authorization: `Bearer ${localStorage.getItem('@docusr_tkn')}`
@@ -62,6 +62,7 @@ const DoctorUpload = (props) => {
                     setDiagnoses(response.data.diagnoses.docs)
                     setCurrentPage(Number(response.data.diagnoses.page))
                     setPages(response.data.diagnoses.pages)
+                    console.log(response.data.diagnoses.docs);
                     setTimeout(()=>setDisable(false), 1000)
                 }).catch(error=>{
                     console.log(error)
@@ -116,6 +117,7 @@ const DoctorUpload = (props) => {
                                 >Novo</button>
 
                             </div>
+                            {/* <p>*Aqui aparecem as imagens cedidas para o treinamento da Inteligência Artificial</p> */}
 
                             <div className={width > 540 ? "container-diagnosis":"container-diagnosis-responsive"}>
                                 {

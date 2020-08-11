@@ -56,8 +56,18 @@ const RegisterDiagnosis = () => {
         }
 
         localStorage.setItem('@form',JSON.stringify(data))
+        localStorage.getItem('@justUpload') ? localStorage.setItem('@resUp', handleResultNumber()) : console.log('');
 
         history.push('/upload')
+    }
+    //covid=2, pneumonia=1, normal=0
+    function handleResultNumber(){
+        if(result === "Covid-19")
+            return 2
+        if(result === "Pneumonia")
+            return 1
+        if(result === "Normal")
+            return 0
     }
 
     function handleCancel(){
@@ -113,6 +123,7 @@ const RegisterDiagnosis = () => {
                                                     variant="outlined" 
                                                     value={result}
                                                     onChange={event => setResult(event.target.value)}
+                                                    required
                                                 >
                                                     {resultOptions.map((option) => (
                                                         <MenuItem key={option.Filter} value={option.Filter}>

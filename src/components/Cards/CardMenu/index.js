@@ -23,10 +23,11 @@ export default ({diagnosis}) => {
             "sat_ox":diagnosis.sat_ox,
             "info":diagnosis.info,
             "fromHome":true,
-            "result":diagnosis.result
+            "result":diagnosis.result,
+            "date":diagnosis.createdAt,
+            "_id":diagnosis.id_doctor ? diagnosis.id_doctor : diagnosis.id_researcher
         }
         localStorage.setItem('@form',JSON.stringify(data))
-        localStorage.setItem('@imgSize', diagnosis.image.size)
         setImageV(diagnosis.image.url)
         history.push('/view-diagnosis')
     }
@@ -36,7 +37,7 @@ export default ({diagnosis}) => {
 
             <div className="container-card-header">
                 
-                <p className = "card-id">{diagnosis.image.size}</p>
+                <p className = "card-id">{diagnosis.id_doctor ? diagnosis.id_doctor : diagnosis.id_researcher}</p>
                 {/* <img className = "card-options "src={options} alt="option" onClick={handleCardChange}/> */}
                
             </div>
