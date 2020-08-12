@@ -34,8 +34,9 @@ const ViewDiagnosis = (props) => {
         setData(JSON.parse(_data))
 
         localStorage.getItem('@result') ? 
-        setResul(_resul) : setResul(data.result)
-
+        setResul(_resul) : setResul(JSON.parse(_data).result)
+        //console.log(JSON.parse(_data).resul+'  é 77');
+        
         props.firebase.auth.currentUser.getIdToken(false)
         .then((token) => setToken(token))
         .catch(errorMessage => console.log("Auth token retrieval error: " + errorMessage));
