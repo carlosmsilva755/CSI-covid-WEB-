@@ -28,6 +28,7 @@ export default ({diagnosis}) => {
             "_id":diagnosis.id_doctor ? diagnosis.id_doctor : diagnosis.id_researcher
         }
         localStorage.setItem('@form',JSON.stringify(data))
+        localStorage.setItem('@result',diagnosis.result)
         setImageV(diagnosis.image.url)
         history.push('/view-diagnosis')
     }

@@ -30,6 +30,7 @@ function SignInFormBase(props){
     function signOutDoctor(){
         props.firebase.doSignOut()
         alert('Realize login como médico')
+        props.history.push('/')
     }
 
     const onSubmit = event => {
@@ -47,7 +48,10 @@ function SignInFormBase(props){
                 if (!!idTokenResult.claims.doctor) {
                     console.log('IS DOC');
                     signOutDoctor()
-               }else{console.log('RES');}
+               }else{
+                   console.log('RES');
+                   props.history.push('/researcherImages');
+                }
             })
             .catch((error) => {
               console.log(error);
@@ -59,7 +63,7 @@ function SignInFormBase(props){
             .catch(errorMessage => 
                 console.log("Auth token retrieval error: " + errorMessage)
             )
-            props.history.push('/researcherImages');
+            
         })
         .catch(error => {
             setErrorMessage(error)

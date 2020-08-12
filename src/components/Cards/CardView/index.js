@@ -14,9 +14,9 @@ export default ({id, date, age, sex, info, image, diagnosis}) => {
 
             <div className ='card-right'>
                 {   
-                    diagnosis.toString() === '0' ?
+                    diagnosis === 0 ?
                     <p className='card-diagnosis green-diag'> <b>NORMAL</b></p> :
-                        diagnosis.toString() === '1' ?
+                        diagnosis === 1 ?
                             <p className='card-diagnosis gray-diag'> <b>PNEUMONIA</b></p>:
                             <p className='card-diagnosis red-diag'> <b>COVID-19</b></p>
                 }
