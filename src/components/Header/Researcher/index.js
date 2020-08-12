@@ -73,7 +73,7 @@ const Header = ({ firebase }) => {
 
                         </div>                
                         
-                        <p className='header-identification-res'>Pesquisador</p> 
+                        <p className='header-identification-res' id='pesquisador-perfil'>Pesquisador</p> 
 
                         <div className = "container-profile">
                             <img src={profile}
