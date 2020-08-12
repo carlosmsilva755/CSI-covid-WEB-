@@ -32,12 +32,14 @@ const ViewDiagnosis = (props) => {
         const _resul = localStorage.getItem('@result')
         //setImage(localStorage.getItem('@image'))
         setData(JSON.parse(_data))
-        setResul(_resul)
+
+        localStorage.getItem('@result') ? 
+        setResul(_resul) : setResul(data.result)
 
         props.firebase.auth.currentUser.getIdToken(false)
         .then((token) => setToken(token))
         .catch(errorMessage => console.log("Auth token retrieval error: " + errorMessage));
-    },[props.firebase.auth.currentUser])
+    },[props.firebase.auth.currentUser, data.result])
 
     const useStyles = makeStyles({
         root: {
