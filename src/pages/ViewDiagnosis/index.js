@@ -118,11 +118,17 @@ const ViewDiagnosis = (props) => {
             formData.append('sat_ox',data.sat_ox)
 
         formData.append('file', imageResearcher)
-        formData.append('result', resul) 
-        //formData.append('id_doctor', 0)
-
-        localStorage.getItem('@isResearcher') ? formData.append('for_research', true) : console.log('')
         
+        //localStorage.getItem('@isResearcher') ? formData.append('for_research', true) : console.log('')
+
+        if(localStorage.getItem('@isResearcher')){
+            formData.append('for_research', true)
+            formData.append('result', localStorage.getItem('@resUp')) 
+        }
+        else{
+            formData.append('result', resul) 
+        }
+
         const config = {
             headers: { authorization: `Bearer ${token}` }
         }
@@ -214,7 +220,7 @@ const ViewDiagnosis = (props) => {
                                     info={data.info} 
                                     image={ImageV} 
                                     diagnosis={data.fromHome ? 
-                                        data.result : localStorage.getItem('@justUpload')? 
+                                        data.result : localStorage.getItem('@justUpload') || localStorage.getItem('@isResearcher')? 
                                             localStorage.getItem('@resUp') : resul
                                     } 
                                 /> 

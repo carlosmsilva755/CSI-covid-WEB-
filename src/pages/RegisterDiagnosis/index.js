@@ -56,7 +56,7 @@ const RegisterDiagnosis = () => {
         }
 
         localStorage.setItem('@form',JSON.stringify(data))
-        localStorage.getItem('@justUpload') ? localStorage.setItem('@resUp', handleResultNumber()) : console.log('');
+        localStorage.getItem('@justUpload') || localStorage.getItem('@isResearcher') ? localStorage.setItem('@resUp', handleResultNumber()) : console.log('');
 
         history.push('/upload')
     }
@@ -114,7 +114,7 @@ const RegisterDiagnosis = () => {
                                         <h1 className="container-title">Dados do paciente</h1>
 
                                         {
-                                            localStorage.getItem('@justUpload') ? 
+                                            localStorage.getItem('@justUpload') || localStorage.getItem('@isResearcher')? 
                                                 <TextField id="outlined-select-currency" 
                                                     size="small" 
                                                     select 

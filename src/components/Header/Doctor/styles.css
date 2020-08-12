@@ -40,10 +40,11 @@ header {
     color: #C4C4C4;
 }
 
-.container-header-prontuario{
+.container-header-prontuarios{
     /* position: relative; */
     margin-left: 54px;
-    margin-top: 15px;
+    margin-top: 7px;
+    width: 70px;
 }
 
 .container-profile-doc{
@@ -51,18 +52,19 @@ header {
     margin-top: 8px;
     margin-left: 8px;
 }
-.header-buttons{
+.header-buttons-doc{
     font-family: Roboto;
     font-style: normal;
     font-size: 15px;
-    font-weight: bolder;
+    font-weight: 500;
     letter-spacing: 0.15px;
-    color: black;
+    color: #C4C4C4;
     text-decoration: none;
 }
 .header-buttons-clicked{
     color: #FF7D62;
-    font-size: 16px;
+    font-size: 15px;
+    font-weight: 500;
 }
 
 .header-identification{
@@ -70,7 +72,7 @@ header {
     font-size: 15px;
     font-weight: 100;
     color: white;
-    margin-left: 390px;
+    margin-left: 400px;
 }
 
 a:link, a:visited {

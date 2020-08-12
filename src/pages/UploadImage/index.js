@@ -51,7 +51,7 @@ const UploadImage = (props) => {
 
 
     const onSubmit = async () => {
-        //console.log(token);
+        console.log(form);
         if(image)
             setLoading((prevLoading) => !prevLoading);
         else{
@@ -63,48 +63,30 @@ const UploadImage = (props) => {
         const formImage = new FormData() 
         formImage.append('file', image)
 
-        const formData = new FormData();
-
-        formData.append('file', image);
-        //formData.append('id_doctor', 0);
-
-        if(form.state)
-            formData.append('state',form.state)
-        if(form.city)
-            formData.append('city',form.city)
-        if(form.age)
-            formData.append('age',form.age)
-        if(form.temp)
-            formData.append('temp',form.temp)
-        if(form.info)
-            formData.append('info',form.info)
-        if(form.sex)
-            formData.append('sex',form.sex)
-        if(form.sat_ox)
-            formData.append('sat_ox',form.sat_ox)
-        
         const config = {
             headers: { authorization: `Bearer ${token}` }
         };
         
-        await api.post('/covidAI',
-            formImage, 
-            config
-        ).then(response=>{
-            console.log(response)
-            localStorage.setItem('@result', response.data.result)
-            formData.append('result', response.data.result)
-        }).catch(error=>{
-            console.log(error)
-            //history.push('/')
-            setDisable(false)
-        })
+        if(localStorage.getItem('@isResearcher') || localStorage.getItem('@justUpload')){
 
-        localStorage.getItem('@isResearcher') ? formData.append('for_research', true) : console.log('')
+            localStorage.setItem('@result', localStorage.getItem('@resUp'))
+            history.push('/view-diagnosis')
+
+        }else{
+            await api.post('/covidAI',
+                formImage, 
+                config
+            ).then(response=>{
+                //console.log(response)
+                localStorage.setItem('@result', response.data.result)
+                history.push('/view-diagnosis')
+            }).catch(error=>{
+                console.log(error)
+                //history.push('/')
+                setDisable(false)
+            })
+        }
         
-        localStorage.setItem('@imgUrl', image)
-
-        history.push('/view-diagnosis')
     }
 
     const onCancel = () => {
@@ -163,7 +145,7 @@ const UploadImage = (props) => {
                                 className="button" 
                                 onClick={handleSubmit(onSubmit)}
                                 disabled={disable}
-                            > {localStorage.getItem('@justUpload')? 'Fazer upload': 'Solicitar diagnóstico'} </button>
+                            > {localStorage.getItem('@justUpload') || localStorage.getItem('@isResearcher')? 'Fazer upload': 'Solicitar diagnóstico'} </button>
                             
                             <button 
                                 id='voltar-button'

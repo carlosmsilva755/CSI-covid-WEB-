@@ -68,28 +68,28 @@ const Header = ({ firebase }) => {
                     <> 
                         <div className= "container-header">
 
-                            <div className="container-header-prontuario">                   
+                            <div className="container-header-prontuarios">                   
                                 <a 
                                     id='diagnosticos-button'
                                     href = '/medicalRecord' 
                                     className = {location.pathname ==='/medicalRecord' ?
-                                     "header-buttons-clicked" : "header-buttons"
+                                     "header-buttons-clicked" : "header-buttons-doc"
                                     }
-                                >Diagnósticos</a>                    
+                                >Diagnósticos &nbsp;&nbsp;realizados</a>                    
                             </div>
 
-                            <div className="container-header-prontuario">                   
+                            <div className="container-header-prontuarios">                   
                                 <a 
-                                    id='imagens-button'
+                                    id='fornecidos-button'
                                     href = '/doctorUpload' 
                                     className = {location.pathname ==='/doctorUpload' ?
-                                    "header-buttons-clicked" : "header-buttons"
+                                    "header-buttons-clicked" : "header-buttons-doc"
                                    }
-                                >Imagens</a>                    
+                                >Diagnósticos &nbsp;&nbsp;fornecidos</a>                    
                             </div>
 
                         </div>
-                        
+
                         <p className='header-identification'>Médico</p>  
                                       
                         <div className = "container-profile-doc">
