@@ -1,4 +1,4 @@
-Feature: Logout
+Feature: Logout(Medico_e_Pesquisador)
 **Histórias de Usuários**
 
 **Para** encerrar meu acesso ao sistema
@@ -15,7 +15,7 @@ Feature: Logout
     And I enter "testemedicocovid@gmail.com" in "email-login-input"
     And I enter "Teste123" in "password-login-input"
     And I press the "entrar-button"
-    And I see "Diagnósticos" written on the requested page.id:"diagnosticos-button"
+    And I see "Médico" written on the requested page.id:"medico-perfil"
     And I press the "logout-button"
     And I press the "sair-button"
     Then I see "Realizar login como:" written on the requested page:xpath'//*[@id="root"]/div/div[1]/h2'
@@ -26,7 +26,7 @@ Feature: Logout
     And I enter "testepesquisadorcovid@gmail.com" in "email-login-input"
     And I enter "Teste123" in "password-login-input"
     And I press the "entrar-button"
-    And I see "Imagens" written on the requested page.id:"imagens-button"
+    And I see "Pesquisador" written on the requested page.id:"pesquisador-perfil"
     And I press the "logout-button"
     And I press the "sair-button"
     Then I see "Realizar login como:" written on the requested page:xpath'//*[@id="root"]/div/div[1]/h2'

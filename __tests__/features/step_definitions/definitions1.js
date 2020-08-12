@@ -44,7 +44,7 @@ When("I click  in the first  diagnostic image {string}", async function (arg1) {
     await driver.sleep(long_time)
     await driver.wait(until.elementLocated(By.css(arg1)));
     await driver.findElement({ css: arg1 }).click();
-    
+    await driver.sleep(short_time)  
 });
 
 When("I see {string} written on the requested page", async function (arg1) {

@@ -1,4 +1,4 @@
-Feature: Visualizar_usuario
+Feature: Visualizar_usuario(Medico_E_Pesquisador)
 História de Usuário -Visualizar Usuário
 
 PARA poder visualizar meus dados cadastrados
@@ -15,7 +15,7 @@ Critérios de aceitação: Ter os dados salvos no sistema.
     And I enter "testemedicocovid@gmail.com" in "email-login-input"
     And I enter "Teste123" in "password-login-input"
     And I press the "entrar-button"
-    And I see "Diagnósticos" written on the requested page.id:"diagnosticos-button"
+    And I see "Médico" written on the requested page.id:"medico-perfil"
     And I press the "logout-button"
     And I press the "perfil-button"
     And I see "Perfil" written on the requested page:xpath'//*[@id="root"]/div/div/div[1]/h1'
@@ -32,7 +32,7 @@ Critérios de aceitação: Ter os dados salvos no sistema.
     And I enter "testepesquisadorcovid@gmail.com" in "email-login-input"
     And I enter "Teste123" in "password-login-input"
     And I press the "entrar-button"
-    And I see "Imagens" written on the requested page.id:"imagens-button"
+    And I see "Pesquisador" written on the requested page.id:"pesquisador-perfil"
     And I press the "logout-button"
     And I press the "perfil-button"
     And I see "Perfil" written on the requested page:xpath'//*[@id="root"]/div/div/div[1]/h1'

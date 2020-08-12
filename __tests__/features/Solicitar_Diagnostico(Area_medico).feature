@@ -1,4 +1,4 @@
-Feature: Solicitar Diagnostico
+Feature: Solicitar Diagnostico(Area_Medico)
 História de Usuário
 Para solicitar um diagnóstico de um paciente com sintomas da Covid-19
 Eu, como um Médico
@@ -11,7 +11,8 @@ Critérios de aceitação: O sistema deve identificar o local onde está sendo s
     And I enter "testemedicocovid@gmail.com" in "email-login-input"
     And I enter "Teste123" in "password-login-input"
     And I press the "entrar-button"
-    And I see "Diagnósticos" written on the requested page.id:"diagnosticos-button"
+    And I see "Médico" written on the requested page.id:"medico-perfil"
+    And I press the "diagnosticos-button"
     And I press the "novo-button"
     And I press the "estado-select"
     And I press the option ".MuiButtonBase-root:nth-child(11)"

@@ -11,8 +11,10 @@ Critérios de aceitação: Quando o usuário estiver na página inicial do aplic
     And I enter "testepesquisadorcovid@gmail.com" in "email-login-input"
     And I enter "Teste123" in "password-login-input"
     And I press the "entrar-button"
-    And I see "Imagens" written on the requested page.id:"imagens-button"
+    And I see "Pesquisador" written on the requested page.id:"pesquisador-perfil"
     And I press the "novo-button"
+    And I press the "outlined-select-currency"
+    And I press the option ".MuiButtonBase-root:nth-child(1)"
     And I press the "estado-select"
     And I press the option ".MuiButtonBase-root:nth-child(11)"
     And I press the "cidade-select"
@@ -24,6 +26,6 @@ Critérios de aceitação: Quando o usuário estiver na página inicial do aplic
     And in the "sat_ox-input" field, I type in the information "98"
     And in the "info-select" field, I type in the information "Teste-123"
     And I press the "continuar-button"
-    And I press the "image-upload"  and choose the file
+    * I press the "image-upload"  and choose the file
     And I press the "solicitar-button"
     Then I press the "pagina-inicial-button"

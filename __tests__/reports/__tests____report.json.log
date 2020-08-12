@@ -18,7 +18,7 @@
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 25424,
+      "duration": 36569,
       "status": "passed"
     },
     "steps": [
@@ -30,7 +30,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 118000000
+          "duration": 28000000
         }
       },
       {
@@ -43,7 +43,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 3690000000
+          "duration": 5719000000
         }
       },
       {
@@ -56,7 +56,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 239000000
+          "duration": 1106000000
         }
       },
       {
@@ -69,7 +69,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1439000000
+          "duration": 2400000000
         }
       },
       {
@@ -82,7 +82,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1143000000
+          "duration": 2418000000
         }
       },
       {
@@ -95,20 +95,20 @@
         },
         "result": {
           "status": "passed",
-          "duration": 138000000
+          "duration": 1363000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 14,
-        "name": "I see \"Imagens\" written on the requested page.id:\"imagens-button\"",
+        "name": "I see \"Pesquisador\" written on the requested page.id:\"pesquisador-perfil\"",
         "match": {
           "location": "step_definitions\\definitions1.js:94"
         },
         "result": {
           "status": "passed",
-          "duration": 1605000000
+          "duration": 1826000000
         }
       },
       {
@@ -121,189 +121,215 @@
         },
         "result": {
           "status": "passed",
-          "duration": 148000000
+          "duration": 815000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 16,
-        "name": "I press the \"estado-select\"",
+        "name": "I press the \"outlined-select-currency\"",
         "match": {
           "location": "step_definitions\\definitions1.js:17"
         },
         "result": {
           "status": "passed",
-          "duration": 139000000
+          "duration": 225000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 17,
-        "name": "I press the option \".MuiButtonBase-root:nth-child(11)\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:31"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1201000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 18,
-        "name": "I press the \"cidade-select\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1255000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 19,
-        "name": "I press the option \".MuiButtonBase-root:nth-child(6)\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:31"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1506000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 20,
-        "name": "I press the \"sexo-select\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 435000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 21,
         "name": "I press the option \".MuiButtonBase-root:nth-child(1)\"",
         "match": {
           "location": "step_definitions\\definitions1.js:31"
         },
         "result": {
           "status": "passed",
-          "duration": 1114000000
+          "duration": 1108000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 18,
+        "name": "I press the \"estado-select\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1153000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 19,
+        "name": "I press the option \".MuiButtonBase-root:nth-child(11)\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:31"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1347000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 20,
+        "name": "I press the \"cidade-select\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 2595000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 21,
+        "name": "I press the option \".MuiButtonBase-root:nth-child(6)\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:31"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 2819000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 22,
-        "name": "in the \"idade-input\" field, I type in the information \"25\"",
+        "name": "I press the \"sexo-select\"",
         "match": {
-          "location": "step_definitions\\definitions1.js:36"
+          "location": "step_definitions\\definitions1.js:17"
         },
         "result": {
           "status": "passed",
-          "duration": 1130000000
+          "duration": 1296000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 23,
-        "name": "in the \"temp-input\" field, I type in the information \"38\"",
+        "name": "I press the option \".MuiButtonBase-root:nth-child(1)\"",
         "match": {
-          "location": "step_definitions\\definitions1.js:36"
+          "location": "step_definitions\\definitions1.js:31"
         },
         "result": {
           "status": "passed",
-          "duration": 1119000000
+          "duration": 1318000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 24,
-        "name": "in the \"sat_ox-input\" field, I type in the information \"98\"",
+        "name": "in the \"idade-input\" field, I type in the information \"25\"",
         "match": {
           "location": "step_definitions\\definitions1.js:36"
         },
         "result": {
           "status": "passed",
-          "duration": 1125000000
+          "duration": 1301000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 25,
-        "name": "in the \"info-select\" field, I type in the information \"Teste-123\"",
+        "name": "in the \"temp-input\" field, I type in the information \"38\"",
         "match": {
           "location": "step_definitions\\definitions1.js:36"
         },
         "result": {
           "status": "passed",
-          "duration": 1203000000
+          "duration": 1222000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 26,
-        "name": "I press the \"continuar-button\"",
+        "name": "in the \"sat_ox-input\" field, I type in the information \"98\"",
         "match": {
-          "location": "step_definitions\\definitions1.js:17"
+          "location": "step_definitions\\definitions1.js:36"
         },
         "result": {
           "status": "passed",
-          "duration": 171000000
+          "duration": 1274000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 27,
-        "name": "I press the \"image-upload\"  and choose the file",
+        "name": "in the \"info-select\" field, I type in the information \"Teste-123\"",
         "match": {
-          "location": "step_definitions\\definitions1.js:22"
+          "location": "step_definitions\\definitions1.js:36"
         },
         "result": {
           "status": "passed",
-          "duration": 2078000000
+          "duration": 1361000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 28,
+        "name": "I press the \"continuar-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 203000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "* ",
+        "line": 29,
+        "name": "I press the \"image-upload\"  and choose the file",
+        "match": {
+          "location": "step_definitions\\definitions1.js:22"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 2104000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 30,
         "name": "I press the \"solicitar-button\"",
         "match": {
           "location": "step_definitions\\definitions1.js:17"
         },
         "result": {
           "status": "passed",
-          "duration": 119000000
+          "duration": 294000000
         }
       },
       {
         "arguments": [],
         "keyword": "Then ",
-        "line": 29,
+        "line": 31,
         "name": "I press the \"pagina-inicial-button\"",
         "match": {
           "location": "step_definitions\\definitions1.js:17"
         },
         "result": {
           "status": "passed",
-          "duration": 3975000000
+          "duration": 455000000
         }
       },
       {
@@ -314,7 +340,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 334000000
+          "duration": 819000000
         },
         "embeddings": [
           {
@@ -345,7 +371,7 @@
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 10284,
+      "duration": 13521,
       "status": "passed"
     },
     "steps": [
@@ -356,7 +382,8 @@
           "location": "support\\hooks.js:15"
         },
         "result": {
-          "status": "passed"
+          "status": "passed",
+          "duration": 1000000
         }
       },
       {
@@ -369,7 +396,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 198000000
+          "duration": 570000000
         }
       },
       {
@@ -382,7 +409,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 284000000
+          "duration": 1053000000
         }
       },
       {
@@ -395,7 +422,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1593000000
+          "duration": 1445000000
         }
       },
       {
@@ -408,7 +435,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1521000000
+          "duration": 1946000000
         }
       },
       {
@@ -421,7 +448,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1166000000
+          "duration": 1254000000
         }
       },
       {
@@ -434,7 +461,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1178000000
+          "duration": 1249000000
         }
       },
       {
@@ -447,7 +474,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1147000000
+          "duration": 1351000000
         }
       },
       {
@@ -460,7 +487,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1195000000
+          "duration": 1330000000
         }
       },
       {
@@ -473,20 +500,20 @@
         },
         "result": {
           "status": "passed",
-          "duration": 170000000
+          "duration": 253000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 22,
-        "name": "I see \"Diagnósticos\" written on the requested page.id:\"diagnosticos-button\"",
+        "name": "I see \"Médico\" written on the requested page.id:\"medico-perfil\"",
         "match": {
           "location": "step_definitions\\definitions1.js:94"
         },
         "result": {
           "status": "passed",
-          "duration": 1521000000
+          "duration": 2595000000
         }
       },
       {
@@ -497,7 +524,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 311000000
+          "duration": 474000000
         },
         "embeddings": [
           {
@@ -518,7 +545,7 @@
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 10055,
+      "duration": 12047,
       "status": "passed"
     },
     "steps": [
@@ -543,7 +570,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 148000000
+          "duration": 536000000
         }
       },
       {
@@ -556,7 +583,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 398000000
+          "duration": 831000000
         }
       },
       {
@@ -569,7 +596,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1290000000
+          "duration": 1513000000
         }
       },
       {
@@ -582,7 +609,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1362000000
+          "duration": 1693000000
         }
       },
       {
@@ -595,7 +622,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1298000000
+          "duration": 1373000000
         }
       },
       {
@@ -608,7 +635,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1318000000
+          "duration": 1512000000
         }
       },
       {
@@ -621,7 +648,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1153000000
+          "duration": 1260000000
         }
       },
       {
@@ -634,7 +661,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1140000000
+          "duration": 1204000000
         }
       },
       {
@@ -647,20 +674,20 @@
         },
         "result": {
           "status": "passed",
-          "duration": 125000000
+          "duration": 172000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 34,
-        "name": "I see \"Imagens\" written on the requested page.id:\"imagens-button\"",
+        "name": "I see \"Pesquisador\" written on the requested page.id:\"pesquisador-perfil\"",
         "match": {
           "location": "step_definitions\\definitions1.js:94"
         },
         "result": {
           "status": "passed",
-          "duration": 1515000000
+          "duration": 1633000000
         }
       },
       {
@@ -671,7 +698,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 307000000
+          "duration": 319000000
         },
         "embeddings": [
           {
@@ -695,14 +722,14 @@
 }{
   "scenario": {
     "uri": "Disponibilizar_Diagnostico.feature",
-    "id": "disponibilizar_diagnostico;para-o-usuario-pesquisador",
+    "id": "disponibilizar_diagnostico;para-o-usuario-medico",
     "keyword": "Scenario",
     "line": 9,
-    "name": "Para o usuario pesquisador",
+    "name": "Para o usuario Medico",
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 20026,
+      "duration": 22225,
       "status": "passed"
     },
     "steps": [
@@ -727,7 +754,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 142000000
+          "duration": 230000000
         }
       },
       {
@@ -740,20 +767,20 @@
         },
         "result": {
           "status": "passed",
-          "duration": 269000000
+          "duration": 282000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 12,
-        "name": "I enter \"Teste_Medico@gmail.com\" in \"email-login-input\"",
+        "name": "I enter \"testemedicocovid@gmail.com\" in \"email-login-input\"",
         "match": {
           "location": "step_definitions\\definitions1.js:66"
         },
         "result": {
           "status": "passed",
-          "duration": 1293000000
+          "duration": 1483000000
         }
       },
       {
@@ -766,7 +793,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1218000000
+          "duration": 1252000000
         }
       },
       {
@@ -779,215 +806,267 @@
         },
         "result": {
           "status": "passed",
-          "duration": 161000000
+          "duration": 223000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 15,
-        "name": "I see \"Diagnósticos\" written on the requested page.id:\"diagnosticos-button\"",
+        "name": "I see \"Médico\" written on the requested page.id:\"medico-perfil\"",
         "match": {
           "location": "step_definitions\\definitions1.js:94"
         },
         "result": {
           "status": "passed",
-          "duration": 1035000000
+          "duration": 841000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 16,
-        "name": "I press the \"novo-button\"",
+        "name": "I press the \"fornecidos-button\"",
         "match": {
           "location": "step_definitions\\definitions1.js:17"
         },
         "result": {
           "status": "passed",
-          "duration": 217000000
+          "duration": 369000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 17,
-        "name": "I press the \"estado-select\"",
+        "name": "I press the \"novo-button\"",
         "match": {
           "location": "step_definitions\\definitions1.js:17"
         },
         "result": {
           "status": "passed",
-          "duration": 234000000
+          "duration": 777000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 18,
-        "name": "I press the option \".MuiButtonBase-root:nth-child(11)\"",
+        "name": "I press the \"outlined-select-currency\"",
         "match": {
-          "location": "step_definitions\\definitions1.js:31"
+          "location": "step_definitions\\definitions1.js:17"
         },
         "result": {
           "status": "passed",
-          "duration": 1186000000
+          "duration": 265000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 19,
-        "name": "I press the \"cidade-select\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1632000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 20,
-        "name": "I press the option \".MuiButtonBase-root:nth-child(6)\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:31"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1514000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 21,
-        "name": "I press the \"sexo-select\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 432000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 22,
         "name": "I press the option \".MuiButtonBase-root:nth-child(1)\"",
         "match": {
           "location": "step_definitions\\definitions1.js:31"
         },
         "result": {
           "status": "passed",
-          "duration": 1086000000
+          "duration": 1119000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 20,
+        "name": "I press the \"estado-select\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 482000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 21,
+        "name": "I press the option \".MuiButtonBase-root:nth-child(11)\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:31"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1175000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 22,
+        "name": "I press the \"cidade-select\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 2289000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 23,
-        "name": "in the \"idade-input\" field, I type in the information \"25\"",
+        "name": "I press the option \".MuiButtonBase-root:nth-child(6)\"",
         "match": {
-          "location": "step_definitions\\definitions1.js:36"
+          "location": "step_definitions\\definitions1.js:31"
         },
         "result": {
           "status": "passed",
-          "duration": 1118000000
+          "duration": 1790000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 24,
-        "name": "in the \"temp-input\" field, I type in the information \"38\"",
+        "name": "I press the \"sexo-select\"",
         "match": {
-          "location": "step_definitions\\definitions1.js:36"
+          "location": "step_definitions\\definitions1.js:17"
         },
         "result": {
           "status": "passed",
-          "duration": 1105000000
+          "duration": 393000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 25,
-        "name": "in the \"sat_ox-input\" field, I type in the information \"98\"",
+        "name": "I press the option \".MuiButtonBase-root:nth-child(1)\"",
         "match": {
-          "location": "step_definitions\\definitions1.js:36"
+          "location": "step_definitions\\definitions1.js:31"
         },
         "result": {
           "status": "passed",
-          "duration": 1127000000
+          "duration": 1145000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 26,
-        "name": "in the \"info-select\" field, I type in the information \"Teste-123\"",
+        "name": "in the \"idade-input\" field, I type in the information \"25\"",
         "match": {
           "location": "step_definitions\\definitions1.js:36"
         },
         "result": {
           "status": "passed",
-          "duration": 1230000000
+          "duration": 1163000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 27,
-        "name": "I press the \"continuar-button\"",
+        "name": "in the \"temp-input\" field, I type in the information \"38\"",
         "match": {
-          "location": "step_definitions\\definitions1.js:17"
+          "location": "step_definitions\\definitions1.js:36"
         },
         "result": {
           "status": "passed",
-          "duration": 320000000
+          "duration": 1160000000
         }
       },
       {
         "arguments": [],
-        "keyword": "* ",
+        "keyword": "And ",
         "line": 28,
-        "name": "I press the \"image-upload\"  and choose the file",
+        "name": "in the \"sat_ox-input\" field, I type in the information \"98\"",
         "match": {
-          "location": "step_definitions\\definitions1.js:22"
+          "location": "step_definitions\\definitions1.js:36"
         },
         "result": {
           "status": "passed",
-          "duration": 2061000000
+          "duration": 1167000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 29,
+        "name": "in the \"info-select\" field, I type in the information \"Teste-123\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:36"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1454000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 30,
+        "name": "I press the \"continuar-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 236000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 31,
+        "name": "I press the \"image-upload\"  and choose the file",
+        "match": {
+          "location": "step_definitions\\definitions1.js:22"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 2078000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 32,
         "name": "I press the \"solicitar-button\"",
         "match": {
           "location": "step_definitions\\definitions1.js:17"
         },
         "result": {
           "status": "passed",
-          "duration": 96000000
+          "duration": 170000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 33,
+        "name": "I see \"COVID-19\" written on the requested page",
+        "match": {
+          "location": "step_definitions\\definitions1.js:50"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 81000000
         }
       },
       {
         "arguments": [],
         "keyword": "Then ",
-        "line": 30,
+        "line": 34,
         "name": "I press the \"pagina-inicial-button\"",
         "match": {
           "location": "step_definitions\\definitions1.js:17"
         },
         "result": {
           "status": "passed",
-          "duration": 2235000000
+          "duration": 227000000
         }
       },
       {
@@ -998,7 +1077,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 314000000
+          "duration": 373000000
         },
         "embeddings": [
           {
@@ -1011,25 +1090,394 @@
   }
 }{
   "feature": {
-    "uri": "Login.feature",
-    "description": "**Histórias de Usuários**\n\n**Para** acessar meu ambiente no sistema\n\n**Eu**, como um usuário cadastrado\n\n**Gostaria** de digitar meus dados de acesso e realizar meu login.\n\n**Critérios de aceitação:** Para realizar login é necessário que exista um cadastro no sistema.",
+    "uri": "Fornecer_Diagnostico(Area_medico).feature",
+    "description": "História de Usuário:\n\nFornecer_Diagnostico (Area do medico):\n\nPara ajudar no treinamento da IA\nEu, como um médico\nGostaria de entrar no sistema e enviar imagens e dados de casos diagnosticados com a covid-19.\nCritérios de aceitação: O médico precisa informar como foi feito o diagnóstico de covid-19.\n\nFornecer_Diagnostico (Area do Pesquisador):\n\nPara cadastrar uma imagem de raio x de uma pessoa com Covid-19 e melhorar a eficiência da inteligência artificial.\nEu, como um Pesquisador\nGostaria de inserir os metadados anonimizados e fazer o upload da foto do raio x dessa pessoa.\nCritérios de aceitação: Quando o usuário estiver na página inicial do aplicativo Mobile deve ter a opção para solicitar o diagnóstico de forma rápida e acessível.",
     "keyword": "Feature",
-    "name": "Login",
+    "name": "Fornecer Diagnostico(Medico_e_Pesquisador)",
     "line": 1,
-    "id": "login",
+    "id": "fornecer-diagnostico(medico_e_pesquisador)",
     "tags": []
   }
 }{
   "scenario": {
-    "uri": "Login.feature",
-    "id": "login;para-o-usuario-medico-login-com-sucesso",
+    "uri": "Fornecer_Diagnostico(Area_medico).feature",
+    "id": "fornecer-diagnostico(medico_e_pesquisador);para-o-usuario-medico",
     "keyword": "Scenario",
-    "line": 12,
-    "name": "Para o usuario Medico login com sucesso",
+    "line": 18,
+    "name": "Para o usuario Medico",
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 4181,
+      "duration": 21426,
+      "status": "passed"
+    },
+    "steps": [
+      {
+        "keyword": "Before",
+        "hidden": true,
+        "match": {
+          "location": "support\\hooks.js:15"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 19000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "Given ",
+        "line": 19,
+        "name": "Browse to web site \"https://csi-covid-265c4.web.app/\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:13"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 248000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 20,
+        "name": "I press the \"medico-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 269000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 21,
+        "name": "I enter \"testemedicocovid@gmail.com\" in \"email-login-input\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:66"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1529000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 22,
+        "name": "I enter \"Teste123\" in \"password-login-input\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:66"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1261000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 23,
+        "name": "I press the \"entrar-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 256000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 24,
+        "name": "I see \"Médico\" written on the requested page.id:\"medico-perfil\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:94"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 772000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 25,
+        "name": "I press the \"fornecidos-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 362000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 26,
+        "name": "I press the \"novo-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 779000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 27,
+        "name": "I press the \"outlined-select-currency\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 169000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 28,
+        "name": "I press the option \".MuiButtonBase-root:nth-child(1)\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:31"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1144000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 29,
+        "name": "I press the \"estado-select\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 336000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 30,
+        "name": "I press the option \".MuiButtonBase-root:nth-child(11)\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:31"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1183000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 31,
+        "name": "I press the \"cidade-select\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1831000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 32,
+        "name": "I press the option \".MuiButtonBase-root:nth-child(6)\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:31"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1764000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 33,
+        "name": "I press the \"sexo-select\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 368000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 34,
+        "name": "I press the option \".MuiButtonBase-root:nth-child(1)\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:31"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1131000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 35,
+        "name": "in the \"idade-input\" field, I type in the information \"25\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:36"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1152000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 36,
+        "name": "in the \"temp-input\" field, I type in the information \"38\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:36"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1184000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 37,
+        "name": "in the \"sat_ox-input\" field, I type in the information \"98\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:36"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1181000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 38,
+        "name": "in the \"info-select\" field, I type in the information \"Teste-123\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:36"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1405000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 39,
+        "name": "I press the \"continuar-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 182000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 40,
+        "name": "I press the \"image-upload\"  and choose the file",
+        "match": {
+          "location": "step_definitions\\definitions1.js:22"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 2091000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 41,
+        "name": "I press the \"solicitar-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 167000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 42,
+        "name": "I see \"COVID-19\" written on the requested page",
+        "match": {
+          "location": "step_definitions\\definitions1.js:50"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 86000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "Then ",
+        "line": 43,
+        "name": "I press the \"pagina-inicial-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 191000000
+        }
+      },
+      {
+        "keyword": "After",
+        "hidden": true,
+        "match": {
+          "location": "support\\hooks.js:19"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 366000000
+        },
+        "embeddings": [
+          {
+            "data": "file://__tests____report/5.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    ]
+  }
+}{
+  "scenario": {
+    "uri": "Fornecer_Diagnostico(Area_medico).feature",
+    "id": "fornecer-diagnostico(medico_e_pesquisador);para-o-usuario-pesquisador",
+    "keyword": "Scenario",
+    "line": 45,
+    "name": "Para o usuario pesquisador",
+    "tags": [],
+    "type": "scenario",
+    "result": {
+      "duration": 20828,
       "status": "passed"
     },
     "steps": [
@@ -1047,6 +1495,358 @@
       {
         "arguments": [],
         "keyword": "Given ",
+        "line": 46,
+        "name": "Browse to web site \"https://csi-covid-265c4.web.app/\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:13"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 253000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 47,
+        "name": "I press the \"pesquisador-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 325000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 48,
+        "name": "I enter \"testepesquisadorcovid@gmail.com\" in \"email-login-input\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:66"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1434000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 49,
+        "name": "I enter \"Teste123\" in \"password-login-input\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:66"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1257000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 50,
+        "name": "I press the \"entrar-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 225000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 51,
+        "name": "I see \"Pesquisador\" written on the requested page.id:\"pesquisador-perfil\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:94"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 819000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 52,
+        "name": "I press the \"novo-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 238000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 53,
+        "name": "I press the \"outlined-select-currency\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 157000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 54,
+        "name": "I press the option \".MuiButtonBase-root:nth-child(1)\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:31"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1109000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 55,
+        "name": "I press the \"estado-select\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 460000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 56,
+        "name": "I press the option \".MuiButtonBase-root:nth-child(11)\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:31"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1267000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 57,
+        "name": "I press the \"cidade-select\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1873000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 58,
+        "name": "I press the option \".MuiButtonBase-root:nth-child(6)\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:31"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1755000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 59,
+        "name": "I press the \"sexo-select\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 466000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 60,
+        "name": "I press the option \".MuiButtonBase-root:nth-child(1)\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:31"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1105000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 61,
+        "name": "in the \"idade-input\" field, I type in the information \"25\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:36"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1179000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 62,
+        "name": "in the \"temp-input\" field, I type in the information \"38\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:36"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1250000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 63,
+        "name": "in the \"sat_ox-input\" field, I type in the information \"98\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:36"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1307000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 64,
+        "name": "in the \"info-select\" field, I type in the information \"Teste-123\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:36"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1297000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 65,
+        "name": "I press the \"continuar-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 207000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "* ",
+        "line": 66,
+        "name": "I press the \"image-upload\"  and choose the file",
+        "match": {
+          "location": "step_definitions\\definitions1.js:22"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 2078000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 67,
+        "name": "I press the \"solicitar-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 168000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "Then ",
+        "line": 68,
+        "name": "I press the \"pagina-inicial-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 240000000
+        }
+      },
+      {
+        "keyword": "After",
+        "hidden": true,
+        "match": {
+          "location": "support\\hooks.js:19"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 358000000
+        },
+        "embeddings": [
+          {
+            "data": "file://__tests____report/6.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    ]
+  }
+}{
+  "feature": {
+    "uri": "Login(Medico_e_Pesquisador).feature",
+    "description": "**Histórias de Usuários**\n\n**Para** acessar meu ambiente no sistema\n\n**Eu**, como um usuário cadastrado\n\n**Gostaria** de digitar meus dados de acesso e realizar meu login.\n\n**Critérios de aceitação:** Para realizar login é necessário que exista um cadastro no sistema.",
+    "keyword": "Feature",
+    "name": "Login(Medico_e_Pesquisador)",
+    "line": 1,
+    "id": "login(medico_e_pesquisador)",
+    "tags": []
+  }
+}{
+  "scenario": {
+    "uri": "Login(Medico_e_Pesquisador).feature",
+    "id": "login(medico_e_pesquisador);para-o-usuario-medico-login-com-sucesso",
+    "keyword": "Scenario",
+    "line": 12,
+    "name": "Para o usuario Medico login com sucesso",
+    "tags": [],
+    "type": "scenario",
+    "result": {
+      "duration": 4833,
+      "status": "passed"
+    },
+    "steps": [
+      {
+        "keyword": "Before",
+        "hidden": true,
+        "match": {
+          "location": "support\\hooks.js:15"
+        },
+        "result": {
+          "status": "passed"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "Given ",
         "line": 13,
         "name": "Browse to web site \"https://csi-covid-265c4.web.app/\"",
         "match": {
@@ -1054,7 +1854,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 185000000
+          "duration": 372000000
         }
       },
       {
@@ -1067,7 +1867,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 226000000
+          "duration": 346000000
         }
       },
       {
@@ -1080,7 +1880,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1305000000
+          "duration": 1486000000
         }
       },
       {
@@ -1093,7 +1893,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1160000000
+          "duration": 1193000000
         }
       },
       {
@@ -1106,20 +1906,20 @@
         },
         "result": {
           "status": "passed",
-          "duration": 141000000
+          "duration": 219000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 18,
-        "name": "I see \"Diagnósticos\" written on the requested page.id:\"diagnosticos-button\"",
+        "name": "I see \"Médico\" written on the requested page.id:\"medico-perfil\"",
         "match": {
           "location": "step_definitions\\definitions1.js:94"
         },
         "result": {
           "status": "passed",
-          "duration": 810000000
+          "duration": 912000000
         }
       },
       {
@@ -1130,236 +1930,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 353000000
-        },
-        "embeddings": [
-          {
-            "data": "file://__tests____report/5.png",
-            "mime_type": "image/png"
-          }
-        ]
-      }
-    ]
-  }
-}{
-  "scenario": {
-    "uri": "Login.feature",
-    "id": "login;para-o-usuario-pesquisador-login-com-sucesso",
-    "keyword": "Scenario",
-    "line": 20,
-    "name": "Para o usuario Pesquisador login com sucesso",
-    "tags": [],
-    "type": "scenario",
-    "result": {
-      "duration": 3964,
-      "status": "passed"
-    },
-    "steps": [
-      {
-        "keyword": "Before",
-        "hidden": true,
-        "match": {
-          "location": "support\\hooks.js:15"
-        },
-        "result": {
-          "status": "passed"
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "Given ",
-        "line": 21,
-        "name": "Browse to web site \"https://csi-covid-265c4.web.app/\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:13"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 166000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 22,
-        "name": "I press the \"pesquisador-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 175000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 23,
-        "name": "I enter \"testepesquisadorcovid@gmail.com\" in \"email-login-input\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:66"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1309000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 24,
-        "name": "I enter \"Teste123\" in \"password-login-input\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:66"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1161000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 25,
-        "name": "I press the \"entrar-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 99000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 26,
-        "name": "I see \"Imagens\" written on the requested page.id:\"imagens-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:94"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 750000000
-        }
-      },
-      {
-        "keyword": "After",
-        "hidden": true,
-        "match": {
-          "location": "support\\hooks.js:19"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 304000000
-        },
-        "embeddings": [
-          {
-            "data": "file://__tests____report/6.png",
-            "mime_type": "image/png"
-          }
-        ]
-      }
-    ]
-  }
-}{
-  "scenario": {
-    "uri": "Login.feature",
-    "id": "login;de-falha---para-o-usuario-medico--login-sem-sucesso---campo-senha-nao-informado",
-    "keyword": "Scenario",
-    "line": 28,
-    "name": "DE FALHA - Para o usuario Medico- login sem sucesso - campo senha nao informado",
-    "tags": [],
-    "type": "scenario",
-    "result": {
-      "duration": 3009,
-      "status": "passed"
-    },
-    "steps": [
-      {
-        "keyword": "Before",
-        "hidden": true,
-        "match": {
-          "location": "support\\hooks.js:15"
-        },
-        "result": {
-          "status": "passed"
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "Given ",
-        "line": 29,
-        "name": "Browse to web site \"https://csi-covid-265c4.web.app/\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:13"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 154000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 30,
-        "name": "I press the \"medico-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 174000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 31,
-        "name": "I enter \"Teste_Medico@gmail.com\" in \"email-login-input\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:66"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1211000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 32,
-        "name": "I press the \"entrar-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 110000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "Then ",
-        "line": 33,
-        "name": "if the component \"sign-in-page\" is on the page, the login has not yet occurred",
-        "match": {
-          "location": "step_definitions\\definitions1.js:73"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1034000000
-        }
-      },
-      {
-        "keyword": "After",
-        "hidden": true,
-        "match": {
-          "location": "support\\hooks.js:19"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 326000000
+          "duration": 305000000
         },
         "embeddings": [
           {
@@ -1372,15 +1943,246 @@
   }
 }{
   "scenario": {
-    "uri": "Login.feature",
-    "id": "login;de-falha---para-o-usuario-pesquisador---login-sem-sucesso-campo-senha-nao-informado",
+    "uri": "Login(Medico_e_Pesquisador).feature",
+    "id": "login(medico_e_pesquisador);para-o-usuario-pesquisador-login-com-sucesso",
+    "keyword": "Scenario",
+    "line": 20,
+    "name": "Para o usuario Pesquisador login com sucesso",
+    "tags": [],
+    "type": "scenario",
+    "result": {
+      "duration": 4601,
+      "status": "passed"
+    },
+    "steps": [
+      {
+        "keyword": "Before",
+        "hidden": true,
+        "match": {
+          "location": "support\\hooks.js:15"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "Given ",
+        "line": 21,
+        "name": "Browse to web site \"https://csi-covid-265c4.web.app/\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:13"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 212000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 22,
+        "name": "I press the \"pesquisador-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 336000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 23,
+        "name": "I enter \"testepesquisadorcovid@gmail.com\" in \"email-login-input\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:66"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1596000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 24,
+        "name": "I enter \"Teste123\" in \"password-login-input\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:66"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1209000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 25,
+        "name": "I press the \"entrar-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 240000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 26,
+        "name": "I see \"Pesquisador\" written on the requested page.id:\"pesquisador-perfil\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:94"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 694000000
+        }
+      },
+      {
+        "keyword": "After",
+        "hidden": true,
+        "match": {
+          "location": "support\\hooks.js:19"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 313000000
+        },
+        "embeddings": [
+          {
+            "data": "file://__tests____report/8.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    ]
+  }
+}{
+  "scenario": {
+    "uri": "Login(Medico_e_Pesquisador).feature",
+    "id": "login(medico_e_pesquisador);de-falha---para-o-usuario-medico--login-sem-sucesso---campo-senha-nao-informado",
+    "keyword": "Scenario",
+    "line": 28,
+    "name": "DE FALHA - Para o usuario Medico- login sem sucesso - campo senha nao informado",
+    "tags": [],
+    "type": "scenario",
+    "result": {
+      "duration": 3456,
+      "status": "passed"
+    },
+    "steps": [
+      {
+        "keyword": "Before",
+        "hidden": true,
+        "match": {
+          "location": "support\\hooks.js:15"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "Given ",
+        "line": 29,
+        "name": "Browse to web site \"https://csi-covid-265c4.web.app/\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:13"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 289000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 30,
+        "name": "I press the \"medico-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 268000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 31,
+        "name": "I enter \"Teste_Medico@gmail.com\" in \"email-login-input\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:66"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1323000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 32,
+        "name": "I press the \"entrar-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 204000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "Then ",
+        "line": 33,
+        "name": "if the component \"sign-in-page\" is on the page, the login has not yet occurred",
+        "match": {
+          "location": "step_definitions\\definitions1.js:73"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1022000000
+        }
+      },
+      {
+        "keyword": "After",
+        "hidden": true,
+        "match": {
+          "location": "support\\hooks.js:19"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 349000000
+        },
+        "embeddings": [
+          {
+            "data": "file://__tests____report/9.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    ]
+  }
+}{
+  "scenario": {
+    "uri": "Login(Medico_e_Pesquisador).feature",
+    "id": "login(medico_e_pesquisador);de-falha---para-o-usuario-pesquisador---login-sem-sucesso-campo-senha-nao-informado",
     "keyword": "Scenario",
     "line": 35,
     "name": "DE FALHA - Para o usuario Pesquisador - login sem sucesso-campo senha nao informado",
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 3077,
+      "duration": 3563,
       "status": "passed"
     },
     "steps": [
@@ -1404,7 +2206,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 199000000
+          "duration": 242000000
         }
       },
       {
@@ -1417,7 +2219,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 163000000
+          "duration": 284000000
         }
       },
       {
@@ -1430,7 +2232,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1282000000
+          "duration": 1480000000
         }
       },
       {
@@ -1443,7 +2245,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 91000000
+          "duration": 170000000
         }
       },
       {
@@ -1456,7 +2258,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1021000000
+          "duration": 1012000000
         }
       },
       {
@@ -1467,11 +2269,11 @@
         },
         "result": {
           "status": "passed",
-          "duration": 321000000
+          "duration": 375000000
         },
         "embeddings": [
           {
-            "data": "file://__tests____report/8.png",
+            "data": "file://__tests____report/10.png",
             "mime_type": "image/png"
           }
         ]
@@ -1480,15 +2282,15 @@
   }
 }{
   "scenario": {
-    "uri": "Login.feature",
-    "id": "login;de-falha---para-o-usuario-medico--login-sem-sucesso-campo-email-nao-informado",
+    "uri": "Login(Medico_e_Pesquisador).feature",
+    "id": "login(medico_e_pesquisador);de-falha---para-o-usuario-medico--login-sem-sucesso-campo-email-nao-informado",
     "keyword": "Scenario",
     "line": 42,
     "name": "DE FALHA - Para o usuario Medico- login sem sucesso-campo email nao informado",
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 3010,
+      "duration": 3333,
       "status": "passed"
     },
     "steps": [
@@ -1513,7 +2315,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 153000000
+          "duration": 211000000
         }
       },
       {
@@ -1526,7 +2328,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 203000000
+          "duration": 243000000
         }
       },
       {
@@ -1539,7 +2341,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1197000000
+          "duration": 1316000000
         }
       },
       {
@@ -1552,7 +2354,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 124000000
+          "duration": 225000000
         }
       },
       {
@@ -1565,7 +2367,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1030000000
+          "duration": 1009000000
         }
       },
       {
@@ -1576,11 +2378,11 @@
         },
         "result": {
           "status": "passed",
-          "duration": 302000000
+          "duration": 328000000
         },
         "embeddings": [
           {
-            "data": "file://__tests____report/9.png",
+            "data": "file://__tests____report/11.png",
             "mime_type": "image/png"
           }
         ]
@@ -1589,15 +2391,15 @@
   }
 }{
   "scenario": {
-    "uri": "Login.feature",
-    "id": "login;de-falha---para-o-usuario-pesquisador---login-sem-sucesso-campo-email-nao-informado",
+    "uri": "Login(Medico_e_Pesquisador).feature",
+    "id": "login(medico_e_pesquisador);de-falha---para-o-usuario-pesquisador---login-sem-sucesso-campo-email-nao-informado",
     "keyword": "Scenario",
     "line": 49,
     "name": "DE FALHA - Para o usuario Pesquisador - login sem sucesso-campo email nao informado",
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 2935,
+      "duration": 3381,
       "status": "passed"
     },
     "steps": [
@@ -1608,8 +2410,7 @@
           "location": "support\\hooks.js:15"
         },
         "result": {
-          "status": "passed",
-          "duration": 1000000
+          "status": "passed"
         }
       },
       {
@@ -1622,7 +2423,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 155000000
+          "duration": 212000000
         }
       },
       {
@@ -1635,7 +2436,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 148000000
+          "duration": 293000000
         }
       },
       {
@@ -1648,7 +2449,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1125000000
+          "duration": 1329000000
         }
       },
       {
@@ -1661,7 +2462,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 148000000
+          "duration": 198000000
         }
       },
       {
@@ -1674,7 +2475,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1013000000
+          "duration": 1017000000
         }
       },
       {
@@ -1685,11 +2486,11 @@
         },
         "result": {
           "status": "passed",
-          "duration": 345000000
+          "duration": 332000000
         },
         "embeddings": [
           {
-            "data": "file://__tests____report/10.png",
+            "data": "file://__tests____report/12.png",
             "mime_type": "image/png"
           }
         ]
@@ -1698,15 +2499,15 @@
   }
 }{
   "scenario": {
-    "uri": "Login.feature",
-    "id": "login;de-falha---para-o-usuario-medico--login-sem-sucesso-nenhum-campo-informado",
+    "uri": "Login(Medico_e_Pesquisador).feature",
+    "id": "login(medico_e_pesquisador);de-falha---para-o-usuario-medico--login-sem-sucesso-nenhum-campo-informado",
     "keyword": "Scenario",
     "line": 56,
     "name": "DE FALHA - Para o usuario Medico- login sem sucesso-nenhum campo informado",
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 1717,
+      "duration": 2176,
       "status": "passed"
     },
     "steps": [
@@ -1730,7 +2531,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 152000000
+          "duration": 275000000
         }
       },
       {
@@ -1743,7 +2544,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 157000000
+          "duration": 336000000
         }
       },
       {
@@ -1756,7 +2557,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 94000000
+          "duration": 218000000
         }
       },
       {
@@ -1769,7 +2570,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1022000000
+          "duration": 1011000000
         }
       },
       {
@@ -1780,236 +2581,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 292000000
-        },
-        "embeddings": [
-          {
-            "data": "file://__tests____report/11.png",
-            "mime_type": "image/png"
-          }
-        ]
-      }
-    ]
-  }
-}{
-  "scenario": {
-    "uri": "Login.feature",
-    "id": "login;de-falha---para-o-usuario-pesquisador---login-sem-sucesso-nenhum-campo-informado",
-    "keyword": "Scenario",
-    "line": 62,
-    "name": "DE FALHA - Para o usuario Pesquisador - login sem sucesso-nenhum campo informado",
-    "tags": [],
-    "type": "scenario",
-    "result": {
-      "duration": 1849,
-      "status": "passed"
-    },
-    "steps": [
-      {
-        "keyword": "Before",
-        "hidden": true,
-        "match": {
-          "location": "support\\hooks.js:15"
-        },
-        "result": {
-          "status": "passed"
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "Given ",
-        "line": 63,
-        "name": "Browse to web site \"https://csi-covid-265c4.web.app/\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:13"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 184000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 64,
-        "name": "I press the \"pesquisador-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 201000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 65,
-        "name": "I press the \"entrar-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 133000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "Then ",
-        "line": 66,
-        "name": "if the component \"sign-in-page\" is on the page, the login has not yet occurred",
-        "match": {
-          "location": "step_definitions\\definitions1.js:73"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1009000000
-        }
-      },
-      {
-        "keyword": "After",
-        "hidden": true,
-        "match": {
-          "location": "support\\hooks.js:19"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 322000000
-        },
-        "embeddings": [
-          {
-            "data": "file://__tests____report/12.png",
-            "mime_type": "image/png"
-          }
-        ]
-      }
-    ]
-  }
-}{
-  "scenario": {
-    "uri": "Login.feature",
-    "id": "login;de-falha---para-o-usuario-medico-quando-digita-na-area-do-pesquisador",
-    "keyword": "Scenario",
-    "line": 68,
-    "name": "DE FALHA - Para o usuario Medico quando digita na area do pesquisador",
-    "tags": [],
-    "type": "scenario",
-    "result": {
-      "duration": 3961,
-      "status": "passed"
-    },
-    "steps": [
-      {
-        "keyword": "Before",
-        "hidden": true,
-        "match": {
-          "location": "support\\hooks.js:15"
-        },
-        "result": {
-          "status": "passed"
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "Given ",
-        "line": 69,
-        "name": "Browse to web site \"https://csi-covid-265c4.web.app/\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:13"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 147000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 70,
-        "name": "I press the \"pesquisador-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 195000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 71,
-        "name": "I enter \"testemedicocovid@gmail.com\" in \"email-login-input\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:66"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1317000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 72,
-        "name": "I enter \"Teste123\" in \"password-login-input\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:66"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1143000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 73,
-        "name": "I press the \"entrar-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 98000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 74,
-        "name": "I press the OK button on the pop-up",
-        "match": {
-          "location": "step_definitions\\definitions1.js:78"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 650000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "Then ",
-        "line": 75,
-        "name": "if I'm on the page \"https://csi-covid-265c4.web.app/\", the login has not yet occurred",
-        "match": {
-          "location": "step_definitions\\definitions1.js:83"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 87000000
-        }
-      },
-      {
-        "keyword": "After",
-        "hidden": true,
-        "match": {
-          "location": "support\\hooks.js:19"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 324000000
+          "duration": 336000000
         },
         "embeddings": [
           {
@@ -2022,15 +2594,246 @@
   }
 }{
   "scenario": {
-    "uri": "Login.feature",
-    "id": "login;de-falha---para-o-usuario-pesquisador-quando-digita-na-area-do-medico",
+    "uri": "Login(Medico_e_Pesquisador).feature",
+    "id": "login(medico_e_pesquisador);de-falha---para-o-usuario-pesquisador---login-sem-sucesso-nenhum-campo-informado",
+    "keyword": "Scenario",
+    "line": 62,
+    "name": "DE FALHA - Para o usuario Pesquisador - login sem sucesso-nenhum campo informado",
+    "tags": [],
+    "type": "scenario",
+    "result": {
+      "duration": 2227,
+      "status": "passed"
+    },
+    "steps": [
+      {
+        "keyword": "Before",
+        "hidden": true,
+        "match": {
+          "location": "support\\hooks.js:15"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "Given ",
+        "line": 63,
+        "name": "Browse to web site \"https://csi-covid-265c4.web.app/\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:13"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 240000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 64,
+        "name": "I press the \"pesquisador-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 331000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 65,
+        "name": "I press the \"entrar-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 273000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "Then ",
+        "line": 66,
+        "name": "if the component \"sign-in-page\" is on the page, the login has not yet occurred",
+        "match": {
+          "location": "step_definitions\\definitions1.js:73"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1011000000
+        }
+      },
+      {
+        "keyword": "After",
+        "hidden": true,
+        "match": {
+          "location": "support\\hooks.js:19"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 371000000
+        },
+        "embeddings": [
+          {
+            "data": "file://__tests____report/14.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    ]
+  }
+}{
+  "scenario": {
+    "uri": "Login(Medico_e_Pesquisador).feature",
+    "id": "login(medico_e_pesquisador);de-falha---para-o-usuario-medico-quando-digita-na-area-do-pesquisador",
+    "keyword": "Scenario",
+    "line": 68,
+    "name": "DE FALHA - Para o usuario Medico quando digita na area do pesquisador",
+    "tags": [],
+    "type": "scenario",
+    "result": {
+      "duration": 5174,
+      "status": "passed"
+    },
+    "steps": [
+      {
+        "keyword": "Before",
+        "hidden": true,
+        "match": {
+          "location": "support\\hooks.js:15"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "Given ",
+        "line": 69,
+        "name": "Browse to web site \"https://csi-covid-265c4.web.app/\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:13"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 423000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 70,
+        "name": "I press the \"pesquisador-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 485000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 71,
+        "name": "I enter \"testemedicocovid@gmail.com\" in \"email-login-input\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:66"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1535000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 72,
+        "name": "I enter \"Teste123\" in \"password-login-input\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:66"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1391000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 73,
+        "name": "I press the \"entrar-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 262000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 74,
+        "name": "I press the OK button on the pop-up",
+        "match": {
+          "location": "step_definitions\\definitions1.js:78"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 648000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "Then ",
+        "line": 75,
+        "name": "if I'm on the page \"https://csi-covid-265c4.web.app/\", the login has not yet occurred",
+        "match": {
+          "location": "step_definitions\\definitions1.js:83"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 65000000
+        }
+      },
+      {
+        "keyword": "After",
+        "hidden": true,
+        "match": {
+          "location": "support\\hooks.js:19"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 364000000
+        },
+        "embeddings": [
+          {
+            "data": "file://__tests____report/15.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    ]
+  }
+}{
+  "scenario": {
+    "uri": "Login(Medico_e_Pesquisador).feature",
+    "id": "login(medico_e_pesquisador);de-falha---para-o-usuario-pesquisador-quando-digita-na-area-do-medico",
     "keyword": "Scenario",
     "line": 77,
     "name": "DE FALHA - Para o usuario Pesquisador quando digita na area do medico",
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 3978,
+      "duration": 4617,
       "status": "passed"
     },
     "steps": [
@@ -2054,7 +2857,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 148000000
+          "duration": 235000000
         }
       },
       {
@@ -2067,7 +2870,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 198000000
+          "duration": 284000000
         }
       },
       {
@@ -2080,7 +2883,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1318000000
+          "duration": 1612000000
         }
       },
       {
@@ -2093,7 +2896,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1112000000
+          "duration": 1256000000
         }
       },
       {
@@ -2106,7 +2909,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 121000000
+          "duration": 260000000
         }
       },
       {
@@ -2119,7 +2922,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 653000000
+          "duration": 441000000
         }
       },
       {
@@ -2132,7 +2935,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 110000000
+          "duration": 165000000
         }
       },
       {
@@ -2143,339 +2946,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 318000000
-        },
-        "embeddings": [
-          {
-            "data": "file://__tests____report/14.png",
-            "mime_type": "image/png"
-          }
-        ]
-      }
-    ]
-  }
-}{
-  "feature": {
-    "uri": "Logout.feature",
-    "description": "**Histórias de Usuários**\n\n**Para** encerrar meu acesso ao sistema\n\n**Eu**, como um usuário cadastrado\n\n**Gostaria** de realizar meu logout do sistema.\n\n**Critérios de aceitação:** Para realizar logout é necessário estar logado no sistema.",
-    "keyword": "Feature",
-    "name": "Logout",
-    "line": 1,
-    "id": "logout",
-    "tags": []
-  }
-}{
-  "scenario": {
-    "uri": "Logout.feature",
-    "id": "logout;para-o-usuario-medico-logout-com-sucesso",
-    "keyword": "Scenario",
-    "line": 12,
-    "name": "Para o usuario Medico logout com sucesso",
-    "tags": [],
-    "type": "scenario",
-    "result": {
-      "duration": 4148,
-      "status": "passed"
-    },
-    "steps": [
-      {
-        "keyword": "Before",
-        "hidden": true,
-        "match": {
-          "location": "support\\hooks.js:15"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "Given ",
-        "line": 13,
-        "name": "Browse to web site \"https://csi-covid-265c4.web.app/\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:13"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 167000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 14,
-        "name": "I press the \"medico-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 192000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 15,
-        "name": "I enter \"testemedicocovid@gmail.com\" in \"email-login-input\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:66"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1281000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 16,
-        "name": "I enter \"Teste123\" in \"password-login-input\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:66"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1136000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 17,
-        "name": "I press the \"entrar-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 112000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 18,
-        "name": "I see \"Diagnósticos\" written on the requested page.id:\"diagnosticos-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:94"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 705000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 19,
-        "name": "I press the \"logout-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 97000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 20,
-        "name": "I press the \"sair-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 91000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "Then ",
-        "line": 21,
-        "name": "I see \"Realizar login como:\" written on the requested page:xpath'//*[@id=\"root\"]/div/div[1]/h2'",
-        "match": {
-          "location": "step_definitions\\definitions1.js:58"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 80000000
-        }
-      },
-      {
-        "keyword": "After",
-        "hidden": true,
-        "match": {
-          "location": "support\\hooks.js:19"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 286000000
-        },
-        "embeddings": [
-          {
-            "data": "file://__tests____report/15.png",
-            "mime_type": "image/png"
-          }
-        ]
-      }
-    ]
-  }
-}{
-  "scenario": {
-    "uri": "Logout.feature",
-    "id": "logout;para-o-usuario-pesquisador-logout-com-sucesso",
-    "keyword": "Scenario",
-    "line": 23,
-    "name": "Para o usuario Pesquisador logout com sucesso",
-    "tags": [],
-    "type": "scenario",
-    "result": {
-      "duration": 4197,
-      "status": "passed"
-    },
-    "steps": [
-      {
-        "keyword": "Before",
-        "hidden": true,
-        "match": {
-          "location": "support\\hooks.js:15"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "Given ",
-        "line": 24,
-        "name": "Browse to web site \"https://csi-covid-265c4.web.app/\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:13"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 185000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 25,
-        "name": "I press the \"pesquisador-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 210000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 26,
-        "name": "I enter \"testepesquisadorcovid@gmail.com\" in \"email-login-input\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:66"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1271000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 27,
-        "name": "I enter \"Teste123\" in \"password-login-input\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:66"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1149000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 28,
-        "name": "I press the \"entrar-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 98000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 29,
-        "name": "I see \"Imagens\" written on the requested page.id:\"imagens-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:94"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 714000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 30,
-        "name": "I press the \"logout-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 77000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 31,
-        "name": "I press the \"sair-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 82000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "Then ",
-        "line": 32,
-        "name": "I see \"Realizar login como:\" written on the requested page:xpath'//*[@id=\"root\"]/div/div[1]/h2'",
-        "match": {
-          "location": "step_definitions\\definitions1.js:58"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 68000000
-        }
-      },
-      {
-        "keyword": "After",
-        "hidden": true,
-        "match": {
-          "location": "support\\hooks.js:19"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 342000000
+          "duration": 364000000
         },
         "embeddings": [
           {
@@ -2488,25 +2959,25 @@
   }
 }{
   "feature": {
-    "uri": "Recuperar_Imagem.feature",
-    "description": "História de Usuário\nPARA visualizar o diagnóstico do um paciente.\nEU, como Pesquisador\nGOSTARIA de buscar através de um código único, o diagnóstico realizado e visualizar as informações.\nCritérios de aceitação: O sistema deve identificar cada paciente através de um código único para que o pesquisador possa buscá-lo de forma precisa.",
+    "uri": "Logout(Medico_e_Pesquisador).feature",
+    "description": "**Histórias de Usuários**\n\n**Para** encerrar meu acesso ao sistema\n\n**Eu**, como um usuário cadastrado\n\n**Gostaria** de realizar meu logout do sistema.\n\n**Critérios de aceitação:** Para realizar logout é necessário estar logado no sistema.",
     "keyword": "Feature",
-    "name": "Recuperar_Imagem",
+    "name": "Logout(Medico_e_Pesquisador)",
     "line": 1,
-    "id": "recuperar_imagem",
+    "id": "logout(medico_e_pesquisador)",
     "tags": []
   }
 }{
   "scenario": {
-    "uri": "Recuperar_Imagem.feature",
-    "id": "recuperar_imagem;para-o-usuario-pesquisador",
+    "uri": "Logout(Medico_e_Pesquisador).feature",
+    "id": "logout(medico_e_pesquisador);para-o-usuario-medico-logout-com-sucesso",
     "keyword": "Scenario",
-    "line": 8,
-    "name": "Para o usuario pesquisador",
+    "line": 12,
+    "name": "Para o usuario Medico logout com sucesso",
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 9234,
+      "duration": 5152,
       "status": "passed"
     },
     "steps": [
@@ -2523,105 +2994,118 @@
       {
         "arguments": [],
         "keyword": "Given ",
-        "line": 9,
+        "line": 13,
         "name": "Browse to web site \"https://csi-covid-265c4.web.app/\"",
         "match": {
           "location": "step_definitions\\definitions1.js:13"
         },
         "result": {
           "status": "passed",
-          "duration": 145000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 10,
-        "name": "I press the \"pesquisador-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 184000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 11,
-        "name": "I enter \"testepesquisadorcovid@gmail.com\" in \"email-login-input\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:66"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1298000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 12,
-        "name": "I enter \"Teste123\" in \"password-login-input\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:66"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1121000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 13,
-        "name": "I press the \"entrar-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 98000000
+          "duration": 255000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 14,
-        "name": "I see \"Imagens\" written on the requested page.id:\"imagens-button\"",
+        "name": "I press the \"medico-button\"",
         "match": {
-          "location": "step_definitions\\definitions1.js:94"
+          "location": "step_definitions\\definitions1.js:17"
         },
         "result": {
           "status": "passed",
-          "duration": 709000000
+          "duration": 351000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 15,
-        "name": "I click  in the first  diagnostic image \"#container-card-menu > div.container-card-img > img\"",
+        "name": "I enter \"testemedicocovid@gmail.com\" in \"email-login-input\"",
         "match": {
-          "location": "step_definitions\\definitions1.js:43"
+          "location": "step_definitions\\definitions1.js:66"
         },
         "result": {
           "status": "passed",
-          "duration": 5126000000
+          "duration": 1569000000
         }
       },
       {
         "arguments": [],
-        "keyword": "Then ",
+        "keyword": "And ",
         "line": 16,
-        "name": "I press the \"pagina-inicial-button\"",
+        "name": "I enter \"Teste123\" in \"password-login-input\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:66"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1221000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 17,
+        "name": "I press the \"entrar-button\"",
         "match": {
           "location": "step_definitions\\definitions1.js:17"
         },
         "result": {
           "status": "passed",
-          "duration": 237000000
+          "duration": 233000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 18,
+        "name": "I see \"Médico\" written on the requested page.id:\"medico-perfil\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:94"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 740000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 19,
+        "name": "I press the \"logout-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 155000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 20,
+        "name": "I press the \"sair-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 174000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "Then ",
+        "line": 21,
+        "name": "I see \"Realizar login como:\" written on the requested page:xpath'//*[@id=\"root\"]/div/div[1]/h2'",
+        "match": {
+          "location": "step_definitions\\definitions1.js:58"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 98000000
         }
       },
       {
@@ -2632,7 +3116,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 316000000
+          "duration": 356000000
         },
         "embeddings": [
           {
@@ -2644,26 +3128,16 @@
     ]
   }
 }{
-  "feature": {
-    "uri": "Recuperar_Senha.feature",
-    "description": "História de Usuário\n\nPARA recuperar minha senha cadastrada\n\nEU, como um usuário cadastrado\n\nGOSTARIA de receber um e-mail para redefinir minha senha.\n\nCritérios de aceitação: Para recuperar a senha é necessário ter um e-mail e senha cadastrados no sistema.",
-    "keyword": "Feature",
-    "name": "Recuperar_Senha",
-    "line": 1,
-    "id": "recuperar_senha",
-    "tags": []
-  }
-}{
   "scenario": {
-    "uri": "Recuperar_Senha.feature",
-    "id": "recuperar_senha;para-o-usuario-medico",
+    "uri": "Logout(Medico_e_Pesquisador).feature",
+    "id": "logout(medico_e_pesquisador);para-o-usuario-pesquisador-logout-com-sucesso",
     "keyword": "Scenario",
-    "line": 12,
-    "name": "Para o usuario Medico",
+    "line": 23,
+    "name": "Para o usuario Pesquisador logout com sucesso",
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 3365,
+      "duration": 5160,
       "status": "passed"
     },
     "steps": [
@@ -2680,92 +3154,118 @@
       {
         "arguments": [],
         "keyword": "Given ",
-        "line": 13,
+        "line": 24,
         "name": "Browse to web site \"https://csi-covid-265c4.web.app/\"",
         "match": {
           "location": "step_definitions\\definitions1.js:13"
         },
         "result": {
           "status": "passed",
-          "duration": 168000000
+          "duration": 220000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
-        "line": 14,
-        "name": "I press the \"medico-button\"",
+        "line": 25,
+        "name": "I press the \"pesquisador-button\"",
         "match": {
           "location": "step_definitions\\definitions1.js:17"
         },
         "result": {
           "status": "passed",
-          "duration": 172000000
+          "duration": 254000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
-        "line": 15,
-        "name": "I press the \"esqueceu-senha-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 297000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 16,
-        "name": "I enter \"testemedicocovid@gmail.com\" in \"email-reset-input\"",
+        "line": 26,
+        "name": "I enter \"testepesquisadorcovid@gmail.com\" in \"email-login-input\"",
         "match": {
           "location": "step_definitions\\definitions1.js:66"
         },
         "result": {
           "status": "passed",
-          "duration": 1330000000
+          "duration": 1560000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
-        "line": 17,
-        "name": "I press the \"enviar-button\"",
+        "line": 27,
+        "name": "I enter \"Teste123\" in \"password-login-input\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:66"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1298000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 28,
+        "name": "I press the \"entrar-button\"",
         "match": {
           "location": "step_definitions\\definitions1.js:17"
         },
         "result": {
           "status": "passed",
-          "duration": 110000000
+          "duration": 165000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
-        "line": 18,
-        "name": "I see \"Verifique seu email!\" written on the requested page.id:\"verifique-text\"",
+        "line": 29,
+        "name": "I see \"Pesquisador\" written on the requested page.id:\"pesquisador-perfil\"",
         "match": {
           "location": "step_definitions\\definitions1.js:94"
         },
         "result": {
           "status": "passed",
-          "duration": 885000000
+          "duration": 930000000
         }
       },
       {
         "arguments": [],
-        "keyword": "Then ",
-        "line": 19,
-        "name": "I press the \"voltar-button\"",
+        "keyword": "And ",
+        "line": 30,
+        "name": "I press the \"logout-button\"",
         "match": {
           "location": "step_definitions\\definitions1.js:17"
         },
         "result": {
           "status": "passed",
-          "duration": 90000000
+          "duration": 104000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 31,
+        "name": "I press the \"sair-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 171000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "Then ",
+        "line": 32,
+        "name": "I see \"Realizar login como:\" written on the requested page:xpath'//*[@id=\"root\"]/div/div[1]/h2'",
+        "match": {
+          "location": "step_definitions\\definitions1.js:58"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 134000000
         }
       },
       {
@@ -2776,7 +3276,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 313000000
+          "duration": 324000000
         },
         "embeddings": [
           {
@@ -2788,499 +3288,26 @@
     ]
   }
 }{
-  "scenario": {
-    "uri": "Recuperar_Senha.feature",
-    "id": "recuperar_senha;para-o-usuario-pesquisador",
-    "keyword": "Scenario",
-    "line": 21,
-    "name": "Para o usuario Pesquisador",
-    "tags": [],
-    "type": "scenario",
-    "result": {
-      "duration": 2880,
-      "status": "passed"
-    },
-    "steps": [
-      {
-        "keyword": "Before",
-        "hidden": true,
-        "match": {
-          "location": "support\\hooks.js:15"
-        },
-        "result": {
-          "status": "passed"
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "Given ",
-        "line": 22,
-        "name": "Browse to web site \"https://csi-covid-265c4.web.app/\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:13"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 146000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 23,
-        "name": "I press the \"pesquisador-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 228000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 24,
-        "name": "I press the \"esqueceu-senha-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 353000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 25,
-        "name": "I enter \"testepesquisadorcovid@gmail.com\" in \"email-reset-input\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:66"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1215000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 26,
-        "name": "I press the \"enviar-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 79000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 27,
-        "name": "I see \"Verifique seu email!\" written on the requested page.id:\"verifique-text\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:94"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 475000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "Then ",
-        "line": 28,
-        "name": "I press the \"voltar-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 80000000
-        }
-      },
-      {
-        "keyword": "After",
-        "hidden": true,
-        "match": {
-          "location": "support\\hooks.js:19"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 304000000
-        },
-        "embeddings": [
-          {
-            "data": "file://__tests____report/19.png",
-            "mime_type": "image/png"
-          }
-        ]
-      }
-    ]
-  }
-}{
   "feature": {
-    "uri": "Solicitar_Diagnostico.feature",
-    "description": "História de Usuário\nPara solicitar um diagnóstico de um paciente com sintomas da Covid-19\nEu, como um Médico\nGostaria de inserir os dados anonimizados e a foto do raio x do paciente para avaliação.\nCritérios de aceitação: O sistema deve identificar o local onde está sendo solicitado o diagnóstico.",
+    "uri": "Recuperar_Senha(Medico_e_Pesquisador).feature",
+    "description": "História de Usuário\n\nPARA recuperar minha senha cadastrada\n\nEU, como um usuário cadastrado\n\nGOSTARIA de receber um e-mail para redefinir minha senha.\n\nCritérios de aceitação: Para recuperar a senha é necessário ter um e-mail e senha cadastrados no sistema.",
     "keyword": "Feature",
-    "name": "Solicitar Diagnostico",
+    "name": "Recuperar_Senha(Medico_E_Pesquisador)",
     "line": 1,
-    "id": "solicitar-diagnostico",
+    "id": "recuperar_senha(medico_e_pesquisador)",
     "tags": []
   }
 }{
   "scenario": {
-    "uri": "Solicitar_Diagnostico.feature",
-    "id": "solicitar-diagnostico;para-o-usuario-medico",
+    "uri": "Recuperar_Senha(Medico_e_Pesquisador).feature",
+    "id": "recuperar_senha(medico_e_pesquisador);para-o-usuario-medico",
     "keyword": "Scenario",
-    "line": 8,
+    "line": 12,
     "name": "Para o usuario Medico",
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 19087,
-      "status": "passed"
-    },
-    "steps": [
-      {
-        "keyword": "Before",
-        "hidden": true,
-        "match": {
-          "location": "support\\hooks.js:15"
-        },
-        "result": {
-          "status": "passed"
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "Given ",
-        "line": 9,
-        "name": "Browse to web site \"https://csi-covid-265c4.web.app/\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:13"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 128000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 10,
-        "name": "I press the \"medico-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 159000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 11,
-        "name": "I enter \"testemedicocovid@gmail.com\" in \"email-login-input\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:66"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1366000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 12,
-        "name": "I enter \"Teste123\" in \"password-login-input\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:66"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1124000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 13,
-        "name": "I press the \"entrar-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 109000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 14,
-        "name": "I see \"Diagnósticos\" written on the requested page.id:\"diagnosticos-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:94"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 766000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 15,
-        "name": "I press the \"novo-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 120000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 16,
-        "name": "I press the \"estado-select\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 146000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 17,
-        "name": "I press the option \".MuiButtonBase-root:nth-child(11)\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:31"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1172000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 18,
-        "name": "I press the \"cidade-select\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1358000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 19,
-        "name": "I press the option \".MuiButtonBase-root:nth-child(6)\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:31"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1581000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 20,
-        "name": "I press the \"sexo-select\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 463000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 21,
-        "name": "I press the option \".MuiButtonBase-root:nth-child(1)\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:31"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1108000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 22,
-        "name": "in the \"idade-input\" field, I type in the information \"25\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:36"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1116000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 23,
-        "name": "in the \"temp-input\" field, I type in the information \"38\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:36"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1103000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 24,
-        "name": "in the \"sat_ox-input\" field, I type in the information \"98\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:36"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1123000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 25,
-        "name": "in the \"info-select\" field, I type in the information \"Teste-123\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:36"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1185000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 26,
-        "name": "I press the \"continuar-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 152000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 27,
-        "name": "I press the \"image-upload\"  and choose the file",
-        "match": {
-          "location": "step_definitions\\definitions1.js:22"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 2081000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 28,
-        "name": "I press the \"solicitar-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 98000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 29,
-        "name": "I see \"COVID-19\" written on the requested page",
-        "match": {
-          "location": "step_definitions\\definitions1.js:50"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 2166000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "Then ",
-        "line": 30,
-        "name": "I press the \"pagina-inicial-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 146000000
-        }
-      },
-      {
-        "keyword": "After",
-        "hidden": true,
-        "match": {
-          "location": "support\\hooks.js:19"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 317000000
-        },
-        "embeddings": [
-          {
-            "data": "file://__tests____report/20.png",
-            "mime_type": "image/png"
-          }
-        ]
-      }
-    ]
-  }
-}{
-  "feature": {
-    "uri": "Visualizar_Diagnostico.feature",
-    "description": "História de Usuário\nPara visualizar o diagnóstico do um paciente.\nEu, como um Médico\nGostaria de buscar através de um código único, o diagnóstico realizado e visualizar as informações.",
-    "keyword": "Feature",
-    "name": "Visualizar_Diagnostico",
-    "line": 1,
-    "id": "visualizar_diagnostico",
-    "tags": []
-  }
-}{
-  "scenario": {
-    "uri": "Visualizar_Diagnostico.feature",
-    "id": "visualizar_diagnostico;para-o-usuario-medico",
-    "keyword": "Scenario",
-    "line": 7,
-    "name": "Para o usuario Medico",
-    "tags": [],
-    "type": "scenario",
-    "result": {
-      "duration": 9197,
+      "duration": 3935,
       "status": "passed"
     },
     "steps": [
@@ -3298,105 +3325,92 @@
       {
         "arguments": [],
         "keyword": "Given ",
-        "line": 8,
+        "line": 13,
         "name": "Browse to web site \"https://csi-covid-265c4.web.app/\"",
         "match": {
           "location": "step_definitions\\definitions1.js:13"
         },
         "result": {
           "status": "passed",
-          "duration": 211000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 9,
-        "name": "I press the \"medico-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 193000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 10,
-        "name": "I enter \"testemedicocovid@gmail.com\" in \"email-login-input\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:66"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1273000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 11,
-        "name": "I enter \"Teste123\" in \"password-login-input\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:66"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1139000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 12,
-        "name": "I press the \"entrar-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 99000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 13,
-        "name": "I see \"Diagnósticos\" written on the requested page.id:\"diagnosticos-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:94"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 693000000
+          "duration": 300000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 14,
-        "name": "I click  in the first  diagnostic image \"#container-card-menu > div.container-card-img > img\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:43"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 5115000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "Then ",
-        "line": 15,
-        "name": "I press the \"pagina-inicial-button\"",
+        "name": "I press the \"medico-button\"",
         "match": {
           "location": "step_definitions\\definitions1.js:17"
         },
         "result": {
           "status": "passed",
-          "duration": 150000000
+          "duration": 300000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 15,
+        "name": "I press the \"esqueceu-senha-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 418000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 16,
+        "name": "I enter \"testemedicocovid@gmail.com\" in \"email-reset-input\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:66"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1391000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 17,
+        "name": "I press the \"enviar-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 194000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 18,
+        "name": "I see \"Verifique seu email!\" written on the requested page.id:\"verifique-text\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:94"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 756000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "Then ",
+        "line": 19,
+        "name": "I press the \"voltar-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 246000000
         }
       },
       {
@@ -3407,11 +3421,11 @@
         },
         "result": {
           "status": "passed",
-          "duration": 323000000
+          "duration": 329000000
         },
         "embeddings": [
           {
-            "data": "file://__tests____report/21.png",
+            "data": "file://__tests____report/19.png",
             "mime_type": "image/png"
           }
         ]
@@ -3419,26 +3433,16 @@
     ]
   }
 }{
-  "feature": {
-    "uri": "Visualizar_usuario.feature",
-    "description": "História de Usuário -Visualizar Usuário\n\nPARA poder visualizar meus dados cadastrados\n\nEU, como um usuário cadastrado\n\nGOSTARIA de visualizar meu perfil.\n\nCritérios de aceitação: Ter os dados salvos no sistema.",
-    "keyword": "Feature",
-    "name": "Visualizar_usuario",
-    "line": 1,
-    "id": "visualizar_usuario",
-    "tags": []
-  }
-}{
   "scenario": {
-    "uri": "Visualizar_usuario.feature",
-    "id": "visualizar_usuario;para-o-usuario-medico",
+    "uri": "Recuperar_Senha(Medico_e_Pesquisador).feature",
+    "id": "recuperar_senha(medico_e_pesquisador);para-o-usuario-pesquisador",
     "keyword": "Scenario",
-    "line": 12,
-    "name": "Para o usuario Medico",
+    "line": 21,
+    "name": "Para o usuario Pesquisador",
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 5138,
+      "duration": 4056,
       "status": "passed"
     },
     "steps": [
@@ -3455,196 +3459,92 @@
       {
         "arguments": [],
         "keyword": "Given ",
-        "line": 13,
+        "line": 22,
         "name": "Browse to web site \"https://csi-covid-265c4.web.app/\"",
         "match": {
           "location": "step_definitions\\definitions1.js:13"
         },
         "result": {
           "status": "passed",
-          "duration": 181000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 14,
-        "name": "I press the \"medico-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 166000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 15,
-        "name": "I enter \"testemedicocovid@gmail.com\" in \"email-login-input\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:66"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1309000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 16,
-        "name": "I enter \"Teste123\" in \"password-login-input\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:66"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1138000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 17,
-        "name": "I press the \"entrar-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 117000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 18,
-        "name": "I see \"Diagnósticos\" written on the requested page.id:\"diagnosticos-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:94"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 665000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 19,
-        "name": "I press the \"logout-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 98000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 20,
-        "name": "I press the \"perfil-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:17"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 174000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 21,
-        "name": "I see \"Perfil\" written on the requested page:xpath'//*[@id=\"root\"]/div/div/div[1]/h1'",
-        "match": {
-          "location": "step_definitions\\definitions1.js:58"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 59000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 22,
-        "name": "I see \"nome_medico\" written on the requested page.id:\"name-profile-label\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:94"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 511000000
+          "duration": 304000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 23,
-        "name": "I see \"testemedicocovid@gmail.com\" written on the requested page.id:\"email-profile-label\"",
+        "name": "I press the \"pesquisador-button\"",
         "match": {
-          "location": "step_definitions\\definitions1.js:94"
+          "location": "step_definitions\\definitions1.js:17"
         },
         "result": {
           "status": "passed",
-          "duration": 52000000
+          "duration": 437000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 24,
-        "name": "I see \"crm_medico\" written on the requested page.id:\"crm-profile-label\"",
+        "name": "I press the \"esqueceu-senha-button\"",
         "match": {
-          "location": "step_definitions\\definitions1.js:94"
+          "location": "step_definitions\\definitions1.js:17"
         },
         "result": {
           "status": "passed",
-          "duration": 50000000
+          "duration": 556000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 25,
-        "name": "I see \"especialidade_medico\" written on the requested page.id:\"info-profile-label\"",
+        "name": "I enter \"testepesquisadorcovid@gmail.com\" in \"email-reset-input\"",
         "match": {
-          "location": "step_definitions\\definitions1.js:94"
+          "location": "step_definitions\\definitions1.js:66"
         },
         "result": {
           "status": "passed",
-          "duration": 50000000
+          "duration": 1429000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 26,
-        "name": "I press the \"logout-button\"",
+        "name": "I press the \"enviar-button\"",
         "match": {
           "location": "step_definitions\\definitions1.js:17"
         },
         "result": {
           "status": "passed",
-          "duration": 77000000
+          "duration": 184000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 27,
-        "name": "I press the \"sair-button\"",
+        "name": "I see \"Verifique seu email!\" written on the requested page.id:\"verifique-text\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:94"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 520000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "Then ",
+        "line": 28,
+        "name": "I press the \"voltar-button\"",
         "match": {
           "location": "step_definitions\\definitions1.js:17"
         },
         "result": {
           "status": "passed",
-          "duration": 115000000
+          "duration": 219000000
         }
       },
       {
@@ -3655,7 +3555,530 @@
         },
         "result": {
           "status": "passed",
-          "duration": 376000000
+          "duration": 407000000
+        },
+        "embeddings": [
+          {
+            "data": "file://__tests____report/20.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    ]
+  }
+}{
+  "feature": {
+    "uri": "Solicitar_Diagnostico(Area_medico).feature",
+    "description": "História de Usuário\nPara solicitar um diagnóstico de um paciente com sintomas da Covid-19\nEu, como um Médico\nGostaria de inserir os dados anonimizados e a foto do raio x do paciente para avaliação.\nCritérios de aceitação: O sistema deve identificar o local onde está sendo solicitado o diagnóstico.",
+    "keyword": "Feature",
+    "name": "Solicitar Diagnostico(Area_Medico)",
+    "line": 1,
+    "id": "solicitar-diagnostico(area_medico)",
+    "tags": []
+  }
+}{
+  "scenario": {
+    "uri": "Solicitar_Diagnostico(Area_medico).feature",
+    "id": "solicitar-diagnostico(area_medico);para-o-usuario-medico",
+    "keyword": "Scenario",
+    "line": 8,
+    "name": "Para o usuario Medico",
+    "tags": [],
+    "type": "scenario",
+    "result": {
+      "duration": 22670,
+      "status": "passed"
+    },
+    "steps": [
+      {
+        "keyword": "Before",
+        "hidden": true,
+        "match": {
+          "location": "support\\hooks.js:15"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 2000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "Given ",
+        "line": 9,
+        "name": "Browse to web site \"https://csi-covid-265c4.web.app/\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:13"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 249000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 10,
+        "name": "I press the \"medico-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 354000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 11,
+        "name": "I enter \"testemedicocovid@gmail.com\" in \"email-login-input\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:66"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1399000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 12,
+        "name": "I enter \"Teste123\" in \"password-login-input\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:66"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1289000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 13,
+        "name": "I press the \"entrar-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 205000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 14,
+        "name": "I see \"Médico\" written on the requested page.id:\"medico-perfil\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:94"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1094000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 15,
+        "name": "I press the \"diagnosticos-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 293000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 16,
+        "name": "I press the \"novo-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 757000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 17,
+        "name": "I press the \"estado-select\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 225000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 18,
+        "name": "I press the option \".MuiButtonBase-root:nth-child(11)\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:31"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1197000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 19,
+        "name": "I press the \"cidade-select\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 2030000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 20,
+        "name": "I press the option \".MuiButtonBase-root:nth-child(6)\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:31"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1730000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 21,
+        "name": "I press the \"sexo-select\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 448000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 22,
+        "name": "I press the option \".MuiButtonBase-root:nth-child(1)\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:31"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1143000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 23,
+        "name": "in the \"idade-input\" field, I type in the information \"25\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:36"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1173000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 24,
+        "name": "in the \"temp-input\" field, I type in the information \"38\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:36"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1172000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 25,
+        "name": "in the \"sat_ox-input\" field, I type in the information \"98\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:36"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1179000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 26,
+        "name": "in the \"info-select\" field, I type in the information \"Teste-123\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:36"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1291000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 27,
+        "name": "I press the \"continuar-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 265000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 28,
+        "name": "I press the \"image-upload\"  and choose the file",
+        "match": {
+          "location": "step_definitions\\definitions1.js:22"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 2071000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 29,
+        "name": "I press the \"solicitar-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 126000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 30,
+        "name": "I see \"COVID-19\" written on the requested page",
+        "match": {
+          "location": "step_definitions\\definitions1.js:50"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 2418000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "Then ",
+        "line": 31,
+        "name": "I press the \"pagina-inicial-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 245000000
+        }
+      },
+      {
+        "keyword": "After",
+        "hidden": true,
+        "match": {
+          "location": "support\\hooks.js:19"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 315000000
+        },
+        "embeddings": [
+          {
+            "data": "file://__tests____report/21.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    ]
+  }
+}{
+  "feature": {
+    "uri": "Visualizar_Diagnostico.feature",
+    "description": "História de Usuário\nPara visualizar o diagnóstico do um paciente.\nEu, como um Médico\nGostaria de buscar através de um código único, o diagnóstico realizado e visualizar as informações.",
+    "keyword": "Feature",
+    "name": "Visualizar_Diagnostico_Solicitado(Area_Medico)",
+    "line": 1,
+    "id": "visualizar_diagnostico_solicitado(area_medico)",
+    "tags": []
+  }
+}{
+  "scenario": {
+    "uri": "Visualizar_Diagnostico.feature",
+    "id": "visualizar_diagnostico_solicitado(area_medico);para-o-usuario-medico",
+    "keyword": "Scenario",
+    "line": 7,
+    "name": "Para o usuario Medico",
+    "tags": [],
+    "type": "scenario",
+    "result": {
+      "duration": 11250,
+      "status": "passed"
+    },
+    "steps": [
+      {
+        "keyword": "Before",
+        "hidden": true,
+        "match": {
+          "location": "support\\hooks.js:15"
+        },
+        "result": {
+          "status": "passed"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "Given ",
+        "line": 8,
+        "name": "Browse to web site \"https://csi-covid-265c4.web.app/\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:13"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 313000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 9,
+        "name": "I press the \"medico-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 274000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 10,
+        "name": "I enter \"testemedicocovid@gmail.com\" in \"email-login-input\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:66"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1411000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 11,
+        "name": "I enter \"Teste123\" in \"password-login-input\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:66"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1219000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 12,
+        "name": "I press the \"entrar-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 201000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 13,
+        "name": "I see \"Médico\" written on the requested page.id:\"medico-perfil\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:94"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 707000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 14,
+        "name": "I press the \"diagnosticos-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 411000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 15,
+        "name": "I click  in the first  diagnostic image \"#container-card-menu > div.container-card-img > img\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:43"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 6158000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "Then ",
+        "line": 16,
+        "name": "I press the \"pagina-inicial-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 200000000
+        }
+      },
+      {
+        "keyword": "After",
+        "hidden": true,
+        "match": {
+          "location": "support\\hooks.js:19"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 356000000
         },
         "embeddings": [
           {
@@ -3668,15 +4091,731 @@
   }
 }{
   "scenario": {
+    "uri": "Visualizar_Diagnostico.feature",
+    "id": "visualizar_diagnostico_solicitado(area_medico);para-o-usuario-pesquisador",
+    "keyword": "Scenario",
+    "line": 18,
+    "name": "Para o usuario pesquisador",
+    "tags": [],
+    "type": "scenario",
+    "result": {
+      "duration": 11059,
+      "status": "passed"
+    },
+    "steps": [
+      {
+        "keyword": "Before",
+        "hidden": true,
+        "match": {
+          "location": "support\\hooks.js:15"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "Given ",
+        "line": 19,
+        "name": "Browse to web site \"https://csi-covid-265c4.web.app/\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:13"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 206000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 20,
+        "name": "I press the \"pesquisador-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 276000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 21,
+        "name": "I enter \"testepesquisadorcovid@gmail.com\" in \"email-login-input\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:66"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1534000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 22,
+        "name": "I enter \"Teste123\" in \"password-login-input\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:66"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1192000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 23,
+        "name": "I press the \"entrar-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 184000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 24,
+        "name": "I see \"Imagens\" written on the requested page.id:\"imagens-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:94"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 962000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 25,
+        "name": "I click  in the first  diagnostic image \"#container-card-menu > div.container-card-img > img\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:43"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 6181000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "Then ",
+        "line": 26,
+        "name": "I press the \"pagina-inicial-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 188000000
+        }
+      },
+      {
+        "keyword": "After",
+        "hidden": true,
+        "match": {
+          "location": "support\\hooks.js:19"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 335000000
+        },
+        "embeddings": [
+          {
+            "data": "file://__tests____report/23.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    ]
+  }
+}{
+  "feature": {
+    "uri": "Visualizar_Diagnosticos_Fornecidos.feature",
+    "description": "Histórias de Usuários:\n\nVisualizar_Diagnostico_Fornecido(Area_medico)\n\nPara saber quais diagnósticos eu já forneci para o treinamento da IA\nEu, como um Médico\nGostaria de visualizar uma lista de diagnósticos fornecidos e detalhar um específico.\nCritérios de aceitação: O sistema deve identificar cada diagnóstico fornecido através de um código único para que o médico possa localizar em uma lista de forma precisa.\n\nVisualizar_Diagnostico_Fornecido(Area_pesquisador)\n\nPara saber quais diagnósticos eu já forneci para o treinamento da IA\nEu, como Pesquisador\nGostaria de visualizar uma lista de diagnósticos fornecidos e detalhar um específico.\nCritérios de aceitação: O sistema deve identificar cada paciente através de um código único para que o pesquisador possa buscá-lo de forma precisa.",
+    "keyword": "Feature",
+    "name": "Visualizar_Diagnostico_Fornecido(Medico_e_Pesquisador)",
+    "line": 1,
+    "id": "visualizar_diagnostico_fornecido(medico_e_pesquisador)",
+    "tags": []
+  }
+}{
+  "scenario": {
+    "uri": "Visualizar_Diagnosticos_Fornecidos.feature",
+    "id": "visualizar_diagnostico_fornecido(medico_e_pesquisador);para-o-usuario-medico",
+    "keyword": "Scenario",
+    "line": 18,
+    "name": "Para o usuario Medico",
+    "tags": [],
+    "type": "scenario",
+    "result": {
+      "duration": 11574,
+      "status": "passed"
+    },
+    "steps": [
+      {
+        "keyword": "Before",
+        "hidden": true,
+        "match": {
+          "location": "support\\hooks.js:15"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "Given ",
+        "line": 19,
+        "name": "Browse to web site \"https://csi-covid-265c4.web.app/\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:13"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 243000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 20,
+        "name": "I press the \"medico-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 280000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 21,
+        "name": "I enter \"testemedicocovid@gmail.com\" in \"email-login-input\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:66"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1422000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 22,
+        "name": "I enter \"Teste123\" in \"password-login-input\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:66"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1239000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 23,
+        "name": "I press the \"entrar-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 136000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 24,
+        "name": "I press the \"fornecidos-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1061000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 25,
+        "name": "I see \"Médico\" written on the requested page.id:\"medico-perfil\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:94"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 528000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 26,
+        "name": "I click  in the first  diagnostic image \".content-card:nth-child(1) > #container-card-menu .card-image\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:43"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 6147000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "Then ",
+        "line": 27,
+        "name": "I press the \"pagina-inicial-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 186000000
+        }
+      },
+      {
+        "keyword": "After",
+        "hidden": true,
+        "match": {
+          "location": "support\\hooks.js:19"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 331000000
+        },
+        "embeddings": [
+          {
+            "data": "file://__tests____report/24.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    ]
+  }
+}{
+  "scenario": {
+    "uri": "Visualizar_Diagnosticos_Fornecidos.feature",
+    "id": "visualizar_diagnostico_fornecido(medico_e_pesquisador);para-o-usuario-pesquisador",
+    "keyword": "Scenario",
+    "line": 29,
+    "name": "Para o usuario pesquisador",
+    "tags": [],
+    "type": "scenario",
+    "result": {
+      "duration": 11174,
+      "status": "passed"
+    },
+    "steps": [
+      {
+        "keyword": "Before",
+        "hidden": true,
+        "match": {
+          "location": "support\\hooks.js:15"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "Given ",
+        "line": 30,
+        "name": "Browse to web site \"https://csi-covid-265c4.web.app/\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:13"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 264000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 31,
+        "name": "I press the \"pesquisador-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 315000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 32,
+        "name": "I enter \"testepesquisadorcovid@gmail.com\" in \"email-login-input\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:66"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1551000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 33,
+        "name": "I enter \"Teste123\" in \"password-login-input\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:66"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1189000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 34,
+        "name": "I press the \"entrar-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 225000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 35,
+        "name": "I see \"Imagens\" written on the requested page.id:\"imagens-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:94"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 871000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 36,
+        "name": "I click  in the first  diagnostic image \"#container-card-menu > div.container-card-img > img\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:43"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 6147000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "Then ",
+        "line": 37,
+        "name": "I press the \"pagina-inicial-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 266000000
+        }
+      },
+      {
+        "keyword": "After",
+        "hidden": true,
+        "match": {
+          "location": "support\\hooks.js:19"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 345000000
+        },
+        "embeddings": [
+          {
+            "data": "file://__tests____report/25.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    ]
+  }
+}{
+  "feature": {
     "uri": "Visualizar_usuario.feature",
-    "id": "visualizar_usuario;para-o-usuario-pesquisador",
+    "description": "História de Usuário -Visualizar Usuário\n\nPARA poder visualizar meus dados cadastrados\n\nEU, como um usuário cadastrado\n\nGOSTARIA de visualizar meu perfil.\n\nCritérios de aceitação: Ter os dados salvos no sistema.",
+    "keyword": "Feature",
+    "name": "Visualizar_usuario(Medico_E_Pesquisador)",
+    "line": 1,
+    "id": "visualizar_usuario(medico_e_pesquisador)",
+    "tags": []
+  }
+}{
+  "scenario": {
+    "uri": "Visualizar_usuario.feature",
+    "id": "visualizar_usuario(medico_e_pesquisador);para-o-usuario-medico",
+    "keyword": "Scenario",
+    "line": 12,
+    "name": "Para o usuario Medico",
+    "tags": [],
+    "type": "scenario",
+    "result": {
+      "duration": 6563,
+      "status": "passed"
+    },
+    "steps": [
+      {
+        "keyword": "Before",
+        "hidden": true,
+        "match": {
+          "location": "support\\hooks.js:15"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 9000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "Given ",
+        "line": 13,
+        "name": "Browse to web site \"https://csi-covid-265c4.web.app/\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:13"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 429000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 14,
+        "name": "I press the \"medico-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 415000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 15,
+        "name": "I enter \"testemedicocovid@gmail.com\" in \"email-login-input\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:66"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1358000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 16,
+        "name": "I enter \"Teste123\" in \"password-login-input\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:66"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1176000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 17,
+        "name": "I press the \"entrar-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 210000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 18,
+        "name": "I see \"Médico\" written on the requested page.id:\"medico-perfil\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:94"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 804000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 19,
+        "name": "I press the \"logout-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 193000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 20,
+        "name": "I press the \"perfil-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 303000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 21,
+        "name": "I see \"Perfil\" written on the requested page:xpath'//*[@id=\"root\"]/div/div/div[1]/h1'",
+        "match": {
+          "location": "step_definitions\\definitions1.js:58"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 97000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 22,
+        "name": "I see \"nome_medico\" written on the requested page.id:\"name-profile-label\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:94"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 550000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 23,
+        "name": "I see \"testemedicocovid@gmail.com\" written on the requested page.id:\"email-profile-label\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:94"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 106000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 24,
+        "name": "I see \"crm_medico\" written on the requested page.id:\"crm-profile-label\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:94"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 118000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 25,
+        "name": "I see \"especialidade_medico\" written on the requested page.id:\"info-profile-label\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:94"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 87000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 26,
+        "name": "I press the \"logout-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 146000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 27,
+        "name": "I press the \"sair-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:17"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 153000000
+        }
+      },
+      {
+        "keyword": "After",
+        "hidden": true,
+        "match": {
+          "location": "support\\hooks.js:19"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 409000000
+        },
+        "embeddings": [
+          {
+            "data": "file://__tests____report/26.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    ]
+  }
+}{
+  "scenario": {
+    "uri": "Visualizar_usuario.feature",
+    "id": "visualizar_usuario(medico_e_pesquisador);para-o-usuario-pesquisador",
     "keyword": "Scenario",
     "line": 29,
     "name": "Para o usuario Pesquisador",
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 5059,
+      "duration": 5694,
       "status": "passed"
     },
     "steps": [
@@ -3700,7 +4839,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 155000000
+          "duration": 249000000
         }
       },
       {
@@ -3713,7 +4852,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 176000000
+          "duration": 267000000
         }
       },
       {
@@ -3726,7 +4865,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1283000000
+          "duration": 1431000000
         }
       },
       {
@@ -3739,7 +4878,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1118000000
+          "duration": 1216000000
         }
       },
       {
@@ -3752,20 +4891,20 @@
         },
         "result": {
           "status": "passed",
-          "duration": 136000000
+          "duration": 152000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 35,
-        "name": "I see \"Imagens\" written on the requested page.id:\"imagens-button\"",
+        "name": "I see \"Pesquisador\" written on the requested page.id:\"pesquisador-perfil\"",
         "match": {
           "location": "step_definitions\\definitions1.js:94"
         },
         "result": {
           "status": "passed",
-          "duration": 713000000
+          "duration": 785000000
         }
       },
       {
@@ -3778,7 +4917,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 82000000
+          "duration": 114000000
         }
       },
       {
@@ -3791,7 +4930,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 138000000
+          "duration": 169000000
         }
       },
       {
@@ -3804,7 +4943,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 54000000
+          "duration": 53000000
         }
       },
       {
@@ -3817,7 +4956,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 495000000
+          "duration": 466000000
         }
       },
       {
@@ -3830,7 +4969,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 49000000
+          "duration": 92000000
         }
       },
       {
@@ -3843,7 +4982,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 50000000
+          "duration": 78000000
         }
       },
       {
@@ -3856,7 +4995,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 105000000
+          "duration": 99000000
         }
       },
       {
@@ -3869,7 +5008,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 90000000
+          "duration": 110000000
         }
       },
       {
@@ -3880,11 +5019,11 @@
         },
         "result": {
           "status": "passed",
-          "duration": 415000000
+          "duration": 413000000
         },
         "embeddings": [
           {
-            "data": "file://__tests____report/23.png",
+            "data": "file://__tests____report/27.png",
             "mime_type": "image/png"
           }
         ]

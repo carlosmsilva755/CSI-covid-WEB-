@@ -1,4 +1,4 @@
-Feature: Recuperar_Senha
+Feature: Recuperar_Senha(Medico_E_Pesquisador)
 História de Usuário
 
 PARA recuperar minha senha cadastrada

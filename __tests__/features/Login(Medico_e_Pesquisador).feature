@@ -1,4 +1,4 @@
-Feature: Login
+Feature: Login(Medico_e_Pesquisador)
 **Histórias de Usuários**
 
 **Para** acessar meu ambiente no sistema
@@ -15,7 +15,7 @@ Feature: Login
     And I enter "testemedicocovid@gmail.com" in "email-login-input"
     And I enter "Teste123" in "password-login-input"
     And I press the "entrar-button"
-    And I see "Diagnósticos" written on the requested page.id:"diagnosticos-button"
+    And I see "Médico" written on the requested page.id:"medico-perfil"
 
   Scenario: Para o usuario Pesquisador login com sucesso
     Given Browse to web site "https://csi-covid-265c4.web.app/"
@@ -23,7 +23,7 @@ Feature: Login
     And I enter "testepesquisadorcovid@gmail.com" in "email-login-input"
     And I enter "Teste123" in "password-login-input"
     And I press the "entrar-button"
-    And I see "Imagens" written on the requested page.id:"imagens-button"
+    And I see "Pesquisador" written on the requested page.id:"pesquisador-perfil"
 
   Scenario: DE FALHA - Para o usuario Medico- login sem sucesso - campo senha nao informado
     Given Browse to web site "https://csi-covid-265c4.web.app/"
