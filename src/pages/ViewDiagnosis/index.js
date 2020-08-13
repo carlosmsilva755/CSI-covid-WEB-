@@ -21,7 +21,7 @@ const ViewDiagnosis = (props) => {
     const history = useHistory()
     const [data, setData] = useState({})
     const [resul, setResul] = useState('')
-    const [showModal, setShowModal] = useState(false)
+    // const [showModal, setShowModal] = useState(false)
     const [token, setToken] = useState('')
     const [disable, setDisable] = useState(false)
 
@@ -50,7 +50,7 @@ const ViewDiagnosis = (props) => {
     })
     const classes = useStyles()
 
-    //result === covid
+    //result === covid NAO É MAIS
     async function handleConfirm(){
         setDisable(true)
 
@@ -74,7 +74,7 @@ const ViewDiagnosis = (props) => {
         console.log(imageResearcher);
 
         formData.append('file', imageResearcher)
-        formData.append('for_research', true)
+        //formData.append('for_research', true)
         formData.append('result', resul) 
         //formData.append('id_doctor', 0)
         
@@ -95,9 +95,9 @@ const ViewDiagnosis = (props) => {
 
         history.push('/medicalRecord')
     }
-    function handleOpen(){
-        setShowModal(true)
-    }
+    // function handleOpen(){
+    //     setShowModal(true)
+    // }
 
     //If the result is not covid
     async function handleCovidNotConfirmed(){
@@ -241,7 +241,8 @@ const ViewDiagnosis = (props) => {
                                 resul.toString() === '2' && !localStorage.getItem('@isResearcher') ?
                                     <button id='disponibilizar-button'
                                         className='button button-view' 
-                                        onClick={handleOpen}
+                                        onClick={handleConfirm}
+                                        disabled={disable}
                                     >Salvar Resultado</button> 
                                     : 
                                     <button id='disponibilizar-button'
@@ -254,7 +255,7 @@ const ViewDiagnosis = (props) => {
                             <button id='pagina-inicial-button'className='button-back button-back2' onClick={handleClick}>Página inicial</button>
 
                             <Dialog
-                                open={showModal} 
+                                //open={showModal} 
                                 //onClose={handleClose}
                                 aria-labelledby="draggable-dialog-title" maxWidth='xs'
                                 //className={classes.box}
