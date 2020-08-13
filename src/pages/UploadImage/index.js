@@ -152,6 +152,7 @@ const UploadImage = (props) => {
                                 type = "button" 
                                 className="button-back" 
                                 onClick = {handleSubmit(onCancel)}
+                                disabled={disable}
                             > Voltar</button>
 
                             <Snackbar open={openAlert} autoHideDuration={6000} onClose={handleClose}>

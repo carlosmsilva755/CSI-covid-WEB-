@@ -75,7 +75,7 @@ const Header = ({ firebase }) => {
                                     className = {location.pathname ==='/medicalRecord' ?
                                      "header-buttons-clicked" : "header-buttons-doc"
                                     }
-                                >Diagnósticos &nbsp;&nbsp;realizados</a>                    
+                                >Diagnósticos &nbsp;&nbsp;solicitados</a>                    
                             </div>
 
                             <div className="container-header-prontuarios">                   

@@ -21,7 +21,7 @@ const ViewDiagnosis = (props) => {
     const history = useHistory()
     const [data, setData] = useState({})
     const [resul, setResul] = useState('')
-    // const [showModal, setShowModal] = useState(false)
+    const [showModal, setShowModal] = useState(false)
     const [token, setToken] = useState('')
     const [disable, setDisable] = useState(false)
 
@@ -95,9 +95,12 @@ const ViewDiagnosis = (props) => {
 
         history.push('/medicalRecord')
     }
-    // function handleOpen(){
-    //     setShowModal(true)
-    // }
+    function handleOpen(){
+        setShowModal(true)
+    }
+    function handleClose(){
+        setShowModal(false)
+    }
 
     //If the result is not covid
     async function handleCovidNotConfirmed(){
@@ -235,13 +238,13 @@ const ViewDiagnosis = (props) => {
                             data.fromHome ? null : localStorage.getItem('@justUpload') ? 
                                 <button id='imagem-button'
                                     className='button button-view' 
-                                    onClick={handleJustUpload}
+                                    onClick={handleOpen}//onClick={handleJustUpload}
                                     disabled={disable}
-                                >Salvar Imagem</button> : 
+                                >Enviar diagnóstico</button> : 
                                 resul.toString() === '2' && !localStorage.getItem('@isResearcher') ?
                                     <button id='disponibilizar-button'
                                         className='button button-view' 
-                                        onClick={handleConfirm}
+                                        onClick={handleConfirm}/////
                                         disabled={disable}
                                     >Salvar Resultado</button> 
                                     : 
@@ -249,27 +252,32 @@ const ViewDiagnosis = (props) => {
                                         className='button button-view' 
                                         onClick={handleCovidNotConfirmed}
                                         disabled={disable}
-                                    >Salvar Resultado</button>
+                                    >Enviar diagnóstico</button>
                             }<br/><br/>
                             
-                            <button id='pagina-inicial-button'className='button-back button-back2' onClick={handleClick}>Página inicial</button>
+                            <button 
+                                id='pagina-inicial-button'
+                                className='button-back button-back2' 
+                                onClick={handleClick}
+                                disabled={disable}
+                            >Página inicial</button>
 
                             <Dialog
-                                //open={showModal} 
-                                //onClose={handleClose}
+                                open={showModal} 
+                                onClose={handleClose}
                                 aria-labelledby="draggable-dialog-title" maxWidth='xs'
                                 //className={classes.box}
                             >
                                 <DialogTitle className={classes.title}>Contribuir com pesquisa</DialogTitle>
                                 <DialogContent>
                                     <DialogContentText className={classes.root}>
-                                        Declaro que esta imagem foi devidamente anonimizada e que o diagnóstico de Covid-19 está confirmado. 
-                                        Aperte confirmar caso queira disponibilizar este diagnóstico para fins de pesquisa.
+                                        Declaro que os dados do diagnóstico foram devidamente anonimizados. 
+                                        Aperte confirmar para disponibilizar este diagnóstico para fins de pesquisa.
                                     </DialogContentText>
                                 </DialogContent>
                                 <DialogActions>
-                                    <button id='cancelar-button'onClick={handleCovidNotConfirmed} className='button-back' disabled={disable}>Não enviar</button>
-                                    <button id='confirmar-button'onClick={e=>{handleConfirm(); handleCovidNotConfirmed()}} className='button button-modal' disabled={disable}>Confirmar</button>
+                                    <button id='cancelar-button'onClick={handleClose} className='button-back' disabled={disable}>Cancelar</button>
+                                    <button id='confirmar-button'onClick={handleJustUpload} className='button button-modal' disabled={disable}>Confirmar</button>
                                 </DialogActions>
                             </Dialog>
 

@@ -68,7 +68,7 @@ const Header = ({ firebase }) => {
                         <div className= "container-header">
 
                             <div className="container-header-prontuario">                   
-                                <a id='imagens-button' href = '/researcherImages' className = "header-buttons">Imagens</a>                    
+                                <a id='imagens-button' href = '/researcherImages' className = "header-buttons">Diagnósticos fornecidos</a>                    
                             </div>
 
                         </div>                
@@ -104,7 +104,7 @@ const Header = ({ firebase }) => {
                     {
                         width < 540 && location.pathname !== '/researcherImages'?
                             <MenuItem id='diagnostico-button' onClick={handleDiagnoses}>
-                                <Assignment/> &nbsp; Imagens
+                                <Assignment/> &nbsp; Diagnósticos
                             </MenuItem>
                             : null
                     }
