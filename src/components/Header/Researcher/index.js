@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react'
+import { useHistory, useLocation } from 'react-router-dom'
+
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
-import { useHistory, useLocation } from 'react-router-dom'
+import Dialog from '@material-ui/core/Dialog'
+import DialogActions from '@material-ui/core/DialogActions'
+import DialogTitle from '@material-ui/core/DialogTitle'
 
 import './styles.css'
 import logo from '../../../assets/logo.svg'
-import profile from '../../../assets/Icons/profile.svg'
+import profile from '../../../assets/Icons/Header/res.svg'
 import LogOut from '../../../assets/Icons/logOut'
 import ProfileMenu from '../../../assets/Icons/profile'
 import Assignment from '../../../assets/Icons/assignment'
@@ -16,6 +20,7 @@ const Header = ({ firebase }) => {
 
     const { width } = { width: window.innerWidth, height: window.innerHeight };
     const [dropMenuOpen, setDropMenuOpen] = useState(false)
+    const [showModal, setShowModal] = useState(false)
 
     const location = useLocation()
     const history = useHistory()
@@ -51,6 +56,15 @@ const Header = ({ firebase }) => {
 
     const handleDiagnoses = () => {
         history.push('/researcherImages')
+    }
+
+    const handleCloseModal = () => {
+        setShowModal(false)
+        setAnchorEl(null)
+    }
+
+    const handleLogout = () => {
+        firebase.doSignOut()
     }
 
     return (
@@ -118,11 +132,24 @@ const Header = ({ firebase }) => {
                             null
                     }
 
-                    <MenuItem id='sair-button' onClick={firebase.doSignOut}>
+                    <MenuItem id='sair-button' onClick={()=> setShowModal(true)}>
                         <LogOut/> &nbsp; Sair
                     </MenuItem>
                     
                 </Menu>
+
+                <Dialog
+                    open={showModal} 
+                    //onClose={handleClose}
+                    aria-labelledby="draggable-dialog-title" maxWidth='xs'
+                    //className={classes.box}
+                >
+                    <DialogTitle >Deseja sair do sistema?</DialogTitle>
+                    <DialogActions>
+                        <button id='cancelar-button'onClick={handleCloseModal} className='button-back'>Cancelar</button>
+                        <button id='saida-button'onClick={handleLogout} className='button button-modal'>Sair</button>
+                    </DialogActions>
+                </Dialog>
 
             </div>
 

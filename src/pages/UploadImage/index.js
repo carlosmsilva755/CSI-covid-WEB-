@@ -7,6 +7,8 @@ import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 import Fade from '@material-ui/core/Fade'
 import LinearProgress from '@material-ui/core/LinearProgress';
+import TextField from '@material-ui/core/TextField'
+import MenuItem from '@material-ui/core/MenuItem'
 
 import "./styles.css"
 import Header from '../../components/Header/Default/index'
@@ -20,13 +22,17 @@ function Alert(props) {
 }
 const UploadImage = (props) => {
 
-    const [form, setForm] = useState('')
+    // const [form, setForm] = useState('')
     const [image, setImage] = useState('')
     const [imageView, setImageView] = useState('')
     const [loading, setLoading] = useState(false)
     const [openAlert, setOpenAlert] = useState(false)
     const [token, setToken] = useState('')
     const [disable, setDisable] = useState(false)
+    const [result, setResult] = useState('')
+
+    const resultOptions = [{"Filter":"Covid-19"}, {"Filter":"Pneumonia"}, {"Filter":"Normal"}]
+
 
     const { setImageV, setImageResearcher } = useContext(ImageContext)
 
@@ -35,8 +41,8 @@ const UploadImage = (props) => {
     const { handleSubmit } = useForm();
 
     useEffect(() =>{
-        const data_ = localStorage.getItem('@form')
-        setForm(JSON.parse(data_))
+        // const data_ = localStorage.getItem('@form')
+        // setForm(JSON.parse(data_))
 
         props.firebase.auth.currentUser.getIdToken(false)
         .then((token) => setToken(token))
@@ -51,13 +57,23 @@ const UploadImage = (props) => {
 
 
     const onSubmit = async () => {
-        console.log(form);
-        if(image)
-            setLoading((prevLoading) => !prevLoading);
-        else{
-            setOpenAlert(true)
-            return
+
+        if(localStorage.getItem('@isResearcher') || localStorage.getItem('@justUpload')){
+            if(image && result)
+                setLoading((prevLoading) => !prevLoading);
+            else{
+                setOpenAlert(true)
+                return
+            }
+        }else{
+            if(image)
+                setLoading((prevLoading) => !prevLoading);
+            else{
+                setOpenAlert(true)
+                return
+            }
         }
+        
         setDisable(true)
 
         const formImage = new FormData() 
@@ -69,7 +85,8 @@ const UploadImage = (props) => {
         
         if(localStorage.getItem('@isResearcher') || localStorage.getItem('@justUpload')){
 
-            localStorage.setItem('@result', localStorage.getItem('@resUp'))
+            localStorage.setItem('@result', handleResultNumber())
+            localStorage.setItem('@resUp', handleResultNumber())
             history.push('/view-diagnosis')
 
         }else{
@@ -89,13 +106,22 @@ const UploadImage = (props) => {
         
     }
 
+    function handleResultNumber(){
+        if(result === "Covid-19")
+            return 2
+        if(result === "Pneumonia")
+            return 1
+        if(result === "Normal")
+            return 0
+    }
+
     const onCancel = () => {
         history.push('/register');  
     }
     const handleClose = (event, reason) => {
-        if (reason === 'clickaway') {
-          return;
-        }
+        // if (reason === 'clickaway') {
+        //   return;
+        // }
     
         setOpenAlert(false);
     }
@@ -135,6 +161,30 @@ const UploadImage = (props) => {
                                 <span id='file-name'></span>
                             </div>
 
+                            {
+                                localStorage.getItem('@justUpload') || localStorage.getItem('@isResearcher')? 
+                                    <>
+                                    <br/>
+                                        <TextField id="outlined-select-currency" 
+                                            size="small" 
+                                            select 
+                                            label="Diagnóstico"
+                                            className="form-state" 
+                                            variant="outlined" 
+                                            value={result}
+                                            onChange={event => setResult(event.target.value)}
+                                        >
+                                            {resultOptions.map((option) => (
+                                                <MenuItem key={option.Filter} value={option.Filter}>
+                                                {option.Filter}
+                                                </MenuItem>
+                                            ))}
+                                        </TextField>
+                                        
+                                    </>
+                                    : null
+                            }
+
                             <Fade in={loading && image} unmountOnExit>
                                 <LinearProgress/>
                             </Fade>  
@@ -156,7 +206,10 @@ const UploadImage = (props) => {
                             > Voltar</button>
 
                             <Snackbar open={openAlert} autoHideDuration={6000} onClose={handleClose}>
-                                <Alert severity="error" onClose={handleClose}>Você deve adicionar uma imagem!</Alert>
+                                <Alert 
+                                    severity="error" 
+                                    onClose={handleClose}
+                                >{image ? 'Você deve adicionar um resultado!':'Você deve adicionar uma imagem!'}</Alert>
                             </Snackbar>
                         </div>
                     </div>

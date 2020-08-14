@@ -8,6 +8,7 @@
     border: 1px solid #5B656F;
     box-sizing: border-box;
     border-radius: 4px;
+    cursor: pointer;
 }
 
 .container-card-header{
@@ -58,9 +59,7 @@
     height: 24px;
     
 }
-.container-card-img{
-    /* flex-direction: column; */
-}
+
 .card-image{
     /* position: absolute; */
     /* display: block; */
@@ -70,7 +69,7 @@
     height: 160px;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 .card-diagnostic{
     /* position: absolute; */

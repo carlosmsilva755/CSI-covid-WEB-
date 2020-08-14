@@ -34,7 +34,7 @@ export default ({diagnosis}) => {
     }
     
     return (
-        <div id='container-card-menu'>
+        <div id='container-card-menu' onClick={handleView}>
 
             <div className="container-card-header">
                 
@@ -47,7 +47,7 @@ export default ({diagnosis}) => {
 
             <div className = "container-card-img">
 
-                <img className = "card-image"src = {diagnosis.image.url} alt="xray" onClick={handleView}/>
+                <img className = "card-image"src = {diagnosis.image.url} alt="xray" />
 
                 {   
                     diagnosis.result === 0 ?

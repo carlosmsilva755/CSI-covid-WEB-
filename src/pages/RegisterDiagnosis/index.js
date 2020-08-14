@@ -14,7 +14,6 @@ const RegisterDiagnosis = () => {
 
     const history = useHistory()
     const sexo = [{"sexo":"Masculino"}, {"sexo":"Feminino"}]
-    const resultOptions = [{"Filter":"Covid-19"}, {"Filter":"Pneumonia"}, {"Filter":"Normal"}]
 
     const [state,setState] = useState('')
     const [city,setCity] = useState('')
@@ -24,7 +23,6 @@ const RegisterDiagnosis = () => {
     const [sat_ox,setSat_ox] = useState('')
     const [info,setInfo] = useState('')
     const [citiesArray, setCitiesArray] = useState([])
-    const [result, setResult] = useState('')
 
     useEffect( () =>{
         const data = localStorage.getItem('@form')
@@ -56,19 +54,10 @@ const RegisterDiagnosis = () => {
         }
 
         localStorage.setItem('@form',JSON.stringify(data))
-        localStorage.getItem('@justUpload') || localStorage.getItem('@isResearcher') ? localStorage.setItem('@resUp', handleResultNumber()) : console.log('');
 
         history.push('/upload')
     }
-    //covid=2, pneumonia=1, normal=0
-    function handleResultNumber(){
-        if(result === "Covid-19")
-            return 2
-        if(result === "Pneumonia")
-            return 1
-        if(result === "Normal")
-            return 0
-    }
+    
 
     function handleCancel(){
         localStorage.getItem('@isResearcher') ?
@@ -113,27 +102,6 @@ const RegisterDiagnosis = () => {
                                     <div className='container-form'>
                                         <h1 className="container-title">Dados do paciente</h1>
 
-                                        {
-                                            localStorage.getItem('@justUpload') || localStorage.getItem('@isResearcher')? 
-                                                <TextField id="outlined-select-currency" 
-                                                    size="small" 
-                                                    select 
-                                                    label="Diagnóstico"
-                                                    className="form-state" 
-                                                    variant="outlined" 
-                                                    value={result}
-                                                    onChange={event => setResult(event.target.value)}
-                                                    required
-                                                >
-                                                    {resultOptions.map((option) => (
-                                                        <MenuItem key={option.Filter} value={option.Filter}>
-                                                        {option.Filter}
-                                                        </MenuItem>
-                                                    ))}
-                                                </TextField>
-                                                : null
-                                        }
-                                        <br/> <br/> 
                                         <TextField 
                                             id="estado-select" 
                                             size="small" 
