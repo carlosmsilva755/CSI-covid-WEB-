@@ -14,13 +14,3 @@ Gostaria de buscar através de um código único, o diagnóstico realizado e vis
     And I press the "diagnosticos-button"
     And I click  in the first  diagnostic image "#container-card-menu > div.container-card-img > img"
     Then I press the "pagina-inicial-button"
-
-  Scenario: Para o usuario pesquisador
-    Given Browse to web site "https://csi-covid-265c4.web.app/"
-    And I press the "pesquisador-button"
-    And I enter "testepesquisadorcovid@gmail.com" in "email-login-input"
-    And I enter "Teste123" in "password-login-input"
-    And I press the "entrar-button"
-    And I see "Imagens" written on the requested page.id:"imagens-button"
-    And I click  in the first  diagnostic image "#container-card-menu > div.container-card-img > img"
-    Then I press the "pagina-inicial-button"

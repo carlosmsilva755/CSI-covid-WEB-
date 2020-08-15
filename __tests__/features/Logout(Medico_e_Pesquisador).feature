@@ -18,6 +18,7 @@ Feature: Logout(Medico_e_Pesquisador)
     And I see "Médico" written on the requested page.id:"medico-perfil"
     And I press the "logout-button"
     And I press the "sair-button"
+    And I press the "saida-button"
     Then I see "Realizar login como:" written on the requested page:xpath'//*[@id="root"]/div/div[1]/h2'
 
   Scenario: Para o usuario Pesquisador logout com sucesso
@@ -29,4 +30,5 @@ Feature: Logout(Medico_e_Pesquisador)
     And I see "Pesquisador" written on the requested page.id:"pesquisador-perfil"
     And I press the "logout-button"
     And I press the "sair-button"
+    And I press the "saida-button"
     Then I see "Realizar login como:" written on the requested page:xpath'//*[@id="root"]/div/div[1]/h2'
