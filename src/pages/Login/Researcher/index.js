@@ -144,9 +144,9 @@ function SignInFormBase(props){
 
                     <a id='esqueceu-senha-button' className='text-fgtPassword' href="/reset-res">Esqueceu sua senha?</a>
                     <br/>
-                    <button id='entrar-button'className='button' type='submit'>
+                    <button id='entrar-button'className='button' type='submit' disabled={clicked}>
                         {clicked && !error ? 
-                            <CircularProgress color='secondary' size={20} /> 
+                            <CircularProgress color='primary' size={20} /> 
                             : 'Entrar'
                         }
                     </button>
