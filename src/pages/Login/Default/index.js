@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import loginImage from '../../../assets/Images/loginImage.svg'
 import DoctorLogin from '../../../assets/Icons/doctorLogin'
 import ResearcherLogin from '../../../assets/Icons/t'
@@ -7,7 +7,7 @@ import './styles.css'
 
 
 export default () => {
-
+    const history= useHistory()
     return(
         
         <div className='container-login'>
@@ -34,6 +34,16 @@ export default () => {
                             </div>
                         </Link>
                         
+                    </div>
+
+                    <div className='login-button-back'>
+                        <button 
+                            id ='voltar-button' 
+                            className='button-back'
+                            onClick={()=>{
+                                history.push('/')
+                            }}
+                        > Voltar para a página inicial</button>
                     </div>
 
                 </div> <br/>

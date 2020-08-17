@@ -175,7 +175,7 @@ const MedicalRecord = (props) => {
                     </div>
 
             : 
-                history.push('/')
+                history.push('/login')
         }
         </AuthUserContext.Consumer>
     )

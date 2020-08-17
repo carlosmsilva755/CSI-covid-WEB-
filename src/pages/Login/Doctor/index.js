@@ -30,7 +30,7 @@ function SignInFormBase(props){
     function signOutResearcher(){
         props.firebase.doSignOut()
         alert('Realize login como pesquisador')
-        props.history.push('/')
+        props.history.push('/login')
     }
 
     const onSubmit = async event => {
@@ -74,7 +74,7 @@ function SignInFormBase(props){
     }
 
     function handleBack(){
-        _history.push('/')
+        _history.push('/login')
     }
 
     function setErrorMessage(error){

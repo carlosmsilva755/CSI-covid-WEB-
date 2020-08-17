@@ -142,7 +142,7 @@ const ResearcherImages = (props) => {
                         </div>
                     </div>
                     : 
-                        history.push('/')
+                        history.push('/login')
             }
         </AuthUserContext.Consumer>
     )

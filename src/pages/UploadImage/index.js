@@ -99,7 +99,7 @@ const UploadImage = (props) => {
                 history.push('/view-diagnosis')
             }).catch(error=>{
                 console.log(error)
-                //history.push('/')
+                //history.push('/login')
                 setDisable(false)
             })
         }

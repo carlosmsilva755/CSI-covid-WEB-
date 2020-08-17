@@ -94,7 +94,7 @@ function SignUpFormBase (props){
     }
 
     function handleCancel(){
-        history.push('/')
+        history.push('/login')
     }
 
     function handleErrors(error){

@@ -95,3 +95,9 @@ svg:hover{
 .text-login{
     margin-top: 0px;
 }
+
+.login-button-back{
+    display: flex;
+    margin-top: -30px;
+    justify-content: center;
+}
