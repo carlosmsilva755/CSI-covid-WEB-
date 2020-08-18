@@ -18,6 +18,7 @@ import api from '../../services/api'
 
 const ViewDiagnosis = (props) => {
 
+    const width = window.innerWidth
     const history = useHistory()
     const [data, setData] = useState({})
     const [resul, setResul] = useState('')
@@ -237,19 +238,19 @@ const ViewDiagnosis = (props) => {
                             {
                             data.fromHome ? null : localStorage.getItem('@justUpload') ? 
                                 <button id='imagem-button'
-                                    className='button button-view' 
+                                    className={width > 540 ? 'button button-view' : 'button button-view-responsive'} 
                                     onClick={handleOpen}//onClick={handleJustUpload}
                                     disabled={disable}
                                 >Enviar diagnóstico</button> : 
                                 resul.toString() === '2' && !localStorage.getItem('@isResearcher') ?
                                     <button id='disponibilizar-button'
-                                        className='button button-view' 
+                                        className={width > 540 ? 'button button-view' : 'button button-view-responsive'} 
                                         onClick={handleConfirm}/////
                                         disabled={disable}
                                     >Salvar Resultado</button> 
                                     : 
                                     <button id='disponibilizar-button'
-                                        className='button button-view' 
+                                        className={width > 540 ? 'button button-view' : 'button button-view-responsive'}
                                         onClick={handleCovidNotConfirmed}
                                         disabled={disable}
                                     >Enviar diagnóstico</button>

@@ -12,6 +12,16 @@
     margin-left: 100px; */
 }
 
+.card-view-responsive{
+    border: 1.4359px solid #5B656F;
+    box-sizing: border-box;
+    border-radius: 5.74359px;
+    height: auto;
+    
+    /* width: 607px;
+    display: flex; */
+}
+
 .card-left{
     margin-left: 40px;
 }

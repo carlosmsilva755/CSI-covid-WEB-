@@ -3,8 +3,9 @@ import React from 'react'
 import './styles.css'
 
 export default ({id, date, age, sex, info, image, diagnosis}) => {
+    const width = window.innerWidth
     return(
-        <div className='card-view'>
+        <div className={width > 540 ? "card-view" : "card-view-responsive"}>
 
             <div className='card-left'><br/>
                 <h1 className = 'card-id'>{id}</h1>

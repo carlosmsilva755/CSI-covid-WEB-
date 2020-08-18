@@ -19,6 +19,10 @@
     margin: 0 auto;
     width: 607px;
 }
+.button-view-responsive{
+    margin-left: 360px;
+    margin: 0 auto;
+}
 
 .modal-text{
     font-size: 16px;

@@ -15,6 +15,7 @@ import { AuthUserContext, withAuthorization } from '../../contexts/Session'
 const ResearcherImages = (props) => {
     const filterOptions = [{"Filter":"Covid-19"}, {"Filter":"Pneumonia"}, {"Filter":"Normal"}]
     const history = useHistory()
+    const width = window.innerWidth
 
     const [currentPage, setCurrentPage] = useState(1)
     const [pages, setPages] = useState(null)
@@ -90,14 +91,14 @@ const ResearcherImages = (props) => {
                 isAuth ?
                     <div>
                         <Header/>
-                        <div className= "container">
-                            <div className= "container-navbars">
+                        <div className= {width > 540 ? "container" : "container-responsive"}>
+                            <div className= {width > 540 ? "container-navbars" : "container-navbars-responsive"}>
 
                                 <TextField id="outlined-basic" label="Pesquisar" size = "small" variant="outlined"className="search-input" />
                                 
                                 <img src={searchButton} alt="search" onClick={e=>printUser(authUser)}/>
-                                
-                                <div className="filter">
+                                {/*  */}
+                                <div className= {width > 540 ? "filter": ""}>
 
                                     <TextField id="outlined-select-currency" size="small" select label="Filtro" className="select-filter" variant="outlined">
                                         {filterOptions.map((option) => (
@@ -109,11 +110,16 @@ const ResearcherImages = (props) => {
 
                                 </div>
 
-                                <button id ='novo-button' type = "button" className="button-add" onClick = {handleAdd}>Novo</button>
+                                <button 
+                                    id ='novo-button' 
+                                    type = "button" 
+                                    className={width > 540 ? "button-add" :"button-add-responsive"}
+                                    onClick = {handleAdd}
+                                >Novo</button>
 
                             </div>
 
-                            <div className="container-diagnosis">
+                            <div className={width > 540 ? "container-diagnosis":"container-diagnosis-responsive"}>
                                 {
                                     diagnoses ?
                                         diagnoses.map( item =>
@@ -126,7 +132,7 @@ const ResearcherImages = (props) => {
                                 }
                             </div> <br/>
                             
-                            <div className='container-pagination'>
+                            <div className={width > 540 ?'container-pagination':'container-pagination-responsive'}>
                                 <Pagination 
                                     count={pages}
                                     page={currentPage}
