@@ -43,10 +43,26 @@ export default () => {
 
                 </div>
                 
-                <img className = 'footer-images' src={Ufop} alt=""/>
-                <img className = 'footer-images' src={CSI} alt=""/>
-                <img className = 'footer-images' src={TerraLAB} alt=""/>
-                <img className = 'footer-images' src={Decom} alt=""/>
+                
+                <div className = 'footer-container-links'>
+
+                    <a href="https://ufop.br/" target="_blank" rel="noopener noreferrer" className='image'>
+                        <img className = 'footer-images' src={Ufop} alt=""/>
+                    </a>
+
+                    <a href="http://www.decom.ufop.br/csilab/" target="_blank" rel="noopener noreferrer" className='image'>
+                        <img className = 'footer-images' src={CSI} alt=""/>
+                    </a>
+
+                    <a href="http://www2.decom.ufop.br/terralab/" target="_blank" rel="noopener noreferrer" className='image'>
+                        <img className = 'footer-images' src={TerraLAB} alt=""/>
+                    </a> 
+
+                    <a href='http://www3.decom.ufop.br/decom/inicio/' target="_blank" rel="noopener noreferrer" className='image'>
+                        <img className = 'footer-images' src={Decom} alt=""/>
+                    </a>
+                </div>
+
             </div>
 
         </div>
