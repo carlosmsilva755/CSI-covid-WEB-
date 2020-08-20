@@ -36,6 +36,7 @@ function SignInFormBase(props){
                     props.history.push('/login');
                }else{
                    console.log('RES');
+                   localStorage.setItem('@resUsrTkn',idTokenResult.token)
                    props.history.push('/researcherImages');
                 }
             })

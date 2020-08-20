@@ -36,6 +36,7 @@ function SignInFormBase(props){
                     props.history.push('/login');
                }else{
                    console.log('DOC');
+                   localStorage.setItem('@docusr_tkn',idTokenResult.token)
                    props.history.push('/medicalRecord');
                 }
             })
