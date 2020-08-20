@@ -21,9 +21,11 @@
     "moment": "^2.27.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-google-charts": "^3.0.15",
     "react-hook-form": "^6.0.2",
+    "react-minimal-pie-chart": "^8.0.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "2.1.8",
+    "react-scripts": "^3.4.3",
     "recompose": "^0.30.0"
   },
   "scripts": {
