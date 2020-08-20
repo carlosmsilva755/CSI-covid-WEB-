@@ -28,14 +28,14 @@ export default ({id, date, age, sex, info, image, diagnosis,prob1, prob2, prob3,
             <div className ='card-right'>
             {
                 localStorage.getItem('@isResearcher') || localStorage.getItem('@justUpload')?
-                    <br/> : <p className='card-model-title'>Diagnóstico do modelo:</p>
+                    <br/> : <p id ='modelo-diagnostico'className='card-model-title'>Diagnóstico do modelo:</p>
             }
                 {   
                     diagnosis === '0' || diagnosis === 0 ?
-                    <p className='card-diagnosis green-diag'> <b>NORMAL</b></p> :
+                    <p id='normal-diagnostico' className='card-diagnosis green-diag'> <b>NORMAL</b></p> :
                         diagnosis === '1' || diagnosis === 1?
-                            <p className='card-diagnosis gray-diag'> <b>PNEUMONIA</b></p>:
-                            <p className='card-diagnosis red-diag'> <b>COVID-19</b></p>
+                            <p id='pneumonia-diagnostico' className='card-diagnosis gray-diag'> <b>PNEUMONIA</b></p>:
+                            <p id='covid-diagnostico' className='card-diagnosis red-diag'> <b>COVID-19</b></p>
                 }
                 {localStorage.getItem('@isResearcher') || localStorage.getItem('@justUpload')?
                     null :
