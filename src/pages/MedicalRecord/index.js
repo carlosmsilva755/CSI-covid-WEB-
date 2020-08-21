@@ -38,6 +38,11 @@ const MedicalRecord = (props) => {
         localStorage.removeItem('@isResearcher')
         localStorage.removeItem('@result')
         localStorage.removeItem('@justUpload')
+        localStorage.removeItem('@result2')
+        localStorage.removeItem('@result3')
+        localStorage.removeItem('@prob1')
+        localStorage.removeItem('@prob2')
+        localStorage.removeItem('@prob3')
 
         // window.addEventListener('resize', updateWindowDimensions);
         // return () => window.removeEventListener('resize', updateWindowDimensions);
@@ -90,7 +95,8 @@ const MedicalRecord = (props) => {
                     setDiagnoses(response.data.diagnoses.docs)
                     setCurrentPage(Number(response.data.diagnoses.page))
                     setPages(response.data.diagnoses.pages)
-                    setTimeout(()=>setDisable(false), 1000)
+                    setTimeout(()=>setDisable(false), 1000) 
+                    // console.log(response.data.diagnoses.docs);
                 }).catch(error=>{
                     console.log(error)
                 })
@@ -175,7 +181,7 @@ const MedicalRecord = (props) => {
                     </div>
 
             : 
-                history.push('/')
+                history.push('/login')
         }
         </AuthUserContext.Consumer>
     )

@@ -7,6 +7,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import loginImage from '../../../assets/Images/loginImage.svg'
 import PasswordField from '../../../components/Inputs/Password/index'
 import { withFirebase } from '../../../contexts/Firebase'
+import { AuthUserContext } from '../../../contexts/Session'
 import './styles.css'
 
 const SignInPage = () => (
@@ -27,10 +28,27 @@ function SignInFormBase(props){
 
     const _history = useHistory()
 
+    function userAlreadyLogged(){
+        props.firebase.auth.currentUser.getIdTokenResult()
+            .then((idTokenResult) => {
+                if (!!idTokenResult.claims.researcher) {
+                    console.log('IS RES');
+                    props.history.push('/login');
+               }else{
+                   console.log('DOC');
+                   localStorage.setItem('@docusr_tkn',idTokenResult.token)
+                   props.history.push('/medicalRecord');
+                }
+            })
+            .catch((error) => {
+              console.log(error);
+            })
+    }
+
     function signOutResearcher(){
         props.firebase.doSignOut()
         alert('Realize login como pesquisador')
-        props.history.push('/')
+        props.history.push('/login')
     }
 
     const onSubmit = async event => {
@@ -74,7 +92,7 @@ function SignInFormBase(props){
     }
 
     function handleBack(){
-        _history.push('/')
+        _history.push('/login')
     }
 
     function setErrorMessage(error){
@@ -110,52 +128,55 @@ function SignInFormBase(props){
     }
 
     return(
-        
-        <div className='container-login'>
-            <form onSubmit={onSubmit}>
+        <AuthUserContext.Consumer>
+        {   authUser => !authUser ?
+                <div className='container-login'>
+                    <form onSubmit={onSubmit}>
 
-                <img src={loginImage} alt="logo" className='login-image'/>
-                
-                <div className='inputs'>
+                        <img src={loginImage} alt="logo" className='login-image'/>
+                        
+                        <div className='inputs'>
 
-                    <TextField error={error}
-                        id="email-login-input" 
-                        label={error ? errorMsg :"Usuário"} 
-                        size = "small" 
-                        variant="outlined"
-                        className="input-fields"
-                        value ={email} 
-                        onChange={event => {
-                            setEmail(event.target.value);
-                            setError(false)
-                        }} 
-                    /> 
-                    <br/><br/>
+                            <TextField error={error}
+                                id="email-login-input" 
+                                label={error ? errorMsg :"Usuário"} 
+                                size = "small" 
+                                variant="outlined"
+                                className="input-fields"
+                                value ={email} 
+                                onChange={event => {
+                                    setEmail(event.target.value);
+                                    setError(false)
+                                }} 
+                            /> 
+                            <br/><br/>
 
-                    <PasswordField id='password-login'
-                        error ={errorPassword}
-                        setError={setErrorPas}
-                        errorMessage={errorPasMsg}
-                        password={password} 
-                        setPassword={setPassword} 
-                        classname='input-fields' 
-                        label='Senha'
-                    /> <br/>
+                            <PasswordField id='password-login'
+                                error ={errorPassword}
+                                setError={setErrorPas}
+                                errorMessage={errorPasMsg}
+                                password={password} 
+                                setPassword={setPassword} 
+                                classname='input-fields' 
+                                label='Senha'
+                            /> <br/>
+                            
+                            <a id='esqueceu-senha-button' className='text-fgtPassword' href="/reset-doc">Esqueceu sua senha?</a>
+                            <br/>
+                            <button id='entrar-button'className='button' type='submit' disabled={clicked}>
+                                {clicked && !error ? 
+                                    <CircularProgress color='primary' size={20} /> 
+                                    : 'Entrar'
+                                }
+                            </button>
+                            <button id='voltar-button'className='button-back btn-marg' onClick={handleBack}>Voltar</button>
+
+                        </div>
                     
-                    <a id='esqueceu-senha-button' className='text-fgtPassword' href="/reset-doc">Esqueceu sua senha?</a>
-                    <br/>
-                    <button id='entrar-button'className='button' type='submit'>
-                        {clicked && !error ? 
-                            <CircularProgress color='secondary' size={20} /> 
-                            : 'Entrar'
-                        }
-                    </button>
-                    <button id='voltar-button'className='button-back btn-marg' onClick={handleBack}>Voltar</button>
-
-                </div>
-            
-            </form>
-        </div>
+                    </form>
+                </div> :  userAlreadyLogged()
+        }
+        </AuthUserContext.Consumer>
     )
 }
 

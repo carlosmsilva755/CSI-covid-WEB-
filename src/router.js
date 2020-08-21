@@ -17,11 +17,15 @@ import ForgotPasswordPage from './pages/PasswordReset/Default/index'
 import DoctorProfile from './pages/Profile/Doctor/index'
 import ResearcherProfile from './pages/Profile/Researcher/index'
 import DoctorUpload from './pages/DoctorUpload/index'
+import Landing from './pages/Landing/index'
 
 export default () => {
     return (
         <Switch>
-            <Route exact path="/" component={Login}/>
+
+            <Route exact path="/" component={Landing}/>
+
+            <Route exact path="/login" component={Login}/>
             
             <Route path="/login-doc" component={DoctorLogin}/>
             <Route path="/login-res" component={ResearcherLogin}/>

@@ -12,6 +12,16 @@
     margin-left: 100px; */
 }
 
+.card-view-responsive{
+    border: 1.4359px solid #5B656F;
+    box-sizing: border-box;
+    border-radius: 5.74359px;
+    height: auto;
+    
+    /* width: 607px;
+    display: flex; */
+}
+
 .card-left{
     margin-left: 40px;
 }
@@ -35,7 +45,7 @@
 }
 
 .card-text{
-    font-family: Open Sans;
+    font-family: Roboto;
     font-style: normal;
     font-weight: bolder;
     font-size: 14px;
@@ -44,21 +54,21 @@
     letter-spacing: 0.4px;
 
     width: 300px;
+    margin: 0;
 }
 
 .card-diagnosis{
-    font-family: Open Sans;
+    font-family: Roboto;
     font-style: normal;
-    font-weight: 800;
-    font-size: 36px;
+    font-weight: 900;
+    font-size: 30px;
     line-height: 18px;
     
     align-items: center;
     letter-spacing: 0.228765px;
     text-transform: uppercase;
     
-    /* Primary Dark */
-    
+    margin: 0;
     color: #A1A1A1;
 }
 .card-information{
@@ -75,4 +85,14 @@
     color: #50B600;
     font-style: bold; 
     font-family: Roboto;
+}
+.diag-bold{
+    font-family: Roboto;
+    font-weight: 900;
+}
+
+.card-model-title{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 8px;
 }

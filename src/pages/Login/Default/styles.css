@@ -46,21 +46,11 @@
     margin:0 auto;
     margin-bottom: 18px;
 }
-.res-img:hover{
-    /* background-image: url(../../../assets/Icons/t.svg); */
-}
+
 path:hover{
     /* fill: #EE4937; */
     margin-right: 30px;
 }
-.icon-text:hover{
-    /* color: #EE4937; */
-}
-svg:hover{
-    /* width: 54px; */
-    /* height: 54px; */
-}
-
 
 .choose-profile{
     display: flex;
@@ -74,7 +64,7 @@ svg:hover{
     width: 100%;
 
     height: 70px;
-    font-family: Open Sans;
+    font-family: Roboto;
     font-style: normal;
     font-weight: normal;
     font-size: 12px;
@@ -94,4 +84,10 @@ svg:hover{
 }
 .text-login{
     margin-top: 0px;
+}
+
+.login-button-back{
+    display: flex;
+    margin-top: -30px;
+    justify-content: center;
 }

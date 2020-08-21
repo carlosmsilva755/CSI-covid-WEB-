@@ -17,7 +17,6 @@ export default ({diagnosis}) => {
         const data = {
             "state":diagnosis.state,
             "city":diagnosis.city,
-            "sex": diagnosis.sex === '' ? '' : diagnosis.sex === 'M' ? 'Masculino' : 'Feminino',
             "age":diagnosis.age,
             "temp":diagnosis.temp,
             "sat_ox":diagnosis.sat_ox,
@@ -27,8 +26,20 @@ export default ({diagnosis}) => {
             "date":diagnosis.createdAt,
             "_id":diagnosis.id_doctor ? diagnosis.id_doctor : diagnosis.id_researcher
         }
+        if(diagnosis.sex){
+            data.sex = diagnosis.sex === 'F'? 'Feminino' : diagnosis.sex === 'M' ? 'Masculino' : 'Feminino'
+        }
+
         localStorage.setItem('@form',JSON.stringify(data))
         localStorage.setItem('@result',diagnosis.result)
+        if(diagnosis.prob1) {
+            localStorage.setItem('@result2', diagnosis.result2)
+            localStorage.setItem('@result3', diagnosis.result3)
+            localStorage.setItem('@prob1',diagnosis.prob1)
+            localStorage.setItem('@prob2',diagnosis.prob2)
+            localStorage.setItem('@prob3',diagnosis.prob3)
+        }
+console.log(data);
         setImageV(diagnosis.image.url)
         history.push('/view-diagnosis')
     }
@@ -38,7 +49,7 @@ export default ({diagnosis}) => {
 
             <div className="container-card-header">
                 
-                <p className = "card-id">{diagnosis.id_doctor ? diagnosis.id_doctor : diagnosis.id_researcher}</p>
+                <p className = "card-id-menu">{diagnosis.id_doctor ? diagnosis.id_doctor : diagnosis.id_researcher}</p>
                 {/* <img className = "card-options "src={options} alt="option" onClick={handleCardChange}/> */}
                
             </div>
@@ -50,9 +61,9 @@ export default ({diagnosis}) => {
                 <img className = "card-image"src = {diagnosis.image.url} alt="xray" />
 
                 {   
-                    diagnosis.result === 0 ?
+                    diagnosis.result === 0 || diagnosis.result === '0'?
                     <p className='card-diagnostic green-diag'> <b>NORMAL</b></p> :
-                        diagnosis.result === 1 ?
+                        diagnosis.result === 1 || diagnosis.result === '1'?
                             <p className='card-diagnostic gray-diag'> <b>PNEUMONIA</b></p>:
                             <p className='card-diagnostic red-diag'> <b>COVID-19</b></p>
                 }

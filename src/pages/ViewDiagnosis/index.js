@@ -18,6 +18,7 @@ import api from '../../services/api'
 
 const ViewDiagnosis = (props) => {
 
+    const width = window.innerWidth
     const history = useHistory()
     const [data, setData] = useState({})
     const [resul, setResul] = useState('')
@@ -74,8 +75,15 @@ const ViewDiagnosis = (props) => {
         console.log(imageResearcher);
 
         formData.append('file', imageResearcher)
-        //formData.append('for_research', true)
+
         formData.append('result', resul) 
+        formData.append('result2', localStorage.getItem('@result2'))
+        formData.append('result3', localStorage.getItem('@result3'))
+
+        formData.append('prob1',localStorage.getItem('@prob1') < 0.0001 ? 0 : localStorage.getItem('@prob1') )
+        formData.append('prob2',localStorage.getItem('@prob2') < 0.0001 ? 0 : localStorage.getItem('@prob2'))
+        formData.append('prob3',localStorage.getItem('@prob3') <0.0001 ? 0 : localStorage.getItem('@prob3'))
+
         //formData.append('id_doctor', 0)
         
         const config = {
@@ -132,7 +140,13 @@ const ViewDiagnosis = (props) => {
             formData.append('result', localStorage.getItem('@resUp')) 
         }
         else{
-            formData.append('result', resul) 
+            formData.append('result', resul)
+            formData.append('result2', localStorage.getItem('@result2'))
+            formData.append('result3', localStorage.getItem('@result3'))
+
+            formData.append('prob1',localStorage.getItem('@prob1') < 0.0001 ? 0 : localStorage.getItem('@prob1') )
+            formData.append('prob2',localStorage.getItem('@prob2') < 0.0001 ? 0 : localStorage.getItem('@prob2'))
+            formData.append('prob3',localStorage.getItem('@prob3') <0.0001 ? 0 : localStorage.getItem('@prob3'))
         }
 
         const config = {
@@ -228,7 +242,12 @@ const ViewDiagnosis = (props) => {
                                     diagnosis={data.fromHome ? 
                                         data.result : localStorage.getItem('@justUpload') || localStorage.getItem('@isResearcher')? 
                                             localStorage.getItem('@resUp') : resul
-                                    } 
+                                    }
+                                    prob1 = {localStorage.getItem('@prob1') ?localStorage.getItem('@prob1') : null }
+                                    prob2 = {localStorage.getItem('@prob2') ?localStorage.getItem('@prob2') : null }
+                                    prob3 = {localStorage.getItem('@prob3') ?localStorage.getItem('@prob3') : null }
+                                    result2 = {localStorage.getItem('@result2') ? localStorage.getItem('@result2') : null}
+                                    result3= {localStorage.getItem('@result3') ? localStorage.getItem('@result3') : null}
                                 /> 
 
                             </div> <br/><br/>
@@ -237,19 +256,19 @@ const ViewDiagnosis = (props) => {
                             {
                             data.fromHome ? null : localStorage.getItem('@justUpload') ? 
                                 <button id='imagem-button'
-                                    className='button button-view' 
+                                    className={width > 540 ? 'button button-view' : 'button button-view-responsive'} 
                                     onClick={handleOpen}//onClick={handleJustUpload}
                                     disabled={disable}
                                 >Enviar diagnóstico</button> : 
                                 resul.toString() === '2' && !localStorage.getItem('@isResearcher') ?
                                     <button id='disponibilizar-button'
-                                        className='button button-view' 
+                                        className={width > 540 ? 'button button-view' : 'button button-view-responsive'} 
                                         onClick={handleConfirm}/////
                                         disabled={disable}
                                     >Salvar Resultado</button> 
                                     : 
                                     <button id='disponibilizar-button'
-                                        className='button button-view' 
+                                        className={width > 540 ? 'button button-view' : 'button button-view-responsive'}
                                         onClick={handleCovidNotConfirmed}
                                         disabled={disable}
                                     >Enviar diagnóstico</button>

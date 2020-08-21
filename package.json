@@ -21,9 +21,11 @@
     "moment": "^2.27.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-google-charts": "^3.0.15",
     "react-hook-form": "^6.0.2",
+    "react-minimal-pie-chart": "^8.0.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1",
+    "react-scripts": "^3.4.3",
     "recompose": "^0.30.0"
   },
   "scripts": {
@@ -34,9 +36,6 @@
     "test:reports": "./node_modules/.bin/cucumber-js __tests__/features/*.feature --format json:__tests__/reports.json",
     "cucumber": "cucumber-js",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "browserslist": {
     "production": [
@@ -54,7 +53,6 @@
     "@types/selenium-webdriver": "^4.0.9",
     "chromedriver": "^84.0.1",
     "cucumber": "^6.0.5",
-    "eslint": "6.6.0",
     "geckodriver": "^1.20.0",
     "selenium-webdriver": "^4.0.0-alpha.7"
   }

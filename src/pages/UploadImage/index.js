@@ -95,11 +95,18 @@ const UploadImage = (props) => {
                 config
             ).then(response=>{
                 //console.log(response)
+
                 localStorage.setItem('@result', response.data.result)
+                localStorage.setItem('@result2', response.data.result2)
+                localStorage.setItem('@result3', response.data.result3)
+                localStorage.setItem('@prob1',response.data.prob1)
+                localStorage.setItem('@prob2',response.data.prob2)
+                localStorage.setItem('@prob3',response.data.prob3)
+                
                 history.push('/view-diagnosis')
             }).catch(error=>{
                 console.log(error)
-                //history.push('/')
+                //history.push('/login')
                 setDisable(false)
             })
         }
