@@ -11,6 +11,7 @@ Critérios de aceitação: Para recuperar a senha é necessário ter um e-mail e
 
   Scenario: Para o usuario Medico
     Given Browse to web site "https://csi-covid-265c4.web.app/"
+    And I press the "login-button"
     And I press the "medico-button"
     And I press the "esqueceu-senha-button"
     And I enter "testemedicocovid@gmail.com" in "email-reset-input"
@@ -20,6 +21,7 @@ Critérios de aceitação: Para recuperar a senha é necessário ter um e-mail e
 
   Scenario: Para o usuario Pesquisador
     Given Browse to web site "https://csi-covid-265c4.web.app/"
+    And I press the "login-button"
     And I press the "pesquisador-button"
     And I press the "esqueceu-senha-button"
     And I enter "testepesquisadorcovid@gmail.com" in "email-reset-input"

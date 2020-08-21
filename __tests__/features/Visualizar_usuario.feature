@@ -11,6 +11,7 @@ Critérios de aceitação: Ter os dados salvos no sistema.
 
   Scenario: Para o usuario Medico
     Given Browse to web site "https://csi-covid-265c4.web.app/"
+    And I press the "login-button"
     And I press the "medico-button"
     And I enter "testemedicocovid@gmail.com" in "email-login-input"
     And I enter "Teste123" in "password-login-input"
@@ -25,9 +26,11 @@ Critérios de aceitação: Ter os dados salvos no sistema.
     And I see "especialidade_medico" written on the requested page.id:"info-profile-label"
     And I press the "logout-button"
     And I press the "sair-button"
+    And I press the "saida-button"
 
   Scenario: Para o usuario Pesquisador
     Given Browse to web site "https://csi-covid-265c4.web.app/"
+    And I press the "login-button"
     And I press the "pesquisador-button"
     And I enter "testepesquisadorcovid@gmail.com" in "email-login-input"
     And I enter "Teste123" in "password-login-input"
@@ -41,3 +44,4 @@ Critérios de aceitação: Ter os dados salvos no sistema.
     And I see "especialidade_pesquisador" written on the requested page.id:"info-profile-label"
     And I press the "logout-button"
     And I press the "sair-button"
+    Then I press the "saida-button"

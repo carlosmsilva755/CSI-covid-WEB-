@@ -11,6 +11,7 @@ Feature: Logout(Medico_e_Pesquisador)
 
   Scenario: Para o usuario Medico logout com sucesso
     Given Browse to web site "https://csi-covid-265c4.web.app/"
+    And I press the "login-button"
     And I press the "medico-button"
     And I enter "testemedicocovid@gmail.com" in "email-login-input"
     And I enter "Teste123" in "password-login-input"
@@ -19,10 +20,11 @@ Feature: Logout(Medico_e_Pesquisador)
     And I press the "logout-button"
     And I press the "sair-button"
     And I press the "saida-button"
-    Then I see "Realizar login como:" written on the requested page:xpath'//*[@id="root"]/div/div[1]/h2'
+    Then I see "Entrar" written on the requested page.id:"login-button"
 
   Scenario: Para o usuario Pesquisador logout com sucesso
     Given Browse to web site "https://csi-covid-265c4.web.app/"
+    And I press the "login-button"
     And I press the "pesquisador-button"
     And I enter "testepesquisadorcovid@gmail.com" in "email-login-input"
     And I enter "Teste123" in "password-login-input"
@@ -31,4 +33,4 @@ Feature: Logout(Medico_e_Pesquisador)
     And I press the "logout-button"
     And I press the "sair-button"
     And I press the "saida-button"
-    Then I see "Realizar login como:" written on the requested page:xpath'//*[@id="root"]/div/div[1]/h2'
+    Then I see "Entrar" written on the requested page.id:"login-button"
