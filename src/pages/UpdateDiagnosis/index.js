@@ -10,7 +10,7 @@ import states from '../../utils/states-cities/estados'
 import cities from '../../utils/states-cities/cities'
 import { AuthUserContext, withAuthorization } from '../../contexts/Session'
 
-const RegisterDiagnosis = () => {
+const UpdateDiagnosis = () => {
 
     const history = useHistory()
     const sexo = [{"sexo":"Masculino"}, {"sexo":"Feminino"}]
@@ -23,54 +23,6 @@ const RegisterDiagnosis = () => {
     const [sat_ox,setSat_ox] = useState('')
     const [info,setInfo] = useState('')
     const [citiesArray, setCitiesArray] = useState([])
-
-    useEffect( () =>{
-        localStorage.removeItem('@currentpage')
-        const data = localStorage.getItem('@form')
-        if(data){
-            const data_ = JSON.parse(data)
-            setState(data_.state)
-            setCity(data_.city)
-            setSex(data_.sex === '' ? '' :
-                data_.sex === "M" ? "Masculino" : "Feminino" 
-            )
-            setAge(data_.age)
-            setTemp(data_.address)
-            setSat_ox(data_.sat_ox)
-            setTemp(data_.temp)
-            setInfo(data_.info)
-        }
-    },[])
-
-    function handleContinue(){
-
-        const data = {
-            state,
-            city,
-            "sex": sex === '' ? '' : sex === 'Masculino' ? 'M' : 'F',
-            age,
-            temp,
-            sat_ox,
-            info,
-        }
-
-        localStorage.setItem('@form',JSON.stringify(data))
-
-        history.push('/upload')
-    }
-    
-
-    function handleCancel(){
-        localStorage.getItem('@isResearcher') ?
-            history.push('/researcherImages') 
-            : 
-            localStorage.getItem('@justUpload') ? 
-                history.push('/doctorUpload')
-                : history.push('/medicalRecord')
-
-        localStorage.removeItem('@form')
-        localStorage.removeItem('@image')
-    }
 
     useEffect(() => {
 
@@ -88,8 +40,8 @@ const RegisterDiagnosis = () => {
         setCitiesArray(citiesFiltered)
 
     },[state])
-
-    return(
+    
+    return (  
         <AuthUserContext.Consumer> 
             {authUser =>
                 authUser ? 
@@ -239,4 +191,4 @@ const RegisterDiagnosis = () => {
 
 const condition = authUser => !!authUser;
 
-export default withAuthorization(condition)(RegisterDiagnosis);
+export default withAuthorization(condition)(UpdateDiagnosis);

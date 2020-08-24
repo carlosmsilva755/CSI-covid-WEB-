@@ -19,7 +19,8 @@ const MedicalRecord = (props) => {
     
     const history = useHistory()
 
-    const [currentPage, setCurrentPage] = useState(1)
+    const [currentPage, setCurrentPage] = useState(localStorage.getItem('@currentpage') ?
+     localStorage.getItem('@currentpage'):1)
     const [pages, setPages] = useState(null)
     const [diagnoses, setDiagnoses] = useState([])
     const [isAuth, setIsAuth] = useState(' ')
@@ -171,6 +172,7 @@ const MedicalRecord = (props) => {
                                     onChange={(event,value) => {
                                         value===currentPage ? setDisable(false) : setDisable(true)
                                         setCurrentPage(value)
+                                        localStorage.setItem('@currentpage', value)
                                     }}
                                     color='primary'
                                     disabled={disable}

@@ -30,6 +30,7 @@ const UploadImage = (props) => {
     const [token, setToken] = useState('')
     const [disable, setDisable] = useState(false)
     const [result, setResult] = useState('')
+    const [alertMessage, setAlertMessage] = useState('')
 
     const resultOptions = [{"Filter":"Covid-19"}, {"Filter":"Pneumonia"}, {"Filter":"Normal"}]
 
@@ -62,6 +63,10 @@ const UploadImage = (props) => {
             if(image && result)
                 setLoading((prevLoading) => !prevLoading);
             else{
+                image ? 
+                    setAlertMessage('Você deve adicionar um resultado!') : 
+                    setAlertMessage('Você deve adicionar uma imagem!')
+
                 setOpenAlert(true)
                 return
             }
@@ -69,6 +74,7 @@ const UploadImage = (props) => {
             if(image)
                 setLoading((prevLoading) => !prevLoading);
             else{
+                setAlertMessage('Você deve adicionar uma imagem!')
                 setOpenAlert(true)
                 return
             }
@@ -83,33 +89,48 @@ const UploadImage = (props) => {
             headers: { authorization: `Bearer ${token}` }
         };
         
-        if(localStorage.getItem('@isResearcher') || localStorage.getItem('@justUpload')){
+        
+        await api.post('/xray', 
+            formImage,
+            config
+        ).then(async function(response){
+            //essa imagem nao é raio x ou nao esta com uma boa qualidade
+            if(localStorage.getItem('@isResearcher') || localStorage.getItem('@justUpload')){
 
-            localStorage.setItem('@result', handleResultNumber())
-            localStorage.setItem('@resUp', handleResultNumber())
-            history.push('/view-diagnosis')
-
-        }else{
-            await api.post('/covidAI',
-                formImage, 
-                config
-            ).then(response=>{
-                //console.log(response)
-
-                localStorage.setItem('@result', response.data.result)
-                localStorage.setItem('@result2', response.data.result2)
-                localStorage.setItem('@result3', response.data.result3)
-                localStorage.setItem('@prob1',response.data.prob1)
-                localStorage.setItem('@prob2',response.data.prob2)
-                localStorage.setItem('@prob3',response.data.prob3)
-                
+                localStorage.setItem('@result', handleResultNumber())
+                localStorage.setItem('@resUp', handleResultNumber())
                 history.push('/view-diagnosis')
-            }).catch(error=>{
-                console.log(error)
-                //history.push('/login')
-                setDisable(false)
-            })
-        }
+    
+            }else{
+                await api.post('/covidAI',
+                    formImage, 
+                    config
+                ).then(response=>{
+                    //console.log(response)
+    
+                    localStorage.setItem('@result', response.data.result)
+                    localStorage.setItem('@result2', response.data.result2)
+                    localStorage.setItem('@result3', response.data.result3)
+                    localStorage.setItem('@prob1',response.data.prob1)
+                    localStorage.setItem('@prob2',response.data.prob2)
+                    localStorage.setItem('@prob3',response.data.prob3)
+                    
+                    history.push('/view-diagnosis')
+                }).catch(error=>{
+                    console.log(error)
+                    //history.push('/login')
+                    setDisable(false)
+                })
+    
+            }
+
+        }).catch(error=>{
+            setDisable(false)
+            setLoading((prevLoading) => !prevLoading)
+
+            setAlertMessage('Essa imagem não é um Raio X ou não tem uma boa qualidade')
+            setOpenAlert(true)
+        })
         
     }
 
@@ -187,7 +208,7 @@ const UploadImage = (props) => {
                                                 </MenuItem>
                                             ))}
                                         </TextField>
-                                        
+                                        <br/>
                                     </>
                                     : null
                             }
@@ -216,7 +237,7 @@ const UploadImage = (props) => {
                                 <Alert 
                                     severity="error" 
                                     onClose={handleClose}
-                                >{image ? 'Você deve adicionar um resultado!':'Você deve adicionar uma imagem!'}</Alert>
+                                >{alertMessage}</Alert>
                             </Snackbar>
                         </div>
                     </div>
