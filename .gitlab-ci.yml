@@ -4,6 +4,7 @@ stages:
     - testBuild
     - testDeploy
     - testRun
+    - testProduction
 
 .only_default: &only_default
     only:
@@ -29,7 +30,7 @@ testDeploy:
       - npm i -g firebase-tools 
     script:
       - dir
-      - firebase deploy --project=prod --token=$FIREBASE_TOKEN 
+      - firebase deploy --project=staging --token=$FIREBASE_TOKEN 
     dependencies:
       - testBuild
 
@@ -47,3 +48,15 @@ testRun:
         - yarn test:reports
     dependencies:
         - testBuild
+
+testProduction:
+    only:
+      - master
+    stage: testProduction
+    before_script:
+      - npm i -g firebase-tools 
+    script:
+      - dir
+      - firebase deploy --token=$FIREBASE_TOKEN 
+    dependencies:
+      - testBuild
