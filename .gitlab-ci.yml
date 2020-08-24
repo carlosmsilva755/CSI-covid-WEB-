@@ -29,7 +29,7 @@ testDeploy:
       - npm i -g firebase-tools 
     script:
       - dir
-      - firebase target:apply hosting 123 production --token=$FIREBASE_TOKEN
+      - firebase deploy --project=prod --token=$FIREBASE_TOKEN 
     dependencies:
       - testBuild
 

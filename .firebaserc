@@ -1,6 +1,6 @@
 {
   "projects": {
     "default": "csi-covid-265c4",
-    "production":"csi-covid"
+    "prod": "csi-covid"
   }
 }
