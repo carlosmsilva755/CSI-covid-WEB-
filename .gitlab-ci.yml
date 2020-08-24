@@ -12,7 +12,9 @@ stages:
         - tags
 
 testBuild:
-    <<: *only_default
+    only:
+        - master
+        - staging
     stage: testBuild
     script: 
         - yarn install
