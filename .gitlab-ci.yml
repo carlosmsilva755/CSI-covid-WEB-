@@ -59,6 +59,6 @@ testProduction:
       - npm i -g firebase-tools 
     script:
       - dir
-      - firebase deploy --token=$FIREBASE_TOKEN 
+      - firebase deploy --project=default --token=$FIREBASE_TOKEN
     dependencies:
       - testBuild
