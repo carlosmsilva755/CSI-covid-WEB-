@@ -34,6 +34,7 @@
     "test": "./node_modules/.bin/cucumber-js",
     "test:all": "./node_modules/.bin/cucumber-js __tests__/features/*.feature",
     "test:reports": "./node_modules/.bin/cucumber-js __tests__/features/*.feature --format json:__tests__/reports.json",
+    "cucumber": "cucumber-js",
     "eject": "react-scripts eject"
   },
   "browserslist": {

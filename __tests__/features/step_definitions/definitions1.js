@@ -16,6 +16,7 @@ Given(/^Browse to web site "([^"]*)"$/, async function (url) {
 
 Given("I press the {string}", async function (arg1) {
     await driver.wait(until.elementLocated(By.id(arg1)), very_long_time);
+    await driver.sleep(1000)
     await driver.findElement({ id: arg1 }).click();
 });
 
@@ -48,8 +49,8 @@ When("I click  in the first  diagnostic image {string}", async function (arg1) {
 });
 
 When("I see {string} written on the requested page", async function (arg1) {
-    await driver.wait(until.elementLocated(By.xpath('//*[@id="root"]/div/div/div/div/div[2]/p[1]/b')), very_long_time);
-const text = await driver.findElement({ xpath:'//*[@id="root"]/div/div/div/div/div[2]/p[1]/b' }).getText();
+    await driver.wait(until.elementLocated(By.xpath('//*[@id="root"]/div/div/div/div/div[2]/p[1]')), very_long_time);
+    const text = await driver.findElement({ xpath:'//*[@id="root"]/div/div/div/div/div[2]/p[1]' }).getText();
     console.log(text)
     assert.equal(arg1, text) 
 
