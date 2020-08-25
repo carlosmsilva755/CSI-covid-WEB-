@@ -109,3 +109,7 @@
 .container-pagination-responsive{
     margin-left: 80px;
 }
+
+.button-search-menu{
+    cursor: pointer;
+}
