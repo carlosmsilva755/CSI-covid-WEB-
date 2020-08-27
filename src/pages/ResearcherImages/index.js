@@ -140,7 +140,7 @@ const ResearcherImages = (props) => {
             })()
         , 1000)
 
-    },[currentPage])
+    },[currentPage, props.firebase.auth.currentUser])
 
     function handleAdd(){
         history.push('/register')

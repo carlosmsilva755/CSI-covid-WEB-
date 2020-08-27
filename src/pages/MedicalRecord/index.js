@@ -160,7 +160,7 @@ const MedicalRecord = (props) => {
 
             })() 
         , 1000)
-    },[currentPage])
+    },[currentPage, props.firebase.auth.currentUser])
 
     return (
         <AuthUserContext.Consumer> 
