@@ -47,3 +47,23 @@
 .footer-container-links{
     margin-top: 25px;
 }
+
+.resposive-footer-images{
+    align-self: center;
+}
+@media screen and (max-width: 540px) {
+
+    .landing-footer{
+        height: auto;
+
+    }
+    .footer-content{
+        flex-direction: column;
+        justify-content: center;
+    }
+    .footer-text{
+        margin-left: 0px;
+        align-self: center;
+    }
+    
+}

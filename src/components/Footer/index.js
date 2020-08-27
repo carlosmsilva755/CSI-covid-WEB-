@@ -9,7 +9,7 @@ import Ufop from '../../assets/Images/Landing/Footer/ufop.svg'
 import CSI from '../../assets/Images/Landing/Footer/csilab.svg'
 import TerraLAB from '../../assets/Images/Landing/Footer/terralab.svg'
 import Decom from '../../assets/Images/Landing/Footer/decom.svg'
-
+import {ReactComponent as ResponsiveImages} from '../../assets/Images/Landing/Footer/responsiveFooter.svg'
 
 export default () => {
 
@@ -17,7 +17,10 @@ export default () => {
         <div className='landing-footer'>
 
             <div className='footer-content'>
-                <img src={Logo} alt=""/>
+                {
+                    window.innerWidth > 540 ?
+                        <img src={Logo} alt=""/> : null
+                }
 
                 <div className = 'footer-text'>
                     <p className = 'footer-text-title'>Contato</p>
@@ -44,24 +47,32 @@ export default () => {
                 </div>
                 
                 
-                <div className = 'footer-container-links'>
+                {
+                    window.innerWidth > 540 ? 
+                        <div className = 'footer-container-links'>
 
-                    <a href="https://ufop.br/" target="_blank" rel="noopener noreferrer" className='image'>
-                        <img className = 'footer-images' src={Ufop} alt=""/>
-                    </a>
+                            <a href="https://ufop.br/" target="_blank" rel="noopener noreferrer" className='image'>
+                                <img className = 'footer-images' src={Ufop} alt=""/>
+                            </a>
 
-                    <a href="http://www.decom.ufop.br/csilab/" target="_blank" rel="noopener noreferrer" className='image'>
-                        <img className = 'footer-images' src={CSI} alt=""/>
-                    </a>
+                            <a href="http://www.decom.ufop.br/csilab/" target="_blank" rel="noopener noreferrer" className='image'>
+                                <img className = 'footer-images' src={CSI} alt=""/>
+                            </a>
 
-                    <a href="http://www2.decom.ufop.br/terralab/" target="_blank" rel="noopener noreferrer" className='image'>
-                        <img className = 'footer-images' src={TerraLAB} alt=""/>
-                    </a> 
+                            <a href="http://www2.decom.ufop.br/terralab/" target="_blank" rel="noopener noreferrer" className='image'>
+                                <img className = 'footer-images' src={TerraLAB} alt=""/>
+                            </a> 
 
-                    <a href='http://www3.decom.ufop.br/decom/inicio/' target="_blank" rel="noopener noreferrer" className='image'>
-                        <img className = 'footer-images' src={Decom} alt=""/>
-                    </a>
-                </div>
+                            <a href='http://www3.decom.ufop.br/decom/inicio/' target="_blank" rel="noopener noreferrer" className='image'>
+                                <img className = 'footer-images' src={Decom} alt=""/>
+                            </a>
+                        </div>
+
+                    : 
+                        <div className='resposive-footer-images'>
+                            <ResponsiveImages/>
+                        </div>
+                }
 
             </div>
 

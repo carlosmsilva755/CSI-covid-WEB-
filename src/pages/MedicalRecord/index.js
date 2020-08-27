@@ -149,7 +149,13 @@ const MedicalRecord = (props) => {
                     setTimeout(()=>setDisable(false), 1000) 
                     // console.log(response.data.diagnoses.docs);
                 }).catch(error=>{
-                    console.log(error)
+                    props.firebase.auth.currentUser.getIdTokenResult()
+                        .then((idTokenResult) => {
+                            localStorage.setItem('@docusr_tkn',idTokenResult.token)
+                        })
+                        .catch((error) => {
+                            console.log(error);
+                        })
                 })
 
             })() 

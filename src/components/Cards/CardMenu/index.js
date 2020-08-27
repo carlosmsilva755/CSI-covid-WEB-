@@ -1,12 +1,14 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import moment from 'moment'
 import 'moment/locale/pt-br'
+import { useHistory } from 'react-router-dom'
 
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import Dialog from '@material-ui/core/Dialog'
 import DialogActions from '@material-ui/core/DialogActions'
 import DialogContent from '@material-ui/core/DialogContent'
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 import options from "../../../assets/Icons/options.svg"
 // import Update from '../../../assets/Icons/update.js'
@@ -14,7 +16,7 @@ import DeleteIcon from '../../../assets/Icons/delete.js'
 
 import './styles.css'
 import ImageContext from '../../../contexts/Image/index'
-import { useHistory } from 'react-router-dom'
+import api from '../../../services/api'
 
 export default ({diagnosis}) => {
     const { setImageV } = useContext(ImageContext)
@@ -22,6 +24,8 @@ export default ({diagnosis}) => {
     
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [showModal, setShowModal] = React.useState(false)
+    const [disable, setDisable] = React.useState(false)
+    const [error, setError] = useState(false)
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget)
@@ -67,13 +71,29 @@ export default ({diagnosis}) => {
 
     // }
 
-    const handleDelete = () => {
+    const handleDelete = async () => {
         
+        setDisable(true)
+        
+        await api.delete(`/diagnoses?id=${diagnosis._id}`,
+            {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('@docusr_tkn')}`
+                }
+            }
+        ).then(response=>{
+            window.location.reload()
+        }).catch(error=>{
+            console.log(error.response.data)
+            setDisable(false)
+            setError(true)
+        })
     }
 
     const handleCloseModal = () => {
         setShowModal(false)
         setAnchorEl(null)
+        setError(false)
     }
 
     return (
@@ -82,7 +102,15 @@ export default ({diagnosis}) => {
             <div className="container-card-header">
                 
                 <p className = "card-id-menu">{diagnosis.id_doctor ? diagnosis.id_doctor : diagnosis.id_researcher}</p>
-                <img id='options-button' className = "card-options "src={options} alt="option" onClick={handleClick}/>
+                {
+                    localStorage.getItem('@isResearcher') ? null : 
+                        <img 
+                            id='options-button' 
+                            className = "card-options "
+                            src={options} alt="option" 
+                            onClick={handleClick}
+                        />
+                }
                
             </div>
 
@@ -122,12 +150,23 @@ export default ({diagnosis}) => {
                     open={showModal} 
                     //onClose={handleClose}
                     aria-labelledby="draggable-dialog-title" maxWidth='xs'
-                    //className={classes.box}
             >
-                <DialogContent >Deseja excluir esse diagnóstico?</DialogContent>
+                <DialogContent >{error ? 'Erro ao excliur diagnóstico':'Deseja excluir esse diagnóstico?'}</DialogContent>
                 <DialogActions>
-                   <button id='cancelar-diag-button'onClick={handleCloseModal} className='button-back'>Cancelar</button>
-                    <button id='confirmar-excliur-button' onClick={handleDelete} className='button button-modal'>Excluir</button>
+                    <button 
+                        id='cancelar-diag-button'
+                        onClick={handleCloseModal} 
+                        className='button-back' 
+                        disabled={disable}
+                    >Cancelar</button>
+                    <button 
+                        id='confirmar-excliur-button' 
+                        onClick={handleDelete}
+                        className='button button-modal'
+                        disabled={disable}
+                    >
+                        { disable ? <CircularProgress color='primary' size={15} /> :'Excluir'}
+                    </button>
                 </DialogActions>
             </Dialog>
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useContext } from "react"
 import {useHistory} from 'react-router-dom'
 
 import TextField from '@material-ui/core/TextField'
@@ -11,23 +11,34 @@ import Card from '../../components/Cards/CardMenu/index'
 import searchButton from '../../assets/Icons/searchButton.svg'
 import api from '../../services/api'
 import { AuthUserContext, withAuthorization } from '../../contexts/Session'
+import ImageContext from '../../contexts/Image/index'
 
 const ResearcherImages = (props) => {
+
     const filterOptions = [{"Filter":"Covid-19"}, {"Filter":"Pneumonia"}, {"Filter":"Normal"}]
     const history = useHistory()
     const width = window.innerWidth
+    const { setImageV } = useContext(ImageContext)
 
     const [currentPage, setCurrentPage] = useState(1)
     const [pages, setPages] = useState(null)
     const [diagnoses, setDiagnoses] = useState([])
     const [isAuth, setIsAuth] = useState(' ')
     const [disable, setDisable] = useState(false)
+    const [search, setSearch] = useState('')
+    const [error, setError] = useState(false)
+    const [errorMsg, setErrorMsg] = useState('')
+    const [deleteStorage, setDeleteStorage] = useState(true)
 
     useEffect(()=>{
-        localStorage.removeItem('@form')
-        localStorage.removeItem('@result')
+        
         localStorage.removeItem('@justUpload')
         localStorage.setItem('@isResearcher', true)
+
+        if(deleteStorage){
+            localStorage.removeItem('@form')
+            localStorage.removeItem('@result')
+        }
 
         props.firebase.auth.currentUser.getIdTokenResult()
         .then((idTokenResult) => {
@@ -42,21 +53,64 @@ const ResearcherImages = (props) => {
         })
     })
 
-    function printUser(auth){
-        auth.getIdTokenResult()
-        .then((idTokenResult) => {
-           // Confirm the user is an Admin.
-           if (!!idTokenResult.claims.researcher) {
-             // Show admin UI.
-             console.log('RES'); console.log(idTokenResult);
-           } else {
-             // Show regular user UI.
-             //console.log(idTokenResult);
-           }
+    async function searchDiagnosis(){
+        if(!search){
+            setError(true)
+            setErrorMsg('Você deve adicionar um ID')
+            return
+        }
+
+        await api.get(`/researcher/diagnoses?page=1&id=${search}`,
+            {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('@resUsrTkn')}`
+                }
+            }
+        ).then((response)=>{
+            
+            if(response.data.diagnoses.docs.length === 0){
+                setError(true)
+                setErrorMsg('ID inválido')
+            }else{
+                setDeleteStorage(false)
+                console.log(response);
+                const data = {
+                    "state":response.data.diagnoses.docs[0].state,
+                    "city":response.data.diagnoses.docs[0].city,
+                    "age":response.data.diagnoses.docs[0].age,
+                    "temp":response.data.diagnoses.docs[0].temp,
+                    "sat_ox":response.data.diagnoses.docs[0].sat_ox,
+                    "info":response.data.diagnoses.docs[0].info,
+                    "fromHome":true,
+                    "result":response.data.diagnoses.docs[0].result,
+                    "date":response.data.diagnoses.docs[0].createdAt,
+                    "_id":response.data.diagnoses.docs[0].id_doctor ? 
+                        response.data.diagnoses.docs[0].id_doctor : response.data.diagnoses.docs[0].id_researcher
+                }
+                if(response.data.diagnoses.docs[0].sex){
+                    data.sex = response.data.diagnoses.docs[0].sex === 'F'? 
+                        'Feminino' : response.data.diagnoses.docs[0].sex === 'M' ? 'Masculino' : 'Feminino'
+                }
+        
+                localStorage.setItem('@form',JSON.stringify(data))
+                localStorage.setItem('@result',response.data.diagnoses.docs[0].result)
+                if(response.data.diagnoses.docs[0].prob1) {
+                    localStorage.setItem('@result2', response.data.diagnoses.docs[0].result2)
+                    localStorage.setItem('@result3', response.data.diagnoses.docs[0].result3)
+                    localStorage.setItem('@prob1',response.data.diagnoses.docs[0].prob1)
+                    localStorage.setItem('@prob2',response.data.diagnoses.docs[0].prob2)
+                    localStorage.setItem('@prob3',response.data.diagnoses.docs[0].prob3)
+                }
+                setImageV(response.data.diagnoses.docs[0].image.url)
+                history.push('/view-diagnosis')
+            }
+            
+        }).catch(error=>{
+            console.log(error.response.data)
+            setError(true)
+            setErrorMsg('Erro ao fazer consulta')
         })
-        .catch((error) => {
-          console.log(error);
-        })
+        
     }
 
     useEffect(()=>{
@@ -75,7 +129,13 @@ const ResearcherImages = (props) => {
                     setTimeout(()=>setDisable(false), 1000)
                     //console.log(response.data.diagnoses.docs)
                 }).catch(error=>{
-                    console.log(error)
+                    props.firebase.auth.currentUser.getIdTokenResult()
+                        .then((idTokenResult) => {
+                            localStorage.setItem('@resUsrTkn',idTokenResult.token)
+                        })
+                        .catch((error) => {
+                            console.log(error);
+                        })
                 })
             })()
         , 1000)
@@ -94,10 +154,25 @@ const ResearcherImages = (props) => {
                         <div className= {width > 540 ? "container" : "container-responsive"}>
                             <div className= {width > 540 ? "container-navbars" : "container-navbars-responsive"}>
 
-                                <TextField id="outlined-basic" label="Pesquisar" size = "small" variant="outlined"className="search-input" />
+                                <TextField id="pesquisar-input" 
+                                    label={error ? errorMsg:"Pesquisar"}
+                                    size = "small" 
+                                    variant="outlined"
+                                    className="search-input"
+                                    error={error}
+                                    value ={search} 
+                                    onChange={event => {
+                                        setSearch(event.target.value)
+                                        setError(false)
+                                    }}
+                                />
                                 
-                                <img src={searchButton} alt="search" onClick={e=>printUser(authUser)}/>
-                                {/*  */}
+                                <img id ='pesquisar-button'
+                                    src={searchButton} 
+                                    alt="search" 
+                                    className='button-search-menu'
+                                    onClick={searchDiagnosis}
+                                />
                                 <div className= {width > 540 ? "filter": ""}>
 
                                     <TextField id="outlined-select-currency" size="small" select label="Filtro" className="select-filter" variant="outlined">

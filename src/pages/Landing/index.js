@@ -27,7 +27,7 @@ export default () => {
     return(
         <div>
             <Header/>
-            <div className='container-landing'>
+            <div className={window.innerWidth > 540 ? 'container-landing' : 'container-landing-reponsive'}>
                 {/* FIRST INFO */}
                 <div className='info1'>
                     <div className='info1-left'>
@@ -57,7 +57,7 @@ export default () => {
                 <div className='info2'>
 
                     <div className='info2-image'>
-                        <img src={Info2} alt=""/>
+                        <img className='info2-image' src={Info2} alt=""/>
                     </div>
 
                     <div className='info2-right'>
@@ -109,7 +109,7 @@ export default () => {
                     {/* INFO 4 PART 1 */}
                     <div className = 'info41'>
                         <div className='info41-image'>
-                            <img src={Info41} alt=""/>
+                            <img className='info41-image' src={Info41} alt=""/>
                         </div>
 
                         <div className='info41-right'>
@@ -138,7 +138,7 @@ export default () => {
                         </div>
 
                         <div className='info42-right'>
-                            <img src={Info42} alt=""/>
+                            <img className='info42-image' src={Info42} alt=""/>
                         </div>
 
                     </div>
@@ -174,7 +174,7 @@ export default () => {
                         </div>
 
                         <div className='info44-right'>
-                            <img src={Info44} alt=""/>
+                            <img className='info44-image' src={Info44} alt=""/>
                         </div>
 
                     </div>
@@ -182,7 +182,7 @@ export default () => {
                 </div>
 
             </div>
-            <Footer/>
+            <Footer/> 
         </div>
     )
 }

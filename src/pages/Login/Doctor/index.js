@@ -26,23 +26,30 @@ function SignInFormBase(props){
     const[errorPasMsg, setErrorPasMsg] = useState('')
     const[clicked, setClicked] = useState(false)
 
+    const[loginError, setLoginError] = useState(false)
+
     const _history = useHistory()
 
     function userAlreadyLogged(){
-        props.firebase.auth.currentUser.getIdTokenResult()
-            .then((idTokenResult) => {
-                if (!!idTokenResult.claims.researcher) {
-                    console.log('IS RES');
-                    props.history.push('/login');
-               }else{
-                   console.log('DOC');
-                   localStorage.setItem('@docusr_tkn',idTokenResult.token)
-                   props.history.push('/medicalRecord');
-                }
-            })
-            .catch((error) => {
-              console.log(error);
-            })
+        try {
+            props.firebase.auth.currentUser.getIdTokenResult()
+                .then((idTokenResult) => {
+                    if (!!idTokenResult.claims.researcher) {
+                        console.log('IS RES');
+                        props.history.push('/login');
+                }else{
+                    console.log('DOC');
+                    localStorage.setItem('@docusr_tkn',idTokenResult.token)
+                    props.history.push('/medicalRecord');
+                    }
+                })
+                .catch((error) => {
+                console.log(error);
+                })
+
+        } catch (error) {
+            setLoginError(true)
+        }
     }
 
     function signOutResearcher(){
@@ -129,7 +136,7 @@ function SignInFormBase(props){
 
     return(
         <AuthUserContext.Consumer>
-        {   authUser => !authUser ?
+        {   authUser => !authUser || loginError?
                 <div className='container-login'>
                     <form onSubmit={onSubmit}>
 
