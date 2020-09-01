@@ -30,6 +30,12 @@ const DoctorUpload = (props) => {
     const [errorMsg, setErrorMsg] = useState('')
     const [deleteStorage, setDeleteStorage] = useState(true)
 
+    const [filter, setFilter] = useState('')
+    const [disableSelect, setDisableSelect] = useState(false)
+    const [isFiltering, setIsFiltering] = useState(false)
+    const [pagesFilter, setPagesFilter] = useState(null)
+    const [currentPageFilter, setCurrentPageFilter] = useState(1)
+
     function handleAdd(){
         history.push('/register')
     }
@@ -122,29 +128,62 @@ const DoctorUpload = (props) => {
         
     }
 
+    const filterNumber = (value) => {
+        if(value === 'Covid-19')
+            return 2
+        if(value === 'Pneumonia')
+            return 1
+        if(value === 'Normal')
+            return 0
+    }
+
     useEffect(()=>{
-
-        setTimeout( ()=>
-            (async () => {
-                await api.get(`/doctor/diagnoses/AI?page=${currentPage}`,
-                    {
-                        headers: {
-                            authorization: `Bearer ${localStorage.getItem('@docusr_tkn')}`
+        isFiltering?
+            setTimeout( ()=>
+                (async () => {
+                    await api.get(`doctor/diagnoses/AI?page=${currentPageFilter}&result=${filterNumber(filter)}`,
+                        {
+                            headers: {
+                                authorization: `Bearer ${localStorage.getItem('@docusr_tkn')}`
+                            }
                         }
-                    }
-                ).then((response)=>{
-                    setDiagnoses(response.data.diagnoses.docs)
-                    setCurrentPage(Number(response.data.diagnoses.page))
-                    setPages(response.data.diagnoses.pages)
-                    // console.log(response.data.diagnoses.docs);
-                    setTimeout(()=>setDisable(false), 1000)
-                }).catch(error=>{
-                    console.log(error)
-                })
+                    ).then((response)=>{
+                        setDiagnoses(response.data.diagnoses.docs)
+                        setCurrentPageFilter(Number(response.data.diagnoses.page))
+                        setPagesFilter(response.data.diagnoses.pages)
 
-            })() 
-        , 1000)
-    },[currentPage])
+                        setTimeout(()=>setDisableSelect(false), 1500)
+                        setTimeout(()=>setDisable(false), 1000) 
+
+                        // console.log(response.data.diagnoses.docs)   
+                    }).catch(error=>{
+                        console.log(error)
+                    })
+
+                })() 
+            , 1000)
+            :
+            setTimeout( ()=>
+                (async () => {
+                    await api.get(`/doctor/diagnoses/AI?page=${currentPage}`,
+                        {
+                            headers: {
+                                authorization: `Bearer ${localStorage.getItem('@docusr_tkn')}`
+                            }
+                        }
+                    ).then((response)=>{
+                        setDiagnoses(response.data.diagnoses.docs)
+                        setCurrentPage(Number(response.data.diagnoses.page))
+                        setPages(response.data.diagnoses.pages)
+                        // console.log(response.data.diagnoses.docs);
+                        setTimeout(()=>setDisable(false), 1000)
+                    }).catch(error=>{
+                        console.log(error)
+                    })
+
+                })() 
+            , 1000)
+    },[currentPageFilter, isFiltering, filter, currentPage])
     
     return (
         <AuthUserContext.Consumer> 
@@ -184,7 +223,14 @@ const DoctorUpload = (props) => {
                                         label="Filtro" 
                                         className="select-filter" 
                                         variant="outlined" 
-                                        value=''
+                                        disabled={disableSelect}
+                                        value={filter}
+                                        onChange={event=>{
+                                            setFilter(event.target.value)
+                                            setDisableSelect(true)
+                                            setIsFiltering(true)
+                                            setCurrentPageFilter(1)
+                                        }}
                                     >
                                         {filterOptions.map((option) => (
                                             <MenuItem key={option.Filter} value={option.Filter}>
@@ -218,16 +264,29 @@ const DoctorUpload = (props) => {
                             </div> <br/>
                             
                             <div className={width > 540 ?'container-pagination':'container-pagination-responsive'}>
-                                <Pagination 
-                                    count={pages}
-                                    page={currentPage}
-                                    onChange={(event,value) => {
-                                        value===currentPage ? setDisable(false) : setDisable(true)
-                                        setCurrentPage(value)
-                                    }}
-                                    color='primary'
-                                    disabled={disable}
-                                />
+                                {isFiltering ?
+                                    <Pagination 
+                                        count={pagesFilter}
+                                        page={currentPageFilter}
+                                        onChange={(event,value) => {
+                                            value===currentPageFilter ? setDisable(false) : setDisable(true)
+                                            setCurrentPageFilter(value)
+                                            // localStorage.setItem('@currentpage', value)
+                                        }}
+                                        color='primary'
+                                        disabled={disable}
+                                    /> :
+                                    <Pagination 
+                                        count={pages}
+                                        page={currentPage}
+                                        onChange={(event,value) => {
+                                            value===currentPage ? setDisable(false) : setDisable(true)
+                                            setCurrentPage(value)
+                                            localStorage.setItem('@currentpage', value)
+                                        }}
+                                        color='primary'
+                                        disabled={disable}
+                                    />}
                             </div>
 
                         </div>

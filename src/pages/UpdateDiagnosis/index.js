@@ -1,10 +1,8 @@
-import React from 'react'
+import React, { useState, useEffect} from 'react'
 import { useHistory } from "react-router-dom"
 import TextField from '@material-ui/core/TextField'
 import MenuItem from '@material-ui/core/MenuItem'
-import { useState, useEffect} from 'react'
 
-import './styles.css'
 import Header from '../../components/Header/Default/index'
 import states from '../../utils/states-cities/estados'
 import cities from '../../utils/states-cities/cities'
@@ -24,6 +22,24 @@ const UpdateDiagnosis = () => {
     const [info,setInfo] = useState('')
     const [citiesArray, setCitiesArray] = useState([])
 
+    useEffect( () =>{
+        localStorage.removeItem('@currentpage')
+        const data = localStorage.getItem('@form')
+        if(data){
+            const data_ = JSON.parse(data)
+            setState(data_.state)
+            setCity(data_.city)
+            setSex(data_.sex === '' ? '' :
+                data_.sex === "M" ? "Masculino" : "Feminino" 
+            )
+            setAge(data_.age)
+            setTemp(data_.address)
+            setSat_ox(data_.sat_ox)
+            setTemp(data_.temp)
+            setInfo(data_.info)
+        }
+    },[])
+
     useEffect(() => {
 
         let stateID
@@ -40,7 +56,20 @@ const UpdateDiagnosis = () => {
         setCitiesArray(citiesFiltered)
 
     },[state])
+
+    function handleUpdate(){
+
+    }
     
+    function handleCancel(){
+
+        localStorage.getItem('@justUpload') ? 
+            history.push('/doctorUpload')
+            : history.push('/medicalRecord')
+
+        localStorage.removeItem('@form')
+        localStorage.removeItem('@image')
+    }
     return (  
         <AuthUserContext.Consumer> 
             {authUser =>
@@ -51,9 +80,9 @@ const UpdateDiagnosis = () => {
 
                             <div className="container-register">
                                 
-                                <form onSubmit = {handleContinue}>
+                                <form onSubmit = {handleUpdate}>
                                     <div className='container-form'>
-                                        <h1 className="container-title">Dados do paciente</h1>
+                                        <h1 className="container-title">Editar dados do paciente</h1>
 
                                         <TextField 
                                             id="estado-select" 

@@ -18,6 +18,7 @@ import DoctorProfile from './pages/Profile/Doctor/index'
 import ResearcherProfile from './pages/Profile/Researcher/index'
 import DoctorUpload from './pages/DoctorUpload/index'
 import Landing from './pages/Landing/index'
+import UpdateDiagnosis from './pages/UpdateDiagnosis/index'
 
 export default () => {
     return (
@@ -45,6 +46,7 @@ export default () => {
             <Route path="/register" component ={RegisterDiagnosis}/>
             <Route path="/upload" component ={UploadImage}/>
             <Route path="/view-diagnosis" component ={viewDiagnosis}/>
+            <Route path="/update-diagnosis" component ={UpdateDiagnosis}/>
 
             <Route path="/profile-doc" component ={DoctorProfile}/>
             <Route path="/profile-res" component ={ResearcherProfile}/>
