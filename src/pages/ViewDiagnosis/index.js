@@ -26,6 +26,8 @@ const ViewDiagnosis = (props) => {
     const [token, setToken] = useState('')
     const [disable, setDisable] = useState(false)
 
+    const [resultClass, setResultClass] = useState('')
+
     const { ImageV, imageResearcher } = useContext(ImageContext)
 
     useEffect(() => {
@@ -94,7 +96,7 @@ const ViewDiagnosis = (props) => {
             formData,
             config
         ).then(response=>{
-            console.log(response)
+            // console.log(response)
         }).catch(error=>{
             console.log(error)
             setDisable(false)
@@ -157,7 +159,7 @@ const ViewDiagnosis = (props) => {
             formData,
             config
         ).then(response=>{
-            console.log(response)
+            // console.log(response)
         }).catch(error=>{
             console.log(error)
             setDisable(false)
@@ -200,7 +202,7 @@ const ViewDiagnosis = (props) => {
             formData,
             config
         ).then(response=>{
-            console.log(response)
+            // console.log(response)
         }).catch(error=>{
             console.log(error)
             setDisable(false)
@@ -221,6 +223,25 @@ const ViewDiagnosis = (props) => {
         isResearcher ?
             history.push('/researcherImages') :
             history.push('/medicalRecord')
+    }
+
+    function handleResult(){
+        const resName = data.fromHome ? 
+        data.result : localStorage.getItem('@justUpload') || localStorage.getItem('@isResearcher')? 
+            localStorage.getItem('@resUp') : resul
+
+        if(resName === '0' || resName === 0){
+            setResultClass('green-modal-diagnosis')
+            return 'Normal'
+        }
+        if(resName === '1' || resName === 1){
+            setResultClass('gray-modal-diagnosis')
+            return 'Pneumonia'
+        }
+        if(resName === '2' || resName === 2){
+            setResultClass('red-modal-diagnosis')
+            return 'Covid-19'
+        }
     }
 
     return(
@@ -290,8 +311,9 @@ const ViewDiagnosis = (props) => {
                                 <DialogTitle className={classes.title}>Contribuir com pesquisa</DialogTitle>
                                 <DialogContent>
                                     <DialogContentText className={classes.root}>
-                                        Declaro que os dados do diagnóstico foram devidamente anonimizados. 
-                                        Aperte confirmar para disponibilizar este diagnóstico para fins de pesquisa.
+                                        Declaro que esta imagem foi devidamente anonimizada e que o 
+                                        diagnóstico <b className={resultClass}>{handleResult()}</b> está confirmado. 
+                                        Estou ciente que estou disponibilizando este diagnóstico para fins de pesquisa. 
                                     </DialogContentText>
                                 </DialogContent>
                                 <DialogActions>

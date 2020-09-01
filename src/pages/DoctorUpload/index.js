@@ -30,11 +30,13 @@ const DoctorUpload = (props) => {
     const [errorMsg, setErrorMsg] = useState('')
     const [deleteStorage, setDeleteStorage] = useState(true)
 
-    const [filter, setFilter] = useState('')
+    const [filter, setFilter] = useState(localStorage.getItem('@filterNumberUp') ?
+    localStorage.getItem('@filterNumberUp'):'')
     const [disableSelect, setDisableSelect] = useState(false)
     const [isFiltering, setIsFiltering] = useState(false)
     const [pagesFilter, setPagesFilter] = useState(null)
-    const [currentPageFilter, setCurrentPageFilter] = useState(1)
+    const [currentPageFilter, setCurrentPageFilter] = useState(localStorage.getItem('@currentpageFilterUp') ?
+    localStorage.getItem('@currentpageFilterUp'):1)
 
     function handleAdd(){
         history.push('/register')
@@ -42,6 +44,9 @@ const DoctorUpload = (props) => {
 
     useEffect(()=>{
         localStorage.removeItem('@isResearcher')
+        localStorage.removeItem('@currentpageFilter')
+        localStorage.removeItem('@filterNumber')
+
         if(deleteStorage){
             
             localStorage.removeItem('@form')
@@ -138,7 +143,7 @@ const DoctorUpload = (props) => {
     }
 
     useEffect(()=>{
-        isFiltering?
+        isFiltering || localStorage.getItem('@currentpageFilterUp')?
             setTimeout( ()=>
                 (async () => {
                     await api.get(`doctor/diagnoses/AI?page=${currentPageFilter}&result=${filterNumber(filter)}`,
@@ -230,6 +235,8 @@ const DoctorUpload = (props) => {
                                             setDisableSelect(true)
                                             setIsFiltering(true)
                                             setCurrentPageFilter(1)
+                                            localStorage.setItem('@currentpageFilterUp', 1)
+                                            localStorage.setItem('@filterNumberUp', event.target.value)
                                         }}
                                     >
                                         {filterOptions.map((option) => (
@@ -264,14 +271,14 @@ const DoctorUpload = (props) => {
                             </div> <br/>
                             
                             <div className={width > 540 ?'container-pagination':'container-pagination-responsive'}>
-                                {isFiltering ?
+                                {isFiltering || localStorage.getItem('@currentpageFilterUp')?
                                     <Pagination 
                                         count={pagesFilter}
                                         page={currentPageFilter}
                                         onChange={(event,value) => {
                                             value===currentPageFilter ? setDisable(false) : setDisable(true)
                                             setCurrentPageFilter(value)
-                                            // localStorage.setItem('@currentpage', value)
+                                            localStorage.setItem('@currentpageFilterUp', value)
                                         }}
                                         color='primary'
                                         disabled={disable}

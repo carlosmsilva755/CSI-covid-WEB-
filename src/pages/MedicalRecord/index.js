@@ -32,11 +32,13 @@ const MedicalRecord = (props) => {
     const [errorMsg, setErrorMsg] = useState('')
     const [deleteStorage, setDeleteStorage] = useState(true)
 
-    const [filter, setFilter] = useState('')
+    const [filter, setFilter] = useState(localStorage.getItem('@filterNumber') ?
+    localStorage.getItem('@filterNumber'):'')
     const [disableSelect, setDisableSelect] = useState(false)
     const [isFiltering, setIsFiltering] = useState(false)
     const [pagesFilter, setPagesFilter] = useState(null)
-    const [currentPageFilter, setCurrentPageFilter] = useState(1)
+    const [currentPageFilter, setCurrentPageFilter] = useState(localStorage.getItem('@currentpageFilter') ?
+    localStorage.getItem('@currentpageFilter'):1)
 
     function handleAdd(authUser){
         history.push('/register')
@@ -147,7 +149,7 @@ const MedicalRecord = (props) => {
     }
 
     useEffect(() => {
-        isFiltering?
+        isFiltering || localStorage.getItem('@currentpageFilter')?
             setTimeout( ()=>
                 (async () => {
                     await api.get(`doctor/diagnoses?page=${currentPageFilter}&result=${filterNumber(filter)}`,
@@ -246,6 +248,8 @@ const MedicalRecord = (props) => {
                                             setDisableSelect(true)
                                             setIsFiltering(true)
                                             setCurrentPageFilter(1)
+                                            localStorage.setItem('@currentpageFilter', 1)
+                                            localStorage.setItem('@filterNumber', event.target.value)
                                         }}
                                     >
                                         {filterOptions.map((option) => (
@@ -279,14 +283,14 @@ const MedicalRecord = (props) => {
                             </div> <br/>
                             
                             <div className={width > 540 ?'container-pagination':'container-pagination-responsive'}>
-                                {isFiltering ?
+                                {isFiltering || localStorage.getItem('@currentpageFilter')?
                                     <Pagination 
                                         count={pagesFilter}
                                         page={currentPageFilter}
                                         onChange={(event,value) => {
                                             value===currentPageFilter ? setDisable(false) : setDisable(true)
                                             setCurrentPageFilter(value)
-                                            // localStorage.setItem('@currentpage', value)
+                                            localStorage.setItem('@currentpageFilter', value)
                                         }}
                                         color='primary'
                                         disabled={disable}

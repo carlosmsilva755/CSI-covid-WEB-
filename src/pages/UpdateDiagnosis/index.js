@@ -29,9 +29,7 @@ const UpdateDiagnosis = () => {
             const data_ = JSON.parse(data)
             setState(data_.state)
             setCity(data_.city)
-            setSex(data_.sex === '' ? '' :
-                data_.sex === "M" ? "Masculino" : "Feminino" 
-            )
+            setSex(data_.sex)
             setAge(data_.age)
             setTemp(data_.address)
             setSat_ox(data_.sat_ox)

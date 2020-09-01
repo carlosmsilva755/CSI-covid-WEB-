@@ -32,3 +32,17 @@
     width: 100px;
     margin-right: 5px;
 }
+
+
+.green-modal-diagnosis{
+    color: #50B600;
+    text-transform: uppercase;
+}
+.gray-modal-diagnosis{
+    color: #A1A1A1;
+    text-transform: uppercase;
+}
+.red-modal-diagnosis{
+    color: #EE4937;
+    text-transform: uppercase;
+}

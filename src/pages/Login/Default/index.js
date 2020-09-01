@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import loginImage from '../../../assets/Images/loginImage.svg'
 import DoctorLogin from '../../../assets/Icons/doctorLogin'
@@ -7,6 +7,16 @@ import './styles.css'
 
 
 export default () => {
+    useEffect(() => {
+        localStorage.removeItem('@currentpage')
+        localStorage.removeItem('@currentpageFilter')
+        localStorage.removeItem('@filterNumber')
+        localStorage.removeItem('@currentpageFilterRes')
+        localStorage.removeItem('@filterNumberRes')
+        localStorage.removeItem('@currentpageFilterUp')
+        localStorage.removeItem('@filterNumberUp')
+
+    }, [])
     const history= useHistory()
     return(
         
