@@ -135,7 +135,7 @@ Given("I see {string}", async function (arg1) {
 
 
 
-Then("And I check if the code has been deleted which is the same as {string}", async function (arg1) {
+Then("I check if the code has been deleted which is the same as {string}", async function (arg1) {
     await driver.sleep(short_time)
     await driver.findElement({ id: "pesquisar-input" }).sendKeys(codigo_salvo);
     await driver.sleep(short_time)

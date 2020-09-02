@@ -1,7 +1,7 @@
 {
   "feature": {
     "uri": "Buscar_Diagnostico_solicitado.feature",
-    "description": "<feature description>",
+    "description": "Histórias de Usuários\nPara buscar um diagnóstico solicitado\nEu, como um Médico\nGostaria de inserir um código referente a solicitação e visualizar o diagnóstico.\nCritérios de aceitação: Para realizar logout é necessário estar logado no sistema.\nde inserir um código referente a solicitação e visualizar o diagnóstico.\nPontos:5",
     "keyword": "Feature",
     "name": "Buscar_diagnostico",
     "line": 1,
@@ -13,12 +13,12 @@
     "uri": "Buscar_Diagnostico_solicitado.feature",
     "id": "buscar_diagnostico;para-o-usuario-medico",
     "keyword": "Scenario",
-    "line": 4,
+    "line": 10,
     "name": "Para o usuario Medico",
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 21008,
+      "duration": 22648,
       "status": "passed"
     },
     "steps": [
@@ -30,202 +30,202 @@
         },
         "result": {
           "status": "passed",
-          "duration": 45000000
+          "duration": 26000000
         }
       },
       {
         "arguments": [],
         "keyword": "Given ",
-        "line": 5,
+        "line": 11,
         "name": "Browse to web site \"https://csi-covid.web.app/\"",
         "match": {
           "location": "step_definitions\\definitions1.js:16"
         },
         "result": {
           "status": "passed",
-          "duration": 3947000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 6,
-        "name": "I press the \"login-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:20"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1228000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 7,
-        "name": "I press the \"medico-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:20"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1209000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 8,
-        "name": "I enter \"testemedicocovid@gmail.com\" in \"email-login-input\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:71"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1345000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 9,
-        "name": "I enter \"Teste123\" in \"password-login-input\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:71"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1288000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 10,
-        "name": "I press the \"entrar-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:20"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1185000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 11,
-        "name": "I see \"Médico\" written on the requested page.id:\"medico-perfil\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:99"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 615000000
+          "duration": 7977000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 12,
-        "name": "I enter \"C-SONI2\" in \"pesquisar-input\"",
+        "name": "I press the \"login-button\"",
         "match": {
-          "location": "step_definitions\\definitions1.js:71"
+          "location": "step_definitions\\definitions1.js:20"
         },
         "result": {
           "status": "passed",
-          "duration": 1175000000
+          "duration": 1213000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 13,
-        "name": "I press the \"pesquisar-button\"",
+        "name": "I press the \"medico-button\"",
         "match": {
           "location": "step_definitions\\definitions1.js:20"
         },
         "result": {
           "status": "passed",
-          "duration": 1184000000
+          "duration": 1318000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 14,
-        "name": "I see \"C-SONI2\" written on the requested page.css:\"#root > div > div > div > div > div.card-left > h1\"",
+        "name": "I enter \"testemedicocovid@gmail.com\" in \"email-login-input\"",
         "match": {
-          "location": "step_definitions\\definitions1.js:106"
+          "location": "step_definitions\\definitions1.js:71"
         },
         "result": {
           "status": "passed",
-          "duration": 2896000000
+          "duration": 1504000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 15,
-        "name": "I press the \"pagina-inicial-button\"",
+        "name": "I enter \"Teste123\" in \"password-login-input\"",
         "match": {
-          "location": "step_definitions\\definitions1.js:20"
+          "location": "step_definitions\\definitions1.js:71"
         },
         "result": {
           "status": "passed",
-          "duration": 1162000000
+          "duration": 1207000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 16,
-        "name": "I press the \"logout-button\"",
+        "name": "I press the \"entrar-button\"",
         "match": {
           "location": "step_definitions\\definitions1.js:20"
         },
         "result": {
           "status": "passed",
-          "duration": 1088000000
+          "duration": 1214000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 17,
-        "name": "I press the \"sair-button\"",
+        "name": "I see \"Médico\" written on the requested page.id:\"medico-perfil\"",
         "match": {
-          "location": "step_definitions\\definitions1.js:20"
+          "location": "step_definitions\\definitions1.js:99"
         },
         "result": {
           "status": "passed",
-          "duration": 1126000000
+          "duration": 603000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 18,
+        "name": "I enter \"C-SONI2\" in \"pesquisar-input\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:71"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1273000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 19,
+        "name": "I press the \"pesquisar-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1129000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 20,
+        "name": "I see \"C-SONI2\" written on the requested page.css:\"#root > div > div > div > div > div.card-left > h1\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:106"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 85000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 21,
+        "name": "I press the \"pagina-inicial-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1255000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 22,
+        "name": "I press the \"logout-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1136000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 23,
+        "name": "I press the \"sair-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1150000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 24,
         "name": "I press the \"saida-button\"",
         "match": {
           "location": "step_definitions\\definitions1.js:20"
         },
         "result": {
           "status": "passed",
-          "duration": 1108000000
+          "duration": 1111000000
         }
       },
       {
         "arguments": [],
         "keyword": "Then ",
-        "line": 19,
+        "line": 25,
         "name": "I see \"Entrar\" written on the requested page.id:\"login-button\"",
         "match": {
           "location": "step_definitions\\definitions1.js:99"
         },
         "result": {
           "status": "passed",
-          "duration": 70000000
+          "duration": 69000000
         }
       },
       {
@@ -236,7 +236,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 337000000
+          "duration": 378000000
         },
         "embeddings": [
           {
@@ -252,12 +252,12 @@
     "uri": "Buscar_Diagnostico_solicitado.feature",
     "id": "buscar_diagnostico;para-o-usuario-pesquisador",
     "keyword": "Scenario",
-    "line": 21,
+    "line": 27,
     "name": "Para o usuario pesquisador",
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 14289,
+      "duration": 15560,
       "status": "passed"
     },
     "steps": [
@@ -275,196 +275,196 @@
       {
         "arguments": [],
         "keyword": "Given ",
-        "line": 22,
+        "line": 28,
         "name": "Browse to web site \"https://csi-covid.web.app/\"",
         "match": {
           "location": "step_definitions\\definitions1.js:16"
         },
         "result": {
           "status": "passed",
-          "duration": 415000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 23,
-        "name": "I press the \"login-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:20"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1120000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 24,
-        "name": "I press the \"pesquisador-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:20"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1153000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 25,
-        "name": "I enter \"testepesquisadorcovid@gmail.com\" in \"email-login-input\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:71"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1500000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 26,
-        "name": "I enter \"Teste123\" in \"password-login-input\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:71"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1434000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 27,
-        "name": "I press the \"entrar-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:20"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1155000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 28,
-        "name": "I see \"Pesquisador\" written on the requested page.id:\"pesquisador-perfil\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:99"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 78000000
+          "duration": 676000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 29,
-        "name": "I enter \"N-EHOMAQ5\" in \"pesquisar-input\"",
+        "name": "I press the \"login-button\"",
         "match": {
-          "location": "step_definitions\\definitions1.js:71"
+          "location": "step_definitions\\definitions1.js:20"
         },
         "result": {
           "status": "passed",
-          "duration": 1459000000
+          "duration": 1205000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 30,
-        "name": "I press the \"pesquisar-button\"",
+        "name": "I press the \"pesquisador-button\"",
         "match": {
           "location": "step_definitions\\definitions1.js:20"
         },
         "result": {
           "status": "passed",
-          "duration": 1147000000
+          "duration": 1361000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 31,
-        "name": "I see \"N-EHOMAQ5\" written on the requested page.css:\"#root > div > div > div > div > div.card-left > h1\"",
+        "name": "I enter \"testepesquisadorcovid@gmail.com\" in \"email-login-input\"",
         "match": {
-          "location": "step_definitions\\definitions1.js:106"
+          "location": "step_definitions\\definitions1.js:71"
         },
         "result": {
           "status": "passed",
-          "duration": 63000000
+          "duration": 1522000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 32,
-        "name": "I press the \"pagina-inicial-button\"",
+        "name": "I enter \"Teste123\" in \"password-login-input\"",
         "match": {
-          "location": "step_definitions\\definitions1.js:20"
+          "location": "step_definitions\\definitions1.js:71"
         },
         "result": {
           "status": "passed",
-          "duration": 1118000000
+          "duration": 1549000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 33,
-        "name": "I press the \"logout-button\"",
+        "name": "I press the \"entrar-button\"",
         "match": {
           "location": "step_definitions\\definitions1.js:20"
         },
         "result": {
           "status": "passed",
-          "duration": 1083000000
+          "duration": 1171000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 34,
-        "name": "I press the \"sair-button\"",
+        "name": "I see \"Pesquisador\" written on the requested page.id:\"pesquisador-perfil\"",
         "match": {
-          "location": "step_definitions\\definitions1.js:20"
+          "location": "step_definitions\\definitions1.js:99"
         },
         "result": {
           "status": "passed",
-          "duration": 1101000000
+          "duration": 91000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 35,
+        "name": "I enter \"N-EHOMAQ5\" in \"pesquisar-input\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:71"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1555000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 36,
+        "name": "I press the \"pesquisar-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1174000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 37,
+        "name": "I see \"N-EHOMAQ5\" written on the requested page.css:\"#root > div > div > div > div > div.card-left > h1\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:106"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 77000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 38,
+        "name": "I press the \"pagina-inicial-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1210000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 39,
+        "name": "I press the \"logout-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1253000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 40,
+        "name": "I press the \"sair-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1160000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 41,
         "name": "I press the \"saida-button\"",
         "match": {
           "location": "step_definitions\\definitions1.js:20"
         },
         "result": {
           "status": "passed",
-          "duration": 1070000000
+          "duration": 1121000000
         }
       },
       {
         "arguments": [],
         "keyword": "Then ",
-        "line": 36,
+        "line": 42,
         "name": "I see \"Entrar\" written on the requested page.id:\"login-button\"",
         "match": {
           "location": "step_definitions\\definitions1.js:99"
         },
         "result": {
           "status": "passed",
-          "duration": 87000000
+          "duration": 78000000
         }
       },
       {
@@ -475,7 +475,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 305000000
+          "duration": 356000000
         },
         "embeddings": [
           {
@@ -506,7 +506,7 @@
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 16715,
+      "duration": 18500,
       "status": "passed"
     },
     "steps": [
@@ -530,7 +530,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 214000000
+          "duration": 453000000
         }
       },
       {
@@ -543,7 +543,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1157000000
+          "duration": 1174000000
         }
       },
       {
@@ -556,7 +556,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1341000000
+          "duration": 2330000000
         }
       },
       {
@@ -569,7 +569,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1307000000
+          "duration": 1392000000
         }
       },
       {
@@ -582,7 +582,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1339000000
+          "duration": 1477000000
         }
       },
       {
@@ -595,7 +595,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1134000000
+          "duration": 1187000000
         }
       },
       {
@@ -608,7 +608,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1145000000
+          "duration": 1729000000
         }
       },
       {
@@ -621,7 +621,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1221000000
+          "duration": 1265000000
         }
       },
       {
@@ -634,7 +634,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1189000000
+          "duration": 1250000000
         }
       },
       {
@@ -647,7 +647,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1181000000
+          "duration": 1204000000
         }
       },
       {
@@ -660,7 +660,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1705000000
+          "duration": 1113000000
         }
       },
       {
@@ -673,7 +673,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1171000000
+          "duration": 1159000000
         }
       },
       {
@@ -686,7 +686,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1119000000
+          "duration": 1166000000
         }
       },
       {
@@ -699,7 +699,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1100000000
+          "duration": 1176000000
         }
       },
       {
@@ -712,7 +712,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 56000000
+          "duration": 63000000
         }
       },
       {
@@ -723,7 +723,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 336000000
+          "duration": 362000000
         },
         "embeddings": [
           {
@@ -744,7 +744,7 @@
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 18690,
+      "duration": 20846,
       "status": "passed"
     },
     "steps": [
@@ -769,7 +769,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 2161000000
+          "duration": 1996000000
         }
       },
       {
@@ -782,7 +782,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1167000000
+          "duration": 1276000000
         }
       },
       {
@@ -795,7 +795,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1365000000
+          "duration": 1589000000
         }
       },
       {
@@ -808,7 +808,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1350000000
+          "duration": 1448000000
         }
       },
       {
@@ -821,7 +821,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1549000000
+          "duration": 1890000000
         }
       },
       {
@@ -834,7 +834,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1321000000
+          "duration": 1396000000
         }
       },
       {
@@ -847,7 +847,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1264000000
+          "duration": 1443000000
         }
       },
       {
@@ -860,7 +860,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1240000000
+          "duration": 1220000000
         }
       },
       {
@@ -873,7 +873,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1191000000
+          "duration": 1255000000
         }
       },
       {
@@ -886,7 +886,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1130000000
+          "duration": 1280000000
         }
       },
       {
@@ -899,7 +899,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1187000000
+          "duration": 1449000000
         }
       },
       {
@@ -912,7 +912,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1121000000
+          "duration": 1183000000
         }
       },
       {
@@ -925,7 +925,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1161000000
+          "duration": 1710000000
         }
       },
       {
@@ -938,7 +938,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1088000000
+          "duration": 1191000000
         }
       },
       {
@@ -951,7 +951,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 59000000
+          "duration": 117000000
         }
       },
       {
@@ -962,7 +962,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 335000000
+          "duration": 402000000
         },
         "embeddings": [
           {
@@ -976,6 +976,7 @@
 }{
   "feature": {
     "uri": "Excluir_Diagnostico.feature",
+    "description": "Histórias de Usuários\nPARA excluir um diagnóstico que foi solicitado\n\nEU, como um Médico\n\nGOSTARIA de visualizar o diagnóstico e excluir as informações registradas.\n\nCritérios de aceitação: O sistema deve retornar que essa operação não poderá ser desfeita estando o médico ciente. Pontos: 5",
     "keyword": "Feature",
     "name": "Excluir_Diagnostico",
     "line": 1,
@@ -987,13 +988,13 @@
     "uri": "Excluir_Diagnostico.feature",
     "id": "excluir_diagnostico;para-o-usuario-medico",
     "keyword": "Scenario",
-    "line": 3,
+    "line": 11,
     "name": "Para o usuario Medico",
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 38207,
-      "status": "passed"
+      "duration": 34649,
+      "status": "undefined"
     },
     "steps": [
       {
@@ -1003,189 +1004,509 @@
           "location": "support\\hooks.js:15"
         },
         "result": {
-          "status": "passed"
+          "status": "passed",
+          "duration": 1000000
         }
       },
       {
         "arguments": [],
         "keyword": "Given ",
-        "line": 4,
+        "line": 12,
         "name": "Browse to web site \"https://csi-covid.web.app/\"",
         "match": {
           "location": "step_definitions\\definitions1.js:16"
         },
         "result": {
           "status": "passed",
-          "duration": 795000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 5,
-        "name": "I press the \"login-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:20"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1155000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 6,
-        "name": "I press the \"medico-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:20"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1168000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 7,
-        "name": "I enter \"testemedicocovid@gmail.com\" in \"email-login-input\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:71"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1300000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 8,
-        "name": "I enter \"Teste123\" in \"password-login-input\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:71"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1344000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 9,
-        "name": "I press the \"entrar-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:20"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1118000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 10,
-        "name": "I see \"Médico\" written on the requested page.id:\"medico-perfil\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:99"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 79000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 11,
-        "name": "I press the \"diagnosticos-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:20"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1182000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 12,
-        "name": "I press the \"novo-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:20"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1203000000
+          "duration": 1280000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 13,
-        "name": "I press the \"continuar-button\"",
+        "name": "I press the \"login-button\"",
         "match": {
           "location": "step_definitions\\definitions1.js:20"
         },
         "result": {
           "status": "passed",
-          "duration": 1114000000
+          "duration": 1252000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 14,
-        "name": "I press the \"image-upload\"  and choose the file",
+        "name": "I press the \"medico-button\"",
         "match": {
-          "location": "step_definitions\\definitions1.js:26"
+          "location": "step_definitions\\definitions1.js:20"
         },
         "result": {
           "status": "passed",
-          "duration": 2060000000
+          "duration": 1589000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 15,
-        "name": "I press the \"solicitar-button\"",
+        "name": "I enter \"testemedicocovid@gmail.com\" in \"email-login-input\"",
         "match": {
-          "location": "step_definitions\\definitions1.js:20"
+          "location": "step_definitions\\definitions1.js:71"
         },
         "result": {
           "status": "passed",
-          "duration": 1104000000
+          "duration": 1466000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 16,
-        "name": "I see \"Diagnóstico do modelo:\" written on the requested page",
+        "name": "I enter \"Teste123\" in \"password-login-input\"",
         "match": {
-          "location": "step_definitions\\definitions1.js:55"
+          "location": "step_definitions\\definitions1.js:71"
         },
         "result": {
           "status": "passed",
-          "duration": 2803000000
+          "duration": 1676000000
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 17,
+        "name": "I press the \"entrar-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1260000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 18,
+        "name": "I see \"Médico\" written on the requested page.id:\"medico-perfil\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:99"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 129000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 19,
+        "name": "I press the \"diagnosticos-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 2249000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 20,
+        "name": "I press the \"novo-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1264000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 21,
+        "name": "I press the \"continuar-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1195000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 22,
+        "name": "I press the \"image-upload\"  and choose the file",
+        "match": {
+          "location": "step_definitions\\definitions1.js:26"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 2158000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 23,
+        "name": "I press the \"solicitar-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1218000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 24,
+        "name": "I see \"Diagnóstico do modelo:\" written on the requested page",
+        "match": {
+          "location": "step_definitions\\definitions1.js:55"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 3301000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 25,
         "name": "I press the \"disponibilizar-button\"",
         "match": {
           "location": "step_definitions\\definitions1.js:20"
         },
         "result": {
           "status": "passed",
-          "duration": 1138000000
+          "duration": 1174000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 26,
+        "name": "I click  in the first  diagnostic image \"#container-card-menu > div.container-card-img > img\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:47"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 6185000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 27,
+        "name": "I see the diagnostic code'card-id'and save it",
+        "match": {
+          "location": "step_definitions\\definitions1.js:119"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 59000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 28,
+        "name": "I press the \"pagina-inicial-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1247000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 29,
+        "name": "I press the \"options-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1651000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 30,
+        "name": "I press the \"excluir-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1166000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 31,
+        "name": "I press the \"confirmar-excliur-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1149000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 32,
+        "name": "I press the \"diagnosticos-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1610000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 33,
+        "name": "I check if the code has been deleted which is the same as \"ID inválido\"",
+        "result": {
+          "status": "undefined"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 34,
+        "name": "I press the \"logout-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 35,
+        "name": "I press the \"sair-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 36,
+        "name": "I press the \"saida-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "Then ",
+        "line": 37,
+        "name": "I see \"Entrar\" written on the requested page.id:\"login-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:99"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "keyword": "After",
+        "hidden": true,
+        "match": {
+          "location": "support\\hooks.js:19"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 370000000
+        },
+        "embeddings": [
+          {
+            "data": "file://__tests____report/5.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    ]
+  }
+}{
+  "feature": {
+    "uri": "Filtrar.feature",
+    "description": "Histórias de Usuários\nPara verificar os diagnóstico solicitados por classificação\nEu, como um Médico\nGostaria de visualizar somente os diagnóstico referente a cada classificação..\nCritérios de aceitação: O sistema deve retornar somente os diagnósticos de um tipo de classificação.",
+    "keyword": "Feature",
+    "name": "Filtrar",
+    "line": 1,
+    "id": "filtrar",
+    "tags": []
+  }
+}{
+  "scenario": {
+    "uri": "Filtrar.feature",
+    "id": "filtrar;para-usuario-medico------filtrando-por-covid",
+    "keyword": "Scenario",
+    "line": 8,
+    "name": "Para usuario medico ---- Filtrando por Covid",
+    "tags": [],
+    "type": "scenario",
+    "result": {
+      "duration": 4603,
+      "status": "failed",
+      "exception": {
+        "name": "NoSuchElementError",
+        "remoteStacktrace": "Backtrace:\n\tOrdinal0 [0x00B887E3+2852835]\n\tOrdinal0 [0x00A75BB1+1727409]\n\tOrdinal0 [0x0094E4B9+517305]\n\tOrdinal0 [0x008E9D0B+105739]\n\tOrdinal0 [0x00906210+221712]\n\tOrdinal0 [0x008FB890+178320]\n\tOrdinal0 [0x00904B9C+215964]\n\tOrdinal0 [0x008FB70B+177931]\n\tOrdinal0 [0x008E2584+75140]\n\tOrdinal0 [0x008E3650+79440]\n\tOrdinal0 [0x008E35E9+79337]\n\tOrdinal0 [0x00A8AD5C+1813852]\n\tGetHandleVerifier [0x00CAC616+1075574]\n\tGetHandleVerifier [0x00CAC367+1074887]\n\tGetHandleVerifier [0x00CB7497+1120247]\n\tGetHandleVerifier [0x00CACC16+1077110]\n\tOrdinal0 [0x00A83206+1782278]\n\tOrdinal0 [0x00A8C3BB+1819579]\n\tOrdinal0 [0x00A8C523+1819939]\n\tOrdinal0 [0x00AA2B45+1911621]\n\tBaseThreadInitThunk [0x76016359+25]\n\tRtlGetAppContainerNamedObjectPath [0x77DE7C24+228]\n\tRtlGetAppContainerNamedObjectPath [0x77DE7BF4+180]\n"
+      }
+    },
+    "steps": [
+      {
+        "keyword": "Before",
+        "hidden": true,
+        "match": {
+          "location": "support\\hooks.js:15"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "Given ",
+        "line": 9,
+        "name": "Browse to web site \"https://csi-covid.web.app/\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:16"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 650000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 10,
+        "name": "I press the \"login-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1206000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 11,
+        "name": "I press the \"medico-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1337000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 12,
+        "name": "I enter \"testemedicocovid@gmail.com\" in \"email-login-input\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:71"
+        },
+        "result": {
+          "status": "failed",
+          "duration": 1036000000,
+          "error_message": "NoSuchElementError: no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"*[id=\"email-login-input\"]\"}\n  (Session info: chrome=85.0.4183.83)\n    at Object.throwDecodedError (C:\\Users\\Ray\\Desktop\\Covid3\\frontweb\\node_modules\\selenium-webdriver\\lib\\error.js:550:15)\n    at parseHttpResponse (C:\\Users\\Ray\\Desktop\\Covid3\\frontweb\\node_modules\\selenium-webdriver\\lib\\http.js:565:13)\n    at Executor.execute (C:\\Users\\Ray\\Desktop\\Covid3\\frontweb\\node_modules\\selenium-webdriver\\lib\\http.js:491:26)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 13,
+        "name": "I enter \"Teste123\" in \"password-login-input\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:71"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 14,
+        "name": "I press the \"entrar-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 15,
+        "name": "I see \"Médico\" written on the requested page.id:\"medico-perfil\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:99"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 16,
+        "name": "I press the \"outlined-select-currency\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 17,
+        "name": "I press the option \".MuiPaper-root:nth-child(3) .MuiButtonBase-root:nth-child(1)\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:35"
+        },
+        "result": {
+          "status": "skipped"
         }
       },
       {
@@ -1197,8 +1518,7 @@
           "location": "step_definitions\\definitions1.js:47"
         },
         "result": {
-          "status": "passed",
-          "duration": 6161000000
+          "status": "skipped"
         }
       },
       {
@@ -1210,138 +1530,91 @@
           "location": "step_definitions\\definitions1.js:119"
         },
         "result": {
-          "status": "passed",
-          "duration": 81000000
+          "status": "skipped"
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 20,
-        "name": "I press the \"pagina-inicial-button\"",
+        "name": "I see \"codigo_salvo\"",
         "match": {
-          "location": "step_definitions\\definitions1.js:20"
+          "location": "step_definitions\\definitions1.js:130"
         },
         "result": {
-          "status": "passed",
-          "duration": 1158000000
+          "status": "skipped"
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 21,
-        "name": "I press the \"options-button\"",
+        "name": "I check the diagnostic code unless it starts with the letter \"C\"",
         "match": {
-          "location": "step_definitions\\definitions1.js:20"
+          "location": "step_definitions\\definitions1.js:154"
         },
         "result": {
-          "status": "passed",
-          "duration": 1591000000
+          "status": "skipped"
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 22,
-        "name": "I press the \"excluir-button\"",
+        "name": "I press the \"pagina-inicial-button\"",
         "match": {
           "location": "step_definitions\\definitions1.js:20"
         },
         "result": {
-          "status": "passed",
-          "duration": 1121000000
+          "status": "skipped"
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 23,
-        "name": "I press the \"confirmar-excliur-button\"",
+        "name": "I press the \"logout-button\"",
         "match": {
           "location": "step_definitions\\definitions1.js:20"
         },
         "result": {
-          "status": "passed",
-          "duration": 1139000000
+          "status": "skipped"
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
         "line": 24,
-        "name": "I press the \"diagnosticos-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:20"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1312000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "* ",
-        "line": 25,
-        "name": "And I check if the code has been deleted which is the same as \"ID inválido\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:139"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 4396000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 26,
-        "name": "I press the \"logout-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:20"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1120000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 27,
         "name": "I press the \"sair-button\"",
         "match": {
           "location": "step_definitions\\definitions1.js:20"
         },
         "result": {
-          "status": "passed",
-          "duration": 1097000000
+          "status": "skipped"
         }
       },
       {
         "arguments": [],
         "keyword": "And ",
-        "line": 28,
+        "line": 25,
         "name": "I press the \"saida-button\"",
         "match": {
           "location": "step_definitions\\definitions1.js:20"
         },
         "result": {
-          "status": "passed",
-          "duration": 1079000000
+          "status": "skipped"
         }
       },
       {
         "arguments": [],
         "keyword": "Then ",
-        "line": 29,
+        "line": 26,
         "name": "I see \"Entrar\" written on the requested page.id:\"login-button\"",
         "match": {
           "location": "step_definitions\\definitions1.js:99"
         },
         "result": {
-          "status": "passed",
-          "duration": 73000000
+          "status": "skipped"
         }
       },
       {
@@ -1352,11 +1625,280 @@
         },
         "result": {
           "status": "passed",
-          "duration": 316000000
+          "duration": 373000000
         },
         "embeddings": [
           {
-            "data": "file://__tests____report/5.png",
+            "data": "file://__tests____report/6.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    ]
+  }
+}{
+  "scenario": {
+    "uri": "Filtrar.feature",
+    "id": "filtrar;para-usuario-medico------filtrando-por-pneumonia",
+    "keyword": "Scenario",
+    "line": 28,
+    "name": "Para usuario medico ---- Filtrando por Pneumonia",
+    "tags": [],
+    "type": "scenario",
+    "result": {
+      "duration": 4270,
+      "status": "failed",
+      "exception": {
+        "name": "NoSuchElementError",
+        "remoteStacktrace": "Backtrace:\n\tOrdinal0 [0x00B887E3+2852835]\n\tOrdinal0 [0x00A75BB1+1727409]\n\tOrdinal0 [0x0094E4B9+517305]\n\tOrdinal0 [0x008E9D0B+105739]\n\tOrdinal0 [0x00906210+221712]\n\tOrdinal0 [0x008FB890+178320]\n\tOrdinal0 [0x00904B9C+215964]\n\tOrdinal0 [0x008FB70B+177931]\n\tOrdinal0 [0x008E2584+75140]\n\tOrdinal0 [0x008E3650+79440]\n\tOrdinal0 [0x008E35E9+79337]\n\tOrdinal0 [0x00A8AD5C+1813852]\n\tGetHandleVerifier [0x00CAC616+1075574]\n\tGetHandleVerifier [0x00CAC367+1074887]\n\tGetHandleVerifier [0x00CB7497+1120247]\n\tGetHandleVerifier [0x00CACC16+1077110]\n\tOrdinal0 [0x00A83206+1782278]\n\tOrdinal0 [0x00A8C3BB+1819579]\n\tOrdinal0 [0x00A8C523+1819939]\n\tOrdinal0 [0x00AA2B45+1911621]\n\tBaseThreadInitThunk [0x76016359+25]\n\tRtlGetAppContainerNamedObjectPath [0x77DE7C24+228]\n\tRtlGetAppContainerNamedObjectPath [0x77DE7BF4+180]\n"
+      }
+    },
+    "steps": [
+      {
+        "keyword": "Before",
+        "hidden": true,
+        "match": {
+          "location": "support\\hooks.js:15"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 9000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "Given ",
+        "line": 29,
+        "name": "Browse to web site \"https://csi-covid.web.app/\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:16"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 385000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 30,
+        "name": "I press the \"login-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1198000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 31,
+        "name": "I press the \"medico-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1275000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 32,
+        "name": "I enter \"testemedicocovid@gmail.com\" in \"email-login-input\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:71"
+        },
+        "result": {
+          "status": "failed",
+          "duration": 1024000000,
+          "error_message": "NoSuchElementError: no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"*[id=\"email-login-input\"]\"}\n  (Session info: chrome=85.0.4183.83)\n    at Object.throwDecodedError (C:\\Users\\Ray\\Desktop\\Covid3\\frontweb\\node_modules\\selenium-webdriver\\lib\\error.js:550:15)\n    at parseHttpResponse (C:\\Users\\Ray\\Desktop\\Covid3\\frontweb\\node_modules\\selenium-webdriver\\lib\\http.js:565:13)\n    at Executor.execute (C:\\Users\\Ray\\Desktop\\Covid3\\frontweb\\node_modules\\selenium-webdriver\\lib\\http.js:491:26)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 33,
+        "name": "I enter \"Teste123\" in \"password-login-input\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:71"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 34,
+        "name": "I press the \"entrar-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 35,
+        "name": "I see \"Médico\" written on the requested page.id:\"medico-perfil\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:99"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 36,
+        "name": "I press the \"outlined-select-currency\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 37,
+        "name": "I press the option \".MuiPaper-root:nth-child(3) .MuiButtonBase-root:nth-child(2)\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:35"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 38,
+        "name": "I click  in the first  diagnostic image \"#container-card-menu > div.container-card-img > img\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:47"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 39,
+        "name": "I see the diagnostic code'card-id'and save it",
+        "match": {
+          "location": "step_definitions\\definitions1.js:119"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 40,
+        "name": "I see \"codigo_salvo\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:130"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 41,
+        "name": "I check the diagnostic code unless it starts with the letter \"P\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:154"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 42,
+        "name": "I press the \"pagina-inicial-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 43,
+        "name": "I press the \"logout-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 44,
+        "name": "I press the \"sair-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 45,
+        "name": "I press the \"saida-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "Then ",
+        "line": 46,
+        "name": "I see \"Entrar\" written on the requested page.id:\"login-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:99"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "keyword": "After",
+        "hidden": true,
+        "match": {
+          "location": "support\\hooks.js:19"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 379000000
+        },
+        "embeddings": [
+          {
+            "data": "file://__tests____report/7.png",
             "mime_type": "image/png"
           }
         ]
@@ -1383,7 +1925,7 @@
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 35524,
+      "duration": 41470,
       "status": "passed"
     },
     "steps": [
@@ -1407,7 +1949,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 591000000
+          "duration": 1071000000
         }
       },
       {
@@ -1420,7 +1962,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1149000000
+          "duration": 1465000000
         }
       },
       {
@@ -1433,7 +1975,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1186000000
+          "duration": 1425000000
         }
       },
       {
@@ -1446,7 +1988,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1294000000
+          "duration": 1419000000
         }
       },
       {
@@ -1459,7 +2001,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1352000000
+          "duration": 1590000000
         }
       },
       {
@@ -1472,7 +2014,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1130000000
+          "duration": 1257000000
         }
       },
       {
@@ -1485,7 +2027,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 86000000
+          "duration": 100000000
         }
       },
       {
@@ -1498,7 +2040,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1228000000
+          "duration": 1287000000
         }
       },
       {
@@ -1511,7 +2053,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1134000000
+          "duration": 1278000000
         }
       },
       {
@@ -1524,7 +2066,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1210000000
+          "duration": 1296000000
         }
       },
       {
@@ -1537,7 +2079,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1223000000
+          "duration": 1245000000
         }
       },
       {
@@ -1550,7 +2092,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 2324000000
+          "duration": 3648000000
         }
       },
       {
@@ -1563,7 +2105,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1483000000
+          "duration": 3089000000
         }
       },
       {
@@ -1576,7 +2118,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1515000000
+          "duration": 1427000000
         }
       },
       {
@@ -1589,7 +2131,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1112000000
+          "duration": 1142000000
         }
       },
       {
@@ -1602,7 +2144,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1134000000
+          "duration": 1383000000
         }
       },
       {
@@ -1615,7 +2157,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1134000000
+          "duration": 1175000000
         }
       },
       {
@@ -1628,7 +2170,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1136000000
+          "duration": 1196000000
         }
       },
       {
@@ -1641,7 +2183,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1231000000
+          "duration": 1392000000
         }
       },
       {
@@ -1654,7 +2196,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1162000000
+          "duration": 1190000000
         }
       },
       {
@@ -1667,7 +2209,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 2140000000
+          "duration": 2141000000
         }
       },
       {
@@ -1680,7 +2222,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1130000000
+          "duration": 1216000000
         }
       },
       {
@@ -1693,7 +2235,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1069000000
+          "duration": 1105000000
         }
       },
       {
@@ -1706,7 +2248,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1352000000
+          "duration": 1308000000
         }
       },
       {
@@ -1719,7 +2261,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1129000000
+          "duration": 1454000000
         }
       },
       {
@@ -1732,7 +2274,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1109000000
+          "duration": 1155000000
         }
       },
       {
@@ -1745,7 +2287,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1113000000
+          "duration": 1142000000
         }
       },
       {
@@ -1758,7 +2300,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1129000000
+          "duration": 1150000000
         }
       },
       {
@@ -1771,7 +2313,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1112000000
+          "duration": 1214000000
         }
       },
       {
@@ -1784,7 +2326,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 79000000
+          "duration": 96000000
         }
       },
       {
@@ -1795,11 +2337,11 @@
         },
         "result": {
           "status": "passed",
-          "duration": 348000000
+          "duration": 414000000
         },
         "embeddings": [
           {
-            "data": "file://__tests____report/6.png",
+            "data": "file://__tests____report/8.png",
             "mime_type": "image/png"
           }
         ]
@@ -1816,7 +2358,7 @@
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 32256,
+      "duration": 36083,
       "status": "passed"
     },
     "steps": [
@@ -1827,7 +2369,8 @@
           "location": "support\\hooks.js:15"
         },
         "result": {
-          "status": "passed"
+          "status": "passed",
+          "duration": 1000000
         }
       },
       {
@@ -1840,7 +2383,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 176000000
+          "duration": 404000000
         }
       },
       {
@@ -1853,7 +2396,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1107000000
+          "duration": 1166000000
         }
       },
       {
@@ -1866,7 +2409,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1175000000
+          "duration": 1284000000
         }
       },
       {
@@ -1879,7 +2422,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1368000000
+          "duration": 1528000000
         }
       },
       {
@@ -1892,7 +2435,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1173000000
+          "duration": 1302000000
         }
       },
       {
@@ -1905,7 +2448,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1139000000
+          "duration": 1228000000
         }
       },
       {
@@ -1918,7 +2461,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 83000000
+          "duration": 102000000
         }
       },
       {
@@ -1931,7 +2474,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1141000000
+          "duration": 1309000000
         }
       },
       {
@@ -1944,7 +2487,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1131000000
+          "duration": 1246000000
         }
       },
       {
@@ -1957,7 +2500,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1200000000
+          "duration": 1370000000
         }
       },
       {
@@ -1970,7 +2513,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 2312000000
+          "duration": 3174000000
         }
       },
       {
@@ -1983,7 +2526,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1478000000
+          "duration": 2136000000
         }
       },
       {
@@ -1996,7 +2539,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1442000000
+          "duration": 1561000000
         }
       },
       {
@@ -2009,7 +2552,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1125000000
+          "duration": 1190000000
         }
       },
       {
@@ -2022,7 +2565,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1125000000
+          "duration": 1184000000
         }
       },
       {
@@ -2035,7 +2578,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1144000000
+          "duration": 1206000000
         }
       },
       {
@@ -2048,7 +2591,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1140000000
+          "duration": 1157000000
         }
       },
       {
@@ -2061,7 +2604,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1230000000
+          "duration": 1349000000
         }
       },
       {
@@ -2074,7 +2617,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1181000000
+          "duration": 1323000000
         }
       },
       {
@@ -2087,7 +2630,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 2123000000
+          "duration": 2118000000
         }
       },
       {
@@ -2100,7 +2643,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1101000000
+          "duration": 1214000000
         }
       },
       {
@@ -2113,7 +2656,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1064000000
+          "duration": 1095000000
         }
       },
       {
@@ -2126,7 +2669,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1296000000
+          "duration": 1356000000
         }
       },
       {
@@ -2139,7 +2682,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1098000000
+          "duration": 1115000000
         }
       },
       {
@@ -2152,7 +2695,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1089000000
+          "duration": 1137000000
         }
       },
       {
@@ -2165,7 +2708,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1103000000
+          "duration": 1147000000
         }
       },
       {
@@ -2178,7 +2721,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1119000000
+          "duration": 1240000000
         }
       },
       {
@@ -2191,7 +2734,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 78000000
+          "duration": 70000000
         }
       },
       {
@@ -2202,11 +2745,11 @@
         },
         "result": {
           "status": "passed",
-          "duration": 315000000
+          "duration": 371000000
         },
         "embeddings": [
           {
-            "data": "file://__tests____report/7.png",
+            "data": "file://__tests____report/9.png",
             "mime_type": "image/png"
           }
         ]
@@ -2233,7 +2776,7 @@
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 9916,
+      "duration": 10900,
       "status": "passed"
     },
     "steps": [
@@ -2244,7 +2787,8 @@
           "location": "support\\hooks.js:15"
         },
         "result": {
-          "status": "passed"
+          "status": "passed",
+          "duration": 14000000
         }
       },
       {
@@ -2257,7 +2801,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 218000000
+          "duration": 372000000
         }
       },
       {
@@ -2270,7 +2814,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1146000000
+          "duration": 1176000000
         }
       },
       {
@@ -2283,7 +2827,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1157000000
+          "duration": 1312000000
         }
       },
       {
@@ -2296,7 +2840,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1350000000
+          "duration": 1512000000
         }
       },
       {
@@ -2309,7 +2853,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1178000000
+          "duration": 1295000000
         }
       },
       {
@@ -2322,7 +2866,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1148000000
+          "duration": 1239000000
         }
       },
       {
@@ -2335,7 +2879,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 64000000
+          "duration": 105000000
         }
       },
       {
@@ -2348,7 +2892,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1087000000
+          "duration": 1171000000
         }
       },
       {
@@ -2361,7 +2905,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1098000000
+          "duration": 1165000000
         }
       },
       {
@@ -2374,7 +2918,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1105000000
+          "duration": 1110000000
         }
       },
       {
@@ -2387,7 +2931,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 43000000
+          "duration": 54000000
         }
       },
       {
@@ -2398,11 +2942,11 @@
         },
         "result": {
           "status": "passed",
-          "duration": 322000000
+          "duration": 375000000
         },
         "embeddings": [
           {
-            "data": "file://__tests____report/8.png",
+            "data": "file://__tests____report/10.png",
             "mime_type": "image/png"
           }
         ]
@@ -2419,7 +2963,7 @@
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 9869,
+      "duration": 11288,
       "status": "passed"
     },
     "steps": [
@@ -2444,7 +2988,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 189000000
+          "duration": 364000000
         }
       },
       {
@@ -2457,7 +3001,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1138000000
+          "duration": 1217000000
         }
       },
       {
@@ -2470,7 +3014,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1162000000
+          "duration": 1326000000
         }
       },
       {
@@ -2483,7 +3027,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1315000000
+          "duration": 1642000000
         }
       },
       {
@@ -2496,7 +3040,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1175000000
+          "duration": 1423000000
         }
       },
       {
@@ -2509,7 +3053,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1120000000
+          "duration": 1176000000
         }
       },
       {
@@ -2522,7 +3066,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 88000000
+          "duration": 87000000
         }
       },
       {
@@ -2535,7 +3079,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1088000000
+          "duration": 1181000000
         }
       },
       {
@@ -2548,7 +3092,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1112000000
+          "duration": 1192000000
         }
       },
       {
@@ -2561,7 +3105,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1097000000
+          "duration": 1207000000
         }
       },
       {
@@ -2574,7 +3118,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 62000000
+          "duration": 72000000
         }
       },
       {
@@ -2585,11 +3129,11 @@
         },
         "result": {
           "status": "passed",
-          "duration": 322000000
+          "duration": 400000000
         },
         "embeddings": [
           {
-            "data": "file://__tests____report/9.png",
+            "data": "file://__tests____report/11.png",
             "mime_type": "image/png"
           }
         ]
@@ -2606,7 +3150,7 @@
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 6274,
+      "duration": 6828,
       "status": "passed"
     },
     "steps": [
@@ -2617,8 +3161,7 @@
           "location": "support\\hooks.js:15"
         },
         "result": {
-          "status": "passed",
-          "duration": 1000000
+          "status": "passed"
         }
       },
       {
@@ -2631,7 +3174,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 203000000
+          "duration": 385000000
         }
       },
       {
@@ -2644,7 +3187,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1115000000
+          "duration": 1149000000
         }
       },
       {
@@ -2657,7 +3200,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1142000000
+          "duration": 1235000000
         }
       },
       {
@@ -2670,7 +3213,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1332000000
+          "duration": 1449000000
         }
       },
       {
@@ -2683,7 +3226,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1155000000
+          "duration": 1239000000
         }
       },
       {
@@ -2696,7 +3239,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1029000000
+          "duration": 1028000000
         }
       },
       {
@@ -2707,11 +3250,11 @@
         },
         "result": {
           "status": "passed",
-          "duration": 297000000
+          "duration": 343000000
         },
         "embeddings": [
           {
-            "data": "file://__tests____report/10.png",
+            "data": "file://__tests____report/12.png",
             "mime_type": "image/png"
           }
         ]
@@ -2728,7 +3271,7 @@
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 6382,
+      "duration": 6979,
       "status": "passed"
     },
     "steps": [
@@ -2752,7 +3295,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 369000000
+          "duration": 333000000
         }
       },
       {
@@ -2765,7 +3308,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1089000000
+          "duration": 1168000000
         }
       },
       {
@@ -2778,7 +3321,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1170000000
+          "duration": 1232000000
         }
       },
       {
@@ -2791,7 +3334,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1331000000
+          "duration": 1597000000
         }
       },
       {
@@ -2804,7 +3347,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1122000000
+          "duration": 1265000000
         }
       },
       {
@@ -2817,7 +3360,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1009000000
+          "duration": 1043000000
         }
       },
       {
@@ -2828,11 +3371,11 @@
         },
         "result": {
           "status": "passed",
-          "duration": 292000000
+          "duration": 341000000
         },
         "embeddings": [
           {
-            "data": "file://__tests____report/11.png",
+            "data": "file://__tests____report/13.png",
             "mime_type": "image/png"
           }
         ]
@@ -2849,7 +3392,7 @@
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 6161,
+      "duration": 6548,
       "status": "passed"
     },
     "steps": [
@@ -2860,8 +3403,7 @@
           "location": "support\\hooks.js:15"
         },
         "result": {
-          "status": "passed",
-          "duration": 1000000
+          "status": "passed"
         }
       },
       {
@@ -2874,7 +3416,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 220000000
+          "duration": 275000000
         }
       },
       {
@@ -2887,7 +3429,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1136000000
+          "duration": 1192000000
         }
       },
       {
@@ -2900,7 +3442,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1157000000
+          "duration": 1216000000
         }
       },
       {
@@ -2913,7 +3455,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1165000000
+          "duration": 1207000000
         }
       },
       {
@@ -2926,7 +3468,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1120000000
+          "duration": 1214000000
         }
       },
       {
@@ -2939,7 +3481,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1029000000
+          "duration": 1010000000
         }
       },
       {
@@ -2950,11 +3492,11 @@
         },
         "result": {
           "status": "passed",
-          "duration": 333000000
+          "duration": 434000000
         },
         "embeddings": [
           {
-            "data": "file://__tests____report/12.png",
+            "data": "file://__tests____report/14.png",
             "mime_type": "image/png"
           }
         ]
@@ -2971,7 +3513,7 @@
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 6163,
+      "duration": 6857,
       "status": "passed"
     },
     "steps": [
@@ -2995,7 +3537,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 192000000
+          "duration": 328000000
         }
       },
       {
@@ -3008,7 +3550,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1170000000
+          "duration": 1167000000
         }
       },
       {
@@ -3021,7 +3563,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1162000000
+          "duration": 1236000000
         }
       },
       {
@@ -3034,7 +3576,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1176000000
+          "duration": 1286000000
         }
       },
       {
@@ -3047,7 +3589,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1113000000
+          "duration": 1267000000
         }
       },
       {
@@ -3060,7 +3602,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1026000000
+          "duration": 1054000000
         }
       },
       {
@@ -3071,11 +3613,11 @@
         },
         "result": {
           "status": "passed",
-          "duration": 324000000
+          "duration": 519000000
         },
         "embeddings": [
           {
-            "data": "file://__tests____report/13.png",
+            "data": "file://__tests____report/15.png",
             "mime_type": "image/png"
           }
         ]
@@ -3092,7 +3634,7 @@
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 4936,
+      "duration": 5600,
       "status": "passed"
     },
     "steps": [
@@ -3103,7 +3645,8 @@
           "location": "support\\hooks.js:15"
         },
         "result": {
-          "status": "passed"
+          "status": "passed",
+          "duration": 1000000
         }
       },
       {
@@ -3116,7 +3659,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 181000000
+          "duration": 374000000
         }
       },
       {
@@ -3129,7 +3672,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1136000000
+          "duration": 1229000000
         }
       },
       {
@@ -3142,7 +3685,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1161000000
+          "duration": 1413000000
         }
       },
       {
@@ -3155,7 +3698,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1101000000
+          "duration": 1197000000
         }
       },
       {
@@ -3168,7 +3711,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1028000000
+          "duration": 1018000000
         }
       },
       {
@@ -3179,11 +3722,11 @@
         },
         "result": {
           "status": "passed",
-          "duration": 329000000
+          "duration": 368000000
         },
         "embeddings": [
           {
-            "data": "file://__tests____report/14.png",
+            "data": "file://__tests____report/16.png",
             "mime_type": "image/png"
           }
         ]
@@ -3200,7 +3743,7 @@
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 4900,
+      "duration": 5729,
       "status": "passed"
     },
     "steps": [
@@ -3224,7 +3767,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 170000000
+          "duration": 420000000
         }
       },
       {
@@ -3237,7 +3780,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1134000000
+          "duration": 1400000000
         }
       },
       {
@@ -3250,7 +3793,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1136000000
+          "duration": 1239000000
         }
       },
       {
@@ -3263,7 +3806,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1119000000
+          "duration": 1299000000
         }
       },
       {
@@ -3276,7 +3819,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1031000000
+          "duration": 1013000000
         }
       },
       {
@@ -3287,11 +3830,11 @@
         },
         "result": {
           "status": "passed",
-          "duration": 310000000
+          "duration": 358000000
         },
         "embeddings": [
           {
-            "data": "file://__tests____report/15.png",
+            "data": "file://__tests____report/17.png",
             "mime_type": "image/png"
           }
         ]
@@ -3308,7 +3851,7 @@
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 6359,
+      "duration": 7693,
       "status": "passed"
     },
     "steps": [
@@ -3332,7 +3875,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 187000000
+          "duration": 390000000
         }
       },
       {
@@ -3345,7 +3888,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1129000000
+          "duration": 1209000000
         }
       },
       {
@@ -3358,7 +3901,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1128000000
+          "duration": 1236000000
         }
       },
       {
@@ -3371,7 +3914,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1260000000
+          "duration": 1762000000
         }
       },
       {
@@ -3384,7 +3927,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1148000000
+          "duration": 1360000000
         }
       },
       {
@@ -3397,7 +3940,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1107000000
+          "duration": 1174000000
         }
       },
       {
@@ -3410,7 +3953,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 25000000
+          "duration": 90000000
         }
       },
       {
@@ -3423,7 +3966,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 53000000
+          "duration": 21000000
         }
       },
       {
@@ -3434,11 +3977,11 @@
         },
         "result": {
           "status": "passed",
-          "duration": 322000000
+          "duration": 451000000
         },
         "embeddings": [
           {
-            "data": "file://__tests____report/16.png",
+            "data": "file://__tests____report/18.png",
             "mime_type": "image/png"
           }
         ]
@@ -3455,7 +3998,7 @@
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 6598,
+      "duration": 7461,
       "status": "passed"
     },
     "steps": [
@@ -3480,7 +4023,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 342000000
+          "duration": 355000000
         }
       },
       {
@@ -3493,7 +4036,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1106000000
+          "duration": 1222000000
         }
       },
       {
@@ -3506,7 +4049,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1181000000
+          "duration": 1251000000
         }
       },
       {
@@ -3519,7 +4062,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1323000000
+          "duration": 1637000000
         }
       },
       {
@@ -3532,7 +4075,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1130000000
+          "duration": 1284000000
         }
       },
       {
@@ -3545,7 +4088,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1113000000
+          "duration": 1204000000
         }
       },
       {
@@ -3558,7 +4101,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 20000000
+          "duration": 15000000
         }
       },
       {
@@ -3571,7 +4114,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 60000000
+          "duration": 58000000
         }
       },
       {
@@ -3582,11 +4125,11 @@
         },
         "result": {
           "status": "passed",
-          "duration": 322000000
+          "duration": 434000000
         },
         "embeddings": [
           {
-            "data": "file://__tests____report/17.png",
+            "data": "file://__tests____report/19.png",
             "mime_type": "image/png"
           }
         ]
@@ -3613,7 +4156,7 @@
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 9798,
+      "duration": 11735,
       "status": "passed"
     },
     "steps": [
@@ -3624,7 +4167,8 @@
           "location": "support\\hooks.js:15"
         },
         "result": {
-          "status": "passed"
+          "status": "passed",
+          "duration": 5000000
         }
       },
       {
@@ -3637,7 +4181,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 171000000
+          "duration": 339000000
         }
       },
       {
@@ -3650,7 +4194,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1115000000
+          "duration": 1144000000
         }
       },
       {
@@ -3663,7 +4207,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1152000000
+          "duration": 1327000000
         }
       },
       {
@@ -3676,7 +4220,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1271000000
+          "duration": 2039000000
         }
       },
       {
@@ -3689,7 +4233,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1176000000
+          "duration": 1278000000
         }
       },
       {
@@ -3702,7 +4246,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1104000000
+          "duration": 1203000000
         }
       },
       {
@@ -3715,7 +4259,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 69000000
+          "duration": 112000000
         }
       },
       {
@@ -3728,7 +4272,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1112000000
+          "duration": 1169000000
         }
       },
       {
@@ -3741,7 +4285,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1133000000
+          "duration": 1233000000
         }
       },
       {
@@ -3754,7 +4298,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1087000000
+          "duration": 1363000000
         }
       },
       {
@@ -3767,7 +4311,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 59000000
+          "duration": 121000000
         }
       },
       {
@@ -3778,11 +4322,11 @@
         },
         "result": {
           "status": "passed",
-          "duration": 349000000
+          "duration": 402000000
         },
         "embeddings": [
           {
-            "data": "file://__tests____report/18.png",
+            "data": "file://__tests____report/20.png",
             "mime_type": "image/png"
           }
         ]
@@ -3799,7 +4343,7 @@
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 9852,
+      "duration": 11834,
       "status": "passed"
     },
     "steps": [
@@ -3810,8 +4354,7 @@
           "location": "support\\hooks.js:15"
         },
         "result": {
-          "status": "passed",
-          "duration": 1000000
+          "status": "passed"
         }
       },
       {
@@ -3824,7 +4367,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 222000000
+          "duration": 713000000
         }
       },
       {
@@ -3837,7 +4380,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1134000000
+          "duration": 1340000000
         }
       },
       {
@@ -3850,7 +4393,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1130000000
+          "duration": 1295000000
         }
       },
       {
@@ -3863,7 +4406,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1326000000
+          "duration": 1757000000
         }
       },
       {
@@ -3876,7 +4419,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1152000000
+          "duration": 1262000000
         }
       },
       {
@@ -3889,7 +4432,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1119000000
+          "duration": 1155000000
         }
       },
       {
@@ -3902,7 +4445,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 73000000
+          "duration": 106000000
         }
       },
       {
@@ -3915,7 +4458,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1075000000
+          "duration": 1226000000
         }
       },
       {
@@ -3928,7 +4471,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1154000000
+          "duration": 1215000000
         }
       },
       {
@@ -3941,7 +4484,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1100000000
+          "duration": 1268000000
         }
       },
       {
@@ -3954,7 +4497,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 42000000
+          "duration": 61000000
         }
       },
       {
@@ -3965,11 +4508,11 @@
         },
         "result": {
           "status": "passed",
-          "duration": 324000000
+          "duration": 436000000
         },
         "embeddings": [
           {
-            "data": "file://__tests____report/19.png",
+            "data": "file://__tests____report/21.png",
             "mime_type": "image/png"
           }
         ]
@@ -3996,7 +4539,7 @@
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 8524,
+      "duration": 8860,
       "status": "passed"
     },
     "steps": [
@@ -4008,7 +4551,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 6000000
+          "duration": 1000000
         }
       },
       {
@@ -4021,7 +4564,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 163000000
+          "duration": 452000000
         }
       },
       {
@@ -4034,7 +4577,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1100000000
+          "duration": 1196000000
         }
       },
       {
@@ -4047,7 +4590,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1154000000
+          "duration": 1277000000
         }
       },
       {
@@ -4060,7 +4603,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 2269000000
+          "duration": 1464000000
         }
       },
       {
@@ -4073,7 +4616,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1257000000
+          "duration": 1482000000
         }
       },
       {
@@ -4086,7 +4629,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1113000000
+          "duration": 1223000000
         }
       },
       {
@@ -4099,7 +4642,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 62000000
+          "duration": 94000000
         }
       },
       {
@@ -4112,7 +4655,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1094000000
+          "duration": 1175000000
         }
       },
       {
@@ -4123,11 +4666,11 @@
         },
         "result": {
           "status": "passed",
-          "duration": 306000000
+          "duration": 496000000
         },
         "embeddings": [
           {
-            "data": "file://__tests____report/20.png",
+            "data": "file://__tests____report/22.png",
             "mime_type": "image/png"
           }
         ]
@@ -4144,7 +4687,7 @@
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 7914,
+      "duration": 9161,
       "status": "passed"
     },
     "steps": [
@@ -4155,7 +4698,8 @@
           "location": "support\\hooks.js:15"
         },
         "result": {
-          "status": "passed"
+          "status": "passed",
+          "duration": 3000000
         }
       },
       {
@@ -4168,7 +4712,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 189000000
+          "duration": 426000000
         }
       },
       {
@@ -4181,7 +4725,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1105000000
+          "duration": 1248000000
         }
       },
       {
@@ -4194,7 +4738,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1117000000
+          "duration": 1286000000
         }
       },
       {
@@ -4207,7 +4751,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1658000000
+          "duration": 1434000000
         }
       },
       {
@@ -4220,7 +4764,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1290000000
+          "duration": 1866000000
         }
       },
       {
@@ -4233,7 +4777,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1090000000
+          "duration": 1173000000
         }
       },
       {
@@ -4246,7 +4790,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 55000000
+          "duration": 112000000
         }
       },
       {
@@ -4259,7 +4803,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1076000000
+          "duration": 1242000000
         }
       },
       {
@@ -4270,11 +4814,11 @@
         },
         "result": {
           "status": "passed",
-          "duration": 334000000
+          "duration": 371000000
         },
         "embeddings": [
           {
-            "data": "file://__tests____report/21.png",
+            "data": "file://__tests____report/23.png",
             "mime_type": "image/png"
           }
         ]
@@ -4301,8 +4845,12 @@
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 33670,
-      "status": "passed"
+      "duration": 5496,
+      "status": "failed",
+      "exception": {
+        "name": "NoSuchElementError",
+        "remoteStacktrace": "Backtrace:\n\tOrdinal0 [0x00B887E3+2852835]\n\tOrdinal0 [0x00A75BB1+1727409]\n\tOrdinal0 [0x0094E4B9+517305]\n\tOrdinal0 [0x008E9D0B+105739]\n\tOrdinal0 [0x00906210+221712]\n\tOrdinal0 [0x008FB890+178320]\n\tOrdinal0 [0x00904B9C+215964]\n\tOrdinal0 [0x008FB70B+177931]\n\tOrdinal0 [0x008E2584+75140]\n\tOrdinal0 [0x008E3650+79440]\n\tOrdinal0 [0x008E35E9+79337]\n\tOrdinal0 [0x00A8AD5C+1813852]\n\tGetHandleVerifier [0x00CAC616+1075574]\n\tGetHandleVerifier [0x00CAC367+1074887]\n\tGetHandleVerifier [0x00CB7497+1120247]\n\tGetHandleVerifier [0x00CACC16+1077110]\n\tOrdinal0 [0x00A83206+1782278]\n\tOrdinal0 [0x00A8C3BB+1819579]\n\tOrdinal0 [0x00A8C523+1819939]\n\tOrdinal0 [0x00AA2B45+1911621]\n\tBaseThreadInitThunk [0x76016359+25]\n\tRtlGetAppContainerNamedObjectPath [0x77DE7C24+228]\n\tRtlGetAppContainerNamedObjectPath [0x77DE7BF4+180]\n"
+      }
     },
     "steps": [
       {
@@ -4313,7 +4861,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 27000000
+          "duration": 1000000
         }
       },
       {
@@ -4326,7 +4874,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 716000000
+          "duration": 1286000000
         }
       },
       {
@@ -4339,7 +4887,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1131000000
+          "duration": 1314000000
         }
       },
       {
@@ -4352,7 +4900,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1172000000
+          "duration": 1413000000
         }
       },
       {
@@ -4364,8 +4912,9 @@
           "location": "step_definitions\\definitions1.js:71"
         },
         "result": {
-          "status": "passed",
-          "duration": 1364000000
+          "status": "failed",
+          "duration": 1036000000,
+          "error_message": "NoSuchElementError: no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"*[id=\"email-login-input\"]\"}\n  (Session info: chrome=85.0.4183.83)\n    at Object.throwDecodedError (C:\\Users\\Ray\\Desktop\\Covid3\\frontweb\\node_modules\\selenium-webdriver\\lib\\error.js:550:15)\n    at parseHttpResponse (C:\\Users\\Ray\\Desktop\\Covid3\\frontweb\\node_modules\\selenium-webdriver\\lib\\http.js:565:13)\n    at Executor.execute (C:\\Users\\Ray\\Desktop\\Covid3\\frontweb\\node_modules\\selenium-webdriver\\lib\\http.js:491:26)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"
         }
       },
       {
@@ -4377,8 +4926,7 @@
           "location": "step_definitions\\definitions1.js:71"
         },
         "result": {
-          "status": "passed",
-          "duration": 1421000000
+          "status": "skipped"
         }
       },
       {
@@ -4390,8 +4938,7 @@
           "location": "step_definitions\\definitions1.js:20"
         },
         "result": {
-          "status": "passed",
-          "duration": 1155000000
+          "status": "skipped"
         }
       },
       {
@@ -4403,8 +4950,7 @@
           "location": "step_definitions\\definitions1.js:99"
         },
         "result": {
-          "status": "passed",
-          "duration": 64000000
+          "status": "skipped"
         }
       },
       {
@@ -4416,8 +4962,7 @@
           "location": "step_definitions\\definitions1.js:20"
         },
         "result": {
-          "status": "passed",
-          "duration": 1213000000
+          "status": "skipped"
         }
       },
       {
@@ -4429,8 +4974,7 @@
           "location": "step_definitions\\definitions1.js:20"
         },
         "result": {
-          "status": "passed",
-          "duration": 1211000000
+          "status": "skipped"
         }
       },
       {
@@ -4442,8 +4986,7 @@
           "location": "step_definitions\\definitions1.js:20"
         },
         "result": {
-          "status": "passed",
-          "duration": 1191000000
+          "status": "skipped"
         }
       },
       {
@@ -4455,8 +4998,7 @@
           "location": "step_definitions\\definitions1.js:35"
         },
         "result": {
-          "status": "passed",
-          "duration": 1189000000
+          "status": "skipped"
         }
       },
       {
@@ -4468,8 +5010,7 @@
           "location": "step_definitions\\definitions1.js:20"
         },
         "result": {
-          "status": "passed",
-          "duration": 2283000000
+          "status": "skipped"
         }
       },
       {
@@ -4481,8 +5022,7 @@
           "location": "step_definitions\\definitions1.js:35"
         },
         "result": {
-          "status": "passed",
-          "duration": 1611000000
+          "status": "skipped"
         }
       },
       {
@@ -4494,8 +5034,7 @@
           "location": "step_definitions\\definitions1.js:20"
         },
         "result": {
-          "status": "passed",
-          "duration": 1418000000
+          "status": "skipped"
         }
       },
       {
@@ -4507,8 +5046,7 @@
           "location": "step_definitions\\definitions1.js:35"
         },
         "result": {
-          "status": "passed",
-          "duration": 1133000000
+          "status": "skipped"
         }
       },
       {
@@ -4520,8 +5058,7 @@
           "location": "step_definitions\\definitions1.js:40"
         },
         "result": {
-          "status": "passed",
-          "duration": 1118000000
+          "status": "skipped"
         }
       },
       {
@@ -4533,8 +5070,7 @@
           "location": "step_definitions\\definitions1.js:40"
         },
         "result": {
-          "status": "passed",
-          "duration": 1158000000
+          "status": "skipped"
         }
       },
       {
@@ -4546,8 +5082,7 @@
           "location": "step_definitions\\definitions1.js:40"
         },
         "result": {
-          "status": "passed",
-          "duration": 1133000000
+          "status": "skipped"
         }
       },
       {
@@ -4559,8 +5094,7 @@
           "location": "step_definitions\\definitions1.js:40"
         },
         "result": {
-          "status": "passed",
-          "duration": 1234000000
+          "status": "skipped"
         }
       },
       {
@@ -4572,8 +5106,7 @@
           "location": "step_definitions\\definitions1.js:20"
         },
         "result": {
-          "status": "passed",
-          "duration": 1143000000
+          "status": "skipped"
         }
       },
       {
@@ -4585,8 +5118,7 @@
           "location": "step_definitions\\definitions1.js:26"
         },
         "result": {
-          "status": "passed",
-          "duration": 2073000000
+          "status": "skipped"
         }
       },
       {
@@ -4598,8 +5130,7 @@
           "location": "step_definitions\\definitions1.js:20"
         },
         "result": {
-          "status": "passed",
-          "duration": 1101000000
+          "status": "skipped"
         }
       },
       {
@@ -4611,8 +5142,7 @@
           "location": "step_definitions\\definitions1.js:55"
         },
         "result": {
-          "status": "passed",
-          "duration": 1559000000
+          "status": "skipped"
         }
       },
       {
@@ -4624,8 +5154,7 @@
           "location": "step_definitions\\definitions1.js:20"
         },
         "result": {
-          "status": "passed",
-          "duration": 1164000000
+          "status": "skipped"
         }
       },
       {
@@ -4637,8 +5166,7 @@
           "location": "step_definitions\\definitions1.js:20"
         },
         "result": {
-          "status": "passed",
-          "duration": 1102000000
+          "status": "skipped"
         }
       },
       {
@@ -4650,8 +5178,7 @@
           "location": "step_definitions\\definitions1.js:20"
         },
         "result": {
-          "status": "passed",
-          "duration": 1105000000
+          "status": "skipped"
         }
       },
       {
@@ -4663,8 +5190,7 @@
           "location": "step_definitions\\definitions1.js:20"
         },
         "result": {
-          "status": "passed",
-          "duration": 1105000000
+          "status": "skipped"
         }
       },
       {
@@ -4676,8 +5202,7 @@
           "location": "step_definitions\\definitions1.js:99"
         },
         "result": {
-          "status": "passed",
-          "duration": 69000000
+          "status": "skipped"
         }
       },
       {
@@ -4688,11 +5213,11 @@
         },
         "result": {
           "status": "passed",
-          "duration": 307000000
+          "duration": 446000000
         },
         "embeddings": [
           {
-            "data": "file://__tests____report/22.png",
+            "data": "file://__tests____report/24.png",
             "mime_type": "image/png"
           }
         ]
@@ -4719,8 +5244,12 @@
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 18532,
-      "status": "passed"
+      "duration": 4361,
+      "status": "failed",
+      "exception": {
+        "name": "NoSuchElementError",
+        "remoteStacktrace": "Backtrace:\n\tOrdinal0 [0x00B887E3+2852835]\n\tOrdinal0 [0x00A75BB1+1727409]\n\tOrdinal0 [0x0094E4B9+517305]\n\tOrdinal0 [0x008E9D0B+105739]\n\tOrdinal0 [0x00906210+221712]\n\tOrdinal0 [0x008FB890+178320]\n\tOrdinal0 [0x00904B9C+215964]\n\tOrdinal0 [0x008FB70B+177931]\n\tOrdinal0 [0x008E2584+75140]\n\tOrdinal0 [0x008E3650+79440]\n\tOrdinal0 [0x008E35E9+79337]\n\tOrdinal0 [0x00A8AD5C+1813852]\n\tGetHandleVerifier [0x00CAC616+1075574]\n\tGetHandleVerifier [0x00CAC367+1074887]\n\tGetHandleVerifier [0x00CB7497+1120247]\n\tGetHandleVerifier [0x00CACC16+1077110]\n\tOrdinal0 [0x00A83206+1782278]\n\tOrdinal0 [0x00A8C3BB+1819579]\n\tOrdinal0 [0x00A8C523+1819939]\n\tOrdinal0 [0x00AA2B45+1911621]\n\tBaseThreadInitThunk [0x76016359+25]\n\tRtlGetAppContainerNamedObjectPath [0x77DE7C24+228]\n\tRtlGetAppContainerNamedObjectPath [0x77DE7BF4+180]\n"
+      }
     },
     "steps": [
       {
@@ -4730,7 +5259,8 @@
           "location": "support\\hooks.js:15"
         },
         "result": {
-          "status": "passed"
+          "status": "passed",
+          "duration": 1000000
         }
       },
       {
@@ -4743,7 +5273,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 280000000
+          "duration": 384000000
         }
       },
       {
@@ -4756,7 +5286,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1124000000
+          "duration": 1169000000
         }
       },
       {
@@ -4769,7 +5299,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1167000000
+          "duration": 1399000000
         }
       },
       {
@@ -4781,8 +5311,9 @@
           "location": "step_definitions\\definitions1.js:71"
         },
         "result": {
-          "status": "passed",
-          "duration": 1309000000
+          "status": "failed",
+          "duration": 1020000000,
+          "error_message": "NoSuchElementError: no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"*[id=\"email-login-input\"]\"}\n  (Session info: chrome=85.0.4183.83)\n    at Object.throwDecodedError (C:\\Users\\Ray\\Desktop\\Covid3\\frontweb\\node_modules\\selenium-webdriver\\lib\\error.js:550:15)\n    at parseHttpResponse (C:\\Users\\Ray\\Desktop\\Covid3\\frontweb\\node_modules\\selenium-webdriver\\lib\\http.js:565:13)\n    at Executor.execute (C:\\Users\\Ray\\Desktop\\Covid3\\frontweb\\node_modules\\selenium-webdriver\\lib\\http.js:491:26)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"
         }
       },
       {
@@ -4794,8 +5325,7 @@
           "location": "step_definitions\\definitions1.js:71"
         },
         "result": {
-          "status": "passed",
-          "duration": 1170000000
+          "status": "skipped"
         }
       },
       {
@@ -4807,8 +5337,7 @@
           "location": "step_definitions\\definitions1.js:20"
         },
         "result": {
-          "status": "passed",
-          "duration": 1133000000
+          "status": "skipped"
         }
       },
       {
@@ -4820,8 +5349,7 @@
           "location": "step_definitions\\definitions1.js:99"
         },
         "result": {
-          "status": "passed",
-          "duration": 63000000
+          "status": "skipped"
         }
       },
       {
@@ -4833,8 +5361,7 @@
           "location": "step_definitions\\definitions1.js:20"
         },
         "result": {
-          "status": "passed",
-          "duration": 1171000000
+          "status": "skipped"
         }
       },
       {
@@ -4846,8 +5373,7 @@
           "location": "step_definitions\\definitions1.js:47"
         },
         "result": {
-          "status": "passed",
-          "duration": 6170000000
+          "status": "skipped"
         }
       },
       {
@@ -4859,8 +5385,7 @@
           "location": "step_definitions\\definitions1.js:119"
         },
         "result": {
-          "status": "passed",
-          "duration": 60000000
+          "status": "skipped"
         }
       },
       {
@@ -4869,11 +5394,10 @@
         "line": 18,
         "name": "I see \"codigo_salvo\"",
         "match": {
-          "location": "step_definitions\\definitions1.js:131"
+          "location": "step_definitions\\definitions1.js:130"
         },
         "result": {
-          "status": "passed",
-          "duration": 1000000
+          "status": "skipped"
         }
       },
       {
@@ -4885,8 +5409,7 @@
           "location": "step_definitions\\definitions1.js:20"
         },
         "result": {
-          "status": "passed",
-          "duration": 1131000000
+          "status": "skipped"
         }
       },
       {
@@ -4898,8 +5421,7 @@
           "location": "step_definitions\\definitions1.js:20"
         },
         "result": {
-          "status": "passed",
-          "duration": 1137000000
+          "status": "skipped"
         }
       },
       {
@@ -4911,8 +5433,7 @@
           "location": "step_definitions\\definitions1.js:20"
         },
         "result": {
-          "status": "passed",
-          "duration": 1119000000
+          "status": "skipped"
         }
       },
       {
@@ -4924,8 +5445,7 @@
           "location": "step_definitions\\definitions1.js:20"
         },
         "result": {
-          "status": "passed",
-          "duration": 1110000000
+          "status": "skipped"
         }
       },
       {
@@ -4937,8 +5457,7 @@
           "location": "step_definitions\\definitions1.js:99"
         },
         "result": {
-          "status": "passed",
-          "duration": 47000000
+          "status": "skipped"
         }
       },
       {
@@ -4949,11 +5468,11 @@
         },
         "result": {
           "status": "passed",
-          "duration": 340000000
+          "duration": 388000000
         },
         "embeddings": [
           {
-            "data": "file://__tests____report/23.png",
+            "data": "file://__tests____report/25.png",
             "mime_type": "image/png"
           }
         ]
@@ -4980,233 +5499,12 @@
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 18466,
-      "status": "passed"
-    },
-    "steps": [
-      {
-        "keyword": "Before",
-        "hidden": true,
-        "match": {
-          "location": "support\\hooks.js:15"
-        },
-        "result": {
-          "status": "passed"
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "Given ",
-        "line": 19,
-        "name": "Browse to web site \"https://csi-covid.web.app/\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:16"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 170000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 20,
-        "name": "I press the \"login-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:20"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1126000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 21,
-        "name": "I press the \"medico-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:20"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1155000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 22,
-        "name": "I enter \"testemedicocovid@gmail.com\" in \"email-login-input\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:71"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1334000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 23,
-        "name": "I enter \"Teste123\" in \"password-login-input\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:71"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1183000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 24,
-        "name": "I press the \"entrar-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:20"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1102000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 25,
-        "name": "I press the \"fornecidos-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:20"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1228000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 26,
-        "name": "I see \"Médico\" written on the requested page.id:\"medico-perfil\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:99"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 73000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 27,
-        "name": "I click  in the first  diagnostic image \".content-card:nth-child(1) > #container-card-menu .card-image\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:47"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 6128000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 28,
-        "name": "I press the \"pagina-inicial-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:20"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1242000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 29,
-        "name": "I press the \"logout-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:20"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1103000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 30,
-        "name": "I press the \"sair-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:20"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1103000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "And ",
-        "line": 31,
-        "name": "I press the \"saida-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:20"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 1097000000
-        }
-      },
-      {
-        "arguments": [],
-        "keyword": "Then ",
-        "line": 32,
-        "name": "I see \"Entrar\" written on the requested page.id:\"login-button\"",
-        "match": {
-          "location": "step_definitions\\definitions1.js:99"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 85000000
-        }
-      },
-      {
-        "keyword": "After",
-        "hidden": true,
-        "match": {
-          "location": "support\\hooks.js:19"
-        },
-        "result": {
-          "status": "passed",
-          "duration": 337000000
-        },
-        "embeddings": [
-          {
-            "data": "file://__tests____report/24.png",
-            "mime_type": "image/png"
-          }
-        ]
+      "duration": 4470,
+      "status": "failed",
+      "exception": {
+        "name": "NoSuchElementError",
+        "remoteStacktrace": "Backtrace:\n\tOrdinal0 [0x00B887E3+2852835]\n\tOrdinal0 [0x00A75BB1+1727409]\n\tOrdinal0 [0x0094E4B9+517305]\n\tOrdinal0 [0x008E9D0B+105739]\n\tOrdinal0 [0x00906210+221712]\n\tOrdinal0 [0x008FB890+178320]\n\tOrdinal0 [0x00904B9C+215964]\n\tOrdinal0 [0x008FB70B+177931]\n\tOrdinal0 [0x008E2584+75140]\n\tOrdinal0 [0x008E3650+79440]\n\tOrdinal0 [0x008E35E9+79337]\n\tOrdinal0 [0x00A8AD5C+1813852]\n\tGetHandleVerifier [0x00CAC616+1075574]\n\tGetHandleVerifier [0x00CAC367+1074887]\n\tGetHandleVerifier [0x00CB7497+1120247]\n\tGetHandleVerifier [0x00CACC16+1077110]\n\tOrdinal0 [0x00A83206+1782278]\n\tOrdinal0 [0x00A8C3BB+1819579]\n\tOrdinal0 [0x00A8C523+1819939]\n\tOrdinal0 [0x00AA2B45+1911621]\n\tBaseThreadInitThunk [0x76016359+25]\n\tRtlGetAppContainerNamedObjectPath [0x77DE7C24+228]\n\tRtlGetAppContainerNamedObjectPath [0x77DE7BF4+180]\n"
       }
-    ]
-  }
-}{
-  "scenario": {
-    "uri": "Visualizar_Diagnosticos_Fornecidos.feature",
-    "id": "visualizar_diagnostico_fornecido(medico_e_pesquisador);para-o-usuario-pesquisador",
-    "keyword": "Scenario",
-    "line": 34,
-    "name": "Para o usuario pesquisador",
-    "tags": [],
-    "type": "scenario",
-    "result": {
-      "duration": 18017,
-      "status": "passed"
     },
     "steps": [
       {
@@ -5223,6 +5521,222 @@
       {
         "arguments": [],
         "keyword": "Given ",
+        "line": 19,
+        "name": "Browse to web site \"https://csi-covid.web.app/\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:16"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 388000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 20,
+        "name": "I press the \"login-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1165000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 21,
+        "name": "I press the \"medico-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 1452000000
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 22,
+        "name": "I enter \"testemedicocovid@gmail.com\" in \"email-login-input\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:71"
+        },
+        "result": {
+          "status": "failed",
+          "duration": 1023000000,
+          "error_message": "NoSuchElementError: no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"*[id=\"email-login-input\"]\"}\n  (Session info: chrome=85.0.4183.83)\n    at Object.throwDecodedError (C:\\Users\\Ray\\Desktop\\Covid3\\frontweb\\node_modules\\selenium-webdriver\\lib\\error.js:550:15)\n    at parseHttpResponse (C:\\Users\\Ray\\Desktop\\Covid3\\frontweb\\node_modules\\selenium-webdriver\\lib\\http.js:565:13)\n    at Executor.execute (C:\\Users\\Ray\\Desktop\\Covid3\\frontweb\\node_modules\\selenium-webdriver\\lib\\http.js:491:26)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 23,
+        "name": "I enter \"Teste123\" in \"password-login-input\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:71"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 24,
+        "name": "I press the \"entrar-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 25,
+        "name": "I press the \"fornecidos-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 26,
+        "name": "I see \"Médico\" written on the requested page.id:\"medico-perfil\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:99"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 27,
+        "name": "I click  in the first  diagnostic image \".content-card:nth-child(1) > #container-card-menu .card-image\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:47"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 28,
+        "name": "I press the \"pagina-inicial-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 29,
+        "name": "I press the \"logout-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 30,
+        "name": "I press the \"sair-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "And ",
+        "line": 31,
+        "name": "I press the \"saida-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:20"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "Then ",
+        "line": 32,
+        "name": "I see \"Entrar\" written on the requested page.id:\"login-button\"",
+        "match": {
+          "location": "step_definitions\\definitions1.js:99"
+        },
+        "result": {
+          "status": "skipped"
+        }
+      },
+      {
+        "keyword": "After",
+        "hidden": true,
+        "match": {
+          "location": "support\\hooks.js:19"
+        },
+        "result": {
+          "status": "passed",
+          "duration": 441000000
+        },
+        "embeddings": [
+          {
+            "data": "file://__tests____report/26.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    ]
+  }
+}{
+  "scenario": {
+    "uri": "Visualizar_Diagnosticos_Fornecidos.feature",
+    "id": "visualizar_diagnostico_fornecido(medico_e_pesquisador);para-o-usuario-pesquisador",
+    "keyword": "Scenario",
+    "line": 34,
+    "name": "Para o usuario pesquisador",
+    "tags": [],
+    "type": "scenario",
+    "result": {
+      "duration": 21045,
+      "status": "passed"
+    },
+    "steps": [
+      {
+        "keyword": "Before",
+        "hidden": true,
+        "match": {
+          "location": "support\\hooks.js:15"
+        },
+        "result": {
+          "status": "passed"
+        }
+      },
+      {
+        "arguments": [],
+        "keyword": "Given ",
         "line": 35,
         "name": "Browse to web site \"https://csi-covid-265c4.web.app/\"",
         "match": {
@@ -5230,7 +5744,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 647000000
+          "duration": 1428000000
         }
       },
       {
@@ -5243,7 +5757,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1167000000
+          "duration": 1245000000
         }
       },
       {
@@ -5256,7 +5770,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1216000000
+          "duration": 1403000000
         }
       },
       {
@@ -5269,7 +5783,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1325000000
+          "duration": 1719000000
         }
       },
       {
@@ -5282,7 +5796,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1339000000
+          "duration": 1972000000
         }
       },
       {
@@ -5295,7 +5809,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1124000000
+          "duration": 1206000000
         }
       },
       {
@@ -5308,7 +5822,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 83000000
+          "duration": 242000000
         }
       },
       {
@@ -5321,7 +5835,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 6143000000
+          "duration": 6236000000
         }
       },
       {
@@ -5334,7 +5848,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1187000000
+          "duration": 1293000000
         }
       },
       {
@@ -5347,7 +5861,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1148000000
+          "duration": 1295000000
         }
       },
       {
@@ -5360,7 +5874,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1125000000
+          "duration": 1231000000
         }
       },
       {
@@ -5373,7 +5887,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1087000000
+          "duration": 1300000000
         }
       },
       {
@@ -5386,7 +5900,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 104000000
+          "duration": 63000000
         }
       },
       {
@@ -5397,11 +5911,11 @@
         },
         "result": {
           "status": "passed",
-          "duration": 321000000
+          "duration": 412000000
         },
         "embeddings": [
           {
-            "data": "file://__tests____report/25.png",
+            "data": "file://__tests____report/27.png",
             "mime_type": "image/png"
           }
         ]
@@ -5428,7 +5942,7 @@
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 12399,
+      "duration": 14390,
       "status": "passed"
     },
     "steps": [
@@ -5452,7 +5966,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 214000000
+          "duration": 369000000
         }
       },
       {
@@ -5465,7 +5979,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1142000000
+          "duration": 1162000000
         }
       },
       {
@@ -5478,7 +5992,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1150000000
+          "duration": 1290000000
         }
       },
       {
@@ -5491,7 +6005,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1324000000
+          "duration": 1842000000
         }
       },
       {
@@ -5504,7 +6018,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1177000000
+          "duration": 1347000000
         }
       },
       {
@@ -5517,7 +6031,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1111000000
+          "duration": 1185000000
         }
       },
       {
@@ -5530,7 +6044,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 67000000
+          "duration": 126000000
         }
       },
       {
@@ -5543,7 +6057,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1105000000
+          "duration": 1207000000
         }
       },
       {
@@ -5556,7 +6070,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1176000000
+          "duration": 1333000000
         }
       },
       {
@@ -5569,7 +6083,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 85000000
+          "duration": 99000000
         }
       },
       {
@@ -5582,7 +6096,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 49000000
+          "duration": 85000000
         }
       },
       {
@@ -5595,7 +6109,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 64000000
+          "duration": 78000000
         }
       },
       {
@@ -5608,7 +6122,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 56000000
+          "duration": 127000000
         }
       },
       {
@@ -5621,7 +6135,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 57000000
+          "duration": 98000000
         }
       },
       {
@@ -5634,7 +6148,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1072000000
+          "duration": 1163000000
         }
       },
       {
@@ -5647,7 +6161,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1106000000
+          "duration": 1180000000
         }
       },
       {
@@ -5660,7 +6174,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1120000000
+          "duration": 1282000000
         }
       },
       {
@@ -5671,11 +6185,11 @@
         },
         "result": {
           "status": "passed",
-          "duration": 324000000
+          "duration": 417000000
         },
         "embeddings": [
           {
-            "data": "file://__tests____report/26.png",
+            "data": "file://__tests____report/28.png",
             "mime_type": "image/png"
           }
         ]
@@ -5692,7 +6206,7 @@
     "tags": [],
     "type": "scenario",
     "result": {
-      "duration": 12105,
+      "duration": 14504,
       "status": "passed"
     },
     "steps": [
@@ -5703,7 +6217,8 @@
           "location": "support\\hooks.js:15"
         },
         "result": {
-          "status": "passed"
+          "status": "passed",
+          "duration": 1000000
         }
       },
       {
@@ -5716,7 +6231,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 206000000
+          "duration": 326000000
         }
       },
       {
@@ -5729,7 +6244,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1121000000
+          "duration": 1264000000
         }
       },
       {
@@ -5742,7 +6257,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1158000000
+          "duration": 1295000000
         }
       },
       {
@@ -5755,7 +6270,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1344000000
+          "duration": 1921000000
         }
       },
       {
@@ -5768,7 +6283,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1126000000
+          "duration": 1252000000
         }
       },
       {
@@ -5781,7 +6296,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1104000000
+          "duration": 1233000000
         }
       },
       {
@@ -5794,7 +6309,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 87000000
+          "duration": 185000000
         }
       },
       {
@@ -5807,7 +6322,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1087000000
+          "duration": 1168000000
         }
       },
       {
@@ -5820,7 +6335,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1137000000
+          "duration": 1388000000
         }
       },
       {
@@ -5833,7 +6348,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 45000000
+          "duration": 74000000
         }
       },
       {
@@ -5846,7 +6361,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 35000000
+          "duration": 63000000
         }
       },
       {
@@ -5859,7 +6374,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 40000000
+          "duration": 54000000
         }
       },
       {
@@ -5872,7 +6387,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 45000000
+          "duration": 85000000
         }
       },
       {
@@ -5885,7 +6400,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1069000000
+          "duration": 1184000000
         }
       },
       {
@@ -5898,7 +6413,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1099000000
+          "duration": 1151000000
         }
       },
       {
@@ -5911,7 +6426,7 @@
         },
         "result": {
           "status": "passed",
-          "duration": 1062000000
+          "duration": 1449000000
         }
       },
       {
@@ -5922,11 +6437,11 @@
         },
         "result": {
           "status": "passed",
-          "duration": 340000000
+          "duration": 411000000
         },
         "embeddings": [
           {
-            "data": "file://__tests____report/27.png",
+            "data": "file://__tests____report/29.png",
             "mime_type": "image/png"
           }
         ]
