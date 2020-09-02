@@ -52,6 +52,7 @@ const MedicalRecord = (props) => {
         
         localStorage.removeItem('@isResearcher')
         localStorage.removeItem('@justUpload')
+        localStorage.removeItem('@formUpdate')
         if(deleteStorage){
             
             localStorage.removeItem('@form')

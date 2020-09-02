@@ -7,6 +7,7 @@ import Header from '../../components/Header/Default/index'
 import states from '../../utils/states-cities/estados'
 import cities from '../../utils/states-cities/cities'
 import { AuthUserContext, withAuthorization } from '../../contexts/Session'
+import api from '../../services/api'
 
 const UpdateDiagnosis = () => {
 
@@ -21,10 +22,12 @@ const UpdateDiagnosis = () => {
     const [sat_ox,setSat_ox] = useState('')
     const [info,setInfo] = useState('')
     const [citiesArray, setCitiesArray] = useState([])
+    const [_id, setId] = useState('')
+    const [disable, setDisable] = useState(false)
 
     useEffect( () =>{
         localStorage.removeItem('@currentpage')
-        const data = localStorage.getItem('@form')
+        const data = localStorage.getItem('@formUpdate')
         if(data){
             const data_ = JSON.parse(data)
             setState(data_.state)
@@ -35,6 +38,7 @@ const UpdateDiagnosis = () => {
             setSat_ox(data_.sat_ox)
             setTemp(data_.temp)
             setInfo(data_.info)
+            setId(data_._id)
         }
     },[])
 
@@ -55,8 +59,46 @@ const UpdateDiagnosis = () => {
 
     },[state])
 
-    function handleUpdate(){
+    async function handleUpdate(){
 
+        setDisable(true)
+
+        let data
+
+        if(sex){
+            data = {
+                "state":state,
+                "city":city,
+                "age":age,
+                "temp":temp,
+                "sat_ox":sat_ox,
+                "info":info,
+                "sex":sex === 'Feminino'? 'F' : sex === 'Masculino' ? 'M' : ''
+            }
+        }else{
+            data = {
+                "state":state,
+                "city":city,
+                "age":age,
+                "temp":temp,
+                "sat_ox":sat_ox,
+                "info":info,
+            }
+        }
+        
+        await api.put(`/diagnoses?id=${_id}`, data,
+            {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('@docusr_tkn')}`
+                }
+            }
+        ).then(response=>{
+            history.push('/medicalRecord')
+            console.log(response.data);
+        }).catch(error=>{
+            console.log(error)
+            setDisable(false)
+        })
     }
     
     function handleCancel(){
@@ -78,7 +120,7 @@ const UpdateDiagnosis = () => {
 
                             <div className="container-register">
                                 
-                                <form onSubmit = {handleUpdate}>
+                                {/* <form > */}
                                     <div className='container-form'>
                                         <h1 className="container-title">Editar dados do paciente</h1>
 
@@ -200,11 +242,18 @@ const UpdateDiagnosis = () => {
                                         />
                                         
                                         <br/><br/>
-                                        <button id='continuar-button' type = "submit" className="button"> Continuar</button>
+                                        <button 
+                                            id='editar-button' 
+                                            type = "submit" 
+                                            className="button" 
+                                            onClick={handleUpdate}
+                                            disabled={disable}
+                                        > Confirmar</button>
+
                                         <button id='cancelar-button'type = "button" className="button-back" onClick = {handleCancel}> Cancelar</button>
                                         <br/><br/>
                                     </div>
-                                </form>
+                                {/* </form> */}
 
                             </div>
                         </main>
