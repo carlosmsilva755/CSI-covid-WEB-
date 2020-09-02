@@ -6,7 +6,7 @@ Gostaria de inserir os dados anonimizados e a foto do raio x do paciente para av
 Critérios de aceitação: O sistema deve identificar o local onde está sendo solicitado o diagnóstico.
 
   Scenario: Para o usuario Medico
-    Given Browse to web site "https://csi-covid-265c4.web.app/"
+    Given Browse to web site "https://csi-covid.web.app/"
     And I press the "login-button"
     And I press the "medico-button"
     And I enter "testemedicocovid@gmail.com" in "email-login-input"
