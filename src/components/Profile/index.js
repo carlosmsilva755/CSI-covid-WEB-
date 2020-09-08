@@ -3,7 +3,7 @@ import TextField from '@material-ui/core/TextField'
 
 import './styles.css'
 
-export default ({CRM, name, email, specialty}) => {
+export default ({CRM,institution, name, email, specialty, showModal, handleUpdate, disable, setDisable, setName, setCRM, setSpecialty, setInstitution}) => {
     return(
         <div className='container-profile-page'>
 
@@ -13,19 +13,24 @@ export default ({CRM, name, email, specialty}) => {
             
             <div className='profile-information'>
 
-                <TextField disabled 
+                <TextField 
+                    disabled ={disable}
                     id="name-profile"
-                    label={name} 
-                    //defaultValue={name}
+                    label='Nome' 
                     size = "small" 
                     variant="outlined"
                     className="input-fields-register"
+                    value={name}
+                    onChange={event=>
+                        setName(event.target.value)
+                    }
                 /> <br/> <br/>
 
-                <TextField disabled 
+                <TextField 
+                    disabled
                     id="email-profile"
-                    //defaultValue={email}
-                    label={email} 
+                    label='Email'
+                    value={email} 
                     size = "small" 
                     variant="outlined"
                     className="input-fields-register"
@@ -34,35 +39,90 @@ export default ({CRM, name, email, specialty}) => {
                 {
                     CRM ?
                         <div>
-                            <TextField disabled 
+                            <TextField 
+                                disabled = {disable}
                                 id="crm-profile"
-                                // defaultValue={CRM}
-                                label={CRM} 
+                                label='CRM'
+                                value={CRM} 
                                 size = "small" 
                                 variant="outlined"
                                 className="input-fields-register"
+                                onChange={event=>
+                                    setCRM(event.target.value)
+                                }
+                                /> <br/> <br/>
+                        </div>
+                    : null
+
+                }
+
+                {
+                    institution ?
+                        <div>
+                            <TextField 
+                                disabled = {disable}
+                                id="crm-profile"
+                                label='Instituição'
+                                value={institution} 
+                                size = "small" 
+                                variant="outlined"
+                                className="input-fields-register"
+                                onChange={event=>
+                                    setInstitution(event.target.value)
+                                }
                                 /> <br/> <br/>
                         </div>
                     : null
 
                 }
                 
-
-                <TextField disabled 
+                <TextField 
+                    disabled ={disable}
                     id="info-profile"
-                    //defaultValue={specialty}
-                    label={specialty}
+                    label='Especialidade'
+                    value={specialty}
                     size = "small" 
                     variant="outlined"
                     className="input-fields-register"
+                    onChange={event=>
+                        setSpecialty(event.target.value)
+                    }
                 /> <br/> <br/>
 
             </div>
-            {/* <div className='profile-buttons'>
+            <div className='profile-buttons'>
 
-                <button id='redefinir-button' className='button-back'>Redefinir senha</button>
-                <button id='excluir-button' className='button-back'>Excluir conta</button>
-            </div> */}
+                {disable ? 
+                    <button 
+                        id='editar-dados-button' 
+                        className='button-back'
+                        onClick={e=>setDisable(false)}
+                    >Editar dados</button>
+                    :
+                    <button 
+                        id='editar-dados-button' 
+                        className='button-back'
+                        onClick={e=>handleUpdate()}
+                    >Confirmar</button>
+                }
+
+                {
+                    disable ? 
+                    <button 
+                        id='excluir-button' 
+                        className='button-back'
+                        onClick={e=>{
+                            showModal(true)
+                        }}
+                    >Excluir conta</button> 
+                    :
+                    <button 
+                        id='editar-dados-button' 
+                        className='button-back'
+                        onClick={e=>setDisable(true)}
+                    >Cancelar</button>
+                }
+            </div>
 
         </div>
     )
