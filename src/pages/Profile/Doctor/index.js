@@ -68,10 +68,22 @@ const DoctorProfile = (props) => {
         setShowModal(false)
     }
 
-    const deleteUser = () => {
+    const deleteUser = async () => {
         setDisable(true)
-        // props.firebase.doDeleteUser()
-        history.push('/')
+
+        await api.delete(`/doctor`,
+            {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('@docusr_tkn')}`
+                }
+            }
+        ).then(()=>{
+            props.firebase.doSignOut()
+            history.push('/')
+        }).catch(()=>{
+
+        })
+        
     }
 
     const handleUpdate = async () => {
@@ -122,8 +134,8 @@ const DoctorProfile = (props) => {
                         >
                             <DialogContent>
                                 <p className='delete-modal-text'>
-                                    Deseja confirmar a exclusão dessa conta? 
-                                    Essa ação é irreversível!
+                                    Deseja excluir permanentemente essa conta? 
+                                    Essa ação é irreversível.
                                 </p>
                             </DialogContent>
                             <DialogActions>

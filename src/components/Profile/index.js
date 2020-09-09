@@ -101,7 +101,7 @@ export default ({CRM,institution, name, email, specialty, showModal, handleUpdat
                     :
                     <button 
                         id='editar-dados-button' 
-                        className='button-back'
+                        className='button'
                         onClick={e=>handleUpdate()}
                     >Confirmar</button>
                 }
