@@ -16,7 +16,7 @@ Gostaria de visualizar uma lista de diagnósticos fornecidos e detalhar um espec
 Critérios de aceitação: O sistema deve identificar cada paciente através de um código único para que o pesquisador possa buscá-lo de forma precisa.
 
   Scenario: Para o usuario Medico
-    Given Browse to web site "https://csi-covid-265c4.web.app/"
+    Given Browse to web site "https://csi-covid.web.app/"
     And I press the "login-button"
     And I press the "medico-button"
     And I enter "testemedicocovid@gmail.com" in "email-login-input"
@@ -30,7 +30,6 @@ Critérios de aceitação: O sistema deve identificar cada paciente através de 
     And I press the "sair-button"
     And I press the "saida-button"
     Then I see "Entrar" written on the requested page.id:"login-button"
-
 
   Scenario: Para o usuario pesquisador
     Given Browse to web site "https://csi-covid-265c4.web.app/"

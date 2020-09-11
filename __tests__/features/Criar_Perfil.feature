@@ -10,7 +10,7 @@ Feature: Criar_Perfil
 **Critérios de aceitação:** Para criar um perfil será preciso internet para salvar os dados.
 
   Scenario: Para o usuario Medico - Criar perfil com sucesso
-    Given Browse to web site "https://csi-covid-265c4.web.app/"
+    Given Browse to web site "https://csi-covid.web.app/"
     And I press the "login-button"
     And I press the "cadastre-medico-button"
     And I enter "Teste_Medico" in "name-input"
@@ -21,7 +21,7 @@ Feature: Criar_Perfil
     And I enter "Teste123" in "password2-input"
     And I press the "cadastrar-button"
     And I see "Médico" written on the requested page.id:"medico-perfil"
-  And I press the "logout-button"
+    And I press the "logout-button"
     And I press the "sair-button"
     And I press the "saida-button"
     Then I see "Entrar" written on the requested page.id:"login-button"

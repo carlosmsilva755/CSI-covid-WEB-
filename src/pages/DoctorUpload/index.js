@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState, useContext } from "react"
 import {useHistory} from 'react-router-dom'
 
 import TextField from '@material-ui/core/TextField'
@@ -11,11 +11,13 @@ import Card from '../../components/Cards/CardMenu/index'
 import Header from '../../components/Header/Doctor/index'
 import api from '../../services/api'
 import { AuthUserContext, withAuthorization } from '../../contexts/Session'
+import ImageContext from '../../contexts/Image/index'
 
 const DoctorUpload = (props) => { 
     const filterOptions = [{"Filter":"Covid-19"}, {"Filter":"Pneumonia"}, {"Filter":"Normal"}]
     const width = window.innerWidth
-    
+    const { setImageV } = useContext(ImageContext)
+
     const history = useHistory()
 
     const [currentPage, setCurrentPage] = useState(1)
@@ -23,15 +25,38 @@ const DoctorUpload = (props) => {
     const [diagnoses, setDiagnoses] = useState([])
     const [isAuth, setIsAuth] = useState(' ')
     const [disable, setDisable] = useState(false)
+    const [search, setSearch] = useState('')
+    const [error, setError] = useState(false)
+    const [errorMsg, setErrorMsg] = useState('')
+    const [deleteStorage, setDeleteStorage] = useState(true)
+
+    const [filter, setFilter] = useState(localStorage.getItem('@filterNumberUp') ?
+    localStorage.getItem('@filterNumberUp'):'')
+    const [disableSelect, setDisableSelect] = useState(false)
+    const [isFiltering, setIsFiltering] = useState(false)
+    const [pagesFilter, setPagesFilter] = useState(null)
+    const [currentPageFilter, setCurrentPageFilter] = useState(localStorage.getItem('@currentpageFilterUp') ?
+    localStorage.getItem('@currentpageFilterUp'):1)
 
     function handleAdd(){
         history.push('/register')
     }
 
     useEffect(()=>{
-        localStorage.removeItem('@form')
         localStorage.removeItem('@isResearcher')
-        localStorage.removeItem('@result')
+        localStorage.removeItem('@currentpageFilter')
+        localStorage.removeItem('@filterNumber')
+
+        if(deleteStorage){
+            
+            localStorage.removeItem('@form')
+            localStorage.removeItem('@result')
+            localStorage.removeItem('@result2')
+            localStorage.removeItem('@result3')
+            localStorage.removeItem('@prob1')
+            localStorage.removeItem('@prob2')
+            localStorage.removeItem('@prob3')
+        }
         
         localStorage.setItem('@justUpload',true)
 
@@ -48,29 +73,122 @@ const DoctorUpload = (props) => {
         })
     })
 
+    async function searchDiagnosis(){
+        if(!search){
+            setError(true)
+            setErrorMsg('Você deve adicionar um ID')
+            return
+        }
+
+        await api.get(`/doctor/diagnoses/AI?page=1&id=${search}`,
+            {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('@docusr_tkn')}`
+                }
+            }
+        ).then((response)=>{
+            
+            if(response.data.diagnoses.docs.length === 0){
+                setError(true)
+                setErrorMsg('ID inválido')
+            }else{
+                setDeleteStorage(false)
+                console.log(response);
+                const data = {
+                    "state":response.data.diagnoses.docs[0].state,
+                    "city":response.data.diagnoses.docs[0].city,
+                    "age":response.data.diagnoses.docs[0].age,
+                    "temp":response.data.diagnoses.docs[0].temp,
+                    "sat_ox":response.data.diagnoses.docs[0].sat_ox,
+                    "info":response.data.diagnoses.docs[0].info,
+                    "fromHome":true,
+                    "result":response.data.diagnoses.docs[0].result,
+                    "date":response.data.diagnoses.docs[0].createdAt,
+                    "_id":response.data.diagnoses.docs[0].id_doctor ? 
+                        response.data.diagnoses.docs[0].id_doctor : response.data.diagnoses.docs[0].id_researcher
+                }
+                if(response.data.diagnoses.docs[0].sex){
+                    data.sex = response.data.diagnoses.docs[0].sex === 'F'? 
+                        'Feminino' : response.data.diagnoses.docs[0].sex === 'M' ? 'Masculino' : 'Feminino'
+                }
+        
+                localStorage.setItem('@form',JSON.stringify(data))
+                localStorage.setItem('@result',response.data.diagnoses.docs[0].result)
+                if(response.data.diagnoses.docs[0].prob1) {
+                    localStorage.setItem('@result2', response.data.diagnoses.docs[0].result2)
+                    localStorage.setItem('@result3', response.data.diagnoses.docs[0].result3)
+                    localStorage.setItem('@prob1',response.data.diagnoses.docs[0].prob1)
+                    localStorage.setItem('@prob2',response.data.diagnoses.docs[0].prob2)
+                    localStorage.setItem('@prob3',response.data.diagnoses.docs[0].prob3)
+                }
+                setImageV(response.data.diagnoses.docs[0].image.url)
+                history.push('/view-diagnosis')
+            }
+            
+        }).catch(error=>{
+            console.log(error)
+            setError(true)
+            setErrorMsg('Erro ao fazer consulta')
+        })
+        
+    }
+
+    const filterNumber = (value) => {
+        if(value === 'Covid-19')
+            return 2
+        if(value === 'Pneumonia')
+            return 1
+        if(value === 'Normal')
+            return 0
+    }
+
     useEffect(()=>{
-
-        setTimeout( ()=>
-            (async () => {
-                await api.get(`/doctor/diagnoses/AI?page=${currentPage}`,
-                    {
-                        headers: {
-                            authorization: `Bearer ${localStorage.getItem('@docusr_tkn')}`
+        isFiltering || localStorage.getItem('@currentpageFilterUp')?
+            setTimeout( ()=>
+                (async () => {
+                    await api.get(`doctor/diagnoses/AI?page=${currentPageFilter}&result=${filterNumber(filter)}`,
+                        {
+                            headers: {
+                                authorization: `Bearer ${localStorage.getItem('@docusr_tkn')}`
+                            }
                         }
-                    }
-                ).then((response)=>{
-                    setDiagnoses(response.data.diagnoses.docs)
-                    setCurrentPage(Number(response.data.diagnoses.page))
-                    setPages(response.data.diagnoses.pages)
-                    console.log(response.data.diagnoses.docs);
-                    setTimeout(()=>setDisable(false), 1000)
-                }).catch(error=>{
-                    console.log(error)
-                })
+                    ).then((response)=>{
+                        setDiagnoses(response.data.diagnoses.docs)
+                        setCurrentPageFilter(Number(response.data.diagnoses.page))
+                        setPagesFilter(response.data.diagnoses.pages)
 
-            })() 
-        , 1000)
-    },[currentPage])
+                        setTimeout(()=>setDisableSelect(false), 1500)
+                        setTimeout(()=>setDisable(false), 1000) 
+
+                        // console.log(response.data.diagnoses.docs)   
+                    }).catch(error=>{
+                        console.log(error)
+                    })
+
+                })() 
+            , 1000)
+            :
+            setTimeout( ()=>
+                (async () => {
+                    await api.get(`/doctor/diagnoses/AI?page=${currentPage}`,
+                        {
+                            headers: {
+                                authorization: `Bearer ${localStorage.getItem('@docusr_tkn')}`
+                            }
+                        }
+                    ).then((response)=>{
+                        setDiagnoses(response.data.diagnoses.docs)
+                        setCurrentPage(Number(response.data.diagnoses.page))
+                        setPages(response.data.diagnoses.pages)
+                        // console.log(response.data.diagnoses.docs);
+                        setTimeout(()=>setDisable(false), 1000)
+                    }).catch(error=>{
+                        console.log(error)
+                    })
+
+                })() 
+            , 1000)
+    },[currentPageFilter, isFiltering, filter, currentPage])
     
     return (
         <AuthUserContext.Consumer> 
@@ -83,13 +201,24 @@ const DoctorUpload = (props) => {
                             <div className= {width > 540 ? "container-navbars" : "container-navbars-responsive"}>
 
                                 <TextField id="pesquisar-input" 
-                                    label="Pesquisar" 
+                                    label={error ? errorMsg:"Pesquisar"}
                                     size = "small" 
                                     variant="outlined"
-                                    className="search-input" 
+                                    className="search-input"
+                                    error={error}
+                                    value ={search} 
+                                    onChange={event => {
+                                        setSearch(event.target.value)
+                                        setError(false)
+                                    }}
                                 />
                                 
-                                <img src={searchButton} alt="search"/>
+                                <img id ='pesquisar-button'
+                                    src={searchButton} 
+                                    alt="search" 
+                                    className='button-search-menu'
+                                    onClick={searchDiagnosis}
+                                />
                                 <br/><br/>
                                 <div className= {width > 540 ? "filter": ""}>
 
@@ -99,7 +228,16 @@ const DoctorUpload = (props) => {
                                         label="Filtro" 
                                         className="select-filter" 
                                         variant="outlined" 
-                                        value=''
+                                        disabled={disableSelect}
+                                        value={filter}
+                                        onChange={event=>{
+                                            setFilter(event.target.value)
+                                            setDisableSelect(true)
+                                            setIsFiltering(true)
+                                            setCurrentPageFilter(1)
+                                            localStorage.setItem('@currentpageFilterUp', 1)
+                                            localStorage.setItem('@filterNumberUp', event.target.value)
+                                        }}
                                     >
                                         {filterOptions.map((option) => (
                                             <MenuItem key={option.Filter} value={option.Filter}>
@@ -133,16 +271,29 @@ const DoctorUpload = (props) => {
                             </div> <br/>
                             
                             <div className={width > 540 ?'container-pagination':'container-pagination-responsive'}>
-                                <Pagination 
-                                    count={pages}
-                                    page={currentPage}
-                                    onChange={(event,value) => {
-                                        value===currentPage ? setDisable(false) : setDisable(true)
-                                        setCurrentPage(value)
-                                    }}
-                                    color='primary'
-                                    disabled={disable}
-                                />
+                                {isFiltering || localStorage.getItem('@currentpageFilterUp')?
+                                    <Pagination 
+                                        count={pagesFilter}
+                                        page={currentPageFilter}
+                                        onChange={(event,value) => {
+                                            value===currentPageFilter ? setDisable(false) : setDisable(true)
+                                            setCurrentPageFilter(value)
+                                            localStorage.setItem('@currentpageFilterUp', value)
+                                        }}
+                                        color='primary'
+                                        disabled={disable}
+                                    /> :
+                                    <Pagination 
+                                        count={pages}
+                                        page={currentPage}
+                                        onChange={(event,value) => {
+                                            value===currentPage ? setDisable(false) : setDisable(true)
+                                            setCurrentPage(value)
+                                            localStorage.setItem('@currentpage', value)
+                                        }}
+                                        color='primary'
+                                        disabled={disable}
+                                    />}
                             </div>
 
                         </div>

@@ -9,6 +9,9 @@ const path = require('path');
 const short_time = 1000
 const long_time = 5000
 const very_long_time = 30000
+var codigo_salvo 
+var codigo_deletado
+
 
 Given(/^Browse to web site "([^"]*)"$/, async function (url) {
     await driver.get(url);
@@ -16,12 +19,12 @@ Given(/^Browse to web site "([^"]*)"$/, async function (url) {
 
 Given("I press the {string}", async function (arg1) {
     await driver.wait(until.elementLocated(By.id(arg1)), very_long_time);
-    await driver.sleep(1000)
     await driver.findElement({ id: arg1 }).click();
+    await driver.sleep(short_time)
 });
 
 Given("I press the {string}  and choose the file", async function (arg1) {
-    const image = path.join(__dirname, '..', '..', 'sumples', 'Raio_X.png');
+    const image = path.join(__dirname, '..', '..', 'sumples', 'Raio_X.jpg');
 
     await driver.sleep(short_time)
     await driver.findElement({ id: "input-file" })
@@ -46,6 +49,7 @@ When("I click  in the first  diagnostic image {string}", async function (arg1) {
     await driver.wait(until.elementLocated(By.css(arg1)));
     await driver.findElement({ css: arg1 }).click();
     await driver.sleep(short_time)  
+    
 });
 
 When("I see {string} written on the requested page", async function (arg1) {
@@ -99,9 +103,59 @@ Given("I see {string} written on the requested page.id:{string}", async function
     assert.equal(arg1, text)
 });
 
+Given("I see {string} written on the requested page.css:{string}", async function (arg1, arg2) {
+    await driver.wait(until.elementLocated(By.css(arg2)), very_long_time);
+    const text = await driver.findElement({ css: arg2 }).getText();
+    console.log(text)
+    assert.equal(arg1, text)
+});
+
+Given("I press the {string}css", async function (arg1) {
+    await driver.wait(until.elementLocated(By.css(arg1)), very_long_time);
+    await driver.findElement({ css: arg1 }).click();
+
+});
+
+Given("I see the diagnostic code{string}and save it", async function (arg1) {
+
+    var nova_Tela = await driver.findElement({ className: arg1 }).getText().then((codigo_salvo2) => {
+        console.log(codigo_salvo2)
+        codigo_salvo = codigo_salvo2
+        
+    })
+});
+
+
+
+Given("I see {string}", async function (arg1) {
+    console.log(codigo_salvo)
+});
 
 
 
 
+
+Then("I check if the code has been deleted which is the same as {string}", async function (arg1) {
+    await driver.sleep(short_time)
+    await driver.findElement({ id: "pesquisar-input" }).sendKeys(codigo_salvo);
+    await driver.sleep(short_time)
+    await driver.findElement({ id: "pesquisar-button" }).click();
+    await driver.sleep(short_time)
+    await driver.findElement({ id: "pesquisar-input-label" }).getText().then((codigo_deletado2) => {
+        console.log(codigo_deletado2)
+        codigo_deletado = codigo_deletado2
+
+    })
+
+    await driver.sleep(short_time)
+    assert.equal(arg1, codigo_deletado) 
+});
+
+Given("I check the diagnostic code unless it starts with the letter {string}", async function (arg1) {
+console.log(arg1," ----- Começo do codigo que passei!")
+resultado = codigo_salvo.substring(0,1)
+console.log(resultado, " ----- Começo do codigo que encontrei!")
+assert.equal(arg1, resultado) 
+});
 
 

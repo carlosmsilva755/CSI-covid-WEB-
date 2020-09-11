@@ -26,6 +26,13 @@ const RegisterDiagnosis = () => {
 
     useEffect( () =>{
         localStorage.removeItem('@currentpage')
+        localStorage.removeItem('@currentpageFilter')
+        localStorage.removeItem('@filterNumber')
+        localStorage.removeItem('@currentpageFilterRes')
+        localStorage.removeItem('@filterNumberRes')
+        localStorage.removeItem('@currentpageFilterUp')
+        localStorage.removeItem('@filterNumberUp')
+        
         const data = localStorage.getItem('@form')
         if(data){
             const data_ = JSON.parse(data)

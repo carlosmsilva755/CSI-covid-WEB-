@@ -26,10 +26,15 @@ function SignInFormBase(props){
     const[errorPasMsg, setErrorPasMsg] = useState('')
     const[clicked, setClicked] = useState(false)
 
+    const[loginError, setLoginError] = useState(false)
+
     const _history = useHistory()
 
     function userAlreadyLogged(){
-        props.firebase.auth.currentUser.getIdTokenResult()
+
+        try {
+
+            props.firebase.auth.currentUser.getIdTokenResult()
             .then((idTokenResult) => {
                 if (!!idTokenResult.claims.doctor) {
                     console.log('IS DOC');
@@ -43,6 +48,11 @@ function SignInFormBase(props){
             .catch((error) => {
               console.log(error);
             })
+
+        } catch (error) {
+            setLoginError(true)
+        }
+        
     }
 
     function signOutDoctor(){
@@ -129,7 +139,7 @@ function SignInFormBase(props){
 
     return(
         <AuthUserContext.Consumer>
-        {   authUser => !authUser ?
+        {   authUser => !authUser || loginError?
                 <div className='container-login'>
                     <form onSubmit={onSubmit}>
 
