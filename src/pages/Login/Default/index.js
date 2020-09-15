@@ -1,12 +1,24 @@
-import React, {useEffect} from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import TextField from '@material-ui/core/TextField'
+import { withRouter, useHistory } from 'react-router-dom'
+import { compose } from 'recompose'
+import CircularProgress from '@material-ui/core/CircularProgress';
+
 import loginImage from '../../../assets/Images/loginImage.svg'
-import DoctorLogin from '../../../assets/Icons/doctorLogin'
-import ResearcherLogin from '../../../assets/Icons/t'
+import PasswordField from '../../../components/Inputs/Password/index'
+import { withFirebase } from '../../../contexts/Firebase'
+import { AuthUserContext } from '../../../contexts/Session'
 import './styles.css'
 
 
-export default () => {
+const SignInPage = () => (
+    <div id="sign-in-page">
+      <SignInForm />
+    </div>
+)
+
+function SignInFormBase(props){
+
     useEffect(() => {
         localStorage.removeItem('@currentpage')
         localStorage.removeItem('@currentpageFilter')
@@ -17,52 +29,179 @@ export default () => {
         localStorage.removeItem('@filterNumberUp')
 
     }, [])
-    const history= useHistory()
-    return(
-        
-        <div className='container-login'>
+    
+    const[email, setEmail] = useState('')
+    const[password, setPassword] = useState('')
+    const[error, setError] = useState(false);
+    const[errorMsg, setErrorMsg] = useState('')
+    const[errorPassword, setErrorPas] = useState('')
+    const[errorPasMsg, setErrorPasMsg] = useState('')
+    const[clicked, setClicked] = useState(false)
 
-                <img src={loginImage} alt="logo" className='login-image'/>
-                
-                <div className='choose-login'>
+    const[loginError, setLoginError] = useState(false)
 
-                    <h2 className='text-choose'>Realizar login como:</h2>
+    const _history = useHistory()
 
-                    <div className='icons-choose'>
+    function userAlreadyLogged(){
+        try {
+            props.firebase.auth.currentUser.getIdTokenResult()
+                .then((idTokenResult) => {
 
-                        <Link to='/login-doc'>
-                            <div className='icon-text'>
-                                <DoctorLogin/>
-                                <p>Médico</p>
-                            </div>
-                        </Link>
+                    // if (!!idTokenResult.claims.admin){
+                    //     console.log(idTokenResult)
+                    //     props.history.push('/admin-profiles')
+                    // }else{
+                        if (!!idTokenResult.claims.researcher) {
+                            localStorage.setItem('@resUsrTkn',idTokenResult.token)
+                            props.history.push('/researcherImages')
 
-                        <Link to='/login-res'>
-                            <div className='icon-text marg'>
-                                <ResearcherLogin />
-                                <p>Pesquisador</p>
-                            </div>
-                        </Link>
-                        
-                    </div>
+                        }else if (!!idTokenResult.claims.doctor){
+                            localStorage.setItem('@docusr_tkn',idTokenResult.token)
+                            props.history.push('/medicalRecord');
+                        }
+                    // }
+                })
 
-                    <div className='login-button-back'>
-                        <button 
-                            id ='voltar-button' 
-                            className='button-back'
-                            onClick={()=>{
-                                history.push('/')
-                            }}
-                        > Voltar para a página inicial</button>
-                    </div>
+        } catch (error) {
+            setLoginError(true)
+        }
+    }
 
-                </div> <br/>
-
-                <div className='choose-profile'>
-                    <p className='text'>É um médico? <a id='cadastre-medico-button'className='text-link' href="/create-doc">Cadastre-se aqui</a> </p>
-                    <p className='text-login'>É um pesquisador? <a id='cadastre-pesquisador-button' className='text-link' href="/create-res">Cadastre-se aqui</a> </p>
-                </div>
+    const onSubmit = async event => {
+        setClicked(!clicked)
+        props.firebase
+        .doSignInWithEmailAndPassword(email, password)
+        .then( (authUser) => {
+            setEmail('');
+            setPassword('');
             
-        </div>
+            props.firebase.auth.currentUser.getIdTokenResult()
+            .then((idTokenResult) => {
+
+                if (!!idTokenResult.claims.admin){
+                    console.log(idTokenResult)
+
+                }else{
+                    if (!!idTokenResult.claims.researcher) {
+                        localStorage.setItem('@resUsrTkn',idTokenResult.token)
+                        props.history.push('/researcherImages')
+                    }
+                    else if (!!idTokenResult.claims.doctor){
+                       localStorage.setItem('@docusr_tkn',idTokenResult.token)
+                       props.history.push('/medicalRecord')
+                    }
+                }
+                
+            })
+            .catch((error) => {
+            //   console.log(error);
+            })
+
+        })
+        .catch(error => {
+            setErrorMessage(error)
+            setClicked(false)
+        })
+    
+        event.preventDefault();
+    }
+
+    function handleBack(){
+        _history.push('/')
+    }
+
+    function setErrorMessage(error){
+        // console.log(error);
+        if(email===''){
+            setErrorMsg('Você deve inserir um usuário')
+            setError(true);
+            return
+        }
+        if(password === ''){
+            setErrorPasMsg('Você deve inserir uma senha')
+            setErrorPas(true)
+            return
+        }
+        else{
+            if(error.code === 'auth/invalid-email'){
+                setErrorMsg('Email inválido')
+                setError(true);
+                return
+            }
+            if(error.code === 'auth/user-not-found'){
+                setErrorMsg('Usuário não encontrado')
+                setError(true);
+                return
+            }
+            if(error.code === "auth/wrong-password"){
+                setErrorPasMsg('Senha Inválida')
+                setErrorPas(true)
+                return
+            }
+        }
+
+    }
+    return(
+        <AuthUserContext.Consumer>
+        {   authUser => !authUser || loginError?
+        
+            <div className='container-login'>
+                <img src={loginImage} alt="logo" className='login-image'/>
+                <form onSubmit={onSubmit}>
+                    
+                    <div className='inputs'>
+                        <TextField error={error}
+                            id="email-login-input" 
+                            label={error ? errorMsg :"Usuário"} 
+                            size = "small" 
+                            variant="outlined"
+                            className="input-fields"
+                            value ={email} 
+                            onChange={event => {
+                                setEmail(event.target.value);
+                                setError(false)
+                            }} 
+                        /> 
+                        <br/><br/>
+
+                        <PasswordField id='password-login'
+                            error ={errorPassword}
+                            setError={setErrorPas}
+                            errorMessage={errorPasMsg}
+                            password={password} 
+                            setPassword={setPassword} 
+                            classname='input-fields' 
+                            label='Senha'
+                        /> <br/>
+                        
+                        <a id='esqueceu-senha-button' className='text-fgtPassword' href="/reset-doc">Esqueceu sua senha?</a>
+
+                        <button id='entrar-button'className='button' type='submit' disabled={clicked}>
+                            {clicked && !error ? 
+                                <CircularProgress color='primary' size={20} /> 
+                                : 'Entrar'
+                            }
+                        </button>
+                        <button id='inicial-button'className='button-back btn-marg' onClick={handleBack}>Página incial</button>
+
+                    </div>
+
+                    <div className='choose-profile'>
+                        <p className='text'>É um médico? <a id='cadastre-medico-button'className='text-link' href="/create-doc">Cadastre-se aqui</a> </p>
+                        <p className='text-login'>É um pesquisador? <a id='cadastre-pesquisador-button' className='text-link' href="/create-res">Cadastre-se aqui</a> </p>
+                    </div>
+                </form>
+            </div>:  userAlreadyLogged()
+        }
+        </AuthUserContext.Consumer>
     )
 }
+
+const SignInForm = compose(
+    withRouter,
+    withFirebase,
+)(SignInFormBase);
+  
+export default SignInPage;
+  
+export { SignInForm };
