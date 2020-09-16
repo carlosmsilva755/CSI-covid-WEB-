@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useHistory, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
@@ -9,10 +9,10 @@ import DialogTitle from '@material-ui/core/DialogTitle'
 
 import './styles.css'
 import logo from '../../../assets/logo.svg'
-import profile from '../../../assets/Icons/Header/res.svg'
+import profile from '../../../assets/Icons/Header/adm.svg'
 import LogOut from '../../../assets/Icons/logOut'
-import ProfileMenu from '../../../assets/Icons/profile'
-import Assignment from '../../../assets/Icons/assignment'
+// import ProfileMenu from '../../../assets/Icons/profile'
+// import Assignment from '../../../assets/Icons/assignment'
 import { withFirebase } from '../../../contexts/Firebase';
 import { ReactComponent as MenuIcon } from '../../../assets/Icons/menu.svg'
 
@@ -23,7 +23,7 @@ const Header = ({ firebase }) => {
     const [showModal, setShowModal] = useState(false)
 
     const location = useLocation()
-    const history = useHistory()
+    // const history = useHistory()
 
     // const updateWindowDimensions = () => {
     //     setDimension({ width: window.innerWidth, height: window.innerHeight });
@@ -50,14 +50,6 @@ const Header = ({ firebase }) => {
         console.log('not responsive')
     }
 
-    const handleProfile = () =>{
-        history.push('/profile-res')
-    }
-
-    const handleDiagnoses = () => {
-        history.push('/researcherImages')
-    }
-
     const handleCloseModal = () => {
         setShowModal(false)
         setAnchorEl(null)
@@ -70,7 +62,7 @@ const Header = ({ firebase }) => {
     return (
         <header>
 
-            <div className ={width > 540 ? "container-nav" : "container-nav-responsive"}>
+            <div className ="container-nav-admin">
 
                 <div className = "container-logo">
                     <img src={logo} alt="logo"/>
@@ -79,24 +71,33 @@ const Header = ({ firebase }) => {
 
                 { width > 540 ?
                     <> 
-                        <div className= "container-header">
+                        <div className= "container-header-admin">
 
-                            <div className="container-header-prontuario">                   
-                                <a id='imagens-button' href = '/researcherImages' className = "header-buttons">Curadoria de dados</a>                    
+                            <div className='container-header-buttons-admin'>                   
+                                <a 
+                                    id='manage-profiles-button'
+                                    href = '/admin-profiles' 
+                                    className = {location.pathname ==='/admin-profiles' ?
+                                     "header-buttons-clicked" : "header-buttons-doc"
+                                    }
+                                >Gestão de usuários</a>
                             </div>
 
-                        </div>                
-                        
-                        <p className='header-identification-res' id='pesquisador-perfil'>Administrador</p> 
-
-                        <div className = "container-profile">
-                            <img src={profile}
-                                alt="logo" 
-                                className ='img-hover'
-                                onClick={handleClick} 
-                                id='logout-button'
-                            />
                         </div>
+
+                        <div className='container-profile-admin'>
+                            <p className='header-identification-admin' id='pesquisador-perfil'>Admin</p> 
+
+                            <div className = "container-profile">
+                                <img src={profile}
+                                    alt="logo" 
+                                    className ='img-hover'
+                                    onClick={handleClick} 
+                                    id='logout-button'
+                                />
+                            </div>
+                        </div>
+                        
                     </>
                 :
                     <div
@@ -115,7 +116,7 @@ const Header = ({ firebase }) => {
                     open={Boolean(anchorEl)}
                     onClose={handleClose}
                 >
-                    {
+                    {/* {
                         width < 540 && location.pathname !== '/researcherImages'?
                             <MenuItem id='diagnostico-button' onClick={handleDiagnoses}>
                                 <Assignment/> &nbsp; Curadoria
@@ -130,7 +131,7 @@ const Header = ({ firebase }) => {
                             </MenuItem>
                             :
                             null
-                    }
+                    } */}
 
                     <MenuItem id='sair-button' onClick={()=> setShowModal(true)}>
                         <LogOut/> &nbsp; Sair

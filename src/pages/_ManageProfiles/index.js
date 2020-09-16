@@ -1,26 +1,31 @@
 import React, { useEffect, useState } from "react"
 import {useHistory} from 'react-router-dom'
 
-// import TextField from '@material-ui/core/TextField'
+import TextField from '@material-ui/core/TextField'
 // import MenuItem from '@material-ui/core/MenuItem'
-// import Pagination from '@material-ui/lab/Pagination'
+import Pagination from '@material-ui/lab/Pagination'
 
 import './styles.css'
-// import searchButton from '../../assets/Icons/searchButton.svg'
+import searchButton from '../../assets/Icons/searchButton.svg'
 import Card from '../../components/Cards/CardProfile/index'
-import Header from '../../components/Header/Default/index'
-// import api from '../../services/api'
+import Header from '../../components/Header/Admin/index'
+import api from '../../services/api'
 import { AuthUserContext, withAuthorization } from '../../contexts/Session'
 // import ImageContext from '../../contexts/Image/index'
 
 const ManageProfiles = (props) => {
 
     // const filterOptions = [{"Filter":"Médicos"}, {"Filter":"Pesquisadores"}]
-    // const width = window.innerWidth
+    const width = window.innerWidth
 
     const history = useHistory()
 
+	const [profiles, setProfiles] = useState([])
     const [isAuth, setIsAuth] = useState(' ')
+	const [search, setSearch] = useState('')
+	const [currentPage, setCurrentPage] = useState(1)
+	const [pages, setPages] = useState(null)
+	const [disable, setDisable] = useState(false)
 
     useEffect(()=>{
         
@@ -46,7 +51,28 @@ const ManageProfiles = (props) => {
         .catch((error) => {
           console.log(error);
         })
-    })
+	})
+	
+	useEffect(() => {
+
+		(async () => {
+		
+			await api.get(`/users?page=${currentPage}`,
+				{
+					headers: {
+						authorization: `Bearer ${localStorage.getItem('@docusr_tkn')}`
+					}
+				}
+			).then(response=>{
+				console.log(response);
+				setProfiles(response.data.users.docs)
+				setCurrentPage(response.data.users.page)
+				setPages(response.data.users.pages)
+				setTimeout(()=>setDisable(false), 1000)
+			})
+
+		})()
+	}, [currentPage])
 
     return (
         <AuthUserContext.Consumer> 
@@ -54,8 +80,58 @@ const ManageProfiles = (props) => {
                 isAuth ? 
                     
                     <div>
-                        <Header/><br/><br/><br/>
-                        <Card/>
+                        <Header/>
+						<div className='container'>
+
+						
+                          	<div className='container-navbar'>
+                              	<TextField id="pesquisar-input" 
+                                    label={"Pesquisar"}
+                                    size = "small" 
+                                    variant="outlined"
+                                    className="search-input"
+                                    value ={search} 
+                                    onChange={event => {
+                                        setSearch(event.target.value)
+                                    }}
+                                />
+                                
+                                <img id ='pesquisar-button'
+                                    src={searchButton} 
+                                    alt="search" 
+                                    className='button-search-menu'
+                                    // onClick={searchDiagnosis}
+                                />
+                          	</div>
+
+							<div className='container-diagnosis-admin'>
+								{
+                                    profiles ?
+                                        profiles.map( item =>
+                                            <div className="content-card" key = {item._id}>
+                                                <Card profile={item}/>
+                                            </div>
+                                        ) 
+                                    :
+                                        null
+                                }
+							</div>
+
+							<div className={width > 540 ?'container-pagination':'container-pagination-responsive'}>  
+								<Pagination 
+									count={pages}
+									page={parseInt(currentPage)}
+									onChange={(event,value) => {
+										value===currentPage ? setDisable(false) : setDisable(true)
+										setCurrentPage(value)
+									}}
+									color='primary'
+									disabled={disable}
+								/>
+                            </div>
+
+							<br/><br/>
+						</div>
                     </div>
 
             : 

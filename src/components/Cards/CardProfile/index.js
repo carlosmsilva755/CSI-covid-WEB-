@@ -10,17 +10,19 @@ export default ({profile})=>{
         <div id='profile-card-admin'>
             <div className='profile-card-header'>
                 <div className='profile-card-header-text'>
-                    <p>Médico</p>
-                    <p className='header-profile-text-small'>Especialidade</p>
+                    {profile.CRM ? <p>Médico</p> : <p>Pesquisador</p>}
+                    <p className='header-profile-text-small'>{profile.specialty}</p>
                 </div>
                 <div className='profile-card-header-options'>
                     <img src={options} alt=""/>
                 </div>
             </div>
 
-            <p className='profile-card-header-name'>Carlos Magalhes silva</p>
-            <p className='profile-card-header-email'>email@gmail.com</p>
-            <p className='profile-card-header-email'>465321</p>
+            <p className='profile-card-header-name'>{profile.name}</p>
+            <p className='profile-card-header-email'>{profile.email}</p>
+            {profile.CRM ? 
+                <p className='profile-card-header-email'>{profile.CRM}</p> 
+                :  <p className='profile-card-header-email'>{profile.institution}</p>}
 
         </div>
     )

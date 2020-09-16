@@ -1,0 +1,36 @@
+.container-nav-admin{
+    width: 900px;
+    height: 48px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-areas: 'logo text1 profile';
+    grid-template-columns: 20% 60% 20%;
+}
+
+.container-header-admin{
+    grid-area: text1;
+}
+
+.container-profile-admin{
+    grid-area: profile;
+    width: 50px;
+    display: flex;
+    flex-direction: row;
+}
+
+.header-identification-admin{
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 100;
+    color: white;
+}
+
+.container-header-buttons-admin{
+    margin-top: 15px;
+}
+
+@media screen and (max-width: 540px) {
+    .container-nav-admin{
+        width: auto;
+    }
+}

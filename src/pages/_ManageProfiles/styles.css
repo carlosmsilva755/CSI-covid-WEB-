@@ -1,0 +1,12 @@
+.container-diagnosis-admin{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 60px;
+    /* justify-content: space-evenly; */
+}
+
+.card-adm-container{
+    margin-right: 16px;
+    margin-bottom: 16px;
+}

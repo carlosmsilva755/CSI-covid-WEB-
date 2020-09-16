@@ -47,10 +47,10 @@ function SignInFormBase(props){
             props.firebase.auth.currentUser.getIdTokenResult()
                 .then((idTokenResult) => {
 
-                    // if (!!idTokenResult.claims.admin){
-                    //     console.log(idTokenResult)
-                    //     props.history.push('/admin-profiles')
-                    // }else{
+                    if (!!idTokenResult.claims.admin){
+                        console.log(idTokenResult)
+                        props.history.push('/admin-profiles')
+                    }else{
                         if (!!idTokenResult.claims.researcher) {
                             localStorage.setItem('@resUsrTkn',idTokenResult.token)
                             props.history.push('/researcherImages')
@@ -59,7 +59,7 @@ function SignInFormBase(props){
                             localStorage.setItem('@docusr_tkn',idTokenResult.token)
                             props.history.push('/medicalRecord');
                         }
-                    // }
+                    }
                 })
 
         } catch (error) {
@@ -72,19 +72,21 @@ function SignInFormBase(props){
         props.firebase
         .doSignInWithEmailAndPassword(email, password)
         .then( (authUser) => {
-            setEmail('');
-            setPassword('');
+            setEmail('')
+            setPassword('')
             
             props.firebase.auth.currentUser.getIdTokenResult()
             .then((idTokenResult) => {
 
                 if (!!idTokenResult.claims.admin){
-                    console.log(idTokenResult)
-
+                    localStorage.setItem('@docusr_tkn',idTokenResult.token)
+                    props.history.push('/admin-profiles')
                 }else{
                     if (!!idTokenResult.claims.researcher) {
                         localStorage.setItem('@resUsrTkn',idTokenResult.token)
                         props.history.push('/researcherImages')
+                    console.log(idTokenResult);
+
                     }
                     else if (!!idTokenResult.claims.doctor){
                        localStorage.setItem('@docusr_tkn',idTokenResult.token)
