@@ -48,7 +48,7 @@ function SignInFormBase(props){
                 .then((idTokenResult) => {
 
                     if (!!idTokenResult.claims.admin){
-                        console.log(idTokenResult)
+                        localStorage.setItem('@docusr_tkn',idTokenResult.token)
                         props.history.push('/admin-profiles')
                     }else{
                         if (!!idTokenResult.claims.researcher) {
@@ -85,8 +85,6 @@ function SignInFormBase(props){
                     if (!!idTokenResult.claims.researcher) {
                         localStorage.setItem('@resUsrTkn',idTokenResult.token)
                         props.history.push('/researcherImages')
-                    console.log(idTokenResult);
-
                     }
                     else if (!!idTokenResult.claims.doctor){
                        localStorage.setItem('@docusr_tkn',idTokenResult.token)

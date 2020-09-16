@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import {useHistory} from 'react-router-dom'
 
 import TextField from '@material-ui/core/TextField'
-// import MenuItem from '@material-ui/core/MenuItem'
+import MenuItem from '@material-ui/core/MenuItem'
 import Pagination from '@material-ui/lab/Pagination'
 
 import './styles.css'
@@ -15,7 +15,7 @@ import { AuthUserContext, withAuthorization } from '../../contexts/Session'
 
 const ManageProfiles = (props) => {
 
-    // const filterOptions = [{"Filter":"Médicos"}, {"Filter":"Pesquisadores"}]
+    const filterOptions = [{"Filter":"Todos"}, {"Filter":""}]
     const width = window.innerWidth
 
     const history = useHistory()
@@ -25,7 +25,9 @@ const ManageProfiles = (props) => {
 	const [search, setSearch] = useState('')
 	const [currentPage, setCurrentPage] = useState(1)
 	const [pages, setPages] = useState(null)
-	const [disable, setDisable] = useState(false)
+    const [disable, setDisable] = useState(false)
+    const [error, setError] = useState(false)
+    const [errorMsg, setErrorMsg] = useState('')
 
     useEffect(()=>{
         
@@ -64,7 +66,7 @@ const ManageProfiles = (props) => {
 					}
 				}
 			).then(response=>{
-				console.log(response);
+				// console.log(response);
 				setProfiles(response.data.users.docs)
 				setCurrentPage(response.data.users.page)
 				setPages(response.data.users.pages)
@@ -72,7 +74,41 @@ const ManageProfiles = (props) => {
 			})
 
 		})()
-	}, [currentPage])
+    }, [currentPage])
+    
+    const searchProfile = async() => {
+        if(!search){
+            setError(true)
+            setErrorMsg('Você deve adicionar um nome')
+            return
+        }
+
+        await api.get(`/users?page=${currentPage}&name=${search}`,
+            {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('@docusr_tkn')}`
+                }
+            }
+        ).then((response)=>{
+            
+            if(response.data.users.docs.length === 0){
+                setError(true)
+                setErrorMsg('Nenhum nome encontrado')
+            }else{
+                console.log(response);
+                
+                setProfiles(response.data.users.docs)
+				setCurrentPage(response.data.users.page)
+				setPages(response.data.users.pages)
+				setTimeout(()=>setDisable(false), 1000)
+            }
+            
+        }).catch(error=>{
+            console.log(error)
+            setError(true)
+            setErrorMsg('Erro ao fazer consulta')
+        })
+    }
 
     return (
         <AuthUserContext.Consumer> 
@@ -84,15 +120,17 @@ const ManageProfiles = (props) => {
 						<div className='container'>
 
 						
-                          	<div className='container-navbar'>
-                              	<TextField id="pesquisar-input" 
-                                    label={"Pesquisar"}
+                          	<div className='container-navbars'>
+                              	<TextField id="pesquisar-nome-input" 
+                                    label={error ? errorMsg:"Pesquisar"}
                                     size = "small" 
                                     variant="outlined"
                                     className="search-input"
+                                    error={error}
                                     value ={search} 
                                     onChange={event => {
                                         setSearch(event.target.value)
+                                        setError(false)
                                     }}
                                 />
                                 
@@ -100,8 +138,31 @@ const ManageProfiles = (props) => {
                                     src={searchButton} 
                                     alt="search" 
                                     className='button-search-menu'
-                                    // onClick={searchDiagnosis}
+                                    onClick={searchProfile}
                                 />
+
+                                <div className= {width > 540 ? "filter": ""}>
+
+                                <TextField id="outlined-select-currency" 
+                                    size="small" 
+                                    select 
+                                    label="Filtro" 
+                                    className="select-filter" 
+                                    variant="outlined" 
+                                    // disabled={disableSelect}
+                                    // value={filter}
+                                    onChange={event=>{
+                                        setCurrentPage(1)
+                                    }}
+                                >
+                                    {filterOptions.map((option) => (
+                                        <MenuItem key={option.Filter} value={option.Filter}>
+                                        {option.Filter}
+                                        </MenuItem>
+                                    ))}
+                                </TextField>
+
+                                </div>
                           	</div>
 
 							<div className='container-diagnosis-admin'>

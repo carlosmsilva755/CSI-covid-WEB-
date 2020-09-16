@@ -15,7 +15,7 @@ import ImageContext from '../../contexts/Image/index'
 
 const MedicalRecord = (props) => {
 
-    const filterOptions = [{"Filter":"Covid-19"}, {"Filter":"Pneumonia"}, {"Filter":"Normal"}]
+    const filterOptions = [{"Filter":"Covid-19"}, {"Filter":"Pneumonia"}, {"Filter":"Normal"}, {"Filter":"Todos"}]
     const width = window.innerWidth
     const { setImageV } = useContext(ImageContext)
 
@@ -189,6 +189,7 @@ const MedicalRecord = (props) => {
                     setCurrentPage(Number(response.data.diagnoses.page))
                     setPages(response.data.diagnoses.pages)
                     setTimeout(()=>setDisable(false), 1000) 
+                    setTimeout(()=>setDisableSelect(false), 1500)
                     // console.log(response.data.diagnoses.docs);
                 }).catch(error=>{
                     props.firebase.auth.currentUser.getIdTokenResult()
@@ -247,9 +248,16 @@ const MedicalRecord = (props) => {
                                         onChange={event=>{
                                             setFilter(event.target.value)
                                             setDisableSelect(true)
-                                            setIsFiltering(true)
+                                            if(event.target.value === "Todos"){
+                                                setIsFiltering(false)
+                                                localStorage.removeItem('@currentpageFilter')
+                                                console.log('TODOS');
+                                            }
+                                            else{
+                                                setIsFiltering(true)
+                                                localStorage.setItem('@currentpageFilter', 1)
+                                            }
                                             setCurrentPageFilter(1)
-                                            localStorage.setItem('@currentpageFilter', 1)
                                             localStorage.setItem('@filterNumber', event.target.value)
                                         }}
                                     >
