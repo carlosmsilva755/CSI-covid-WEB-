@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useCallback } from "react"
 import {useHistory} from 'react-router-dom'
 
 import TextField from '@material-ui/core/TextField'
-import MenuItem from '@material-ui/core/MenuItem'
+// import MenuItem from '@material-ui/core/MenuItem'
 import Pagination from '@material-ui/lab/Pagination'
 
 import './styles.css'
@@ -11,11 +11,10 @@ import Card from '../../components/Cards/CardProfile/index'
 import Header from '../../components/Header/Admin/index'
 import api from '../../services/api'
 import { AuthUserContext, withAuthorization } from '../../contexts/Session'
-// import ImageContext from '../../contexts/Image/index'
 
 const ManageProfiles = (props) => {
 
-    const filterOptions = [{"Filter":"Todos"}, {"Filter":""}]
+    // const filterOptions = [{"Filter":"Todos"}, {"Filter":""}]
     const width = window.innerWidth
 
     const history = useHistory()
@@ -28,6 +27,9 @@ const ManageProfiles = (props) => {
     const [disable, setDisable] = useState(false)
     const [error, setError] = useState(false)
     const [errorMsg, setErrorMsg] = useState('')
+    const [isSearching, setIsSearching] = useState(false)
+
+    const [finalSearch, setFinalSearch] = useState('')
 
     useEffect(()=>{
         
@@ -54,29 +56,9 @@ const ManageProfiles = (props) => {
           console.log(error);
         })
 	})
-	
-	useEffect(() => {
-
-		(async () => {
-		
-			await api.get(`/users?page=${currentPage}`,
-				{
-					headers: {
-						authorization: `Bearer ${localStorage.getItem('@docusr_tkn')}`
-					}
-				}
-			).then(response=>{
-				// console.log(response);
-				setProfiles(response.data.users.docs)
-				setCurrentPage(response.data.users.page)
-				setPages(response.data.users.pages)
-				setTimeout(()=>setDisable(false), 1000)
-			})
-
-		})()
-    }, [currentPage])
     
-    const searchProfile = async() => {
+    
+    const searchProfile = useCallback( async() => {
         if(!search){
             setError(true)
             setErrorMsg('Você deve adicionar um nome')
@@ -108,7 +90,41 @@ const ManageProfiles = (props) => {
             setError(true)
             setErrorMsg('Erro ao fazer consulta')
         })
-    }
+    }, [currentPage, search])
+
+	useEffect(() => {
+        if(isSearching){
+            searchProfile()
+        }
+        else{
+            (async () => {
+            
+                await api.get(`/users?page=${currentPage}`,
+                    {
+                        headers: {
+                            authorization: `Bearer ${localStorage.getItem('@docusr_tkn')}`
+                        }
+                    }
+                ).then(response=>{
+                    // console.log(response);
+                    setProfiles(response.data.users.docs)
+                    setCurrentPage(response.data.users.page)
+                    setPages(response.data.users.pages)
+                    setTimeout(()=>setDisable(false), 1000)
+                }).catch(error=>
+                    props.firebase.auth.currentUser.getIdTokenResult()
+                        .then((idTokenResult) => {
+                            localStorage.setItem('@docusr_tkn',idTokenResult.token)
+                        })
+                        .catch((error) => {
+                            console.log(error);
+                        })
+                )
+
+            })()
+        }
+            
+    }, [currentPage, isSearching, props.firebase.auth.currentUser, searchProfile])
 
     return (
         <AuthUserContext.Consumer> 
@@ -127,9 +143,9 @@ const ManageProfiles = (props) => {
                                     variant="outlined"
                                     className="search-input"
                                     error={error}
-                                    value ={search} 
+                                    value ={finalSearch} 
                                     onChange={event => {
-                                        setSearch(event.target.value)
+                                        setFinalSearch(event.target.value)
                                         setError(false)
                                     }}
                                 />
@@ -138,31 +154,37 @@ const ManageProfiles = (props) => {
                                     src={searchButton} 
                                     alt="search" 
                                     className='button-search-menu'
-                                    onClick={searchProfile}
-                                />
+                                    onClick={e=>{
+                                        setSearch(finalSearch)
+                                        isSearching === true ? setIsSearching('verd') :
+                                            setIsSearching(true)
 
-                                <div className= {width > 540 ? "filter": ""}>
-
-                                <TextField id="outlined-select-currency" 
-                                    size="small" 
-                                    select 
-                                    label="Filtro" 
-                                    className="select-filter" 
-                                    variant="outlined" 
-                                    // disabled={disableSelect}
-                                    // value={filter}
-                                    onChange={event=>{
                                         setCurrentPage(1)
                                     }}
-                                >
-                                    {filterOptions.map((option) => (
-                                        <MenuItem key={option.Filter} value={option.Filter}>
-                                        {option.Filter}
-                                        </MenuItem>
-                                    ))}
-                                </TextField>
+                                />
 
-                                </div>
+                                {/* <div className= {width > 540 ? "filter": ""}>
+
+                                    <TextField id="outlined-select-currency" 
+                                        size="small" 
+                                        select 
+                                        label="Filtro" 
+                                        className="select-filter" 
+                                        variant="outlined" 
+                                        // disabled={disableSelect}
+                                        // value={filter}
+                                        onChange={event=>{
+                                            setCurrentPage(1)
+                                        }}
+                                    >
+                                        {filterOptions.map((option) => (
+                                            <MenuItem key={option.Filter} value={option.Filter}>
+                                            {option.Filter}
+                                            </MenuItem>
+                                        ))}
+                                    </TextField>
+
+                                </div> */}
                           	</div>
 
 							<div className='container-diagnosis-admin'>
