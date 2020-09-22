@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useHistory} from 'react-router-dom'
 
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
@@ -11,7 +11,7 @@ import './styles.css'
 import logo from '../../../assets/logo.svg'
 import profile from '../../../assets/Icons/Header/adm.svg'
 import LogOut from '../../../assets/Icons/logOut'
-// import ProfileMenu from '../../../assets/Icons/profile'
+import ProfileMenu from '../../../assets/Icons/profile'
 // import Assignment from '../../../assets/Icons/assignment'
 import { withFirebase } from '../../../contexts/Firebase';
 import { ReactComponent as MenuIcon } from '../../../assets/Icons/menu.svg'
@@ -23,7 +23,7 @@ const Header = ({ firebase }) => {
     const [showModal, setShowModal] = useState(false)
 
     const location = useLocation()
-    // const history = useHistory()
+    const history = useHistory()
 
     // const updateWindowDimensions = () => {
     //     setDimension({ width: window.innerWidth, height: window.innerHeight });
@@ -53,6 +53,10 @@ const Header = ({ firebase }) => {
     const handleCloseModal = () => {
         setShowModal(false)
         setAnchorEl(null)
+    }
+
+    const handleProfile = () =>{
+        history.push('/profile-admin')
     }
 
     const handleLogout = () => {
@@ -122,16 +126,16 @@ const Header = ({ firebase }) => {
                                 <Assignment/> &nbsp; Curadoria
                             </MenuItem>
                             : null
-                    }
+                    } */}
 
                     {
-                        location.pathname !== '/profile-res'?
+                        location.pathname !== '/profile-admin'?
                             <MenuItem id='perfil-button' onClick={handleProfile}>
                                 <ProfileMenu/> &nbsp; Meu perfil
                             </MenuItem>
                             :
                             null
-                    } */}
+                    }
 
                     <MenuItem id='sair-button' onClick={()=> setShowModal(true)}>
                         <LogOut/> &nbsp; Sair

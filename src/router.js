@@ -20,6 +20,7 @@ import DoctorUpload from './pages/DoctorUpload/index'
 import Landing from './pages/Landing/index'
 import UpdateDiagnosis from './pages/UpdateDiagnosis/index'
 import ManageProfiles from './pages/_ManageProfiles/index'
+import AdminProfile from './pages/Profile/Admin/index'
 
 export default () => {
     return (
@@ -51,6 +52,7 @@ export default () => {
 
             <Route path="/profile-doc" component ={DoctorProfile}/>
             <Route path="/profile-res" component ={ResearcherProfile}/>
+            <Route path="/profile-admin" component ={AdminProfile}/>
 
             <Route path="/admin-profiles" component ={ManageProfiles}/>
 

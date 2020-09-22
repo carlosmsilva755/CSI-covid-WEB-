@@ -33,6 +33,9 @@ class Firebase {
     this.auth.currentUser.updatePassword(password);
 
   doDeleteUser = () => this.auth.currentUser.delete();
+
+  doEmailUpdate = email =>
+    this.auth.currentUser.updateEmail(email)
 }
 
 export default Firebase;
