@@ -15,10 +15,9 @@ Eu, como Pesquisador
 Gostaria de visualizar uma lista de diagnósticos fornecidos e detalhar um específico.
 Critérios de aceitação: O sistema deve identificar cada paciente através de um código único para que o pesquisador possa buscá-lo de forma precisa.
 
-  Scenario: Para o usuario Medico
+  Scenario: Para o usuario Medico - Visualizar_Diagnostico_Fornecido
     Given Browse to web site "https://csi-covid.web.app/"
     And I press the "login-button"
-    And I press the "medico-button"
     And I enter "testemedicocovid@gmail.com" in "email-login-input"
     And I enter "Teste123" in "password-login-input"
     And I press the "entrar-button"
@@ -31,14 +30,13 @@ Critérios de aceitação: O sistema deve identificar cada paciente através de 
     And I press the "saida-button"
     Then I see "Entrar" written on the requested page.id:"login-button"
 
-  Scenario: Para o usuario pesquisador
-    Given Browse to web site "https://csi-covid-265c4.web.app/"
+  Scenario: Para o usuario pesquisador Visualizar_Diagnostico_Fornecido
+    Given Browse to web site "https://csi-covid.web.app"
     And I press the "login-button"
-    And I press the "pesquisador-button"
     And I enter "testepesquisadorcovid@gmail.com" in "email-login-input"
     And I enter "Teste123" in "password-login-input"
     And I press the "entrar-button"
-    And I see "Diagnósticos fornecidos" written on the requested page.id:"imagens-button"
+    And I see "Pesquisador" written on the requested page.id:"pesquisador-perfil"
     And I click  in the first  diagnostic image "#container-card-menu > div.container-card-img > img"
     And I press the "pagina-inicial-button"
     And I press the "logout-button"

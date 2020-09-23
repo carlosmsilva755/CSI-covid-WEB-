@@ -9,10 +9,9 @@ Feature: Logout(Medico_e_Pesquisador)
 
 **Critérios de aceitação:** Para realizar logout é necessário estar logado no sistema.
 
-  Scenario: Para o usuario Medico logout com sucesso
-    Given Browse to web site "https://csi-covid-265c4.web.app/"
+  Scenario: Para o usuario Medico - Logout com sucesso
+    Given Browse to web site "https://csi-covid.web.app/"
     And I press the "login-button"
-    And I press the "medico-button"
     And I enter "testemedicocovid@gmail.com" in "email-login-input"
     And I enter "Teste123" in "password-login-input"
     And I press the "entrar-button"
@@ -22,10 +21,9 @@ Feature: Logout(Medico_e_Pesquisador)
     And I press the "saida-button"
     Then I see "Entrar" written on the requested page.id:"login-button"
 
-  Scenario: Para o usuario Pesquisador logout com sucesso
-    Given Browse to web site "https://csi-covid-265c4.web.app/"
+  Scenario: Para o usuario Pesquisador - logout com sucesso
+    Given Browse to web site "https://csi-covid.web.app/"
     And I press the "login-button"
-    And I press the "pesquisador-button"
     And I enter "testepesquisadorcovid@gmail.com" in "email-login-input"
     And I enter "Teste123" in "password-login-input"
     And I press the "entrar-button"
