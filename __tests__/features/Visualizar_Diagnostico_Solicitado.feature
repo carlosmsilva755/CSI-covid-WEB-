@@ -4,10 +4,9 @@ Para visualizar o diagnóstico do um paciente.
 Eu, como um Médico
 Gostaria de buscar através de um código único, o diagnóstico realizado e visualizar as informações.
 
-  Scenario: Para o usuario Medico
+  Scenario: Para o usuario Medico - Visualizar_Diagnostico_Solicitado
     Given Browse to web site "https://csi-covid.web.app/"
     And I press the "login-button"
-    And I press the "medico-button"
     And I enter "testemedicocovid@gmail.com" in "email-login-input"
     And I enter "Teste123" in "password-login-input"
     And I press the "entrar-button"

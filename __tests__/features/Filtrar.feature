@@ -5,10 +5,9 @@ Eu, como um Médico
 Gostaria de visualizar somente os diagnóstico referente a cada classificação..
 Critérios de aceitação: O sistema deve retornar somente os diagnósticos de um tipo de classificação.
 
-  Scenario: Para usuario medico ---- Filtrando por Covid
+  Scenario: Para usuario medico - Filtrando por Covid
     Given Browse to web site "https://csi-covid.web.app/"
     And I press the "login-button"
-    And I press the "medico-button"
     And I enter "testemedicocovid@gmail.com" in "email-login-input"
     And I enter "Teste123" in "password-login-input"
     And I press the "entrar-button"
@@ -25,10 +24,9 @@ Critérios de aceitação: O sistema deve retornar somente os diagnósticos de u
     And I press the "saida-button"
     Then I see "Entrar" written on the requested page.id:"login-button"
 
-  Scenario: Para usuario medico ---- Filtrando por Pneumonia
+  Scenario: Para usuario medico - Filtrando por Pneumonia
     Given Browse to web site "https://csi-covid.web.app/"
     And I press the "login-button"
-    And I press the "medico-button"
     And I enter "testemedicocovid@gmail.com" in "email-login-input"
     And I enter "Teste123" in "password-login-input"
     And I press the "entrar-button"

@@ -8,10 +8,10 @@ const path = require('path');
 
 const short_time = 1000
 const long_time = 5000
-const very_long_time = 30000
+const very_long_time = 40000
 var codigo_salvo 
 var codigo_deletado
-
+var value_salvo2
 
 Given(/^Browse to web site "([^"]*)"$/, async function (url) {
     await driver.get(url);
@@ -92,7 +92,7 @@ Then("if I'm on the page {string}, the login has not yet occurred", async functi
 Given("I create an email {string} and write in {string}", async function (arg1, arg2) {
     await driver.sleep(short_time);
     let randomnumber = Math.floor(Math.random() * 1000);
-    let email = arg1 + "@gmail" + randomnumber + ".com";
+    let email = arg1 + randomnumber +"@gmail" +  ".com";
     await driver.findElement({ id: arg2 }).sendKeys(email);
 });
 
@@ -101,6 +101,7 @@ Given("I see {string} written on the requested page.id:{string}", async function
     const text = await driver.findElement({ id: arg2 }).getText();
     console.log(text)
     assert.equal(arg1, text)
+    await driver.sleep(short_time)
 });
 
 Given("I see {string} written on the requested page.css:{string}", async function (arg1, arg2) {
@@ -159,3 +160,41 @@ assert.equal(arg1, resultado)
 });
 
 
+Given("I see {string} written on the requested pagecc.id:{string}", async function (arg1, arg2) {
+    await driver.wait(until.elementLocated(By.id(arg2)), very_long_time);
+    const text = await driver.findElement({ id: arg2 }).getAttribute("value");
+    console.log(text)
+    assert.equal(arg1, text)
+});
+
+
+
+Given("I save the value of the diagnostic input fields:{string}, {string},{string},{string} , {string} ,{string}and {string}", async function (arg1, arg2, arg3, arg4, arg5, arg6, arg7) {
+    await driver.wait(until.elementLocated(By.id(arg2)), very_long_time);
+    const text = await driver.findElement({ id: arg2 }).getText();
+    console.log(text)
+    assert.equal(arg1, text)
+});
+
+Given("I clear the field {string}", async function (arg1) {
+    await driver.sleep(short_time)
+    await driver.clearValue({ id: arg1 });
+
+});
+    
+
+
+Given("I save the value of the information in a variable.id{string}", async function (arg1) {
+    await driver.wait(until.elementLocated(By.id(arg1)), very_long_time);
+    var nova_Tela = await driver.findElement({ id: arg1 }).getAttribute("value").then((value_salvo1) => {
+        console.log(value_salvo1)
+        value_salvo2 = value_salvo1
+    })
+});
+
+
+Given("I enter the value saved in {string}", async function (arg1) {
+    await driver.wait(until.elementLocated(By.id(arg1)), very_long_time);
+   await driver.sleep(short_time)
+    await driver.findElement({ id: arg1 }).sendKeys(value_salvo2);
+});
