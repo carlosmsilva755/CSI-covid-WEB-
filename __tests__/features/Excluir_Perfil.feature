@@ -1,5 +1,5 @@
 Feature: Excluir_Perfil
-# História de Usuários
+História de Usuários
 
 **Para** excluir minha conta
 
