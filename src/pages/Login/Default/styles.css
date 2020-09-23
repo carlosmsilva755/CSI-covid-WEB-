@@ -95,3 +95,7 @@ path:hover{
 .less-mrgtop{
     margin-top: 10px;
 }
+
+.login-recaptcha{
+    margin: 6px;
+}

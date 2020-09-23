@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import TextField from '@material-ui/core/TextField'
 import { withRouter, useHistory } from 'react-router-dom'
 import { compose } from 'recompose'
+import Recaptcha from 'react-recaptcha'
+
+import TextField from '@material-ui/core/TextField'
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 import loginImage from '../../../assets/Images/loginImage.svg'
@@ -39,6 +41,7 @@ function SignInFormBase(props){
     const[clicked, setClicked] = useState(false)
 
     const[loginError, setLoginError] = useState(false)
+    const[isVerified, setIsVerified] = useState(true)
 
     const _history = useHistory()
 
@@ -141,6 +144,20 @@ function SignInFormBase(props){
         }
 
     }
+
+    function recaptchaLoaded(){
+        console.log('captcha loaded')
+        setIsVerified(false)
+    }
+
+    function verifyCallback(response){
+        setIsVerified(true)//////////
+    }
+
+    function expiredCallback(){
+        setIsVerified(false)/////////
+    }
+
     return(
         <AuthUserContext.Consumer>
         {   authUser => !authUser || loginError?
@@ -176,7 +193,23 @@ function SignInFormBase(props){
                         
                         <a id='esqueceu-senha-button' className='text-fgtPassword' href="/reset-doc">Esqueceu sua senha?</a> <br/>
 
-                        <button id='entrar-button'className='button less-mrgtop' type='submit' disabled={clicked}>
+                        <div className='login-recaptcha'>
+                            <Recaptcha
+                                sitekey="6LfAuM8ZAAAAABmqnUi4X3gPZUfB8NsvClbBPxMO"
+                                render="explicit" 
+                                hl="pt-BR"
+                                onloadCallback={recaptchaLoaded}
+                                verifyCallback={verifyCallback}
+                                expiredCallback={expiredCallback}
+                            />
+                        </div>
+
+                        <button 
+                            id='entrar-button'
+                            className='button less-mrgtop' 
+                            type='submit' 
+                            disabled={clicked || !isVerified}
+                        >
                             {clicked && !error ? 
                                 <CircularProgress color='primary' size={20} /> 
                                 : 'Entrar'
