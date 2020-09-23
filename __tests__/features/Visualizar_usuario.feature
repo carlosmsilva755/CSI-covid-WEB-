@@ -37,9 +37,9 @@ Critérios de aceitação: Ter os dados salvos no sistema.
     And I press the "logout-button"
     And I press the "perfil-button"
     And I see "Perfil" written on the requested page:xpath'//*[@id="root"]/div/div/div[1]/h1'
-    And I see "nome_pesquisador" written on the requested page.id:"name-profile-label"
-    And I see "testepesquisadorcovid@gmail.com" written on the requested page.id:"email-profile-label"
-    And I see "especialidade_pesquisador" written on the requested page.id:"info-profile-label"
+    And I see "nome_pesquisador" written on the requested pagecc.id:"name-profile"
+    And I see "testepesquisadorcovid@gmail.com" written on the requested pagecc.id:"email-profile"
+    And I see "especialidade_pesquisador" written on the requested pagecc.id:"info-profile"
     And I press the "logout-button"
     And I press the "sair-button"
     Then I press the "saida-button"
