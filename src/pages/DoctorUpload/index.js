@@ -14,7 +14,8 @@ import { AuthUserContext, withAuthorization } from '../../contexts/Session'
 import ImageContext from '../../contexts/Image/index'
 
 const DoctorUpload = (props) => { 
-    const filterOptions = [{"Filter":"Covid-19"}, {"Filter":"Pneumonia"}, {"Filter":"Normal"}]
+    const filterOptions = [{"Filter":"Covid-19"}, {"Filter":"Pneumonia"}, {"Filter":"Normal"}, {"Filter":"Todos"}]
+
     const width = window.innerWidth
     const { setImageV } = useContext(ImageContext)
 
@@ -182,6 +183,7 @@ const DoctorUpload = (props) => {
                         setPages(response.data.diagnoses.pages)
                         // console.log(response.data.diagnoses.docs);
                         setTimeout(()=>setDisable(false), 1000)
+                        setTimeout(()=>setDisableSelect(false), 1500)
                     }).catch(error=>{
                         console.log(error)
                     })
@@ -233,10 +235,17 @@ const DoctorUpload = (props) => {
                                         onChange={event=>{
                                             setFilter(event.target.value)
                                             setDisableSelect(true)
-                                            setIsFiltering(true)
+                                            if(event.target.value === "Todos"){
+                                                setIsFiltering(false)
+                                                localStorage.removeItem('@currentpageFilter')
+                                                console.log('TODOS');
+                                            }
+                                            else{
+                                                setIsFiltering(true)
+                                                localStorage.setItem('@currentpageFilter', 1)
+                                            }
                                             setCurrentPageFilter(1)
-                                            localStorage.setItem('@currentpageFilterUp', 1)
-                                            localStorage.setItem('@filterNumberUp', event.target.value)
+                                            localStorage.setItem('@filterNumber', event.target.value)
                                         }}
                                     >
                                         {filterOptions.map((option) => (

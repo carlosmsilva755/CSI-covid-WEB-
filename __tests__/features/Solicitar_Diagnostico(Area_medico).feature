@@ -5,10 +5,9 @@ Eu, como um Médico
 Gostaria de inserir os dados anonimizados e a foto do raio x do paciente para avaliação.
 Critérios de aceitação: O sistema deve identificar o local onde está sendo solicitado o diagnóstico.
 
-  Scenario: Para o usuario Medico
+  Scenario: Para o usuario Medico - Solicitar_Diagnostico_com_Sucesso
     Given Browse to web site "https://csi-covid.web.app/"
     And I press the "login-button"
-    And I press the "medico-button"
     And I enter "testemedicocovid@gmail.com" in "email-login-input"
     And I enter "Teste123" in "password-login-input"
     And I press the "entrar-button"

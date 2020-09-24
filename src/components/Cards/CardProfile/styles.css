@@ -1,0 +1,57 @@
+#profile-card-admin{
+    width: 256px;
+    /* height: 127px; */
+
+    border: 1px solid #5B656F;
+    box-sizing: border-box;
+    border-radius: 4px;
+
+    background-color: white;
+
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 14px;        
+    color: #313B44;
+}
+
+.profile-card-header{
+    display: grid;
+
+    grid-template-areas: 'text op';
+    grid-template-columns: 85% 15%;
+}
+
+.profile-card-header-text{
+    grid-area: text;
+
+    margin: 0;
+    margin-left: 16px;
+
+}
+.header-profile-text-small{
+    font-size: 12px;
+    margin-top: -10px;
+    color: #525557;
+    font-weight: 500;
+}
+
+.profile-card-header-options{
+    grid-area: op;
+    margin-top: 16px;
+}
+
+
+.profile-card-header-name{
+    margin-left: 16px;
+    margin-top: 1px;
+    text-transform: uppercase;
+}
+
+.profile-card-header-email{
+    margin-left: 16px;
+    font-weight: 500;
+    margin-top: -5px;
+    font-size: 14px;
+    width: 230px;
+}

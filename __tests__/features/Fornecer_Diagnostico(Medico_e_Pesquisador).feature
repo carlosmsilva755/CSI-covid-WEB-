@@ -15,10 +15,9 @@ Eu, como um Pesquisador
 Gostaria de inserir os metadados anonimizados e fazer o upload da foto do raio x dessa pessoa.
 Critérios de aceitação: Quando o usuário estiver na página inicial do aplicativo Mobile deve ter a opção para solicitar o diagnóstico de forma rápida e acessível.
 
-  Scenario Outline: Para o usuario Medico
+  Scenario Outline: Para o usuario Medico - Fornecer Diagnostico
     Given Browse to web site "<site-csi>"
     And I press the "login-button"
-    And I press the "<medico-button>"
     And I enter "<email_user>" in "<email-login-input>"
     And I enter "<user_password>" in "<password-login-input>"
     And I press the "<enter-button>"
@@ -46,15 +45,13 @@ Critérios de aceitação: Quando o usuário estiver na página inicial do aplic
     And I press the "sair-button"
     And I press the "saida-button"
     Then I see "Entrar" written on the requested page.id:"login-button"
-
     Examples: 
-      | site-csi                         | medico-button | email_user                 | email-login-input | user_password | password-login-input | enter-button  | Médico | medico-perfil | fornecidos-button | novo-button | estado-select | estado-option                     | cidade-select | cidade-option                    | sexo-select | sexo-option                      | idade-input | idade-info | temp-input | temp-info | sat_ox-input | sat-info | info-select | info-send | continuar-button | image-upload | diagnostic-button        | diagnostic-provided              | fazer-upload     | confirmar-button | enviar-diagnostico-button | confirmar-button |
-      | https://csi-covid-265c4.web.app/ | medico-button | testemedicocovid@gmail.com | email-login-input | Teste123      | password-login-input | entrar-button | Médico | medico-perfil | fornecidos-button | novo-button | estado-select | .MuiButtonBase-root:nth-child(11) | cidade-select | .MuiButtonBase-root:nth-child(6) | sexo-select | .MuiButtonBase-root:nth-child(1) | idade-input | 25         | temp-input | 38        | sat_ox-input | 98       | info-select | Teste-123 | continuar-button | image-upload | outlined-select-currency | .MuiButtonBase-root:nth-child(1) | solicitar-button | confirmar-button | imagem-button             | imagem-button    |
+      | site-csi                   | medico-button | email_user                 | email-login-input | user_password | password-login-input | enter-button  | Médico | medico-perfil | fornecidos-button | novo-button | estado-select | estado-option                     | cidade-select | cidade-option                    | sexo-select | sexo-option                      | idade-input | idade-info | temp-input | temp-info | sat_ox-input | sat-info | info-select | info-send | continuar-button | image-upload | diagnostic-button        | diagnostic-provided              | fazer-upload     | confirmar-button | enviar-diagnostico-button | confirmar-button |
+      | https://csi-covid.web.app/ | medico-button | testemedicocovid@gmail.com | email-login-input | Teste123      | password-login-input | entrar-button | Médico | medico-perfil | fornecidos-button | novo-button | estado-select | .MuiButtonBase-root:nth-child(11) | cidade-select | .MuiButtonBase-root:nth-child(6) | sexo-select | .MuiButtonBase-root:nth-child(1) | idade-input | 25         | temp-input | 38        | sat_ox-input | 98       | info-select | Teste-123 | continuar-button | image-upload | outlined-select-currency | .MuiButtonBase-root:nth-child(1) | solicitar-button | confirmar-button | imagem-button             | imagem-button    |
 
-  Scenario Outline: Para o usuario pesquisador
+  Scenario Outline: Para o usuario pesquisador - Curadoria de dados Pesquisador
     Given Browse to web site "<site-csi>"
     And I press the "login-button"
-    And I press the "<pesquisador-button>"
     And I enter "<email_user>" in "<email-login-input>"
     And I enter "<user_password>" in "<password-login-input>"
     And I press the "<enter-button>"
@@ -80,7 +77,6 @@ Critérios de aceitação: Quando o usuário estiver na página inicial do aplic
     And I press the "sair-button"
     And I press the "saida-button"
     Then I see "Entrar" written on the requested page.id:"login-button"
-
     Examples: 
-      | site-csi                         | pesquisador-button | email_user                      | email-login-input | user_password | password-login-input | enter-button  | Pesquisador | pesquisador-perfil | novo-button | estado-select | estado-option                     | cidade-select | cidade-option                    | sexo-select | sexo-option                      | idade-input | idade-info | temp-input | temp-info | sat_ox-input | sat-info | info-select | info-send | continuar-button | image-upload | diagnostic-button        | diagnostic-provided              | fazer-upload     | fornecer-diagnostico | confirmar-button | enviar-diagnostico-button |
-      | https://csi-covid-265c4.web.app/ | pesquisador-button | testepesquisadorcovid@gmail.com | email-login-input | Teste123      | password-login-input | entrar-button | Pesquisador | pesquisador-perfil | novo-button | estado-select | .MuiButtonBase-root:nth-child(11) | cidade-select | .MuiButtonBase-root:nth-child(6) | sexo-select | .MuiButtonBase-root:nth-child(1) | idade-input | 25         | temp-input | 38        | sat_ox-input | 98       | info-select | Teste-123 | continuar-button | image-upload | outlined-select-currency | .MuiButtonBase-root:nth-child(1) | solicitar-button | imagem-button        | confirmar-button | disponibilizar-button     |
+      | site-csi                   | pesquisador-button | email_user                      | email-login-input | user_password | password-login-input | enter-button  | Pesquisador | pesquisador-perfil | novo-button | estado-select | estado-option                     | cidade-select | cidade-option                    | sexo-select | sexo-option                      | idade-input | idade-info | temp-input | temp-info | sat_ox-input | sat-info | info-select | info-send | continuar-button | image-upload | diagnostic-button        | diagnostic-provided              | fazer-upload     | fornecer-diagnostico | confirmar-button | enviar-diagnostico-button |
+      | https://csi-covid.web.app/ | pesquisador-button | testepesquisadorcovid@gmail.com | email-login-input | Teste123      | password-login-input | entrar-button | Pesquisador | pesquisador-perfil | novo-button | estado-select | .MuiButtonBase-root:nth-child(11) | cidade-select | .MuiButtonBase-root:nth-child(6) | sexo-select | .MuiButtonBase-root:nth-child(1) | idade-input | 25         | temp-input | 38        | sat_ox-input | 98       | info-select | Teste-123 | continuar-button | image-upload | outlined-select-currency | .MuiButtonBase-root:nth-child(1) | solicitar-button | imagem-button        | confirmar-button | disponibilizar-button     |

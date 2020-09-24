@@ -8,10 +8,9 @@ GOSTARIA de visualizar o diagnóstico e excluir as informações registradas.
 
 Critérios de aceitação: O sistema deve retornar que essa operação não poderá ser desfeita estando o médico ciente. Pontos: 5
 
-  Scenario: Para o usuario Medico 
+  Scenario: Para o usuario Medico - Excluir_Diagnostico_com_Sucesso
     Given Browse to web site "https://csi-covid.web.app/"
     And I press the "login-button"
-    And I press the "medico-button"
     And I enter "testemedicocovid@gmail.com" in "email-login-input"
     And I enter "Teste123" in "password-login-input"
     And I press the "entrar-button"
