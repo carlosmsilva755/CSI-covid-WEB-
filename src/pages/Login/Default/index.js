@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { withRouter, useHistory } from 'react-router-dom'
 import { compose } from 'recompose'
-import Recaptcha from 'react-recaptcha'
+// import Recaptcha from 'react-recaptcha'
 
 import TextField from '@material-ui/core/TextField'
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -11,7 +11,6 @@ import PasswordField from '../../../components/Inputs/Password/index'
 import { withFirebase } from '../../../contexts/Firebase'
 import { AuthUserContext } from '../../../contexts/Session'
 import './styles.css'
-
 
 const SignInPage = () => (
     <div id="sign-in-page">
@@ -41,7 +40,7 @@ function SignInFormBase(props){
     const[clicked, setClicked] = useState(false)
 
     const[loginError, setLoginError] = useState(false)
-    const[isVerified, setIsVerified] = useState(true)
+    // const[isVerified, setIsVerified] = useState(true)//mudar o index.html
 
     const _history = useHistory()
 
@@ -145,18 +144,18 @@ function SignInFormBase(props){
 
     }
 
-    function recaptchaLoaded(){
-        console.log('captcha loaded')
-        setIsVerified(false)
-    }
+    // function recaptchaLoaded(){
+    //     console.log('captcha loaded')
+    //     setIsVerified(false)
+    // }
 
-    function verifyCallback(response){
-        setIsVerified(true)//////////
-    }
+    // function verifyCallback(response){
+    //     setIsVerified(true)//////////
+    // }
 
-    function expiredCallback(){
-        setIsVerified(false)/////////
-    }
+    // function expiredCallback(){
+    //     setIsVerified(false)/////////
+    // }
 
     return(
         <AuthUserContext.Consumer>
@@ -193,7 +192,7 @@ function SignInFormBase(props){
                         
                         <a id='esqueceu-senha-button' className='text-fgtPassword' href="/reset-doc">Esqueceu sua senha?</a> <br/>
 
-                        <div className='login-recaptcha'>
+                        {/* <div className='login-recaptcha'>
                             <Recaptcha
                                 sitekey="6LfAuM8ZAAAAABmqnUi4X3gPZUfB8NsvClbBPxMO"
                                 render="explicit" 
@@ -202,26 +201,35 @@ function SignInFormBase(props){
                                 verifyCallback={verifyCallback}
                                 expiredCallback={expiredCallback}
                             />
-                        </div>
+                        </div> */}
 
                         <button 
                             id='entrar-button'
                             className='button less-mrgtop' 
                             type='submit' 
-                            disabled={clicked || !isVerified}
+                            disabled={clicked}//disabled={clicked || !isVerified}
                         >
                             {clicked && !error ? 
                                 <CircularProgress color='primary' size={20} /> 
                                 : 'Entrar'
                             }
                         </button>
-                        <button id='inicial-button'className='button-back btn-marg' onClick={handleBack}>Página incial</button>
+
+                        <button 
+                            id='inicial-button'
+                            className='button-back btn-marg'
+                            onClick={handleBack}
+                        >Página incial</button>
 
                     </div>
 
                     <div className='choose-profile'>
-                        <p className='text'>É um médico? <a id='cadastre-medico-button'className='text-link' href="/create-doc">Cadastre-se aqui</a> </p>
-                        <p className='text-login'>É um pesquisador? <a id='cadastre-pesquisador-button' className='text-link' href="/create-res">Cadastre-se aqui</a> </p>
+                        <p className='text'>É um médico? 
+                            <a id='cadastre-medico-button'className='text-link' href="/create-doc">Cadastre-se aqui</a>
+                        </p>
+                        <p className='text-login'>É um pesquisador? 
+                            <a id='cadastre-pesquisador-button' className='text-link' href="/create-res">Cadastre-se aqui</a> 
+                        </p>
                     </div>
                 </form>
             </div>:  userAlreadyLogged()
