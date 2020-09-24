@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { withRouter, useHistory } from 'react-router-dom'
 import { compose } from 'recompose'
-// import Recaptcha from 'react-recaptcha'
+import Recaptcha from 'react-recaptcha'
 
 import TextField from '@material-ui/core/TextField'
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -14,7 +14,7 @@ import './styles.css'
 
 const SignInPage = () => (
     <div id="sign-in-page">
-      <SignInForm />
+        <SignInForm />
     </div>
 )
 
@@ -40,7 +40,8 @@ function SignInFormBase(props){
     const[clicked, setClicked] = useState(false)
 
     const[loginError, setLoginError] = useState(false)
-    // const[isVerified, setIsVerified] = useState(true)//mudar o index.html
+    const[showButton, setShowButton] = useState(false)
+    const[isVerified, setIsVerified] = useState(true)//mudar o index.html
 
     const _history = useHistory()
 
@@ -89,8 +90,8 @@ function SignInFormBase(props){
                         props.history.push('/researcherImages')
                     }
                     else if (!!idTokenResult.claims.doctor){
-                       localStorage.setItem('@docusr_tkn',idTokenResult.token)
-                       props.history.push('/medicalRecord')
+                        localStorage.setItem('@docusr_tkn',idTokenResult.token)
+                        props.history.push('/medicalRecord')
                     }
                 }
                 
@@ -144,18 +145,20 @@ function SignInFormBase(props){
 
     }
 
-    // function recaptchaLoaded(){
-    //     console.log('captcha loaded')
-    //     setIsVerified(false)
-    // }
+    function recaptchaLoaded(){
+        console.log('captcha loaded')
+        setIsVerified(false)
+    }
 
-    // function verifyCallback(response){
-    //     setIsVerified(true)//////////
-    // }
+    function verifyCallback(response){
+        setIsVerified(true)//////////
+        setShowButton(true)
+    }
 
-    // function expiredCallback(){
-    //     setIsVerified(false)/////////
-    // }
+    function expiredCallback(){
+        setIsVerified(false)/////////
+        setShowButton(false)
+    }
 
     return(
         <AuthUserContext.Consumer>
@@ -192,7 +195,7 @@ function SignInFormBase(props){
                         
                         <a id='esqueceu-senha-button' className='text-fgtPassword' href="/reset-doc">Esqueceu sua senha?</a> <br/>
 
-                        {/* <div className='login-recaptcha'>
+                        <div className='login-recaptcha'>
                             <Recaptcha
                                 sitekey="6LfAuM8ZAAAAABmqnUi4X3gPZUfB8NsvClbBPxMO"
                                 render="explicit" 
@@ -201,19 +204,21 @@ function SignInFormBase(props){
                                 verifyCallback={verifyCallback}
                                 expiredCallback={expiredCallback}
                             />
-                        </div> */}
+                        </div>
 
-                        <button 
-                            id='entrar-button'
-                            className='button less-mrgtop' 
-                            type='submit' 
-                            disabled={clicked}//disabled={clicked || !isVerified}
-                        >
-                            {clicked && !error ? 
-                                <CircularProgress color='primary' size={20} /> 
-                                : 'Entrar'
-                            }
-                        </button>
+                        {showButton ? 
+                            <button 
+                                id='entrar-button'
+                                className='button less-mrgtop' 
+                                type='submit' 
+                                disabled={clicked || !isVerified}
+                            >
+                                {clicked && !error ? 
+                                    <CircularProgress color='primary' size={20} /> 
+                                    : 'Entrar'
+                                }
+                            </button> : null
+                        }
 
                         <button 
                             id='inicial-button'
@@ -225,10 +230,10 @@ function SignInFormBase(props){
 
                     <div className='choose-profile'>
                         <p className='text'>É um médico? 
-                            <a id='cadastre-medico-button'className='text-link' href="/create-doc">Cadastre-se aqui</a>
+                            <a id='cadastre-medico-button'className='text-link' href="/create-doc"> Cadastre-se aqui</a>
                         </p>
                         <p className='text-login'>É um pesquisador? 
-                            <a id='cadastre-pesquisador-button' className='text-link' href="/create-res">Cadastre-se aqui</a> 
+                            <a id='cadastre-pesquisador-button' className='text-link' href="/create-res"> Cadastre-se aqui</a> 
                         </p>
                     </div>
                 </form>
@@ -242,7 +247,7 @@ const SignInForm = compose(
     withRouter,
     withFirebase,
 )(SignInFormBase);
-  
+
 export default SignInPage;
-  
+
 export { SignInForm };
