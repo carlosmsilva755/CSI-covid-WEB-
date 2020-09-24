@@ -77,14 +77,43 @@ const Header = ({ firebase }) => {
                     <> 
                         <div className= "container-header-admin">
 
-                            <div className='container-header-buttons-admin'>                   
+                            <div className='container-header-buttons-admin'>
+
+                                <a 
+                                    id='backup-button'
+                                    href = '/admin-profiles' 
+                                    // className = {location.pathname ==='/admin-profiles' ?
+                                    //     "header-button1-clicked" : "header-button1"
+                                    // }
+                                    className = "header-button1"
+                                >Backup de dados</a>
+
+                                <a 
+                                    id='curadoria-button'
+                                    href = '/admin-profiles' 
+                                    // className = {location.pathname ==='/admin-profiles' ?
+                                    //     "header-button1-clicked" : "header-button1"
+                                    // }
+                                    className = "header-button1"
+                                >Curadoria de dados</a>
+
                                 <a 
                                     id='manage-profiles-button'
                                     href = '/admin-profiles' 
                                     className = {location.pathname ==='/admin-profiles' ?
-                                     "header-buttons-clicked" : "header-buttons-doc"
+                                        "header-button1-clicked" : "header-button1"
                                     }
                                 >Gestão de usuários</a>
+
+                                <a 
+                                    id='graficos-button'
+                                    href = '/admin-profiles' 
+                                    // className = {location.pathname ==='/admin-profiles' ?
+                                    //     "header-button1-clicked" : "header-button1"
+                                    // }
+                                    className = "header-button1"
+                                >Gráficos</a>
+                                
                             </div>
 
                         </div>
