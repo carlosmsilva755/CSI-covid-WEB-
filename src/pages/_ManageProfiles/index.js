@@ -133,10 +133,9 @@ const ManageProfiles = (props) => {
                     
                     <div>
                         <Header/>
-						<div className='container'>
-
+                        <div className= {width > 540 ? "container" : "container-responsive"}>
 						
-                          	<div className='container-navbars'>
+                            <div className= {width > 540 ? "container-navbars" : "container-navbars-responsive"}>
                               	<TextField id="pesquisar-nome-input" 
                                     label={error ? errorMsg:"Pesquisar"}
                                     size = "small" 
@@ -200,7 +199,7 @@ const ManageProfiles = (props) => {
                                 }
 							</div>
 
-							<div className={width > 540 ?'container-pagination':'container-pagination-responsive'}>  
+							<div className={width > 540 ?'container-pagination':'container-pagination-responsive-adm'}>  
 								<Pagination 
 									count={pages}
 									page={parseInt(currentPage)}

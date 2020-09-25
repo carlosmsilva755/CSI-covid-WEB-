@@ -4,7 +4,7 @@
     margin: 0 auto;
     display: grid;
     grid-template-areas: 'logo text1 profile';
-    grid-template-columns: 20% 60% 20%;
+    grid-template-columns: 15% 75% 10%;
 }
 
 .container-header-admin{
@@ -29,21 +29,23 @@
 @media screen and (max-width: 540px) {
     .container-nav-admin{
         width: auto;
+        grid-template-areas: 'logo profile';
+        grid-template-columns: 35% 65%;
     }
 }
 
 .container-header-buttons-admin{
     display: grid;
-    grid-template-areas: 'b1 b2 b3 b4';
-    grid-template-columns: 20% 20% 20% 20%;
+    grid-template-areas: 'b1 b2 b3 b4 b5 b6';
+    grid-template-columns: 15% 15% 17% 17% 15% 15%;
 
     align-items: center;
 
-    margin-left: 10%;
+    margin-left: 2%;
 
     font-family: Roboto;
     font-style: normal;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 500;
     letter-spacing: 0.15px;
 
@@ -55,9 +57,32 @@
     text-decoration: none;
     width: 70px;
 }
+
+.header-button-diag{
+    margin-top: 7px;
+    color: #C4C4C4;
+    text-decoration: none;
+    width: 90px;
+}
 .header-button1-clicked{
-    margin-top: 6px;
+    margin-top: 7px;
     color: #FF7D62;
     text-decoration: none;
     width: 70px;
+}
+
+#menu-button-adm{
+    transition: transform .2s;
+    margin-left: 170px;
+    display: flex;
+    align-items: center;
+    grid-area: profile;
+    justify-self: end;
+    margin-right: 40px;
+}
+.menu-icon-adm{
+    fill: white;
+}
+.menu-button-active-adm{
+    transform: rotateZ(90deg);
 }
