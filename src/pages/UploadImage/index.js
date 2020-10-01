@@ -128,7 +128,7 @@ const UploadImage = (props) => {
             setDisable(false)
             setLoading((prevLoading) => !prevLoading)
 
-            setAlertMessage('Essa imagem não é um Raio X ou não tem uma boa qualidade')
+            setAlertMessage('Não é uma imagem válida ou é de baixa qualidade!')
             setOpenAlert(true)
         })
         
