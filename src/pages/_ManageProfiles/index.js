@@ -77,7 +77,7 @@ const ManageProfiles = (props) => {
                 setError(true)
                 setErrorMsg('Nenhum nome encontrado')
             }else{
-                console.log(response);
+                console.log(response.data.users.docs);
                 
                 setProfiles(response.data.users.docs)
 				setCurrentPage(response.data.users.page)
@@ -106,7 +106,7 @@ const ManageProfiles = (props) => {
                         }
                     }
                 ).then(response=>{
-                    // console.log(response);
+                    console.log(response.data.users.docs)
                     setProfiles(response.data.users.docs)
                     setCurrentPage(response.data.users.page)
                     setPages(response.data.users.pages)

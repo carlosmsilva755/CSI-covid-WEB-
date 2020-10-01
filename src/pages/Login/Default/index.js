@@ -104,6 +104,7 @@ function SignInFormBase(props){
         .catch(error => {
             setErrorMessage(error)
             setClicked(false)
+            // console.log(error)
         })
     
         event.preventDefault();
@@ -114,7 +115,9 @@ function SignInFormBase(props){
     }
 
     function setErrorMessage(error){
-        // console.log(error);
+        if (error.code === 'auth/user-disabled') {
+            alert('Sua conta foi bloqueada, solicite o desbloqueio ao administrador')
+        }
         if(email===''){
             setErrorMsg('Você deve inserir um usuário')
             setError(true);
