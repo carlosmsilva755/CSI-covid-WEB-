@@ -28,6 +28,14 @@ function SignInFormBase(props){
         localStorage.removeItem('@filterNumberRes')
         localStorage.removeItem('@currentpageFilterUp')
         localStorage.removeItem('@filterNumberUp')
+        // console.log(process.env.REACT_APP_ENV)
+
+        if( process.env.REACT_APP_ENV === "dev"){
+            setShowButton(true) 
+            setIsVerified(true)
+        }else{ 
+            setShowButton(false) 
+        }
 
     }, [])
     
