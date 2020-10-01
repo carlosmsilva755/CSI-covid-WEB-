@@ -10,7 +10,7 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 
 import options from "../../../assets/Icons/options.svg"
 import { ReactComponent as Block } from '../../../assets/Icons/block.svg'
-// import { ReactComponent as Unblock } from '../../../assets/Icons/unblock.svg'
+import { ReactComponent as Unblock } from '../../../assets/Icons/unblock.svg'
 import api from '../../../services/api'
 import './styles.css'
  
@@ -20,6 +20,8 @@ export default ({profile})=>{
     const [showModal, setShowModal] = useState(false)
     const [disable, setDisable] = useState(false)
     const [error, setError] = useState(false)
+    const [isUnblocking, setIsUnblocking] = useState(false)
+    const [showModalUnblock, setShowModalUnblock] = useState(false)
 
     const [successModal, setSuccessModal] = useState(false)
     
@@ -42,7 +44,8 @@ export default ({profile})=>{
         ).then(response=>{
             setSuccessModal(true)
             setShowModal(false)
-
+            setShowModalUnblock(false)
+            // setIsUnblocking(false)
         }).catch(error=>{
             console.log(error.response.data)
             setDisable(false)
@@ -52,7 +55,7 @@ export default ({profile})=>{
 
     const handleBlock = async () => {
         setDisable(true)
-
+        setIsUnblocking(false)
         const data = {
             "uid":profile._id,
             "disabled":true
@@ -61,19 +64,21 @@ export default ({profile})=>{
         apiCall(data)
     }
 
-    // const handleUnblock = async () => {
-    //     setDisable(true)
+    const handleUnblock = async () => {
+        setDisable(true)
+        setIsUnblocking(true)
 
-    //     const data = {
-    //         "uid":profile._id,
-    //         "disabled":false
-    //     }
+        const data = {
+            "uid":profile._id,
+            "disabled":false
+        }
 
-    //     apiCall(data)
-    // }
+        apiCall(data)
+    }
 
     const handleCloseModal = () => {
         setShowModal(false)
+        setShowModalUnblock(false)
         setAnchorEl(null)
         setError(false)
     }
@@ -111,12 +116,16 @@ export default ({profile})=>{
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
             >
-                <MenuItem id='editar-button' onClick={e=>setShowModal(true)}>
-                    <Block/> &nbsp; Bloquear
-                </MenuItem>
-                {/* <MenuItem id='editar-button' onClick={handleBlock}>
-                    <Unblock/> &nbsp; Desbloquear
-                </MenuItem> */}
+                {
+                    profile.disabled ?
+                        <MenuItem id='editar-button' onClick={e=>{setShowModalUnblock(true)}}>
+                            <Unblock/> &nbsp; Desbloquear
+                        </MenuItem>
+                        :
+                        <MenuItem id='editar-button' onClick={e=>setShowModal(true)}>
+                            <Block/> &nbsp; Bloquear
+                        </MenuItem>
+                }
             
             </Menu>
 
@@ -144,12 +153,37 @@ export default ({profile})=>{
                 </DialogActions>
             </Dialog>
 
+            {/* modal de uncblock */}
+            <Dialog
+                open={showModalUnblock} 
+                //onClose={handleClose}
+                aria-labelledby="draggable-dialog-title" maxWidth='xs'
+            >
+                <DialogContent >{error ? 'Erro ao desbloquear usuário':'Deseja desbloquear esse usuário?'}</DialogContent>
+                <DialogActions>
+                    <button 
+                        id='cancelar-diag-button'
+                        onClick={handleCloseModal} 
+                        className='button-back' 
+                        disabled={disable}
+                    >Cancelar</button>
+                    <button 
+                        id='confirmar-excliur-button' 
+                        onClick={handleUnblock}
+                        className='button button-modal'
+                        disabled={disable}
+                    >
+                        {disable ? <CircularProgress color='primary' size={15} /> :'Desbloquear'}
+                    </button>
+                </DialogActions>
+            </Dialog>
+
             <Dialog
                 open={successModal} 
                 //onClose={handleClose}
                 aria-labelledby="draggable-dialog-title" maxWidth='xs'
             >
-                <DialogContent >Usuário bloqueado com sucesso</DialogContent>
+                <DialogContent >Usuário {!isUnblocking ? 'bloqueado':'desbloqueado'} com sucesso</DialogContent>
                 <DialogActions>
                     <button 
                         id='cancelar-diag-button'
@@ -158,6 +192,7 @@ export default ({profile})=>{
                             setShowModal(false)
                             setDisable(false)
                             setAnchorEl(null)
+                            setShowModalUnblock(false)
                         }} 
                         className='button-back' 
                     >Fechar</button>
