@@ -19,7 +19,7 @@ Given(/^Browse to web site "([^"]*)"$/, async function (url) {
 });
 
 Given("I press the {string}", async function (arg1) {
-    await driver.sleep(short_time)
+   
     await driver.wait(until.elementLocated(By.id(arg1)), very_long_time);
     await driver.findElement({ id: arg1 }).click();
     
