@@ -43,3 +43,8 @@ Critérios de aceitação: Ter os dados salvos no sistema.
     And I press the "logout-button"
     And I press the "sair-button"
     Then I press the "saida-button"
+
+  Scenario: Para quebrar o captcha
+    Given Browse to web site "https://csi-covid.web.app/login"
+    And I enter "Teste123" in "password-login-input" and I enter "testemedicocovid@gmail.com" in "email-login-input" and click"entrar-button"
+    And I see "Perfil" written on the requested page:xpath'//*[@id="root"]/div/div/div[1]/h1'

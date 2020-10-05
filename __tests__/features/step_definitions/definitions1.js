@@ -1,7 +1,8 @@
 const { Given, When, Then } = require('cucumber');
 const assert = require('assert');
 const { driver } = require('../support/web_driver');
-const { By, until } = require('selenium-webdriver');
+const { Builder,By,Keys,Key, until } = require('selenium-webdriver');
+
 const path = require('path');
 
 //// Your step definitions /////
@@ -18,9 +19,10 @@ Given(/^Browse to web site "([^"]*)"$/, async function (url) {
 });
 
 Given("I press the {string}", async function (arg1) {
+    await driver.sleep(short_time)
     await driver.wait(until.elementLocated(By.id(arg1)), very_long_time);
     await driver.findElement({ id: arg1 }).click();
-    await driver.sleep(short_time)
+    
 });
 
 Given("I press the {string}  and choose the file", async function (arg1) {
@@ -61,6 +63,7 @@ When("I see {string} written on the requested page", async function (arg1) {
 });
 
 When("I see {string} written on the requested page:xpath{string}", async function (arg1, arg2) {
+    await driver.sleep(short_time)
     await driver.wait(until.elementLocated(By.xpath(arg2)), very_long_time);
     const text = await driver.findElement({ xpath: arg2 }).getText();
     console.log(text)
@@ -68,9 +71,11 @@ When("I see {string} written on the requested page:xpath{string}", async functio
     
 });
 
-Given("I enter {string} in {string}", async function (arg1, arg2) {
+ Given("I enter {string} in {string}", async function (arg1, arg2) {
     await driver.sleep(short_time)
+    await driver.findElement({ id: arg2 })
     await driver.findElement({ id: arg2 }).sendKeys(arg1);
+     await driver.sleep(long_time)
 });
 
 
@@ -161,6 +166,7 @@ assert.equal(arg1, resultado)
 
 
 Given("I see {string} written on the requested pagecc.id:{string}", async function (arg1, arg2) {
+    await driver.sleep(short_time)
     await driver.wait(until.elementLocated(By.id(arg2)), very_long_time);
     const text = await driver.findElement({ id: arg2 }).getAttribute("value");
     console.log(text)
@@ -198,3 +204,35 @@ Given("I enter the value saved in {string}", async function (arg1) {
    await driver.sleep(short_time)
     await driver.findElement({ id: arg1 }).sendKeys(value_salvo2);
 });
+
+// Given("I enter {string} in {string} and I enter {string} in {string} and click{string}",  function (arg1, arg2,arg3,arg4,arg5) {
+    
+//        // JavaScript.window.location.reload()
+//     var document.getElementById('entrar-button').innerHTML = '<button id="entrar-button" class="button less-mrgtop" type="submit" enable="">Entrar</button>'
+//      driver.findElement({ id: arg2 }).sendKeys(arg1);
+//      driver.findElement({ id: arg5 }).click();
+//     driver.findElement({ id: arg4 }).sendKeys(arg3);
+//      driver.findElement({ id: arg5 }).click();
+// });
+
+
+Given("I clear and enter {string} in {string}", async function (arg1, arg2) {
+    let searchInput = driver.findElement(By.id(arg2));
+    // driver.sendKeys(Keys.BACK_SPACE); //do repeatedly, e.g. in while loop
+    // await driver.actions().keyDown(Key.BACK_SPACE).perform();/
+
+    await driver.actions().keyDown(Key.CONTROL).sendKeys('a').perform();
+    await driver.sleep(short_time)
+    await driver.findElement({ id: arg2 }).sendKeys(arg1);
+    await driver.actions().keyDown(Key.BACK_SPACE).perform();
+    await driver.findElement({ id: arg2 }).sendKeys(arg1);
+
+    // await driver.findElement({ id: arg2 }).sendKeys(arg1);
+    // await driver.actions().keyDown(Key.BACK_SPACE).sendKeys(arg1).perform();
+    // await driver.sleep(short_time)
+    // await driver.findElement({ id: arg2 }).sendKeys(arg1);
+    await driver.sleep(long_time)
+   
+    
+ 
+   });

@@ -14,9 +14,9 @@ Pontos:5
     And I enter "aaaaaa" in "password-login-input"
     And I press the "entrar-button"
     And I see "Gestão de usuários" written on the requested page.id:"manage-profiles-button"
-    And I enter "Teste_Medico123" in "pesquisar-nome-input"
+    And I enter "JOAO DA SILVA" in "pesquisar-nome-input"
     And I press the "pesquisar-button"
-    And I see "TESTE_MEDICO123" written on the requested page:xpath'/html/body/div[1]/div/div/div[2]/div/div/p[1]'
+    And I see "JOAO DA SILVA" written on the requested page.id:"profile-nome"
     And I press the "logout-button"
     And I press the "sair-button"
     And I press the "saida-button"

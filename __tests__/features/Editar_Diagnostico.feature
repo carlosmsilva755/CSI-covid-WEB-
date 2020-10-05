@@ -6,7 +6,7 @@ Eu, como um Médico
 Gostaria de visualizar somente os diagnóstico referente a cada classificação..
 Critérios de aceitação: O sistema deve retornar os dados enviados preenchendo todos os campos.
 
-  Scenario: Para o usuario Medico - Excluir_Diagnostico_com_Sucesso
+  Scenario: Para o usuario Medico - Editar_Diagnostico_com_Sucesso
     Given Browse to web site "https://csi-covid.web.app/"
     And I press the "login-button"
     And I enter "testemedicocovid@gmail.com" in "email-login-input"
