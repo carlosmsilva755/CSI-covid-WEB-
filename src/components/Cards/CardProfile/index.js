@@ -101,7 +101,7 @@ export default ({profile})=>{
                     </div>
                 </div>
 
-                <p className='profile-card-header-name'>{profile.name}</p>
+                <p id='profile-nome'className='profile-card-header-name'>{profile.name}</p>
                 <p className='profile-card-header-email'>{profile.email}</p>
                 {profile.CRM ? 
                     <p className='profile-card-header-email'>{profile.CRM}</p> 
@@ -183,7 +183,7 @@ export default ({profile})=>{
                 //onClose={handleClose}
                 aria-labelledby="draggable-dialog-title" maxWidth='xs'
             >
-                <DialogContent >Usuário {!isUnblocking ? 'bloqueado':'desbloqueado'} com sucesso</DialogContent>
+                <DialogContent id='bloquear-msg'>Usuário {!isUnblocking ? 'bloqueado':'desbloqueado'} com sucesso</DialogContent>
                 <DialogActions>
                     <button 
                         id='cancelar-diag-button'
