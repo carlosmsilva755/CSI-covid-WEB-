@@ -21,12 +21,12 @@ const SignUpPage = () => (
 
 function SignUpFormBase (props){
 
-    const[name, setName] = useState('s')
+    const[name, setName] = useState('')
     const[email, setEmail] = useState('')
-    const[CRM, setCRM] = useState('9999')
-    const[specialty,setSpecialty] = useState('9')
+    const[CRM, setCRM] = useState('')
+    const[specialty,setSpecialty] = useState('')
     const[password,setPassword] = useState('')
-    const[confirmPassword, setConfirmPassword] = useState('aaaaaa')
+    const[confirmPassword, setConfirmPassword] = useState('')
 
     const[error, setError] = useState(false)
     const[errorMsg, setErrorMsg] = useState('')
