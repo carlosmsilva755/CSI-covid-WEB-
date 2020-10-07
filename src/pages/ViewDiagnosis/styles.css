@@ -19,6 +19,10 @@
     margin: 0 auto;
     width: 607px;
 }
+.button-view-responsive{
+    margin-left: 360px;
+    margin: 0 auto;
+}
 
 .modal-text{
     font-size: 16px;
@@ -27,4 +31,18 @@
 .button-modal{
     width: 100px;
     margin-right: 5px;
+}
+
+
+.green-modal-diagnosis{
+    color: #50B600;
+    text-transform: uppercase;
+}
+.gray-modal-diagnosis{
+    color: #A1A1A1;
+    text-transform: uppercase;
+}
+.red-modal-diagnosis{
+    color: #EE4937;
+    text-transform: uppercase;
 }

@@ -14,17 +14,25 @@ const RegisterDiagnosis = () => {
 
     const history = useHistory()
     const sexo = [{"sexo":"Masculino"}, {"sexo":"Feminino"}]
-    
-    const[state,setState] = useState('')
-    const[city,setCity] = useState('')
-    const[sex,setSex] = useState('')
-    const[age,setAge] = useState('')
-    const[temp,setTemp] = useState('')
-    const[sat_ox,setSat_ox] = useState('')
-    const[info,setInfo] = useState('')
-    const[citiesArray, setCitiesArray] = useState([])
+
+    const [state,setState] = useState('')
+    const [city,setCity] = useState('')
+    const [sex,setSex] = useState('')
+    const [age,setAge] = useState('')
+    const [temp,setTemp] = useState('')
+    const [sat_ox,setSat_ox] = useState('')
+    const [info,setInfo] = useState('')
+    const [citiesArray, setCitiesArray] = useState([])
 
     useEffect( () =>{
+        localStorage.removeItem('@currentpage')
+        localStorage.removeItem('@currentpageFilter')
+        localStorage.removeItem('@filterNumber')
+        localStorage.removeItem('@currentpageFilterRes')
+        localStorage.removeItem('@filterNumberRes')
+        localStorage.removeItem('@currentpageFilterUp')
+        localStorage.removeItem('@filterNumberUp')
+        
         const data = localStorage.getItem('@form')
         if(data){
             const data_ = JSON.parse(data)
@@ -57,10 +65,15 @@ const RegisterDiagnosis = () => {
 
         history.push('/upload')
     }
+    
 
     function handleCancel(){
         localStorage.getItem('@isResearcher') ?
-            history.push('/researcherImages') : history.push('/medicalRecord')
+            history.push('/researcherImages') 
+            : 
+            localStorage.getItem('@justUpload') ? 
+                history.push('/doctorUpload')
+                : history.push('/medicalRecord')
 
         localStorage.removeItem('@form')
         localStorage.removeItem('@image')
@@ -84,7 +97,6 @@ const RegisterDiagnosis = () => {
     },[state])
 
     return(
-        // <TextField id="outlined-basic" label="Outlined" variant="outlined" />
         <AuthUserContext.Consumer> 
             {authUser =>
                 authUser ? 
@@ -96,7 +108,7 @@ const RegisterDiagnosis = () => {
                                 
                                 <form onSubmit = {handleContinue}>
                                     <div className='container-form'>
-                                        <h1 className="container-title">Solicitar diagnóstico</h1>
+                                        <h1 className="container-title">Dados do paciente</h1>
 
                                         <TextField 
                                             id="estado-select" 
@@ -218,7 +230,7 @@ const RegisterDiagnosis = () => {
                                         <br/><br/>
                                         <button id='continuar-button' type = "submit" className="button"> Continuar</button>
                                         <button id='cancelar-button'type = "button" className="button-back" onClick = {handleCancel}> Cancelar</button>
-
+                                        <br/><br/>
                                     </div>
                                 </form>
 

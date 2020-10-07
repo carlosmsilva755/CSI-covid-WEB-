@@ -38,24 +38,26 @@
 }
 
 .container-profile{
-    /* width: 32px;
-    height: 32px;
-    margin-left: 40px;
-    top: 8px; */
     margin-bottom: 4px;
     margin-top: 8px;
-    margin-left: 568px;
+    margin-left: 8px;
 }
 .header-buttons{
     font-family: Roboto;
     font-style: normal;
     font-size: 15px;
-    font-weight: bolder;
+    font-weight: 500;
     letter-spacing: 0.15px;
     color: #C4C4C4;
     text-decoration: none;
 }
-
+.header-identification-res{
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 100;
+    color: white;
+    margin-left: 400px;
+}
 a:link, a:visited {
     text-decoration: none;
     /* color: #EE4937; */

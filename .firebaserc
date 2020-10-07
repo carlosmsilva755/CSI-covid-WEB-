@@ -1,5 +1,6 @@
 {
   "projects": {
+    "staging": "csi-covid",
     "default": "csi-covid-265c4"
   }
 }

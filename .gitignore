@@ -30,3 +30,4 @@ excluirdps.js
 deploy.sh
 disableHostkeyChecking.sh
 updateAndRestart.sh
+excluir.js

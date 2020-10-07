@@ -40,29 +40,39 @@ header {
     color: #C4C4C4;
 }
 
-.container-header-prontuario{
+.container-header-prontuarios{
     /* position: relative; */
     margin-left: 54px;
-    margin-top: 15px;
+    margin-top: 7px;
+    width: 70px;
 }
 
-.container-profile{
-    /* width: 32px;
-    height: 32px;
-    margin-left: 40px;
-    top: 8px; */
+.container-profile-doc{
     margin-bottom: 4px;
     margin-top: 8px;
-    margin-left: 568px;
+    margin-left: 8px;
 }
-.header-buttons{
+.header-buttons-doc{
     font-family: Roboto;
     font-style: normal;
     font-size: 15px;
-    font-weight: bolder;
+    font-weight: 500;
     letter-spacing: 0.15px;
     color: #C4C4C4;
     text-decoration: none;
+}
+.header-buttons-clicked{
+    color: #FF7D62;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.header-identification{
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 100;
+    color: white;
+    margin-left: 400px;
 }
 
 a:link, a:visited {
@@ -70,7 +80,7 @@ a:link, a:visited {
     /* color: #EE4937; */
 }
 a:hover {
-	color: #EE4937;
+	color: #FF7D62;
 }
 a:active {
     text-decoration: none;

@@ -7,6 +7,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import loginImage from '../../../assets/Images/loginImage.svg'
 import PasswordField from '../../../components/Inputs/Password/index'
 import { withFirebase } from '../../../contexts/Firebase'
+import { AuthUserContext } from '../../../contexts/Session'
 import './styles.css'
 
 const SignInPage = () => (
@@ -25,11 +26,39 @@ function SignInFormBase(props){
     const[errorPasMsg, setErrorPasMsg] = useState('')
     const[clicked, setClicked] = useState(false)
 
+    const[loginError, setLoginError] = useState(false)
+
     const _history = useHistory()
+
+    function userAlreadyLogged(){
+
+        try {
+
+            props.firebase.auth.currentUser.getIdTokenResult()
+            .then((idTokenResult) => {
+                if (!!idTokenResult.claims.doctor) {
+                    console.log('IS DOC');
+                    props.history.push('/login');
+               }else{
+                   console.log('RES');
+                   localStorage.setItem('@resUsrTkn',idTokenResult.token)
+                   props.history.push('/researcherImages');
+                }
+            })
+            .catch((error) => {
+              console.log(error);
+            })
+
+        } catch (error) {
+            setLoginError(true)
+        }
+        
+    }
 
     function signOutDoctor(){
         props.firebase.doSignOut()
         alert('Realize login como médico')
+        props.history.push('/login')
     }
 
     const onSubmit = event => {
@@ -47,7 +76,10 @@ function SignInFormBase(props){
                 if (!!idTokenResult.claims.doctor) {
                     console.log('IS DOC');
                     signOutDoctor()
-               }else{console.log('RES');}
+               }else{
+                   console.log('RES');
+                   props.history.push('/researcherImages');
+                }
             })
             .catch((error) => {
               console.log(error);
@@ -59,7 +91,7 @@ function SignInFormBase(props){
             .catch(errorMessage => 
                 console.log("Auth token retrieval error: " + errorMessage)
             )
-            props.history.push('/researcherImages');
+            
         })
         .catch(error => {
             setErrorMessage(error)
@@ -70,7 +102,7 @@ function SignInFormBase(props){
     }
 
     function handleBack(){
-        _history.push('/')
+        _history.push('/login')
     }
     
     function setErrorMessage(error){
@@ -106,52 +138,55 @@ function SignInFormBase(props){
     }
 
     return(
-        
-        <div className='container-login'>
-            <form onSubmit={onSubmit}>
+        <AuthUserContext.Consumer>
+        {   authUser => !authUser || loginError?
+                <div className='container-login'>
+                    <form onSubmit={onSubmit}>
 
-                <img src={loginImage} alt="logo" className='login-image'/>
-                
-                <div className='inputs'>
+                        <img src={loginImage} alt="logo" className='login-image'/>
+                        
+                        <div className='inputs'>
 
-                    <TextField error={error}
-                        id="email-login-input" 
-                        label={error ? errorMsg :"Usuário"} 
-                        size = "small" 
-                        variant="outlined"
-                        className="input-fields "
-                        value ={email} 
-                        onChange={event => {
-                            setEmail(event.target.value);
-                            setError(false)
-                        }} 
-                    /> 
-                    <br/><br/>
+                            <TextField error={error}
+                                id="email-login-input" 
+                                label={error ? errorMsg :"Usuário"} 
+                                size = "small" 
+                                variant="outlined"
+                                className="input-fields "
+                                value ={email} 
+                                onChange={event => {
+                                    setEmail(event.target.value);
+                                    setError(false)
+                                }} 
+                            /> 
+                            <br/><br/>
 
-                    <PasswordField id='password-login'
-                        error ={errorPassword}
-                        setError={setErrorPas}
-                        errorMessage={errorPasMsg}
-                        password={password} 
-                        setPassword={setPassword} 
-                        classname='input-fields' 
-                        label='Senha'
-                    /> <br/>
+                            <PasswordField id='password-login'
+                                error ={errorPassword}
+                                setError={setErrorPas}
+                                errorMessage={errorPasMsg}
+                                password={password} 
+                                setPassword={setPassword} 
+                                classname='input-fields' 
+                                label='Senha'
+                            /> <br/>
 
-                    <a id='esqueceu-senha-button' className='text-fgtPassword' href="/reset-res">Esqueceu sua senha?</a>
+                            <a id='esqueceu-senha-button' className='text-fgtPassword' href="/reset-res">Esqueceu sua senha?</a>
+                            <br/>
+                            <button id='entrar-button'className='button' type='submit' disabled={clicked}>
+                                {clicked && !error ? 
+                                    <CircularProgress color='primary' size={20} /> 
+                                    : 'Entrar'
+                                }
+                            </button>
+                            <button id='voltar-button'className='button-back btn-marg' onClick={handleBack}>Voltar</button>
 
-                    <button id='entrar-button'className='button' type='submit'>
-                        {clicked && !error ? 
-                            <CircularProgress color='secondary' size={20} /> 
-                            : 'Entrar'
-                        }
-                    </button>
-                    <button id='voltar-button'className='button-back btn-marg' onClick={handleBack}>Voltar</button>
-
-                </div>
-            
-            </form>
-        </div>
+                        </div>
+                    
+                    </form>
+                </div> : userAlreadyLogged()
+        }
+        </AuthUserContext.Consumer>
     )
 }
 

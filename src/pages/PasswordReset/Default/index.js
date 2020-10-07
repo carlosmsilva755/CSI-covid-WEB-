@@ -8,7 +8,7 @@ export default ()=> {
     const _history = useHistory()
     
     function handleBack(){
-        _history.push('/')
+        _history.push('/login')
     }
 
     return(

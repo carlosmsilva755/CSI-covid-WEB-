@@ -5,7 +5,7 @@
 
 .container-title{
 
-    font-family: Open Sans;
+    font-family: Roboto;
     font-style: normal;
     font-weight: bold;
     font-size: 20px;
@@ -75,9 +75,9 @@
     border: none;
     margin-top: 32px;
 
-    font-family: Open Sans;
+    font-family: Roboto;
     font-style: normal;
-    font-weight: bold;
+    /* font-weight: 500; */
     font-size: 14px;
     line-height: 19px;
 
@@ -93,10 +93,10 @@
     border: none;
     margin-top: 32px;
 
-    font-family: Open Sans;
+    font-family: Roboto;
     font-style: normal;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 19px;
 
     letter-spacing: 0.4px;

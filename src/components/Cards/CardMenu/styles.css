@@ -8,29 +8,26 @@
     border: 1px solid #5B656F;
     box-sizing: border-box;
     border-radius: 4px;
+    /* cursor: pointer; */
 }
 
 .container-card-header{
-    display: flex;
-    flex-direction: row;
-    margin-top: 10px;
-    width: 100px;
-    height: 33px;
-    left: 16px;
-    top: 16px;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    grid-template-areas: 'id op';
+    /* left: 16px;
+    top: 16px; */
 }
-.card-id{
+.card-id-menu{
   
+    /* width: 150px; */
     margin-left: 16px;
-    font-family: Open Sans;
-    font-style: normal;
+    font-family: Roboto;
+    /* font-style: normal; */
     font-weight: bold;
-    font-size: 14px;
-    line-height: 18px;
+    font-size: 16px;
     
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.228765px;
+    grid-area: id;
     text-transform: uppercase;
         
     color: #313B44;
@@ -40,9 +37,9 @@
  
     margin-left: 16px;
     margin-top: 0;
-    font-family: Open Sans;
+    font-family: Roboto;
     font-style: normal;
-    font-weight: normal;
+    font-weight: 500;
     font-size: 10px;
     line-height: 14px;
     
@@ -50,17 +47,18 @@
         
     color: #313B44;
 }
-
-.card-options{
-    margin-left: 75px;
-    margin-top: 10px;
-    width: 24px;
-    height: 24px;
-    
-}
 .container-card-img{
-    /* flex-direction: column; */
+    cursor: pointer;
 }
+.card-options{
+    margin-left: 25px;
+    margin-top: 10px;
+    /* width: 24px; */
+    /* height: 24px; */
+    grid-area: op;
+    cursor: pointer;
+}
+
 .card-image{
     /* position: absolute; */
     /* display: block; */
@@ -70,7 +68,7 @@
     height: 160px;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 .card-diagnostic{
     /* position: absolute; */
@@ -78,9 +76,9 @@
     height: 19px;
     margin-left: 16px;
     margin-top: 7px;
-    font-family: Open sans;
-    font-style: normal;
-    font-weight: bold;
+    font-family: Roboto;
+    /* font-style: normal; */
+    font-weight: 600;
     font-size: 13.7259px;
     line-height: 18px;
     
