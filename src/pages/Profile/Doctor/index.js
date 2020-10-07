@@ -18,11 +18,13 @@ const DoctorProfile = (props) => {
     const [name, setName] = useState('')
     const [specialty,setSpecialty] = useState('')
     const [CRM, setCRM] = useState('')
+    const [UF, setUF] = useState('')
     const [isAuth, setIsAuth] = useState(' ')
 
     const [showModal, setShowModal] = useState(false)
     const [showModalConfirmation, setShowModalConfirmation] = useState(false)
     const [disable, setDisable] = useState(false)
+    const [updateError, setUpdateError] = useState(false)
 
     const [disableComponent, setDisableComponent] = useState(true)
 
@@ -45,6 +47,8 @@ const DoctorProfile = (props) => {
                     setEmail(response.data.doctor.email)
                     setSpecialty(response.data.doctor.specialty)
                     setCRM(response.data.doctor.CRM)
+                    setUF(response.data.doctor.UF)
+                    console.log(response.data);
                     setMount(!mount)
                 }).catch(error=>{
                     console.log(error);
@@ -88,11 +92,22 @@ const DoctorProfile = (props) => {
     }
 
     const handleUpdate = async () => {
-        
-        const data ={
-            name,
-            specialty,
-            CRM
+        let data
+
+        if(UF){
+            data ={
+                name,
+                specialty,
+                CRM,
+                UF
+            }
+        }else{
+            data = {
+                name,
+                specialty,
+                CRM,
+                "UF":" "
+            }
         }
 
         await api.put(`/doctor`, data,
@@ -104,7 +119,8 @@ const DoctorProfile = (props) => {
         ).then(()=>{
             setShowModalConfirmation(true)
         }).catch(()=>{
-
+            setUpdateError(true)
+            setShowModalConfirmation(true)
         })
     }
 
@@ -169,7 +185,7 @@ const DoctorProfile = (props) => {
                         >
                             <DialogContent>
                                 <p className='delete-modal-text'>
-                                    {'Dados alterados com sucesso!'}
+                                    {updateError?'Erro ao alterar dados':'Dados alterados com sucesso!'}
                                 </p>
                             </DialogContent>
                             <DialogActions>
