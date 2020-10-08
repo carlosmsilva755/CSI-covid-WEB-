@@ -24,6 +24,8 @@ const RegisterDiagnosis = () => {
     const [info,setInfo] = useState('')
     const [citiesArray, setCitiesArray] = useState([])
 
+    const [mount, setMount] = useState(false)
+
     useEffect( () =>{
         localStorage.removeItem('@currentpage')
         localStorage.removeItem('@currentpageFilter')
@@ -95,6 +97,26 @@ const RegisterDiagnosis = () => {
         setCitiesArray(citiesFiltered)
 
     },[state])
+
+    useEffect(() => {
+        if(!mount){
+
+            if(localStorage.getItem('UF')){
+                const UF = localStorage.getItem('UF')
+
+                for(let i =0 ; i < states.length ; i++){
+                    if(states[i].Sigla === UF){
+                        setState(states[i].Nome)
+                        break
+                    }
+                }
+
+                const county = localStorage.getItem('county')
+                setCity(county)
+            }
+            setMount(false)
+        }
+    },[mount])
 
     return(
         <AuthUserContext.Consumer> 
