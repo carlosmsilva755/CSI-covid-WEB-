@@ -134,17 +134,6 @@ function SignUpFormBase (props){
         specialty === '' ||
         state === '';
 
-    React.useEffect(() => {
-
-        navigator.geolocation.getCurrentPosition(location => {
-            // const { latitude, longitude } = location.coords;
-            console.log(location)
-        }, (err) => {
-            console.log(err);
-            console.log('nao aceitou');
-        });
-    })
-
     return(
         <form onSubmit={onSubmit}>
 

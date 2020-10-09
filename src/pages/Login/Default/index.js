@@ -10,6 +10,7 @@ import loginImage from '../../../assets/Images/loginImage.svg'
 import PasswordField from '../../../components/Inputs/Password/index'
 import { withFirebase } from '../../../contexts/Firebase'
 import { AuthUserContext } from '../../../contexts/Session'
+import api from '../../../services/api'
 import './styles.css'
 
 const SignInPage = () => (
@@ -36,6 +37,29 @@ function SignInFormBase(props){
         }else{ 
             setShowButton(false) 
         }
+
+        navigator.geolocation.getCurrentPosition(location => {
+            const { latitude, longitude } = location.coords
+
+            api.get(`/geo?lat=${latitude}&long=${longitude}`)
+            .then(response=>{
+                // console.log(response)
+
+                localStorage.setItem('UF', response.data.data.UF)
+                localStorage.setItem('county', response.data.data.county)
+
+            }).catch(error=>{
+                localStorage.removeItem('UF')
+                localStorage.removeItem('county')
+
+                console.log(error)
+            })
+
+        }, (err) => {
+            console.log(err)
+            localStorage.removeItem('UF')
+            localStorage.removeItem('county')
+        })
 
     }, [])
     
