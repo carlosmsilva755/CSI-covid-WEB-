@@ -37,7 +37,8 @@ function SignUpFormBase (props){
 
     const[clicked, setClicked] = useState(false)
 
-    const [state, setState] = useState('')
+    const [state, setState] = useState(localStorage.getItem('UF')?
+        localStorage.getItem('UF'): '')
 
     const history = useHistory()
 
