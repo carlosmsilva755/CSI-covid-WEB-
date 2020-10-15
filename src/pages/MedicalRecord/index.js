@@ -15,7 +15,7 @@ import ImageContext from '../../contexts/Image/index'
 
 const MedicalRecord = (props) => {
 
-    const filterOptions = [{"Filter":"Covid-19"}, {"Filter":"Pneumonia"}, {"Filter":"Normal"}, {"Filter":"Todos"}]
+    const filterOptions = [{"Filter":"Todos"}, {"Filter":"Covid-19"}, {"Filter":"Pneumonia"}, {"Filter":"Normal"}]
     const width = window.innerWidth
     const { setImageV } = useContext(ImageContext)
 

@@ -1,13 +1,16 @@
 import React, { useState } from 'react'
-import TextField from '@material-ui/core/TextField'
-import CircularProgress from '@material-ui/core/CircularProgress'
 import { withRouter, useHistory } from 'react-router-dom'
 import { compose } from 'recompose'
+
+import TextField from '@material-ui/core/TextField'
+import MenuItem from '@material-ui/core/MenuItem'
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 import loginImage from '../../../assets/Images/loginImage.svg'
 import PasswordField from '../../../components/Inputs/Password/index'
 import { withFirebase } from '../../../contexts/Firebase'
 import api from '../../../services/api'
+import states from '../../../utils/states-cities/estados'
 import './styles.css'
 
 const SignUpPage = () => (
@@ -29,8 +32,13 @@ function SignUpFormBase (props){
     const[errorMsg, setErrorMsg] = useState('')
     const[errorPassword, setErrorPas]= useState(false)
     const[errorPasMsg, setErrorPasMsg] = useState('')
+    const[errorCRM, setErrorCRM] = useState(false)
+    const[errorCRMmessage, setErrorCRMmessage] = useState('')
 
     const[clicked, setClicked] = useState(false)
+
+    const [state, setState] = useState(localStorage.getItem('UF')?
+        localStorage.getItem('UF'): '')
 
     const history = useHistory()
 
@@ -41,14 +49,15 @@ function SignUpFormBase (props){
             name,
             email,
             CRM,
-            specialty
+            specialty,
+            "UF":state,
         }
 
         setClicked(!clicked)
 
         await api.post('/doctor', data)
         .then(response => {
-            console.log(response)
+            // console.log(response)
             props.firebase
             .doSignInWithEmailAndPassword(email, password)
             .then(authUser => {
@@ -66,12 +75,11 @@ function SignUpFormBase (props){
             })
             .catch(error => {
                 setError(true);
-                console.log(error);
+                // console.log(error);
             });
 
         }).catch(error => {
-            handleErrors(error.response.data.message)
-            setError(true)
+            handleErrors(error)
             setClicked(false)
         })
     }
@@ -98,10 +106,23 @@ function SignUpFormBase (props){
     }
 
     function handleErrors(error){
-        console.log(error);
+        console.log(error)
 
-        if(error.error === 'invalid or malformed input: email'){
+        if(error.response.data.message === 'invalid or malformed input: email'){
+            setError(true)
             setErrorMsg('Email inválido')
+        }
+        if(error.response.data.message.message === 'The email address is already in use by another account.'){
+            setError(true)
+            setErrorMsg('Email já cadastrado')
+        }
+        if(error.response.data.message === 'CRM is invalid!'){
+            setErrorCRM(true)
+            setErrorCRMmessage('CRM inválido')
+        }
+        if(error.response.data.message === 'CRM has already been used!'){
+            setErrorCRM(true)
+            setErrorCRMmessage('CRM em uso')
         }
     }
 
@@ -111,7 +132,8 @@ function SignUpFormBase (props){
         email === '' ||
         name === '' ||
         CRM === '' ||
-        specialty === '';
+        specialty === '' ||
+        state === '';
 
     return(
         <form onSubmit={onSubmit}>
@@ -128,7 +150,7 @@ function SignUpFormBase (props){
                     onChange={event => setName(event.target.value)} 
                     /> <br/> <br/>
                 
-                <TextField id="email-input"
+                <TextField id="email-input-register"
                     error={error} 
                     label={error ? errorMsg:"Email"} 
                     size = "small" 
@@ -141,13 +163,37 @@ function SignUpFormBase (props){
                     }} 
                     /> <br/> <br/>
 
+                <TextField 
+                    id="estado-select" 
+                    size="small" 
+                    select 
+                    label="Estado"
+                    className="input-fields-register align-left" 
+                    variant="outlined" 
+                    value ={state} 
+                    onChange={event => {
+                        setState(event.target.value)
+                    }}
+                >
+                    {states.map((option) => (
+                        <MenuItem key={option.Nome} value={option.Sigla}>
+                        {option.Nome}
+                        </MenuItem>
+                    ))
+                    }
+                </TextField> <br/> <br/>
+
                 <TextField id="crm-input" 
-                    label="CRM" 
+                    error={errorCRM} 
+                    label={errorCRM ? errorCRMmessage:"CRM"}
                     size = "small" 
                     variant="outlined"
                     className="input-fields-register"
                     value ={CRM} 
-                    onChange={event => setCRM(event.target.value)} 
+                    onChange={event => {
+                        setCRM(event.target.value)
+                        setErrorCRM(false)
+                    }} 
                     /> <br/> <br/>
 
                 <TextField id="specialty-input" 
@@ -159,7 +205,7 @@ function SignUpFormBase (props){
                     onChange={event => setSpecialty(event.target.value)} 
                     /> <br/> <br/>
 
-                <PasswordField id='password'
+                <PasswordField id='password-register'
                     error ={errorPassword}
                     errorMessage={errorPasMsg}
                     setError={setErrorPas}

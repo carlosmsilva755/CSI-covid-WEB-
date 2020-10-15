@@ -13,7 +13,7 @@ Critérios de aceitação: O sistema deve retornar somente os diagnósticos de u
     And I press the "entrar-button"
     And I see "Médico" written on the requested page.id:"medico-perfil"
     And I press the "outlined-select-currency"
-    And I press the option ".MuiPaper-root:nth-child(3) .MuiButtonBase-root:nth-child(1)"
+    And I press the option ".MuiPaper-root:nth-child(3) .MuiButtonBase-root:nth-child(2)"
     And I click  in the first  diagnostic image "#container-card-menu > div.container-card-img > img"
     And I see the diagnostic code'card-id'and save it
     And I see "codigo_salvo"
@@ -32,7 +32,7 @@ Critérios de aceitação: O sistema deve retornar somente os diagnósticos de u
     And I press the "entrar-button"
     And I see "Médico" written on the requested page.id:"medico-perfil"
     And I press the "outlined-select-currency"
-    And I press the option ".MuiPaper-root:nth-child(3) .MuiButtonBase-root:nth-child(2)"
+    And I press the option ".MuiPaper-root:nth-child(3) .MuiButtonBase-root:nth-child(3)"
     And I click  in the first  diagnostic image "#container-card-menu > div.container-card-img > img"
     And I see the diagnostic code'card-id'and save it
     And I see "codigo_salvo"

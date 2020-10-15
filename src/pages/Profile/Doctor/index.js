@@ -18,10 +18,13 @@ const DoctorProfile = (props) => {
     const [name, setName] = useState('')
     const [specialty,setSpecialty] = useState('')
     const [CRM, setCRM] = useState('')
+    const [UF, setUF] = useState('')
     const [isAuth, setIsAuth] = useState(' ')
 
     const [showModal, setShowModal] = useState(false)
+    const [showModalConfirmation, setShowModalConfirmation] = useState(false)
     const [disable, setDisable] = useState(false)
+    const [updateError, setUpdateError] = useState(false)
 
     const [disableComponent, setDisableComponent] = useState(true)
 
@@ -44,6 +47,8 @@ const DoctorProfile = (props) => {
                     setEmail(response.data.doctor.email)
                     setSpecialty(response.data.doctor.specialty)
                     setCRM(response.data.doctor.CRM)
+                    setUF(response.data.doctor.UF)
+                    console.log(response.data);
                     setMount(!mount)
                 }).catch(error=>{
                     console.log(error);
@@ -87,11 +92,22 @@ const DoctorProfile = (props) => {
     }
 
     const handleUpdate = async () => {
-        
-        const data ={
-            name,
-            specialty,
-            CRM
+        let data
+
+        if(UF){
+            data ={
+                name,
+                specialty,
+                CRM,
+                UF
+            }
+        }else{
+            data = {
+                name,
+                specialty,
+                CRM,
+                "UF":" "
+            }
         }
 
         await api.put(`/doctor`, data,
@@ -101,10 +117,16 @@ const DoctorProfile = (props) => {
                 }
             }
         ).then(()=>{
-            window.location.reload()
+            setShowModalConfirmation(true)
         }).catch(()=>{
-
+            setUpdateError(true)
+            setShowModalConfirmation(true)
         })
+    }
+
+    const handleCloseModalConfirmation = () => {
+        setShowModalConfirmation(false)
+        history.push('/medicalRecord')
     }
 
     return (
@@ -153,6 +175,25 @@ const DoctorProfile = (props) => {
                                 >
                                     { disable ? <CircularProgress color='primary' size={15} /> :'Excluir'}
                                 </button>
+                            </DialogActions>
+                        </Dialog>
+
+                        <Dialog
+                                open={showModalConfirmation} 
+                                // onClose={handleCloseModalConfirmation}
+                                aria-labelledby="draggable-dialog-title" maxWidth='xs'
+                        >
+                            <DialogContent>
+                                <p className='delete-modal-text'>
+                                    {updateError?'Erro ao alterar dados':'Dados alterados com sucesso!'}
+                                </p>
+                            </DialogContent>
+                            <DialogActions>
+                                <button 
+                                    id='fechar-button'
+                                    onClick={handleCloseModalConfirmation} 
+                                    className='button-back' 
+                                >Fechar</button>
                             </DialogActions>
                         </Dialog>
                     </div>

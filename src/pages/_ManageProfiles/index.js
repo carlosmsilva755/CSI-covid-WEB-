@@ -77,7 +77,7 @@ const ManageProfiles = (props) => {
                 setError(true)
                 setErrorMsg('Nenhum nome encontrado')
             }else{
-                console.log(response);
+                console.log(response.data.users.docs);
                 
                 setProfiles(response.data.users.docs)
 				setCurrentPage(response.data.users.page)
@@ -106,7 +106,7 @@ const ManageProfiles = (props) => {
                         }
                     }
                 ).then(response=>{
-                    // console.log(response);
+                    console.log(response.data.users.docs)
                     setProfiles(response.data.users.docs)
                     setCurrentPage(response.data.users.page)
                     setPages(response.data.users.pages)
@@ -133,10 +133,9 @@ const ManageProfiles = (props) => {
                     
                     <div>
                         <Header/>
-						<div className='container'>
-
+                        <div className= {width > 540 ? "container" : "container-responsive"}>
 						
-                          	<div className='container-navbars'>
+                            <div className= {width > 540 ? "container-navbars" : "container-navbars-responsive"}>
                               	<TextField id="pesquisar-nome-input" 
                                     label={error ? errorMsg:"Pesquisar"}
                                     size = "small" 
@@ -200,7 +199,7 @@ const ManageProfiles = (props) => {
                                 }
 							</div>
 
-							<div className={width > 540 ?'container-pagination':'container-pagination-responsive'}>  
+							<div className={width > 540 ?'container-pagination':'container-pagination-responsive-adm'}>  
 								<Pagination 
 									count={pages}
 									page={parseInt(currentPage)}

@@ -10,3 +10,12 @@
     margin-right: 16px;
     margin-bottom: 16px;
 }
+
+.container-pagination-responsive-adm{
+    margin-left: 10px;
+}
+@media screen and (max-width: 540px) {
+    .container-diagnosis-admin{
+        margin-left: 10%;
+    }
+}

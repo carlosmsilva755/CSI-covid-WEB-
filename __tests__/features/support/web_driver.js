@@ -17,6 +17,8 @@ function createDriver() {
 
     capabilities.set('chromeOptions', {
         'args': ['--no-sandbox'],
+        
+        
     });
     
     return new webDriver.Builder()

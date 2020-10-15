@@ -20,6 +20,7 @@ const ResearcherProfile = (props) => {
     const [isAuth, setIsAuth] = useState(' ')
 
     const [showModal, setShowModal] = useState(false)
+    const [showModalConfirmation, setShowModalConfirmation] = useState(false)
     const [disable, setDisable] = useState(false)
 
     const [disableComponent, setDisableComponent] = useState(true)
@@ -100,10 +101,15 @@ const ResearcherProfile = (props) => {
                 }
             }
         ).then(()=>{
-            window.location.reload()
+            setShowModalConfirmation(true)
         }).catch(()=>{
 
         })
+    }
+
+    const handleCloseModalConfirmation = () => {
+        setShowModalConfirmation(false)
+        history.push('/researcherImages')
     }
 
     return (
@@ -152,6 +158,25 @@ const ResearcherProfile = (props) => {
                                 >
                                     { disable ? <CircularProgress color='primary' size={15} /> :'Excluir'}
                                 </button>
+                            </DialogActions>
+                        </Dialog>
+
+                        <Dialog
+                                open={showModalConfirmation} 
+                                // onClose={handleCloseModalConfirmation}
+                                aria-labelledby="draggable-dialog-title" maxWidth='xs'
+                        >
+                            <DialogContent>
+                                <p className='delete-modal-text'>
+                                    {'Dados alterados com sucesso!'}
+                                </p>
+                            </DialogContent>
+                            <DialogActions>
+                                <button 
+                                    id='fechar-button'
+                                    onClick={handleCloseModalConfirmation} 
+                                    className='button-back' 
+                                >Fechar</button>
                             </DialogActions>
                         </Dialog>
                     </div>

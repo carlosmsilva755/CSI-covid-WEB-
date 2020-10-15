@@ -12,9 +12,14 @@ import logo from '../../../assets/logo.svg'
 import profile from '../../../assets/Icons/Header/adm.svg'
 import LogOut from '../../../assets/Icons/logOut'
 import ProfileMenu from '../../../assets/Icons/profile'
-// import Assignment from '../../../assets/Icons/assignment'
+import Assignment from '../../../assets/Icons/assignment'
 import { withFirebase } from '../../../contexts/Firebase';
 import { ReactComponent as MenuIcon } from '../../../assets/Icons/menu.svg'
+import { ReactComponent as BackupIcon } from '../../../assets/Icons/Header/Adm/backup.svg'
+import { ReactComponent as CuradoriaIcon } from '../../../assets/Icons/Header/Adm/curadoria.svg'
+import { ReactComponent as UsersIcon } from '../../../assets/Icons/Header/Adm/users.svg'
+import { ReactComponent as ChartsIcon } from '../../../assets/Icons/Header/Adm/charts.svg'
+
 
 const Header = ({ firebase }) => {
 
@@ -98,6 +103,24 @@ const Header = ({ firebase }) => {
                                 >Curadoria de dados</a>
 
                                 <a 
+                                    id='solicitados-button'
+                                    href = '/admin-profiles' 
+                                    // className = {location.pathname ==='/admin-profiles' ?
+                                    //     "header-button1-clicked" : "header-button1"
+                                    // }
+                                    className = "header-button-diag"
+                                >Diagnósticos solicitados</a>
+
+                                <a 
+                                    id='fornecidos-button'
+                                    href = '/admin-profiles' 
+                                    // className = {location.pathname ==='/admin-profiles' ?
+                                    //     "header-button1-clicked" : "header-button1"
+                                    // }
+                                    className = "header-button-diag"
+                                >Diagnósticos fornecidos</a>
+
+                                <a 
                                     id='manage-profiles-button'
                                     href = '/admin-profiles' 
                                     className = {location.pathname ==='/admin-profiles' ?
@@ -134,11 +157,10 @@ const Header = ({ firebase }) => {
                     </>
                 :
                     <div
-                        id='menu-button'
-                        className={ dropMenuOpen ?  'menu-button-active' : 'menu-button' }
-                        onClick={handleClick}
+                        id='menu-button-adm'
+                        className={ dropMenuOpen ?  'menu-button-active-adm' : 'menu-button-adm' }
                     >
-                        <MenuIcon className='menu-icon'/>
+                        <MenuIcon onClick={handleClick} className='menu-icon'/>
                     </div>
                 }
                 
@@ -149,13 +171,53 @@ const Header = ({ firebase }) => {
                     open={Boolean(anchorEl)}
                     onClose={handleClose}
                 >
-                    {/* {
-                        width < 540 && location.pathname !== '/researcherImages'?
-                            <MenuItem id='diagnostico-button' onClick={handleDiagnoses}>
-                                <Assignment/> &nbsp; Curadoria
+                    {
+                        width < 540 && location.pathname !== '/'?/////mudar o link
+                            <MenuItem id='backup-button' onClick={e=>history.push('/admin-profiles')}>
+                                <BackupIcon/> &nbsp; Backup
                             </MenuItem>
                             : null
-                    } */}
+                    }
+
+                    {
+                        width < 540 && location.pathname !== '/'?/////mudar o link
+                            <MenuItem id='Curadoria-button' onClick={e=>history.push('/admin-profiles')}>
+                                <CuradoriaIcon/> &nbsp; Curadoria
+                            </MenuItem>
+                            : null
+                    }
+
+                    {
+                        width < 540 && location.pathname !== '/'?
+                            <MenuItem id='realizados-button' onClick={e=>history.push('/admin-profiles')}>
+                                <Assignment/> &nbsp; Solicitados
+                            </MenuItem>
+                            : null
+                    }
+
+                    {
+                        width < 540 && location.pathname !== '/'?
+                            <MenuItem id='fornecidos-button' onClick={e=>history.push('/admin-profiles')}>
+                                <Assignment/> &nbsp; Fornecidos
+                            </MenuItem>
+                            : null
+                    }
+
+                    {
+                        width < 540 && location.pathname !== '/admin-profiles'?
+                            <MenuItem id='usuarios-button' onClick={e=>history.push('/admin-profiles')}>
+                                <UsersIcon/> &nbsp; Usuários
+                            </MenuItem>
+                            : null
+                    }
+
+                    {
+                        width < 540 && location.pathname !== '/'?
+                            <MenuItem id='charts-button' onClick={e=>history.push('/admin-profiles')}>
+                                <ChartsIcon/> &nbsp; Gráficos
+                            </MenuItem>
+                            : null
+                    }
 
                     {
                         location.pathname !== '/profile-admin'?

@@ -9,6 +9,7 @@ import Ufop from '../../assets/Images/Landing/Footer/ufop.svg'
 import CSI from '../../assets/Images/Landing/Footer/csilab.svg'
 import TerraLAB from '../../assets/Images/Landing/Footer/terralab.svg'
 import Decom from '../../assets/Images/Landing/Footer/decom.svg'
+import Ufpr from '../../assets/Images/Landing/Footer/ufpr.svg'
 import {ReactComponent as ResponsiveImages} from '../../assets/Images/Landing/Footer/responsiveFooter.svg'
 
 export default () => {
@@ -65,6 +66,9 @@ export default () => {
 
                             <a href='http://www3.decom.ufop.br/decom/inicio/' target="_blank" rel="noopener noreferrer" className='image'>
                                 <img className = 'footer-images' src={Decom} alt=""/>
+                            </a>
+                            <a href="https://www.ufpr.br/portalufpr/" target="_blank" rel="noopener noreferrer" className='image'>
+                                <img className = 'footer-images' src={Ufpr} alt=""/>
                             </a>
                         </div>
 
