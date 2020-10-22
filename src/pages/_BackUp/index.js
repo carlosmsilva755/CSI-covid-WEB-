@@ -1,14 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import {useHistory} from 'react-router-dom'
+import moment from 'moment'
+import 'moment/locale/pt-br'
 
 import Dialog from '@material-ui/core/Dialog'
 import DialogActions from '@material-ui/core/DialogActions'
 import DialogTitle from '@material-ui/core/DialogTitle'
+import TextField from '@material-ui/core/TextField'
+import MenuItem from '@material-ui/core/MenuItem'
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 import './styles.css'
 import Header from '../../components/Header/Admin/index'
 import { AuthUserContext, withAuthorization } from '../../contexts/Session'
 import api from '../../services/api'
+import months from '../../utils/months/months'
 
 const BackUp = (props) => {
 
@@ -21,7 +27,11 @@ const BackUp = (props) => {
     const [showModal, setShowModal] = useState(false)
     const [showBackupModal, setShowBackupModal] = useState(false)
     const [showErrorModal, setShowErrorModal] = useState(false)
+    const [disableButton, setDisableButton] = useState(false)
 
+    const dates = ["2020","2021","2022","2023","2024","2025","2026","2027"]
+    const [month, setMonth] = useState('')
+    const [year, setYear] = useState('')
 
     useEffect(() => {
 
@@ -42,6 +52,7 @@ const BackUp = (props) => {
 
     const handleCloseModal = () => {
         setShowModal(false)
+        setDisableButton(false)
     }
 
     const handleCloseBackupModal= () => {
@@ -49,19 +60,35 @@ const BackUp = (props) => {
     }
 
     const handleBackup = () => {
+        setDisableButton(true)
 
         const config = {
-            headers: { authorization: `Bearer ${token}` }
+            headers: { 
+                authorization: `Bearer ${token}`, 
+            },
+            responseType: 'blob' 
         }
-
+        
         api.get('/backup', config)
         .then(response=>{
             setShowBackupModal(true)
             setShowModal(false)
+            setDisableButton(false)
+            console.log(response)
+
+            const downloadUrl = window.URL.createObjectURL(new Blob([response.data]))
+            const link = document.createElement('a')
+            link.href = downloadUrl
+            link.setAttribute('download', `${moment().format('L')}-backup.zip`)
+            document.body.appendChild(link)
+            link.click()
+
         }).catch(error=>{
             setShowErrorModal(true)
             setShowBackupModal(true)
             setShowModal(false)
+            setDisableButton(false)
+
         })
 
     }
@@ -74,6 +101,47 @@ const BackUp = (props) => {
                         <Header/>
                         <div className={width > 540 ? "container" : "container-responsive"}>
                             <div className= {width > 540 ? "container-navbars" : "container-navbars-responsive"}>
+                                <TextField 
+                                    id="mes-select" 
+                                    size="small" 
+                                    select disabled
+                                    label="Mês"
+                                    className="search-input backup-select"
+                                    variant="outlined" 
+                                    value ={month} 
+                                    onChange={event => {
+                                        setMonth(event.target.value)
+                                    }}
+                                >
+                                    {months.map((option) => (
+                                        <MenuItem key={option} value={option}>
+                                            {option}
+                                        </MenuItem>
+                                    ))
+                                    }
+                                </TextField>
+                                <div className='mrg-back'>
+                                    <TextField 
+                                        id="ano-select" 
+                                        size="small" 
+                                        select disabled
+                                        label="Ano"
+                                        className="search-input backup-select" // align-left
+                                        variant="outlined" 
+                                        value ={year} 
+                                        onChange={event => {
+                                            setYear(event.target.value)
+                                        }}
+                                    >
+                                        {dates.map((option) => (
+                                            <MenuItem key={option} value={option}>
+                                                {option}
+                                            </MenuItem>
+                                        ))
+                                        }
+                                    </TextField> 
+                                </div>
+                                
                               	<button
                                     id='backup-button'
                                     className='button button-backup'
@@ -82,6 +150,33 @@ const BackUp = (props) => {
                                     }}
                                 >Gerar Backup</button>
                           	</div>
+                            
+                            <div className='backup-container'>
+                                <div className='box-buttons'>
+                                    <div className='content-box'>
+
+                                    </div>
+                                    <div className='box-buttons-cont'>
+
+                                        <button
+                                            id='backup-button'
+                                            className='button button-backup-box'
+                                            disabled
+                                            onClick={()=>{
+                                            }}
+                                        >Exportar Backup</button>
+                                        <button
+                                            id='backup-button'
+                                            className='button button-backup-box'
+                                            disabled
+                                            onClick={()=>{
+                                                
+                                            }}
+                                        >Restaurar Backup</button>
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
 
                         <Dialog
@@ -92,12 +187,27 @@ const BackUp = (props) => {
                         >
                             <DialogTitle >
                                 <p className='modal-backup-text'>
-                                    Deseja realizar o backup geral do sistema?
+                                    {disableButton? 
+                                        'Realizando backup geral do sistema!':
+                                        'Deseja realizar o backup geral do sistema?'
+                                    }
                                 </p> 
                             </DialogTitle>
                             <DialogActions>
-                                <button id='cancelar-button-backup'onClick={handleCloseModal} className='button-back'>Cancelar</button>
-                                <button id='confirmar-button'onClick={handleBackup} className='button button-modal'>Confirmar</button>
+                                <button id='cancelar-button-backup'
+                                    onClick={handleCloseModal} 
+                                    className='button-back'
+                                    // disabled={disableButton}
+                                >Cancelar</button>
+                                <button 
+                                    id='confirmar-button' 
+                                    onClick={handleBackup} 
+                                    disabled={disableButton}
+                                    className='button button-modal'
+                                >{disableButton ? 
+                                    <CircularProgress color='primary' size={20} /> 
+                                    : 'Confirmar'
+                                }</button>
                             </DialogActions>
                         </Dialog>
 
