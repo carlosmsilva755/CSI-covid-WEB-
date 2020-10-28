@@ -33,6 +33,7 @@
     border: 1px solid #5B656F;
     box-sizing: border-box;
     border-radius: 4px;
+    overflow: scroll;
 }
 .box-buttons-cont{
     display: flex;
@@ -44,4 +45,32 @@
     margin-top: 0px;
     margin-left: 32px;
     margin-bottom: 32px;
+}
+
+.restore-button{
+    width: 180px;
+    height: 40px;
+    background-color: #EE4937;
+    border-radius: 4px;
+    border: none;
+    margin-top: 32px;
+
+    font-family: Roboto;
+    font-style: normal;
+    /* font-weight: 500; */
+    font-size: 14px;
+    line-height: 19px;
+
+    letter-spacing: 0.4px;
+    outline: none;
+
+    color: #FFFFFF; 
+
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+.algn-cntr{
+    margin-top: 10px;
 }
