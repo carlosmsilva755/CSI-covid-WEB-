@@ -36,14 +36,9 @@ const BackUp = (props) => {
 
     const [file, setFile] = useState('')
     const [restoreModal, setRestoreModal] = useState(false)
-
-    // const prof = {
-    //     "CRM":12,
-    //     "specialty":"specialty",
-    //     "name":"name",
-    //     "email":"email",
-    //     "institution":"ins"
-    // }
+    const [diagnoses, setDiagnoses] = useState('')
+    const [doctors, setDoctors] = useState('')
+    const [researchers, setResearchers] = useState('')
 
     useEffect(() => {
 
@@ -62,7 +57,7 @@ const BackUp = (props) => {
 
     })
 
-    /*
+    
     useEffect(() => {
         (async () => {
             
@@ -73,7 +68,10 @@ const BackUp = (props) => {
                     }
                 }
             ).then(response=>{
-                console.log(response);
+                // console.log(response);
+                setDiagnoses(response.data.diagnoses)
+                setDoctors(response.data.doctors)
+                setResearchers(response.data.researchers)
             }).catch(error=>
                 props.firebase.auth.currentUser.getIdTokenResult()
                     .then((idTokenResult) => {
@@ -86,7 +84,7 @@ const BackUp = (props) => {
 
         })()
     }, [props.firebase.auth.currentUser])
-*/
+
     const handleCloseModal = () => {
         setShowModal(false)
         setDisableButton(false)
@@ -111,7 +109,7 @@ const BackUp = (props) => {
             setShowBackupModal(true)
             setShowModal(false)
             setDisableButton(false)
-            console.log(response)
+            // console.log(response)
 
             const downloadUrl = window.URL.createObjectURL(new Blob([response.data]))
             const link = document.createElement('a')
@@ -152,7 +150,7 @@ const BackUp = (props) => {
             setRestoreModal(true)
             setShowModal(false)
             setDisableButton(false)
-            console.log(response)
+            // console.log(response)
 
         }).catch(error=>{
             setShowErrorModal(true)
@@ -224,12 +222,18 @@ const BackUp = (props) => {
                             <div className='backup-container'>
                                 <div className='box-buttons'>
                                     <div className='content-box'>
-                                        {/* <CardBackup profile={prof}/>
-                                        <CardBackup profile={prof}/>
-                                        <CardBackup profile={prof}/>
-                                        <CardBackup profile={prof}/>
-                                        <CardBackup profile={prof}/>
-                                        <CardBackup profile={prof}/> */}
+                                        <div className='mrg-back'>
+                                            <p>Diagnósticos</p>
+                                            <p className='box-text'>{diagnoses}</p>
+                                        </div>
+                                        <div>
+                                            <p>Médicos</p>
+                                            <p className='box-text'>{doctors}</p>
+                                        </div>
+                                        <div>
+                                            <p>Pesquisadores</p>
+                                            <p className='box-text'>{researchers}</p>
+                                        </div>
                                     </div>
                                     <div className='box-buttons-cont'>
 
