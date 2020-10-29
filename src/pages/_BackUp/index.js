@@ -39,6 +39,7 @@ const BackUp = (props) => {
     const [diagnoses, setDiagnoses] = useState('')
     const [doctors, setDoctors] = useState('')
     const [researchers, setResearchers] = useState('')
+    const [restoreModalConfirm, setRestoreModalConfirm] = useState(false)
 
     useEffect(() => {
 
@@ -147,16 +148,18 @@ const BackUp = (props) => {
 
         api.put('/backup', file, config)
         .then(response=>{
-            setRestoreModal(true)
+            setRestoreModal(false)
             setShowModal(false)
             setDisableButton(false)
             // console.log(response)
+            setRestoreModalConfirm(true)
 
         }).catch(error=>{
             setShowErrorModal(true)
             setRestoreModal(true)
             setShowModal(false)
             setDisableButton(false)
+            setRestoreModalConfirm(true)
 
         })
     }
@@ -245,12 +248,12 @@ const BackUp = (props) => {
                                             }}
                                         >Exportar Backup</button>
                                         
-                                        <label for="restaurar-button">
-                                            <div className='restore-button button-backup-box'>
+                                        <label for="restaura-button">
+                                            <div id='restaurar-button'  className='restore-button button-backup-box'>
                                                 <p className='algn-cntr'>Restaurar Backup</p>
                                             </div>
                                         </label>
-                                        <input id='restaurar-button' 
+                                        <input id='restaura-button' 
                                             name='file' 
                                             type='file' 
                                             onChange = {handleRestore} 
@@ -299,7 +302,7 @@ const BackUp = (props) => {
                             aria-labelledby="draggable-dialog-title" maxWidth='xs'
                         >
                             <DialogTitle >
-                                <p className='modal-backup-text'>
+                                <p className='modal-backup-text' id="confirmation-message">
                                     {showErrorModal? 'Erro ao realizar backup!':'Backup realizado com sucesso!'}
                                 </p> 
                             </DialogTitle>
@@ -313,7 +316,7 @@ const BackUp = (props) => {
                             aria-labelledby="draggable-dialog-title" maxWidth='xs'
                         >
                             <DialogTitle >
-                                <p className='modal-backup-text'>
+                                <p id='restore-modal'className='modal-backup-text'>
                                     {disableButton? 
                                         'Restaurando backup':
                                         'Confirmar restauração de backup?'
@@ -337,6 +340,20 @@ const BackUp = (props) => {
                                     <CircularProgress color='primary' size={20} /> 
                                     : 'Confirmar'
                                 }</button>
+                            </DialogActions>
+                        </Dialog>
+
+                        <Dialog
+                            open={restoreModalConfirm} 
+                            aria-labelledby="draggable-dialog-title" maxWidth='xs'
+                        >
+                            <DialogTitle >
+                                <p className='modal-backup-text' id="confirmation-message-restore">
+                                    {showErrorModal? 'Erro ao restaurar backup!':'Restauração de Backup realizada com sucesso!'}
+                                </p> 
+                            </DialogTitle>
+                            <DialogActions>
+                                <button id='cancelar-button-backup'onClick={()=>{setRestoreModalConfirm(false)}} className='button-back'>Fechar</button>
                             </DialogActions>
                         </Dialog>
 
