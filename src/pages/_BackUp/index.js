@@ -15,6 +15,7 @@ import Header from '../../components/Header/Admin/index'
 import { AuthUserContext, withAuthorization } from '../../contexts/Session'
 import api from '../../services/api'
 import months from '../../utils/months/months'
+// import CardBackup from '../../components/Cards/CardBackup/index'
 
 const BackUp = (props) => {
 
@@ -33,6 +34,12 @@ const BackUp = (props) => {
     const [month, setMonth] = useState('')
     const [year, setYear] = useState('')
 
+    const [file, setFile] = useState('')
+    const [restoreModal, setRestoreModal] = useState(false)
+    const [diagnoses, setDiagnoses] = useState('')
+    const [doctors, setDoctors] = useState('')
+    const [researchers, setResearchers] = useState('')
+
     useEffect(() => {
 
         props.firebase.auth.currentUser.getIdTokenResult()
@@ -49,6 +56,34 @@ const BackUp = (props) => {
         })
 
     })
+
+    
+    useEffect(() => {
+        (async () => {
+            
+            await api.get(`/view-backup`,
+                {
+                    headers: {
+                        authorization: `Bearer ${localStorage.getItem('@docusr_tkn')}`
+                    }
+                }
+            ).then(response=>{
+                // console.log(response);
+                setDiagnoses(response.data.diagnoses)
+                setDoctors(response.data.doctors)
+                setResearchers(response.data.researchers)
+            }).catch(error=>
+                props.firebase.auth.currentUser.getIdTokenResult()
+                    .then((idTokenResult) => {
+                        localStorage.setItem('@docusr_tkn',idTokenResult.token)
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    })
+            )
+
+        })()
+    }, [props.firebase.auth.currentUser])
 
     const handleCloseModal = () => {
         setShowModal(false)
@@ -74,7 +109,7 @@ const BackUp = (props) => {
             setShowBackupModal(true)
             setShowModal(false)
             setDisableButton(false)
-            console.log(response)
+            // console.log(response)
 
             const downloadUrl = window.URL.createObjectURL(new Blob([response.data]))
             const link = document.createElement('a')
@@ -91,6 +126,39 @@ const BackUp = (props) => {
 
         })
 
+    }
+
+    const handleRestore = (event) => {
+
+        setFile(event.target.files[0])
+        setRestoreModal(true)
+        
+    }
+
+    const handleRestoreAPI = () =>{
+        setDisableButton(true)
+
+        const config = {
+            headers: { 
+                authorization: `Bearer ${token}`, 
+                'Content-Type': 'application/octet-stream'
+            },
+        }
+
+        api.put('/backup', file, config)
+        .then(response=>{
+            setRestoreModal(true)
+            setShowModal(false)
+            setDisableButton(false)
+            // console.log(response)
+
+        }).catch(error=>{
+            setShowErrorModal(true)
+            setRestoreModal(true)
+            setShowModal(false)
+            setDisableButton(false)
+
+        })
     }
 
     return (
@@ -154,7 +222,18 @@ const BackUp = (props) => {
                             <div className='backup-container'>
                                 <div className='box-buttons'>
                                     <div className='content-box'>
-
+                                        <div className='mrg-back'>
+                                            <p>Diagnósticos</p>
+                                            <p className='box-text'>{diagnoses}</p>
+                                        </div>
+                                        <div>
+                                            <p>Médicos</p>
+                                            <p className='box-text'>{doctors}</p>
+                                        </div>
+                                        <div>
+                                            <p>Pesquisadores</p>
+                                            <p className='box-text'>{researchers}</p>
+                                        </div>
                                     </div>
                                     <div className='box-buttons-cont'>
 
@@ -165,14 +244,18 @@ const BackUp = (props) => {
                                             onClick={()=>{
                                             }}
                                         >Exportar Backup</button>
-                                        <button
-                                            id='backup-button'
-                                            className='button button-backup-box'
-                                            disabled
-                                            onClick={()=>{
-                                                
-                                            }}
-                                        >Restaurar Backup</button>
+                                        
+                                        <label for="restaurar-button">
+                                            <div className='restore-button button-backup-box'>
+                                                <p className='algn-cntr'>Restaurar Backup</p>
+                                            </div>
+                                        </label>
+                                        <input id='restaurar-button' 
+                                            name='file' 
+                                            type='file' 
+                                            onChange = {handleRestore} 
+                                        />
+
                                     </div>
 
                                 </div>
@@ -222,6 +305,38 @@ const BackUp = (props) => {
                             </DialogTitle>
                             <DialogActions>
                                 <button id='cancelar-button-backup'onClick={handleCloseBackupModal} className='button-back'>Fechar</button>
+                            </DialogActions>
+                        </Dialog>
+
+                        <Dialog
+                            open={restoreModal} 
+                            aria-labelledby="draggable-dialog-title" maxWidth='xs'
+                        >
+                            <DialogTitle >
+                                <p className='modal-backup-text'>
+                                    {disableButton? 
+                                        'Restaurando backup':
+                                        'Confirmar restauração de backup?'
+                                    }
+                                </p> 
+                            </DialogTitle>
+                            <DialogActions>
+                                <button id='cancelar-button-backup'
+                                    onClick={()=>{
+                                        setRestoreModal(false)
+                                    }} 
+                                    className='button-back'
+                                    disabled={disableButton}
+                                >Cancelar</button>
+                                <button 
+                                    id='confirmar-button' 
+                                    onClick={handleRestoreAPI} 
+                                    disabled={disableButton}
+                                    className='button button-modal'
+                                >{disableButton ? 
+                                    <CircularProgress color='primary' size={20} /> 
+                                    : 'Confirmar'
+                                }</button>
                             </DialogActions>
                         </Dialog>
 
