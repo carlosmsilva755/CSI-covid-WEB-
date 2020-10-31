@@ -232,7 +232,7 @@ function SignInFormBase(props){
 
                         <div className='login-recaptcha'>
                             <Recaptcha
-                                sitekey="6LfAuM8ZAAAAABmqnUi4X3gPZUfB8NsvClbBPxMO"
+                                sitekey="6Le9NtgZAAAAAJwIxQ175-18vtMOC6ijmaWPn6PZ"
                                 render="explicit" 
                                 hl="pt-BR"
                                 onloadCallback={recaptchaLoaded}

@@ -86,11 +86,10 @@ const Header = ({ firebase }) => {
 
                                 <a 
                                     id='backup-button'
-                                    href = '/admin-profiles' 
-                                    // className = {location.pathname ==='/admin-profiles' ?
-                                    //     "header-button1-clicked" : "header-button1"
-                                    // }
-                                    className = "header-button1"
+                                    href = '/admin-backup' 
+                                    className = {location.pathname ==='/admin-backup' ?
+                                        "header-button1-clicked" : "header-button1"
+                                    }
                                 >Backup de dados</a>
 
                                 <a 
@@ -172,9 +171,9 @@ const Header = ({ firebase }) => {
                     onClose={handleClose}
                 >
                     {
-                        width < 540 && location.pathname !== '/'?/////mudar o link
-                            <MenuItem id='backup-button' onClick={e=>history.push('/admin-profiles')}>
-                                <BackupIcon/> &nbsp; Backup
+                        width < 540 && location.pathname !== '/admin-backup'?
+                            <MenuItem id='backup-button' onClick={e=>history.push('/admin-backup')}>
+                                <BackupIcon/> &nbsp; BackUp
                             </MenuItem>
                             : null
                     }

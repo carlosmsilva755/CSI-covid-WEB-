@@ -1,0 +1,91 @@
+.button-backup{
+    width: 200px;
+    margin-top: 0px;
+    margin-left: 32px;
+}
+
+.modal-backup-text{
+    font-size: 16px;
+}
+
+.backup-select{
+    width: 120px;
+    margin-left: 32px;
+}
+.mrg-back{
+    margin-left: 16px;
+}
+.backup-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 60px;
+    /* justify-content: center; */
+}
+
+.box-buttons{
+    height: 371px;
+    display: flex;
+}
+.content-box{
+    width: 490px;
+    height: 100px;
+    border: 1px solid #5B656F;
+    box-sizing: border-box;
+    border-radius: 4px;
+    overflow: scroll;
+    margin-top: 7px;
+
+    display: grid;
+    grid-template-areas: 'diag doc res';
+
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 14px;        
+    color: #313B44;
+}
+.box-buttons-cont{
+    display: flex;
+    flex-direction: column;
+}
+
+.button-backup-box{
+    width: 180px;
+    margin-top: 0px;
+    margin-left: 32px;
+}
+
+.restore-button{
+    width: 180px;
+    height: 40px;
+    background-color: #EE4937;
+    border-radius: 4px;
+    border: none;
+    margin-top: 32px;
+
+    font-family: Roboto;
+    font-style: normal;
+    /* font-weight: 500; */
+    font-size: 14px;
+    line-height: 19px;
+
+    letter-spacing: 0.4px;
+    outline: none;
+
+    color: #FFFFFF; 
+
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+.algn-cntr{
+    margin-top: 10px;
+}
+
+.box-text{
+    font-size: 16px;
+    color: #525557;
+    font-weight: 500;
+}
