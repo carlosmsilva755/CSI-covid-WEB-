@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
     "dotenv": "^8.2.0",
+    "emailjs-com": "^2.6.3",
     "firebase": "^7.17.0",
     "firebase-admin": "^9.0.0",
     "firebase-tools": "^8.6.0",

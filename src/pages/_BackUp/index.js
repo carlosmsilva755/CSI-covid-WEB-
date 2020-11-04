@@ -36,7 +36,8 @@ const BackUp = (props) => {
 
     const [file, setFile] = useState('')
     const [restoreModal, setRestoreModal] = useState(false)
-    const [diagnoses, setDiagnoses] = useState('')
+    const [diagnosesProvided, setDiagnosesProvided] = useState('')
+    const [diagnosesRequested, setDiagnosesRequested] = useState('')
     const [doctors, setDoctors] = useState('')
     const [researchers, setResearchers] = useState('')
     const [restoreModalConfirm, setRestoreModalConfirm] = useState(false)
@@ -69,8 +70,9 @@ const BackUp = (props) => {
                     }
                 }
             ).then(response=>{
-                // console.log(response);
-                setDiagnoses(response.data.diagnoses)
+                console.log(response);
+                setDiagnosesProvided(response.data.diagnosesProvided)
+                setDiagnosesRequested(response.data.diagnosesRequested)
                 setDoctors(response.data.doctors)
                 setResearchers(response.data.researchers)
             }).catch(error=>
@@ -226,8 +228,12 @@ const BackUp = (props) => {
                                 <div className='box-buttons'>
                                     <div className='content-box'>
                                         <div className='mrg-back'>
-                                            <p>Diagnósticos</p>
-                                            <p className='box-text'>{diagnoses}</p>
+                                            <p>Diagnósticos solicitados</p>
+                                            <p className='box-text'>{diagnosesRequested}</p>
+                                        </div>
+                                        <div>
+                                            <p>Diagnósticos fornecidos</p>
+                                            <p className='box-text'>{diagnosesProvided}</p>
                                         </div>
                                         <div>
                                             <p>Médicos</p>

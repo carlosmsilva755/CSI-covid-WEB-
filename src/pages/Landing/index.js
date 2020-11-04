@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 
 import './styles.css'
@@ -23,6 +23,10 @@ export default () => {
     const handleLogin = () => {
         history.push('/login')
     }
+
+    useEffect(() => {
+        localStorage.removeItem("@contactSenderName")  
+    })
 
     return(
         <div>
