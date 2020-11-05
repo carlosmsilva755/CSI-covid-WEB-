@@ -29,6 +29,8 @@ function SignInFormBase(props){
         localStorage.removeItem('@filterNumberRes')
         localStorage.removeItem('@currentpageFilterUp')
         localStorage.removeItem('@filterNumberUp')
+        localStorage.removeItem('@isadm')
+
         // console.log(process.env.REACT_APP_ENV)
 
         if( process.env.REACT_APP_ENV === "dev"){
@@ -115,6 +117,7 @@ function SignInFormBase(props){
 
                 if (!!idTokenResult.claims.admin){
                     localStorage.setItem('@docusr_tkn',idTokenResult.token)
+                    localStorage.setItem('@isadm', true)
                     props.history.push('/admin-profiles')
                 }else{
                     if (!!idTokenResult.claims.researcher) {

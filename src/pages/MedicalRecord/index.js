@@ -9,6 +9,7 @@ import './styles.css'
 import searchButton from '../../assets/Icons/searchButton.svg'
 import Card from '../../components/Cards/CardMenu/index'
 import Header from '../../components/Header/Doctor/index'
+import HeaderADM from '../../components/Header/Admin/index'
 import api from '../../services/api'
 import { AuthUserContext, withAuthorization } from '../../contexts/Session'
 import ImageContext from '../../contexts/Image/index'
@@ -211,7 +212,7 @@ const MedicalRecord = (props) => {
                 isAuth ? 
                     
                     <div>
-                        <Header/>
+                        {localStorage.getItem('@isadm') ? <HeaderADM/> : <Header/>}
                         <div className= {width > 540 ? "container" : "container-responsive"}>
                             <div className= {width > 540 ? "container-navbars" : "container-navbars-responsive"}>
 

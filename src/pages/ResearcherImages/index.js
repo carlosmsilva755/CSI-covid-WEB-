@@ -7,6 +7,7 @@ import Pagination from '@material-ui/lab/Pagination'
 
 import './styles.css';
 import Header from '../../components/Header/Researcher/index'
+import HeaderADM from '../../components/Header/Admin/index'
 import Card from '../../components/Cards/CardMenu/index'
 import searchButton from '../../assets/Icons/searchButton.svg'
 import api from '../../services/api'
@@ -194,7 +195,7 @@ const ResearcherImages = (props) => {
             {authUser =>
                 isAuth ?
                     <div>
-                        <Header/>
+                        {localStorage.getItem('@isadm') ? <HeaderADM/> : <Header/>}
                         <div className= {width > 540 ? "container" : "container-responsive"}>
                             <div className= {width > 540 ? "container-navbars" : "container-navbars-responsive"}>
 

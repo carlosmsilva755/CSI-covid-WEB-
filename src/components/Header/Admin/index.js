@@ -94,29 +94,26 @@ const Header = ({ firebase }) => {
 
                                 <a 
                                     id='curadoria-button'
-                                    href = '/admin-profiles' 
-                                    // className = {location.pathname ==='/admin-profiles' ?
-                                    //     "header-button1-clicked" : "header-button1"
-                                    // }
-                                    className = "header-button1"
+                                    href = '/researcherImages' 
+                                    className = {location.pathname ==='/researcherImages' ?
+                                        "header-button1-clicked" : "header-button1"
+                                    }
                                 >Curadoria de dados</a>
 
                                 <a 
                                     id='solicitados-button'
-                                    href = '/admin-profiles' 
-                                    // className = {location.pathname ==='/admin-profiles' ?
-                                    //     "header-button1-clicked" : "header-button1"
-                                    // }
-                                    className = "header-button-diag"
+                                    href = '/medicalRecord' 
+                                    className = {location.pathname ==='/medicalRecord' ?
+                                        "header-button1-clicked" : "header-button1"
+                                    }
                                 >Diagnósticos solicitados</a>
 
                                 <a 
                                     id='fornecidos-button'
-                                    href = '/admin-profiles' 
-                                    // className = {location.pathname ==='/admin-profiles' ?
-                                    //     "header-button1-clicked" : "header-button1"
-                                    // }
-                                    className = "header-button-diag"
+                                    href = '/doctorUpload' 
+                                    className = {location.pathname ==='/doctorUpload' ?
+                                        "header-button1-clicked" : "header-button1"
+                                    }
                                 >Diagnósticos fornecidos</a>
 
                                 <a 
@@ -180,7 +177,7 @@ const Header = ({ firebase }) => {
 
                     {
                         width < 540 && location.pathname !== '/'?/////mudar o link
-                            <MenuItem id='Curadoria-button' onClick={e=>history.push('/admin-profiles')}>
+                            <MenuItem id='Curadoria-button' onClick={e=>history.push('/researcherImages')}>
                                 <CuradoriaIcon/> &nbsp; Curadoria
                             </MenuItem>
                             : null
@@ -188,7 +185,7 @@ const Header = ({ firebase }) => {
 
                     {
                         width < 540 && location.pathname !== '/'?
-                            <MenuItem id='realizados-button' onClick={e=>history.push('/admin-profiles')}>
+                            <MenuItem id='realizados-button' onClick={e=>history.push('/medicalRecord')}>
                                 <Assignment/> &nbsp; Solicitados
                             </MenuItem>
                             : null
@@ -196,7 +193,7 @@ const Header = ({ firebase }) => {
 
                     {
                         width < 540 && location.pathname !== '/'?
-                            <MenuItem id='fornecidos-button' onClick={e=>history.push('/admin-profiles')}>
+                            <MenuItem id='fornecidos-button' onClick={e=>history.push('/doctorUpload')}>
                                 <Assignment/> &nbsp; Fornecidos
                             </MenuItem>
                             : null
