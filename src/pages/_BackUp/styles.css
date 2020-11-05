@@ -94,3 +94,17 @@
     color: #525557;
     font-weight: 500;
 }
+
+.system-data{
+    margin-bottom: -20px;
+
+    font-weight: 600;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 27px;
+    letter-spacing: 0.4px;
+    
+    color: #EE4937; 
+}

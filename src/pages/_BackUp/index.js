@@ -6,15 +6,15 @@ import 'moment/locale/pt-br'
 import Dialog from '@material-ui/core/Dialog'
 import DialogActions from '@material-ui/core/DialogActions'
 import DialogTitle from '@material-ui/core/DialogTitle'
-import TextField from '@material-ui/core/TextField'
-import MenuItem from '@material-ui/core/MenuItem'
+// import TextField from '@material-ui/core/TextField'
+// import MenuItem from '@material-ui/core/MenuItem'
 import CircularProgress from '@material-ui/core/CircularProgress'
 
 import './styles.css'
 import Header from '../../components/Header/Admin/index'
 import { AuthUserContext, withAuthorization } from '../../contexts/Session'
 import api from '../../services/api'
-import months from '../../utils/months/months'
+// import months from '../../utils/months/months'
 // import CardBackup from '../../components/Cards/CardBackup/index'
 
 const BackUp = (props) => {
@@ -30,9 +30,9 @@ const BackUp = (props) => {
     const [showErrorModal, setShowErrorModal] = useState(false)
     const [disableButton, setDisableButton] = useState(false)
 
-    const dates = ["2020","2021","2022","2023","2024","2025","2026","2027"]
-    const [month, setMonth] = useState('')
-    const [year, setYear] = useState('')
+    // const dates = ["2020","2021","2022","2023","2024","2025","2026","2027"]
+    // const [month, setMonth] = useState('')
+    // const [year, setYear] = useState('')
 
     const [file, setFile] = useState('')
     const [restoreModal, setRestoreModal] = useState(false)
@@ -173,7 +173,7 @@ const BackUp = (props) => {
                     <>
                         <Header/>
                         <div className={width > 540 ? "container" : "container-responsive"}>
-                            <div className= {width > 540 ? "container-navbars" : "container-navbars-responsive"}>
+                            {/* <div className= {width > 540 ? "container-navbars" : "container-navbars-responsive"}>
                                 <TextField 
                                     id="mes-select" 
                                     size="small" 
@@ -222,8 +222,10 @@ const BackUp = (props) => {
                                         setShowModal(true)
                                     }}
                                 >Gerar Backup</button>
-                          	</div>
-                            
+                          	</div> */}
+
+                            <p className='system-data'>Dados quantitativos do sistema:</p>
+ 
                             <div className='backup-container'>
                                 <div className='box-buttons'>
                                     <div className='content-box'>
@@ -249,8 +251,8 @@ const BackUp = (props) => {
                                         <button
                                             id='backup-button'
                                             className='button button-backup-box'
-                                            disabled
                                             onClick={()=>{
+                                                setShowModal(true)
                                             }}
                                         >Exportar Backup</button>
                                         
