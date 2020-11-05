@@ -19,7 +19,7 @@ Given(/^Browse to web site "([^"]*)"$/, async function (url) {
 });
 
 Given("I press the {string}", async function (arg1) {
-   
+    await driver.sleep(short_time)
     await driver.wait(until.elementLocated(By.id(arg1)), very_long_time);
     await driver.findElement({ id: arg1 }).click();
     
@@ -75,7 +75,7 @@ When("I see {string} written on the requested page:xpath{string}", async functio
     await driver.sleep(short_time)
     await driver.findElement({ id: arg2 })
     await driver.findElement({ id: arg2 }).sendKeys(arg1);
-     await driver.sleep(long_time)
+   
 });
 
 
@@ -96,6 +96,7 @@ Then("if I'm on the page {string}, the login has not yet occurred", async functi
 
 Given("I create an email {string} and write in {string}", async function (arg1, arg2) {
     await driver.sleep(short_time);
+
     let randomnumber = Math.floor(Math.random() * 1000);
     let email = arg1 + randomnumber +"@gmail" +  ".com";
     await driver.findElement({ id: arg2 }).sendKeys(email);
@@ -103,10 +104,12 @@ Given("I create an email {string} and write in {string}", async function (arg1, 
 
 Given("I see {string} written on the requested page.id:{string}", async function (arg1, arg2) {
     await driver.wait(until.elementLocated(By.id(arg2)), very_long_time);
+    await driver.sleep(short_time)
     const text = await driver.findElement({ id: arg2 }).getText();
     console.log(text)
+    
     assert.equal(arg1, text)
-    await driver.sleep(short_time)
+    
 });
 
 Given("I see {string} written on the requested page.css:{string}", async function (arg1, arg2) {
@@ -192,10 +195,21 @@ Given("I clear the field {string}", async function (arg1) {
 
 Given("I save the value of the information in a variable.id{string}", async function (arg1) {
     await driver.wait(until.elementLocated(By.id(arg1)), very_long_time);
+    
+    // const text1 = await driver.findElement({ id: arg1 }).getText();
+    // console.log(text1)
+    // // assert.equal(arg1, text)
+    // const text2 = await driver.findElement({ id: arg1 }).getAttribute('value');
+    // console.log(text2)
+   
     var nova_Tela = await driver.findElement({ id: arg1 }).getAttribute("value").then((value_salvo1) => {
+        
         console.log(value_salvo1)
         value_salvo2 = value_salvo1
     })
+
+    await driver.sleep(long_time)
+
 });
 
 
@@ -205,15 +219,6 @@ Given("I enter the value saved in {string}", async function (arg1) {
     await driver.findElement({ id: arg1 }).sendKeys(value_salvo2);
 });
 
-// Given("I enter {string} in {string} and I enter {string} in {string} and click{string}",  function (arg1, arg2,arg3,arg4,arg5) {
-    
-//        // JavaScript.window.location.reload()
-//     var document.getElementById('entrar-button').innerHTML = '<button id="entrar-button" class="button less-mrgtop" type="submit" enable="">Entrar</button>'
-//      driver.findElement({ id: arg2 }).sendKeys(arg1);
-//      driver.findElement({ id: arg5 }).click();
-//     driver.findElement({ id: arg4 }).sendKeys(arg3);
-//      driver.findElement({ id: arg5 }).click();
-// });
 
 
 Given("I clear and enter {string} in {string}", async function (arg1, arg2) {
