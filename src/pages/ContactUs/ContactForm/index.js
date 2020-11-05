@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import emailjs from 'emailjs-com'
+import Recaptcha from 'react-recaptcha'
 
 import TextField from '@material-ui/core/TextField'
 import CircularProgress from '@material-ui/core/CircularProgress'
@@ -24,11 +25,14 @@ export default () => {
     const [errorSubject, setErrorSubject] = useState(false)
     const [errorText, setErrorText] = useState(false)
 
+    const [recaptchaValid, setRecaptchaValid] = useState(true)
+
     const isInvalid =
         subject === '' ||
         message === '' ||
         email === '' ||
-        name === ''
+        name === '' ||
+        recaptchaValid === false
 
     const onSubmit = (e) => {
         
@@ -46,18 +50,35 @@ export default () => {
             return
         }
 
-        setDisabled(true)
-        e.preventDefault()
-    
-        emailjs.sendForm('gmail', 'template_ms19xmh', e.target, 'user_Jbc4K98cJitzMfLdnkOUf')
-            .then((result) => {
-                localStorage.setItem('@contactSenderName',name)
-                history.push('/confirm-contact')
+        if(recaptchaValid){
+            setDisabled(true)
+            e.preventDefault()
 
-            }, (error) => {
-                console.log(error.text)
-            })
-        
+            emailjs.sendForm('gmail', 'template_ms19xmh', e.target, 'user_Jbc4K98cJitzMfLdnkOUf')
+                .then((result) => {
+                    localStorage.setItem('@contactSenderName',name)
+                    history.push('/confirm-contact')
+    
+                }, (error) => {
+                    console.log(error.text)
+                })
+        }
+    }
+
+    function recaptchaLoaded(){
+        console.log('captcha loaded')
+        //quando carregar vai deixar o botao bugado, se n carregar n bloqueia o botao
+        if(process.env.REACT_APP_ENV !== "dev")//quando estiver na aws
+            setRecaptchaValid(false)
+    }
+
+    function verifyCallback(response){
+        setRecaptchaValid(true)
+    }
+
+    function expiredCallback(){
+        if(process.env.REACT_APP_ENV !== "dev")//quando estiver na aws
+            setRecaptchaValid(false)
     }
 
     const handleCancel = () => {
@@ -123,6 +144,17 @@ export default () => {
                             setErrorText(false)
                         }}
                     /> <br/><br/>
+                    <br/><br/>
+                    <div className='login-recaptcha'>
+                        <Recaptcha
+                            sitekey="6Le9NtgZAAAAAJwIxQ175-18vtMOC6ijmaWPn6PZ"
+                            render="explicit" 
+                            hl="pt-BR"
+                            onloadCallback={recaptchaLoaded}
+                            verifyCallback={verifyCallback}
+                            expiredCallback={expiredCallback}
+                        />
+                    </div>
 
                     <div className='register-buttons-contact'>
                         <button className='button-back' type='button' onClick={handleCancel} id='cancelar-button'>Cancelar</button>

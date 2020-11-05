@@ -25,7 +25,7 @@ export default ()=> {
 
                     <p id='verifique-text'
                         className='verify-text verify-text-title'
-                    >Recebemos sua mensagem {name}</p>
+                    >Recebemos sua mensagem, {name}</p>
 
                     <p id='enviado-text'className='verify-text'>
                         Obrigado por contribuir com nosso site!
