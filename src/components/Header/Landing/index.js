@@ -21,7 +21,7 @@ export default () => {
                 </div>               
 
                 <div className='landing-header-text'>
-                    <p className='hdr-text' onClick={handleContact}>Contato</p>
+                    <p className='hdr-text' id='contact-button'onClick={handleContact}>Contato</p>
                 </div>
             </div>
 
