@@ -43,6 +43,8 @@ const ManageProfiles = (props) => {
         localStorage.removeItem('@prob1')
         localStorage.removeItem('@prob2')
         localStorage.removeItem('@prob3')
+
+        localStorage.setItem('@isadm', true)
         
         props.firebase.auth.currentUser.getIdTokenResult()
         .then((idTokenResult) => {
