@@ -86,6 +86,7 @@ function SignInFormBase(props){
 
                     if (!!idTokenResult.claims.admin){
                         localStorage.setItem('@docusr_tkn',idTokenResult.token)
+                        localStorage.setItem('@isadm', true)
                         props.history.push('/admin-profiles')
                     }else{
                         if (!!idTokenResult.claims.researcher) {
