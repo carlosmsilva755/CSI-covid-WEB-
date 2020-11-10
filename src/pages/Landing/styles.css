@@ -319,3 +319,25 @@
         width: 90%;
     }
 }
+
+
+.container-heatmap{
+    display: grid;
+    justify-content: center;
+    margin-top: -80px;
+    margin-bottom: 80px;
+}
+.text-heatmap-red{
+    color: #EE4937;
+    font-weight: 600;
+    font-size: 22px;
+    margin: 0;
+    text-align: center;
+}
+
+.text-heatmap-gray{
+    color: #313B44;
+    font-weight: bolder;
+    font-size: 26px;
+    text-align: center;
+}
