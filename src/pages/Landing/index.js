@@ -16,6 +16,7 @@ import Info42 from '../../assets/Images/Landing/info4-2.svg'
 import Info43 from '../../assets/Images/Landing/info4-3.svg'
 import Info44 from '../../assets/Images/Landing/info4-4.svg'
 
+import HeatMap from '../../components/HeatMap/index'
 
 export default () => {
     const history = useHistory()
@@ -183,6 +184,15 @@ export default () => {
 
                     </div>
 
+                </div>
+
+                <div className='container-heatmap'>
+                    <div className='container-heatmap-text'>
+                        <p className='text-heatmap-red'>Mapa do Brasil com os casos de Covid-19</p>
+                        <p className='text-heatmap-gray'>Veja o mapa de calor por Estado</p>
+                    </div>
+
+                    <HeatMap/>
                 </div>
 
             </div>
