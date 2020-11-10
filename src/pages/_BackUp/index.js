@@ -249,14 +249,14 @@ const BackUp = (props) => {
                                     <div className='box-buttons-cont'>
 
                                         <button
-                                            id='backup-button'
+                                            id='exportar_backup_button'
                                             className='button button-backup-box'
                                             onClick={()=>{
                                                 setShowModal(true)
                                             }}
                                         >Exportar Backup</button>
                                         
-                                        <label for="restaura-button">
+                                        <label for="restaura-button" id='restaurar-button'>
                                             <div id='restaurar-button'  className='restore-button button-backup-box'>
                                                 <p className='algn-cntr'>Restaurar Backup</p>
                                             </div>
