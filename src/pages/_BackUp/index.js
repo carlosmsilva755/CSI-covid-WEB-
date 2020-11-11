@@ -70,7 +70,7 @@ const BackUp = (props) => {
                     }
                 }
             ).then(response=>{
-                console.log(response);
+                // console.log(response);
                 setDiagnosesProvided(response.data.diagnosesProvided)
                 setDiagnosesRequested(response.data.diagnosesRequested)
                 setDoctors(response.data.doctors)
@@ -134,6 +134,7 @@ const BackUp = (props) => {
     const handleRestore = (event) => {
 
         setFile(event.target.files[0])
+        document.getElementById("restaura-button").value = ""
         setRestoreModal(true)
         
     }
@@ -155,6 +156,7 @@ const BackUp = (props) => {
             setDisableButton(false)
             // console.log(response)
             setRestoreModalConfirm(true)
+            window.location.reload()
 
         }).catch(error=>{
             setShowErrorModal(true)
@@ -173,57 +175,6 @@ const BackUp = (props) => {
                     <>
                         <Header/>
                         <div className={width > 540 ? "container" : "container-responsive"}>
-                            {/* <div className= {width > 540 ? "container-navbars" : "container-navbars-responsive"}>
-                                <TextField 
-                                    id="mes-select" 
-                                    size="small" 
-                                    select disabled
-                                    label="Mês"
-                                    className="search-input backup-select"
-                                    variant="outlined" 
-                                    value ={month} 
-                                    onChange={event => {
-                                        setMonth(event.target.value)
-                                    }}
-                                >
-                                    {months.map((option) => (
-                                        <MenuItem key={option} value={option}>
-                                            {option}
-                                        </MenuItem>
-                                    ))
-                                    }
-                                </TextField>
-                                <div className='mrg-back'>
-                                    <TextField 
-                                        id="ano-select" 
-                                        size="small" 
-                                        select disabled
-                                        label="Ano"
-                                        className="search-input backup-select" // align-left
-                                        variant="outlined" 
-                                        value ={year} 
-                                        onChange={event => {
-                                            setYear(event.target.value)
-                                        }}
-                                    >
-                                        {dates.map((option) => (
-                                            <MenuItem key={option} value={option}>
-                                                {option}
-                                            </MenuItem>
-                                        ))
-                                        }
-                                    </TextField> 
-                                </div>
-                                
-                              	<button
-                                    id='backup-button'
-                                    className='button button-backup'
-                                    onClick={()=>{
-                                        setShowModal(true)
-                                    }}
-                                >Gerar Backup</button>
-                          	</div> */}
-
                             <p className='system-data'>Dados quantitativos do sistema:</p>
  
                             <div className='backup-container'>
@@ -376,3 +327,54 @@ const BackUp = (props) => {
 const condition = authUser => !!authUser;
 
 export default withAuthorization(condition)(BackUp);
+
+/* <div className= {width > 540 ? "container-navbars" : "container-navbars-responsive"}>
+                                <TextField 
+                                    id="mes-select" 
+                                    size="small" 
+                                    select disabled
+                                    label="Mês"
+                                    className="search-input backup-select"
+                                    variant="outlined" 
+                                    value ={month} 
+                                    onChange={event => {
+                                        setMonth(event.target.value)
+                                    }}
+                                >
+                                    {months.map((option) => (
+                                        <MenuItem key={option} value={option}>
+                                            {option}
+                                        </MenuItem>
+                                    ))
+                                    }
+                                </TextField>
+                                <div className='mrg-back'>
+                                    <TextField 
+                                        id="ano-select" 
+                                        size="small" 
+                                        select disabled
+                                        label="Ano"
+                                        className="search-input backup-select" // align-left
+                                        variant="outlined" 
+                                        value ={year} 
+                                        onChange={event => {
+                                            setYear(event.target.value)
+                                        }}
+                                    >
+                                        {dates.map((option) => (
+                                            <MenuItem key={option} value={option}>
+                                                {option}
+                                            </MenuItem>
+                                        ))
+                                        }
+                                    </TextField> 
+                                </div>
+                                
+                              	<button
+                                    id='backup-button'
+                                    className='button button-backup'
+                                    onClick={()=>{
+                                        setShowModal(true)
+                                    }}
+                                >Gerar Backup</button>
+                          	</div> */
