@@ -108,3 +108,16 @@
     
     color: #EE4937; 
 }
+
+@media screen and (max-width: 540px) {
+    .content-box{
+        width: 300px;
+        height: 390px;
+        padding: 16px;
+        
+        display: flex;
+        /* grid-template-areas: 'diag diag2 doc res'; */
+        flex-direction: column;
+        
+    }
+}

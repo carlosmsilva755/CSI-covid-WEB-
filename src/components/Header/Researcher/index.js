@@ -15,6 +15,7 @@ import ProfileMenu from '../../../assets/Icons/profile'
 import Assignment from '../../../assets/Icons/assignment'
 import { withFirebase } from '../../../contexts/Firebase';
 import { ReactComponent as MenuIcon } from '../../../assets/Icons/menu.svg'
+import { ReactComponent as ChartsIcon } from '../../../assets/Icons/Header/Adm/charts.svg'
 
 const Header = ({ firebase }) => {
 
@@ -81,9 +82,24 @@ const Header = ({ firebase }) => {
                     <> 
                         <div className= "container-header">
 
-                            <div className="container-header-prontuario">                   
-                                <a id='imagens-button' href = '/researcherImages' className = "header-buttons">Curadoria de dados</a>                    
+                            <div className="container-header-buttons-res">                   
+                                <a 
+                                    id='imagens-button'
+                                    href = '/researcherImages' 
+                                    className = {location.pathname ==='/researcherImages' ?
+                                        "header-button-res-clicked" : "header-button-res1"
+                                    }
+                                >Curadoria de dados</a>
+
+                                <a 
+                                    id='graficos-button'
+                                    href = '/charts' 
+                                    className = {location.pathname ==='/charts' ?
+                                        "header-button-res-clicked" : "header-button-res1"
+                                    }
+                                >Estatísticas</a>
                             </div>
+                            
 
                         </div>                
                         
@@ -119,6 +135,14 @@ const Header = ({ firebase }) => {
                         width < 540 && location.pathname !== '/researcherImages'?
                             <MenuItem id='diagnostico-button' onClick={handleDiagnoses}>
                                 <Assignment/> &nbsp; Curadoria
+                            </MenuItem>
+                            : null
+                    }
+
+                    {
+                        width < 540 && location.pathname !== '/charts'?
+                            <MenuItem id='charts-button' onClick={e=>history.push('/charts')}>
+                                <ChartsIcon/> &nbsp; Estatísticas
                             </MenuItem>
                             : null
                     }
