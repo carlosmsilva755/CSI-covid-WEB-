@@ -126,12 +126,12 @@ const Header = ({ firebase }) => {
 
                                 <a 
                                     id='graficos-button'
-                                    href = '/admin-profiles' 
-                                    // className = {location.pathname ==='/admin-profiles' ?
-                                    //     "header-button1-clicked" : "header-button1"
-                                    // }
-                                    className = "header-button1"
-                                >Gráficos</a>
+                                    href = '/charts' 
+                                    className = {location.pathname ==='/charts' ?
+                                        "header-button1-clicked" : "header-button1"
+                                    }
+                                    // className = "header-button1"
+                                >Estatísticas</a>
                                 
                             </div>
 
@@ -208,9 +208,9 @@ const Header = ({ firebase }) => {
                     }
 
                     {
-                        width < 540 && location.pathname !== '/'?
-                            <MenuItem id='charts-button' onClick={e=>history.push('/admin-profiles')}>
-                                <ChartsIcon/> &nbsp; Gráficos
+                        width < 540 && location.pathname !== '/charts'?
+                            <MenuItem id='charts-button' onClick={e=>history.push('/charts')}>
+                                <ChartsIcon/> &nbsp; Estatísticas
                             </MenuItem>
                             : null
                     }

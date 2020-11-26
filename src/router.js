@@ -24,6 +24,7 @@ import AdminProfile from './pages/Profile/Admin/index'
 import BackUp from './pages/_BackUp/index'
 import ContactUs from './pages/ContactUs/ContactForm/index'
 import ConfirmContact from './pages/ContactUs/ConfirmEmail/index'
+import Charts from './pages/Charts/index'
 
 export default () => {
     return (
@@ -59,6 +60,7 @@ export default () => {
 
             <Route path="/admin-profiles" component ={ManageProfiles}/>
             <Route path="/admin-backup" component ={BackUp}/>
+            <Route path="/charts" component={Charts}/>
 
             <Route path="/contact" component ={ContactUs}/>
             <Route path="/confirm-contact" component ={ConfirmContact}/>
