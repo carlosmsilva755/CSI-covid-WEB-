@@ -1,0 +1,31 @@
+.charts-container{
+    width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.loading-circle{
+    justify-content: center;
+    align-content: center;
+}
+
+.charts-title{
+
+    font-family: Roboto;
+    /* font-style: ; */
+    font-weight: 500 !important;
+    font-size: 20px;
+    line-height: 27px;
+    display: flex;
+    margin-bottom: 32px;
+    letter-spacing: 0.4px;
+    
+    color: #EE4937; 
+}
+
+@media screen and (max-width: 540px) {
+    .charts-container{
+        width: 400px;
+    }
+}
