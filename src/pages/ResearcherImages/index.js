@@ -1,18 +1,30 @@
 import React, { useEffect, useState, useContext } from "react"
 import {useHistory} from 'react-router-dom'
 
+import MomentUtils from "@date-io/moment"
 import TextField from '@material-ui/core/TextField'
 import MenuItem from '@material-ui/core/MenuItem'
 import Pagination from '@material-ui/lab/Pagination'
+import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers'
+import LinearProgress from '@material-ui/core/LinearProgress';
+import Fade from '@material-ui/core/Fade'
+
+import Dialog from '@material-ui/core/Dialog'
+import DialogActions from '@material-ui/core/DialogActions'
+import DialogTitle from '@material-ui/core/DialogTitle'
 
 import './styles.css';
 import Header from '../../components/Header/Researcher/index'
 import HeaderADM from '../../components/Header/Admin/index'
 import Card from '../../components/Cards/CardMenu/index'
 import searchButton from '../../assets/Icons/searchButton.svg'
+import download from '../../assets/Icons/download.svg'
+import downloadClicked from '../../assets/Icons/downloadClicked.svg'
 import api from '../../services/api'
 import { AuthUserContext, withAuthorization } from '../../contexts/Session'
 import ImageContext from '../../contexts/Image/index'
+import moment from 'moment'
+import 'moment/locale/pt-br'
 
 const ResearcherImages = (props) => {
 
@@ -39,6 +51,14 @@ const ResearcherImages = (props) => {
     const [currentPageFilter, setCurrentPageFilter] = useState(localStorage.getItem('@currentpageFilterRes') ?
     localStorage.getItem('@currentpageFilterRes'):1)
 
+    const [startDate, setStartDate] = useState(moment().format())
+    const [endDate, setEndDate] = useState(moment().format())
+    const [token, setToken] = useState('')
+    const [clicked, setClicked] = useState(false)
+
+    const [showModal, setShowModal] = useState(false)
+    const [errorModal, setErrorModal] = useState(false)
+
     useEffect(()=>{
         
         localStorage.removeItem('@justUpload')
@@ -53,6 +73,7 @@ const ResearcherImages = (props) => {
         .then((idTokenResult) => {
            if (!!idTokenResult.claims.researcher) {
              setIsAuth(true)
+             setToken(idTokenResult.token)
            } else {
              setIsAuth(false)
            }
@@ -190,6 +211,62 @@ const ResearcherImages = (props) => {
     function handleAdd(){
         history.push('/register')
     }
+
+    const handleStartDateChange = (date) => {
+        setStartDate(moment(date).format())
+        console.log(moment(date).format())
+    }
+
+    const handleEndDateChange = (date) => {
+        setEndDate(moment(date).format())
+        console.log(moment(date).format())
+    }
+
+    const handleBackup = async() =>{
+        console.log(startDate);
+        console.log(typeof(startDate));
+
+        setClicked(true)//disables the button
+        setShowModal(true)//shows the modal
+
+        const formData = new FormData()
+
+        formData.append('startDate',startDate)
+        formData.append('endDate',endDate)
+
+        const config = {
+            headers: { 
+                authorization: `Bearer ${token}`,
+                "Access-Control-Allow-Origin": "http://localhost:3000"
+            },
+            // responseType: 'blob' 
+        }
+
+        const data = {
+            'startDate':startDate,
+            'endData':endDate
+        }
+
+        await api.get('/image-backup', 
+             { startDate: startDate, endDate: endDate },
+            config
+        ).then(response=>{
+            console.log(response)
+            setShowModal(false)
+
+            const downloadUrl = window.URL.createObjectURL(new Blob([response.data]))
+            const link = document.createElement('a')
+            link.href = downloadUrl
+            link.setAttribute('download', `${moment().format('L')}-backup.zip`)
+            document.body.appendChild(link)
+            link.click()
+        }).catch(error=>{
+            // console.log(error);
+            setClicked(false)//enables the button
+            setErrorModal(true)//shows the error message
+        })
+    }
+    
     return(
         <AuthUserContext.Consumer> 
             {authUser =>
@@ -199,32 +276,13 @@ const ResearcherImages = (props) => {
                         <div className= {width > 540 ? "container" : "container-responsive"}>
                             <div className= {width > 540 ? "container-navbars" : "container-navbars-responsive"}>
 
-                                <TextField id="pesquisar-input" 
-                                    label={error ? errorMsg:"Pesquisar"}
-                                    size = "small" 
-                                    variant="outlined"
-                                    className="search-input"
-                                    error={error}
-                                    value ={search} 
-                                    onChange={event => {
-                                        setSearch(event.target.value)
-                                        setError(false)
-                                    }}
-                                />
-                                
-                                <img id ='pesquisar-button'
-                                    src={searchButton} 
-                                    alt="search" 
-                                    className='button-search-menu'
-                                    onClick={searchDiagnosis}
-                                />
-                                <div className= {width > 540 ? "filter": ""}>
+                                <div className= {width > 540 ? "filter-rese": ""}>
 
                                     <TextField id="outlined-select-currency" 
                                         size="small" 
                                         select 
                                         label="Filtro" 
-                                        className="select-filter" 
+                                        className="select-filter-reseacher" 
                                         variant="outlined"
                                         disabled={disableSelect}
                                         value={filter}
@@ -251,11 +309,86 @@ const ResearcherImages = (props) => {
                                     </TextField>
 
                                 </div>
+                                
+                                <div className='backup-researcher'>
+                                    <MuiPickersUtilsProvider  libInstance={moment} utils={MomentUtils} >
+
+                                        <KeyboardDatePicker
+                                            disableToolbar
+                                            variant='inline'
+                                            format="DD/MM/YYYY"
+                                            inputVariant="outlined"
+                                            margin='dense'
+                                            disableFuture 
+                                            invalidDateMessage="Data em formato inválido."
+                                            maxDateMessage={`A data deve ser menor do que ${moment(new Date()).format('L')}.`}
+                                            id="date-start"
+                                            label="Data inicial"
+                                            value={startDate}
+                                            onChange={handleStartDateChange}
+                                            // onError={()=>console.log('deu erro')}
+                                            KeyboardButtonProps={{
+                                                'aria-label': 'change date',
+                                            }}
+                                            className='start-date-picker'
+                                        />
+                                        <div className='ttttttt'></div>
+                                        <KeyboardDatePicker
+                                            disableToolbar
+                                            variant='inline'
+                                            format="DD/MM/YYYY"
+                                            inputVariant="outlined"
+                                            margin='dense'
+                                            disableFuture
+                                            invalidDateMessage="Data em formato inválido."
+                                            maxDateMessage={`A data deve ser menor do que ${moment(new Date()).format('L')}.`}
+                                            id="date-final"
+                                            label="Data final"
+                                            value={endDate}
+                                            onChange={handleEndDateChange}
+                                            KeyboardButtonProps={{
+                                                'aria-label': 'change date',
+                                            }}
+                                            className='start-date-picker'
+                                        />
+
+                                        <img id ='backup-button'
+                                            src={!clicked?download:downloadClicked} 
+                                            alt="search" 
+                                            className='button-search-menu-res'
+                                            onClick={!clicked?handleBackup:null}
+                                        />
+                                        <div className='tttt4ttt'></div>
+
+                                    </MuiPickersUtilsProvider>
+                                </div>
+
+
+
+                                <TextField id="pesquisar-input" 
+                                    label={error ? errorMsg:"Pesquisar"}
+                                    size = "small" 
+                                    variant="outlined"
+                                    className="search-input-ressearcher"
+                                    error={error}
+                                    value ={search} 
+                                    onChange={event => {
+                                        setSearch(event.target.value)
+                                        setError(false)
+                                    }}
+                                />
+                                
+                                <img id ='pesquisar-button'
+                                    src={searchButton} 
+                                    alt="search" 
+                                    className='button-search-menu'
+                                    onClick={searchDiagnosis}
+                                />
 
                                 <button 
                                     id ='novo-button' 
                                     type = "button" 
-                                    className={width > 540 ? "button-add" :"button-add-responsive"}
+                                    className={width > 540 ? "button-add-res" :"button-add-responsive-res"}
                                     onClick = {handleAdd}
                                 >Novo</button>
 
@@ -302,6 +435,26 @@ const ResearcherImages = (props) => {
                             </div>
 
                         </div>
+
+                        <Dialog
+                            open={showModal} 
+                            aria-labelledby="draggable-dialog-title" maxWidth='xs'
+                        >
+                            <DialogTitle >
+                                <p className='modal-backup-text' id="confirmation-message-restore">
+                                    {errorModal? 'Erro ao realizar download!':'Realizando download!'}
+                                </p> 
+                                <Fade in={showModal && !errorModal} unmountOnExit>
+                                    <LinearProgress/>
+                                </Fade>
+                            </DialogTitle>
+                            <DialogActions>
+                                {errorModal ?
+                                    <button id='cancelar-button-backup'onClick={()=>{setShowModal(false);setError(false)}} className='button-back'>Fechar</button>
+                                    : null
+                                }
+                            </DialogActions>
+                        </Dialog>
                     </div>
                     : 
                         history.push('/login')
