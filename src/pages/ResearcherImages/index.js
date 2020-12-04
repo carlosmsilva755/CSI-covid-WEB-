@@ -450,7 +450,7 @@ const ResearcherImages = (props) => {
                             </DialogTitle>
                             <DialogActions>
                                 {errorModal ?
-                                    <button id='cancelar-button-backup'onClick={()=>{setShowModal(false);setError(false)}} className='button-back'>Fechar</button>
+                                    <button id='cancelar-button-backup'onClick={()=>{setShowModal(false);setErrorModal(false)}} className='button-back'>Fechar</button>
                                     : null
                                 }
                             </DialogActions>
