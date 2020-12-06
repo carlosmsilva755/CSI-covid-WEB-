@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd build/
-echo "ORQUESTRA AWS"
+echo "COVID AWS"
 ls
 if [ -d "build" ]; then rm -Rf build; fi
 mkdir build
