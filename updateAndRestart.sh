@@ -1,5 +1,8 @@
 #!/bin/bash
 
+
+set -e
+
 cd build/
 echo "COVID AWS"
 ls
