@@ -1,10 +1,11 @@
-image: node:10
+image: node:latest
 
 stages:
     - testBuild
     - testDeploy
     - testRun
     - testProduction
+    - productionDeploy
 
 .only_default: &only_default
     only:
@@ -62,3 +63,20 @@ testProduction:
       - firebase deploy --project=default --token=$FIREBASE_TOKEN
     dependencies:
       - testBuild
+
+
+productionDeploy:
+    only:
+      - master
+    stage: productionDeploy
+    dependencies:
+      - testBuild
+    script:
+      - dir
+      - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+      - chmod a+x disableHostKeyChecking.sh
+      - bash ./deploy.sh
+      
+    
+    
+
