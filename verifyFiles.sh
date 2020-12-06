@@ -3,7 +3,7 @@
 set -e
 
 cd /var/www/
-if [ -d "csicovidweb.tk" ]; then sudo rm -Rf html; fi
+if [ -d "csicovidweb.tk" ]; then sudo rm -Rf csicovidweb.tk; fi
 sudo mkdir csicovidweb.tk
 cd csicovidweb.tk
 sudo mv /home/ubuntu/apps/build* .
