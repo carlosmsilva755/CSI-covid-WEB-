@@ -51,7 +51,7 @@ const ResearcherImages = (props) => {
     const [currentPageFilter, setCurrentPageFilter] = useState(localStorage.getItem('@currentpageFilterRes') ?
     localStorage.getItem('@currentpageFilterRes'):1)
 
-    const [startDate, setStartDate] = useState(moment().format())
+    const [startDate, setStartDate] = useState(moment('08/01/2020').format())
     const [endDate, setEndDate] = useState(moment().format())
     const [token, setToken] = useState('')
     const [clicked, setClicked] = useState(false)
@@ -223,8 +223,8 @@ const ResearcherImages = (props) => {
     }
 
     const handleBackup = async() =>{
-        console.log(startDate);
-        console.log(typeof(startDate));
+        // console.log(token);
+        // console.log(typeof(startDate));
 
         setClicked(true)//disables the button
         setShowModal(true)//shows the modal
@@ -237,19 +237,18 @@ const ResearcherImages = (props) => {
         const config = {
             headers: { 
                 authorization: `Bearer ${token}`,
-                "Access-Control-Allow-Origin": "http://localhost:3000"
             },
-            // responseType: 'blob' 
+            responseType: 'blob' 
         }
 
         const data = {
-            'startDate':startDate,
-            'endData':endDate
+            startDate:startDate,
+            endData:endDate
         }
 
         await api.get('/image-backup', 
-             { startDate: startDate, endDate: endDate },
-            config
+            config,
+            data,//  { startDate: startDate, endDate: endDate },
         ).then(response=>{
             console.log(response)
             setShowModal(false)
@@ -257,7 +256,7 @@ const ResearcherImages = (props) => {
             const downloadUrl = window.URL.createObjectURL(new Blob([response.data]))
             const link = document.createElement('a')
             link.href = downloadUrl
-            link.setAttribute('download', `${moment().format('L')}-backup.zip`)
+            link.setAttribute('download', `xray-backup.zip`)
             document.body.appendChild(link)
             link.click()
         }).catch(error=>{
@@ -265,6 +264,23 @@ const ResearcherImages = (props) => {
             setClicked(false)//enables the button
             setErrorModal(true)//shows the error message
         })
+
+        //  const requestOptions = {
+        //     method: 'get',
+        //     data: {
+        //         startDate:startDate,
+        //         endData:endDate
+        //     },
+        //     headers: new Headers({
+        //         authorization: `Bearer ${localStorage.getItem('@resUsrTkn')}`,
+        //         // 'Content-Type': 'application/json',
+        //     }),
+        // }
+        
+        // const response = await fetch('https://csi-covid-staging.herokuapp.com/image-backup', requestOptions);
+        // const dataa = await response.json()
+        // console.log(dataa);
+        // console.log(response);
     }
     
     return(
