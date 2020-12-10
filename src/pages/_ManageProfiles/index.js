@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from "react"
 import {useHistory} from 'react-router-dom'
 
 import TextField from '@material-ui/core/TextField'
-// import MenuItem from '@material-ui/core/MenuItem'
+import MenuItem from '@material-ui/core/MenuItem'
 import Pagination from '@material-ui/lab/Pagination'
 
 import './styles.css'
@@ -14,7 +14,7 @@ import { AuthUserContext, withAuthorization } from '../../contexts/Session'
 
 const ManageProfiles = (props) => {
 
-    // const filterOptions = [{"Filter":"Todos"}, {"Filter":""}]
+    const filterOptions = [{"Filter":"Todos"}, {"Filter":"Habilitados"}, {"Filter":"Desabilitados"}]
     const width = window.innerWidth
 
     const history = useHistory()
@@ -164,7 +164,7 @@ const ManageProfiles = (props) => {
                                     }}
                                 />
 
-                                {/* <div className= {width > 540 ? "filter": ""}>
+                                <div className= {width > 540 ? "filter": ""}>
 
                                     <TextField id="outlined-select-currency" 
                                         size="small" 
@@ -175,7 +175,7 @@ const ManageProfiles = (props) => {
                                         // disabled={disableSelect}
                                         // value={filter}
                                         onChange={event=>{
-                                            setCurrentPage(1)
+                                            // setCurrentPage(1)
                                         }}
                                     >
                                         {filterOptions.map((option) => (
@@ -185,7 +185,7 @@ const ManageProfiles = (props) => {
                                         ))}
                                     </TextField>
 
-                                </div> */}
+                                </div>
                           	</div>
 
 							<div className='container-diagnosis-admin'>
