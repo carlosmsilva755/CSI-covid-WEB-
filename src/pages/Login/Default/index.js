@@ -90,8 +90,16 @@ function SignInFormBase(props){
                         props.history.push('/admin-profiles')
                     }else{
                         if (!!idTokenResult.claims.researcher) {
-                            localStorage.setItem('@resUsrTkn',idTokenResult.token)
-                            props.history.push('/researcherImages')
+                            if(!!idTokenResult.claims.email_verified){
+                                localStorage.setItem('@resUsrTkn',idTokenResult.token)
+                                props.history.push('/researcherImages')
+                            }else{
+                                console.log('not ve');
+
+                                props.firebase.doSendVerification()
+                                props.firebase.doSignOut()
+                                props.history.push('/confirm-email')
+                            }
 
                         }else if (!!idTokenResult.claims.doctor){
                             localStorage.setItem('@docusr_tkn',idTokenResult.token)
@@ -122,8 +130,17 @@ function SignInFormBase(props){
                     props.history.push('/admin-profiles')
                 }else{
                     if (!!idTokenResult.claims.researcher) {
-                        localStorage.setItem('@resUsrTkn',idTokenResult.token)
-                        props.history.push('/researcherImages')
+                        if(!!idTokenResult.claims.email_verified){
+                            localStorage.setItem('@resUsrTkn',idTokenResult.token)
+                            props.history.push('/researcherImages')
+                        }
+                        else{
+                            event.preventDefault()
+
+                            props.firebase.doSendVerification()
+                            props.firebase.doSignOut()
+                            props.history.push('/confirm-email')
+                        }
                     }
                     else if (!!idTokenResult.claims.doctor){
                         localStorage.setItem('@docusr_tkn',idTokenResult.token)
@@ -186,7 +203,11 @@ function SignInFormBase(props){
 
     function recaptchaLoaded(){
         console.log('captcha loaded')
-        setIsVerified(false)
+        if(process.env.REACT_APP_ENV === "dev"){
+            console.log('object');
+        }else{
+            setIsVerified(false)
+        }
     }
 
     function verifyCallback(response){
