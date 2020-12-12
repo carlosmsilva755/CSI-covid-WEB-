@@ -229,11 +229,6 @@ const ResearcherImages = (props) => {
         setClicked(true)//disables the button
         setShowModal(true)//shows the modal
 
-        const formData = new FormData()
-
-        formData.append('startDate',startDate)
-        formData.append('endDate',endDate)
-
         const config = {
             headers: { 
                 authorization: `Bearer ${token}`,
@@ -241,14 +236,8 @@ const ResearcherImages = (props) => {
             responseType: 'blob' 
         }
 
-        const data = {
-            startDate:startDate,
-            endData:endDate
-        }
-
-        await api.get('/image-backup', 
+        await api.get(`/image-backup?startDate=${startDate}&endDate=${endDate}`, 
             config,
-            data,//  { startDate: startDate, endDate: endDate },
         ).then(response=>{
             console.log(response)
             setShowModal(false)
@@ -260,7 +249,7 @@ const ResearcherImages = (props) => {
             document.body.appendChild(link)
             link.click()
         }).catch(error=>{
-            // console.log(error);
+            console.log(error.message);
             setClicked(false)//enables the button
             setErrorModal(true)//shows the error message
         })
