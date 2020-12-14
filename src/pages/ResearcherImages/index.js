@@ -241,6 +241,7 @@ const ResearcherImages = (props) => {
         ).then(response=>{
             console.log(response)
             setShowModal(false)
+            setClicked(false)//enables the button
 
             const downloadUrl = window.URL.createObjectURL(new Blob([response.data]))
             const link = document.createElement('a')
