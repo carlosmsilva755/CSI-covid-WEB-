@@ -14,7 +14,7 @@ import { AuthUserContext, withAuthorization } from '../../contexts/Session'
 
 const ManageProfiles = (props) => {
 
-    const filterOptions = [{"Filter":"Todos"}, {"Filter":"Habilitados"}, {"Filter":"Desabilitados"}]
+    const filterOptions = [{"Filter":"Pendentes"}, {"Filter":"Bloqueados"}, {"Filter":"Desbloqueados"}]
     const width = window.innerWidth
 
     const history = useHistory()

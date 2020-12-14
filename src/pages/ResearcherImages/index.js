@@ -282,7 +282,7 @@ const ResearcherImages = (props) => {
                         <div className= {width > 540 ? "container" : "container-responsive"}>
                             <div className= {width > 540 ? "container-navbars" : "container-navbars-responsive"}>
 
-                                <div className= {width > 540 ? "filter-rese": ""}>
+                                <div className= {width > 540 ? "filter-rese": "filter-rese"}>
 
                                     <TextField id="outlined-select-currency" 
                                         size="small" 
@@ -370,34 +370,37 @@ const ResearcherImages = (props) => {
                                 </div>
 
 
+                                <div className='tests123'>
 
-                                <TextField id="pesquisar-input" 
-                                    label={error ? errorMsg:"Pesquisar"}
-                                    size = "small" 
-                                    variant="outlined"
-                                    className="search-input-ressearcher"
-                                    error={error}
-                                    value ={search} 
-                                    onChange={event => {
-                                        setSearch(event.target.value)
-                                        setError(false)
-                                    }}
-                                />
                                 
-                                <img id ='pesquisar-button'
-                                    src={searchButton} 
-                                    alt="search" 
-                                    className='button-search-menu'
-                                    onClick={searchDiagnosis}
-                                />
+                                    <TextField id="pesquisar-input" 
+                                        label={error ? errorMsg:"Pesquisar"}
+                                        size = "small" 
+                                        variant="outlined"
+                                        className="search-input-ressearcher"
+                                        error={error}
+                                        value ={search} 
+                                        onChange={event => {
+                                            setSearch(event.target.value)
+                                            setError(false)
+                                        }}
+                                    />
+                                
+                                    <img id ='pesquisar-button'
+                                        src={searchButton} 
+                                        alt="search" 
+                                        className='button-search-menu-res2'
+                                        onClick={searchDiagnosis}
+                                    />
 
-                                <button 
-                                    id ='novo-button' 
-                                    type = "button" 
-                                    className={width > 540 ? "button-add-res" :"button-add-responsive-res"}
-                                    onClick = {handleAdd}
-                                >Novo</button>
-
+                                    <button 
+                                        id ='novo-button' 
+                                        type = "button" 
+                                        className={width > 540 ? "button-add-res" :"button-add-responsive-res"}
+                                        onClick = {handleAdd}
+                                    >Novo</button>
+                                
+                                </div>
                             </div>
 
                             <div className={width > 540 ? "container-diagnosis":"container-diagnosis-responsive"}>
