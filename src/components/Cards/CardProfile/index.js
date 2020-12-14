@@ -14,7 +14,7 @@ import { ReactComponent as Unblock } from '../../../assets/Icons/unblock.svg'
 import api from '../../../services/api'
 import './styles.css'
  
-export default ({profile})=>{
+export default ({profile, setNewCall, newCall})=>{
 
     const [anchorEl, setAnchorEl] = useState(null)
     const [showModal, setShowModal] = useState(false)
@@ -45,6 +45,7 @@ export default ({profile})=>{
             setSuccessModal(true)
             setShowModal(false)
             setShowModalUnblock(false)
+            setNewCall(newCall+1)
             // setIsUnblocking(false)
         }).catch(error=>{
             console.log(error.response.data)

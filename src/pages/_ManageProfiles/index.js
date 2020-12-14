@@ -31,6 +31,8 @@ const ManageProfiles = (props) => {
 
     const [finalSearch, setFinalSearch] = useState('')
 
+    const [newCall, setNewCall] = useState(1)
+
     useEffect(()=>{
         
         localStorage.removeItem('@isResearcher')
@@ -126,7 +128,7 @@ const ManageProfiles = (props) => {
             })()
         }
             
-    }, [currentPage, isSearching, props.firebase.auth.currentUser, searchProfile])
+    }, [currentPage, isSearching, props.firebase.auth.currentUser, searchProfile, newCall])
 
     return (
         <AuthUserContext.Consumer> 
@@ -172,6 +174,7 @@ const ManageProfiles = (props) => {
                                         label="Filtro" 
                                         className="select-filter" 
                                         variant="outlined" 
+                                        disabled
                                         // disabled={disableSelect}
                                         // value={filter}
                                         onChange={event=>{
@@ -193,7 +196,7 @@ const ManageProfiles = (props) => {
                                     profiles ?
                                         profiles.map( item =>
                                             <div className="content-card" key = {item._id}>
-                                                <Card profile={item}/>
+                                                <Card profile={item} setNewCall={setNewCall} newCall={newCall}/>
                                             </div>
                                         ) 
                                     :
