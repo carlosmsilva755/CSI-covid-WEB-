@@ -229,11 +229,6 @@ const ResearcherImages = (props) => {
         setClicked(true)//disables the button
         setShowModal(true)//shows the modal
 
-        const formData = new FormData()
-
-        formData.append('startDate',startDate)
-        formData.append('endDate',endDate)
-
         const config = {
             headers: { 
                 authorization: `Bearer ${token}`,
@@ -241,17 +236,12 @@ const ResearcherImages = (props) => {
             responseType: 'blob' 
         }
 
-        const data = {
-            startDate:startDate,
-            endData:endDate
-        }
-
-        await api.get('/image-backup', 
+        await api.get(`/image-backup?startDate=${startDate}&endDate=${endDate}`, 
             config,
-            data,//  { startDate: startDate, endDate: endDate },
         ).then(response=>{
             console.log(response)
             setShowModal(false)
+            setClicked(false)//enables the button
 
             const downloadUrl = window.URL.createObjectURL(new Blob([response.data]))
             const link = document.createElement('a')
@@ -260,7 +250,7 @@ const ResearcherImages = (props) => {
             document.body.appendChild(link)
             link.click()
         }).catch(error=>{
-            // console.log(error);
+            console.log(error.message);
             setClicked(false)//enables the button
             setErrorModal(true)//shows the error message
         })
@@ -292,7 +282,7 @@ const ResearcherImages = (props) => {
                         <div className= {width > 540 ? "container" : "container-responsive"}>
                             <div className= {width > 540 ? "container-navbars" : "container-navbars-responsive"}>
 
-                                <div className= {width > 540 ? "filter-rese": ""}>
+                                <div className= {width > 540 ? "filter-rese": "filter-rese"}>
 
                                     <TextField id="outlined-select-currency" 
                                         size="small" 
@@ -380,34 +370,37 @@ const ResearcherImages = (props) => {
                                 </div>
 
 
+                                <div className='tests123'>
 
-                                <TextField id="pesquisar-input" 
-                                    label={error ? errorMsg:"Pesquisar"}
-                                    size = "small" 
-                                    variant="outlined"
-                                    className="search-input-ressearcher"
-                                    error={error}
-                                    value ={search} 
-                                    onChange={event => {
-                                        setSearch(event.target.value)
-                                        setError(false)
-                                    }}
-                                />
                                 
-                                <img id ='pesquisar-button'
-                                    src={searchButton} 
-                                    alt="search" 
-                                    className='button-search-menu'
-                                    onClick={searchDiagnosis}
-                                />
+                                    <TextField id="pesquisar-input" 
+                                        label={error ? errorMsg:"Pesquisar"}
+                                        size = "small" 
+                                        variant="outlined"
+                                        className="search-input-ressearcher"
+                                        error={error}
+                                        value ={search} 
+                                        onChange={event => {
+                                            setSearch(event.target.value)
+                                            setError(false)
+                                        }}
+                                    />
+                                
+                                    <img id ='pesquisar-button'
+                                        src={searchButton} 
+                                        alt="search" 
+                                        className='button-search-menu-res2'
+                                        onClick={searchDiagnosis}
+                                    />
 
-                                <button 
-                                    id ='novo-button' 
-                                    type = "button" 
-                                    className={width > 540 ? "button-add-res" :"button-add-responsive-res"}
-                                    onClick = {handleAdd}
-                                >Novo</button>
-
+                                    <button 
+                                        id ='novo-button' 
+                                        type = "button" 
+                                        className={width > 540 ? "button-add-res" :"button-add-responsive-res"}
+                                        onClick = {handleAdd}
+                                    >Novo</button>
+                                
+                                </div>
                             </div>
 
                             <div className={width > 540 ? "container-diagnosis":"container-diagnosis-responsive"}>
