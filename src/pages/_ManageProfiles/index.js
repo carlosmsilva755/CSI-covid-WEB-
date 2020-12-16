@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from "react"
 import {useHistory} from 'react-router-dom'
 
 import TextField from '@material-ui/core/TextField'
-// import MenuItem from '@material-ui/core/MenuItem'
+import MenuItem from '@material-ui/core/MenuItem'
 import Pagination from '@material-ui/lab/Pagination'
 
 import './styles.css'
@@ -14,7 +14,7 @@ import { AuthUserContext, withAuthorization } from '../../contexts/Session'
 
 const ManageProfiles = (props) => {
 
-    // const filterOptions = [{"Filter":"Todos"}, {"Filter":""}]
+    const filterOptions = [{"Filter":"Pendentes"}, {"Filter":"Bloqueados"}, {"Filter":"Desbloqueados"}]
     const width = window.innerWidth
 
     const history = useHistory()
@@ -30,6 +30,8 @@ const ManageProfiles = (props) => {
     const [isSearching, setIsSearching] = useState(false)
 
     const [finalSearch, setFinalSearch] = useState('')
+
+    const [newCall, setNewCall] = useState(1)
 
     useEffect(()=>{
         
@@ -126,7 +128,7 @@ const ManageProfiles = (props) => {
             })()
         }
             
-    }, [currentPage, isSearching, props.firebase.auth.currentUser, searchProfile])
+    }, [currentPage, isSearching, props.firebase.auth.currentUser, searchProfile, newCall])
 
     return (
         <AuthUserContext.Consumer> 
@@ -164,7 +166,7 @@ const ManageProfiles = (props) => {
                                     }}
                                 />
 
-                                {/* <div className= {width > 540 ? "filter": ""}>
+                                <div className= {width > 540 ? "filter": ""}>
 
                                     <TextField id="outlined-select-currency" 
                                         size="small" 
@@ -172,10 +174,11 @@ const ManageProfiles = (props) => {
                                         label="Filtro" 
                                         className="select-filter" 
                                         variant="outlined" 
+                                        disabled
                                         // disabled={disableSelect}
                                         // value={filter}
                                         onChange={event=>{
-                                            setCurrentPage(1)
+                                            // setCurrentPage(1)
                                         }}
                                     >
                                         {filterOptions.map((option) => (
@@ -185,7 +188,7 @@ const ManageProfiles = (props) => {
                                         ))}
                                     </TextField>
 
-                                </div> */}
+                                </div>
                           	</div>
 
 							<div className='container-diagnosis-admin'>
@@ -193,7 +196,7 @@ const ManageProfiles = (props) => {
                                     profiles ?
                                         profiles.map( item =>
                                             <div className="content-card" key = {item._id}>
-                                                <Card profile={item}/>
+                                                <Card profile={item} setNewCall={setNewCall} newCall={newCall}/>
                                             </div>
                                         ) 
                                     :

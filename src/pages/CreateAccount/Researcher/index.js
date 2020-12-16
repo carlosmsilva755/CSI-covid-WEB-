@@ -55,14 +55,17 @@ function SignUpFormBase (props){
                 setEmail('')
                 setPassword('')
                 setError(null);
-                props.firebase.auth.currentUser.getIdToken(false)
-                .then((token) => {
-                    localStorage.setItem('@resUsrTkn',token)
-                })
-                .catch(errorMessage => 
-                    console.log("Auth token retrieval error: " + errorMessage)
-                )
-                props.history.push('/researcherImages');
+
+                props.firebase.doSendVerification()
+                    .then(() => {
+                        console.log('verification sent');
+                    })
+                    .catch(error => 
+                        console.log("Auth token retrieval error: " + error)
+                    )
+                props.history.push('/confirm-email')
+                props.firebase.doSignOut()
+
             })
             .catch(error => {
                 setError(error);

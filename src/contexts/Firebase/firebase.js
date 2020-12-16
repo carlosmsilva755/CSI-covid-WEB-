@@ -36,6 +36,9 @@ class Firebase {
 
   doEmailUpdate = email =>
     this.auth.currentUser.updateEmail(email)
+
+  doSendVerification = () =>
+    this.auth.currentUser.sendEmailVerification()
 }
 
 export default Firebase;
