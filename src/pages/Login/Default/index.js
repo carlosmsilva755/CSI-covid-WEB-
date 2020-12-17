@@ -102,8 +102,17 @@ function SignInFormBase(props){
                             }
 
                         }else if (!!idTokenResult.claims.doctor){
-                            localStorage.setItem('@docusr_tkn',idTokenResult.token)
-                            props.history.push('/medicalRecord');
+
+                            if(!!idTokenResult.claims.email_verified){
+                                localStorage.setItem('@docusr_tkn',idTokenResult.token)
+                                props.history.push('/medicalRecord')
+                            }else{
+                                console.log('not ve');
+
+                                props.firebase.doSendVerification()
+                                props.firebase.doSignOut()
+                                props.history.push('/confirm-email')
+                            }
                         }
                     }
                 })
@@ -143,8 +152,18 @@ function SignInFormBase(props){
                         }
                     }
                     else if (!!idTokenResult.claims.doctor){
-                        localStorage.setItem('@docusr_tkn',idTokenResult.token)
-                        props.history.push('/medicalRecord')
+
+                        if(!!idTokenResult.claims.email_verified){
+                            localStorage.setItem('@docusr_tkn',idTokenResult.token)
+                            props.history.push('/medicalRecord')
+                        }
+                        else{
+                            event.preventDefault()
+
+                            props.firebase.doSendVerification()
+                            props.firebase.doSignOut()
+                            props.history.push('/confirm-email')
+                        }
                     }
                 }
                 

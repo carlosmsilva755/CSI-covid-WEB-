@@ -23,7 +23,7 @@ export default ()=> {
                     >Confira seu Email! </p>
 
                     <p id='enviado-text'className='verify-text'>
-                        Enviamos uma verificação para você poder logar no sistema
+                        Enviamos uma verificação para você poder fazer login no sistema
                     </p>
 
                     <button id='voltar-button'className='button' onClick={handleBack}>Voltar</button>
