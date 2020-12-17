@@ -11,6 +11,7 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 import options from "../../../assets/Icons/options.svg"
 import { ReactComponent as Block } from '../../../assets/Icons/block.svg'
 import { ReactComponent as Unblock } from '../../../assets/Icons/unblock.svg'
+import { ReactComponent as Pending } from '../../../assets/Icons/pending.svg'
 import api from '../../../services/api'
 import './styles.css'
  
@@ -25,6 +26,9 @@ export default ({profile, setNewCall, newCall})=>{
 
     const [successModal, setSuccessModal] = useState(false)
     
+    const [pendingModal, setPendingModal] = useState(false)
+    const [confirmPendingModal, setConfirmPendingModal] = useState(false)
+    const [errorPending, setErrorPending] = useState(false)
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget)
@@ -84,6 +88,33 @@ export default ({profile, setNewCall, newCall})=>{
         setError(false)
     }
 
+    const handleClosePendingModal = () =>{
+        setPendingModal(false)
+        setShowModalUnblock(false)
+        setAnchorEl(null)
+        setError(false)
+    }
+
+    const handlePending = async() =>{
+        setDisable(true)
+
+        await api.put(`/pending-researchers`, {uid: profile._id},
+            {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('@docusr_tkn')}`
+                }
+            }
+        ).then(response=>{
+            setConfirmPendingModal(true)
+            setPendingModal(false)
+            // console.log(response);
+
+        }).catch(error=>{
+            setDisable(false)
+            setErrorPending(true)
+        })
+    }
+
     return(
         <>
             <div id='profile-card-admin'>
@@ -117,15 +148,27 @@ export default ({profile, setNewCall, newCall})=>{
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
             >
+                {//se tiver pendente nem aparece opcao pra bloquear
+                    profile.pending === true ? 
+                        null 
+                        : 
+                        profile.disabled ?
+                            <MenuItem id='editar-button' onClick={e=>{setShowModalUnblock(true)}}>
+                                <Unblock/> &nbsp; Desbloquear
+                            </MenuItem>
+                            :
+                            <MenuItem id='editar-button' onClick={e=>setShowModal(true)}>
+                                <Block/> &nbsp; Bloquear
+                            </MenuItem>
+                }
+
                 {
-                    profile.disabled ?
-                        <MenuItem id='editar-button' onClick={e=>{setShowModalUnblock(true)}}>
-                            <Unblock/> &nbsp; Desbloquear
+                    profile.pending ?
+                        <MenuItem id='editar-button' onClick={e=>{setPendingModal(true)}}>
+                            <Pending/> &nbsp; Habilitar
                         </MenuItem>
                         :
-                        <MenuItem id='editar-button' onClick={e=>setShowModal(true)}>
-                            <Block/> &nbsp; Bloquear
-                        </MenuItem>
+                        null
                 }
             
             </Menu>
@@ -194,6 +237,54 @@ export default ({profile, setNewCall, newCall})=>{
                             setDisable(false)
                             setAnchorEl(null)
                             setShowModalUnblock(false)
+                        }} 
+                        className='button-back' 
+                    >Fechar</button>
+                </DialogActions>
+            </Dialog>
+
+
+            {/* PENDING MODALS */}
+
+            <Dialog
+                open={pendingModal} 
+                //onClose={handleClose}
+                aria-labelledby="draggable-dialog-title" maxWidth='xs'
+            >
+                <DialogContent >{errorPending ? 'Erro ao habilitar usuário':'Deseja habilitar esse usuário?'}</DialogContent>
+                <DialogActions>
+                    <button 
+                        id='cancelar-diag-button'
+                        onClick={handleClosePendingModal} 
+                        className='button-back' 
+                        disabled={disable}
+                    >Cancelar</button>
+                    <button 
+                        id='confirmar-excliur-button' 
+                        onClick={handlePending}
+                        className='button button-modal'
+                        disabled={disable}
+                    >
+                        {disable ? <CircularProgress color='primary' size={15} /> :'Habilitar'}
+                    </button>
+                </DialogActions>
+            </Dialog>
+
+            <Dialog
+                open={confirmPendingModal} 
+                //onClose={handleClose}
+                aria-labelledby="draggable-dialog-title" maxWidth='xs'
+            >
+                <DialogContent id='bloquear-msg'>Usuário habilitado com sucesso</DialogContent>
+                <DialogActions>
+                    <button 
+                        id='cancelar-diag-button'
+                        onClick={e=>{
+                            setConfirmPendingModal(false)
+                            setDisable(false)
+                            setNewCall(newCall+1)
+                            setAnchorEl(null)
+                            // setShowModalUnblock(false)
                         }} 
                         className='button-back' 
                     >Fechar</button>

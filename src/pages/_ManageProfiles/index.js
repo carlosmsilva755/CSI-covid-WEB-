@@ -14,7 +14,7 @@ import { AuthUserContext, withAuthorization } from '../../contexts/Session'
 
 const ManageProfiles = (props) => {
 
-    const filterOptions = [{"Filter":"Pendentes"}, {"Filter":"Bloqueados"}, {"Filter":"Desbloqueados"}]
+    const filterOptions = [{"Filter":"Pendentes"}, {"Filter":"Todos"}]
     const width = window.innerWidth
 
     const history = useHistory()
@@ -32,6 +32,10 @@ const ManageProfiles = (props) => {
     const [finalSearch, setFinalSearch] = useState('')
 
     const [newCall, setNewCall] = useState(1)
+
+    const [isPending, setIsPending] = useState(false)
+    const [filter, setFilter] = useState('')
+    const [disableSelect, setDisableSelect] = useState(false)
 
     useEffect(()=>{
         
@@ -81,7 +85,7 @@ const ManageProfiles = (props) => {
                 setError(true)
                 setErrorMsg('Nenhum nome encontrado')
             }else{
-                console.log(response.data.users.docs);
+                // console.log(response.data.users.docs);
                 
                 setProfiles(response.data.users.docs)
 				setCurrentPage(response.data.users.page)
@@ -96,11 +100,41 @@ const ManageProfiles = (props) => {
         })
     }, [currentPage, search])
 
+    const searchPending = useCallback(async()=>{
+
+        await api.get(`/pending-researchers?page=${currentPage}`,
+            {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('@docusr_tkn')}`
+                }
+            }
+        ).then((response)=>{
+            // console.log(response);
+
+            setProfiles(response.data.researchers.docs)
+            setCurrentPage(response.data.researchers.page)
+            setPages(response.data.researchers.pages)
+            setTimeout(()=>setDisableSelect(false), 1000)
+                
+            
+        }).catch(error=>{
+            props.firebase.auth.currentUser.getIdTokenResult()
+                .then((idTokenResult) => {
+                    localStorage.setItem('@docusr_tkn',idTokenResult.token)
+                })
+                .catch((error) => {
+                    console.log(error);
+                })
+        })
+
+    },[currentPage, props.firebase.auth.currentUser])
+
 	useEffect(() => {
         if(isSearching){
             searchProfile()
-        }
-        else{
+        }else if(isPending){
+            searchPending()
+        }else{
             (async () => {
             
                 await api.get(`/users?page=${currentPage}`,
@@ -110,7 +144,7 @@ const ManageProfiles = (props) => {
                         }
                     }
                 ).then(response=>{
-                    console.log(response.data.users.docs)
+                    // console.log(response.data.users.docs)
                     setProfiles(response.data.users.docs)
                     setCurrentPage(response.data.users.page)
                     setPages(response.data.users.pages)
@@ -128,7 +162,7 @@ const ManageProfiles = (props) => {
             })()
         }
             
-    }, [currentPage, isSearching, props.firebase.auth.currentUser, searchProfile, newCall])
+    }, [currentPage, isSearching, props.firebase.auth.currentUser, searchProfile, newCall, isPending, searchPending])
 
     return (
         <AuthUserContext.Consumer> 
@@ -174,11 +208,23 @@ const ManageProfiles = (props) => {
                                         label="Filtro" 
                                         className="select-filter" 
                                         variant="outlined" 
-                                        disabled
-                                        // disabled={disableSelect}
-                                        // value={filter}
+                                        value={filter}
+                                        disabled={disableSelect}
                                         onChange={event=>{
-                                            // setCurrentPage(1)
+                                            setFilter(event.target.value)
+
+                                            if(event.target.value === "Todos"){
+                                                setIsPending(false)
+                                                setIsSearching(false)
+                                                console.log('TODOS');
+                                            }else{
+                                                setIsPending(true)
+                                                setIsSearching(false)
+                                                setFinalSearch('')
+                                                setDisableSelect(true)
+
+                                            }
+                                            setCurrentPage(1)
                                         }}
                                     >
                                         {filterOptions.map((option) => (
