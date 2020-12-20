@@ -64,14 +64,25 @@ function SignUpFormBase (props){
                 setEmail('')
                 setPassword('')
                 setError(null);
-                props.firebase.auth.currentUser.getIdToken(false)
-                .then((token) => {
-                    localStorage.setItem('@docusr_tkn',token)
-                })
-                .catch(errorMessage => 
-                    console.log("Auth token retrieval error: " + errorMessage)
-                )
-                props.history.push('/medicalRecord');
+
+                props.firebase.doSendVerification()
+                    .then(() => {
+                        console.log('verification sent');
+                    })
+                    .catch(error => 
+                        console.log("Auth token retrieval error: " + error)
+                    )
+                props.history.push('/confirm-email')
+                props.firebase.doSignOut()
+
+                // props.firebase.auth.currentUser.getIdToken(false)
+                // .then((token) => {
+                //     localStorage.setItem('@docusr_tkn',token)
+                // })
+                // .catch(errorMessage => 
+                //     console.log("Auth token retrieval error: " + errorMessage)
+                // )
+                // props.history.push('/medicalRecord');
             })
             .catch(error => {
                 setError(true);
