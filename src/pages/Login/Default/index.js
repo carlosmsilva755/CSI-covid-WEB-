@@ -90,15 +90,24 @@ function SignInFormBase(props){
                         props.history.push('/admin-profiles')
                     }else{
                         if (!!idTokenResult.claims.researcher) {
-                            if(!!idTokenResult.claims.email_verified){
+                            //if user is verified and is not pending, its ok
+                            if(!!idTokenResult.claims.email_verified && !idTokenResult.claims.pending){
                                 localStorage.setItem('@resUsrTkn',idTokenResult.token)
                                 props.history.push('/researcherImages')
-                            }else{
-                                console.log('not ve');
+                            }
+                            //if user is not verified, send verification email
+                            else if(!idTokenResult.claims.email_verified){
+                                // event.preventDefault()
 
                                 props.firebase.doSendVerification()
                                 props.firebase.doSignOut()
                                 props.history.push('/confirm-email')
+                            //if user is pending, wait for admin to accept
+                            }else if(idTokenResult.claims.pending){
+                                // event.preventDefault()
+
+                                props.firebase.doSignOut()
+                                props.history.push('/pending-email')
                             }
 
                         }else if (!!idTokenResult.claims.doctor){
@@ -139,16 +148,24 @@ function SignInFormBase(props){
                     props.history.push('/admin-profiles')
                 }else{
                     if (!!idTokenResult.claims.researcher) {
-                        if(!!idTokenResult.claims.email_verified){
+                        //if user is verified and is not pending, its ok
+                        if(!!idTokenResult.claims.email_verified && !idTokenResult.claims.pending){
                             localStorage.setItem('@resUsrTkn',idTokenResult.token)
                             props.history.push('/researcherImages')
                         }
-                        else{
+                        //if user is not verified, send verification email
+                        else if(!idTokenResult.claims.email_verified){
                             event.preventDefault()
 
                             props.firebase.doSendVerification()
                             props.firebase.doSignOut()
                             props.history.push('/confirm-email')
+                        //if user is pending, wait for admin to accept
+                        }else if(idTokenResult.claims.pending){
+                            event.preventDefault()
+
+                            props.firebase.doSignOut()
+                            props.history.push('/pending-email')
                         }
                     }
                     else if (!!idTokenResult.claims.doctor){

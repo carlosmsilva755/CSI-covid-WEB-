@@ -26,6 +26,7 @@ import ContactUs from './pages/ContactUs/ContactForm/index'
 import ConfirmContact from './pages/ContactUs/ConfirmEmail/index'
 import Charts from './pages/Charts/index'
 import ConfirmEmail from './pages/CreateAccount/ConfirmEmail/index'
+import Pending from './pages/Login/Pending/index'
 
 export default () => {
     return (
@@ -41,6 +42,7 @@ export default () => {
             <Route path='/create-doc' component={CreateDoctor}/>
             <Route path='/create-res' component={CreateResearcher}/>
             <Route path='/confirm-email' component={ConfirmEmail}/>
+            <Route path='/pending-email' component={Pending}/>
 
             <Route path='/reset-email' component={ForgotPasswordPage}/>
             <Route path='/reset-doc' component={DoctorForgotPassword}/>
