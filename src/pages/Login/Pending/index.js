@@ -20,10 +20,10 @@ export default ()=> {
 
                     <p id='verifique-text'
                         className='verify-text verify-text-title'
-                    >Confira seu Email! </p>
+                    >Seu acesso está pendente! </p>
 
                     <p id='enviado-text'className='verify-text'>
-                        Enviamos uma verificação para você poder fazer login no sistema
+                        Aguarde o administrador permitir seu login no sistema
                     </p>
 
                     <button id='voltar-button'className='button' onClick={handleBack}>Voltar</button>
@@ -31,6 +31,5 @@ export default ()=> {
                 </div>
         </div>
     )
-    
 
 }

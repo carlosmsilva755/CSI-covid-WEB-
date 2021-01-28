@@ -90,9 +90,31 @@ function SignInFormBase(props){
                         props.history.push('/admin-profiles')
                     }else{
                         if (!!idTokenResult.claims.researcher) {
-                            if(!!idTokenResult.claims.email_verified){
+                            //if user is verified and is not pending, its ok
+                            if(!!idTokenResult.claims.email_verified && !idTokenResult.claims.pending){
                                 localStorage.setItem('@resUsrTkn',idTokenResult.token)
                                 props.history.push('/researcherImages')
+                            }
+                            //if user is not verified, send verification email
+                            else if(!idTokenResult.claims.email_verified){
+                                // event.preventDefault()
+
+                                props.firebase.doSendVerification()
+                                props.firebase.doSignOut()
+                                props.history.push('/confirm-email')
+                            //if user is pending, wait for admin to accept
+                            }else if(idTokenResult.claims.pending){
+                                // event.preventDefault()
+
+                                props.firebase.doSignOut()
+                                props.history.push('/pending-email')
+                            }
+
+                        }else if (!!idTokenResult.claims.doctor){
+
+                            if(!!idTokenResult.claims.email_verified){
+                                localStorage.setItem('@docusr_tkn',idTokenResult.token)
+                                props.history.push('/medicalRecord')
                             }else{
                                 console.log('not ve');
 
@@ -100,10 +122,6 @@ function SignInFormBase(props){
                                 props.firebase.doSignOut()
                                 props.history.push('/confirm-email')
                             }
-
-                        }else if (!!idTokenResult.claims.doctor){
-                            localStorage.setItem('@docusr_tkn',idTokenResult.token)
-                            props.history.push('/medicalRecord');
                         }
                     }
                 })
@@ -130,9 +148,31 @@ function SignInFormBase(props){
                     props.history.push('/admin-profiles')
                 }else{
                     if (!!idTokenResult.claims.researcher) {
-                        if(!!idTokenResult.claims.email_verified){
+                        //if user is verified and is not pending, its ok
+                        if(!!idTokenResult.claims.email_verified && !idTokenResult.claims.pending){
                             localStorage.setItem('@resUsrTkn',idTokenResult.token)
                             props.history.push('/researcherImages')
+                        }
+                        //if user is not verified, send verification email
+                        else if(!idTokenResult.claims.email_verified){
+                            event.preventDefault()
+
+                            props.firebase.doSendVerification()
+                            props.firebase.doSignOut()
+                            props.history.push('/confirm-email')
+                        //if user is pending, wait for admin to accept
+                        }else if(idTokenResult.claims.pending){
+                            event.preventDefault()
+
+                            props.firebase.doSignOut()
+                            props.history.push('/pending-email')
+                        }
+                    }
+                    else if (!!idTokenResult.claims.doctor){
+
+                        if(!!idTokenResult.claims.email_verified){
+                            localStorage.setItem('@docusr_tkn',idTokenResult.token)
+                            props.history.push('/medicalRecord')
                         }
                         else{
                             event.preventDefault()
@@ -141,10 +181,6 @@ function SignInFormBase(props){
                             props.firebase.doSignOut()
                             props.history.push('/confirm-email')
                         }
-                    }
-                    else if (!!idTokenResult.claims.doctor){
-                        localStorage.setItem('@docusr_tkn',idTokenResult.token)
-                        props.history.push('/medicalRecord')
                     }
                 }
                 
